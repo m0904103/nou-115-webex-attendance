@@ -4,12 +4,13 @@
 ===================================================================
 學生：陳嬑萱 ｜ 學號：112122209 ｜ 登入身分：112122209陳嬑萱
 守護核心特性：
-1. 【零失誤開房等待機制】：若授課教師晚開房，自動輪詢等待最多 30 分鐘，一開房即刻自動闖入！
-2. 【全智慧多輸入適配】：自動填入姓名與官方學號郵件 (112122209@nou.edu.tw)，相容所有 Webex 彈窗格式。
-3. 【衝堂平行多開支援】：10/5 三門同時、9/23 雙門同時，啟動完全隔離的 Chromium 程序並行出席！
-4. 【動態下課對齊】：自動根據 schedule.json 的 end_time 精確計算留守時間，下課後緩衝 5 分鐘安全離場。
-5. 【全程心跳防斷線】：定時查核連線狀態，若遇網路閃斷自動偵測重新連線。
-6. 【全程三段存證截圖】：進場、中途、下課前各截圖一張，留下完整出席佐證。
+1. 【精確表單填寫】：智慧等待預覽表單完全載入，確保「名稱」欄位確實填入「112122209陳嬑萱」，解鎖【加入 會議】按鈕！
+2. 【零失誤開房等待機制】：若授課教師晚開房，自動輪詢等待最多 30 分鐘，一開房即刻自動闖入！
+3. 【全智慧多輸入適配】：自動填入姓名與官方學號郵件 (112122209@nou.edu.tw)，相容所有 Webex 彈窗格式。
+4. 【衝堂平行多開支援】：10/5 三門同時、9/23 雙門同時，啟動完全隔離的 Chromium 程序並行出席！
+5. 【動態下課對齊】：自動根據 schedule.json 的 end_time 精確計算留守時間，下課後緩衝 5 分鐘安全離場。
+6. 【全程心跳防斷線】：定時查核連線狀態，若遇網路閃斷自動偵測重新連線。
+7. 【全程三段存證截圖】：進場、中途、下課前各截圖一張，留下完整出席佐證。
 """
 
 import os
@@ -135,65 +136,100 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
             except Exception as e:
                 print(f"{prefix}   [!] joinFromWebapp 提示：{e}")
                 
-            time.sleep(5)
+            # 等待預覽頁面表單完全載入 (等待「名稱」或「輸入姓名」出現，最多等待 20 秒)
+            print(f"{prefix} [*] 等待進入會議預覽表單頁面...")
+            name_input_locator = None
+            for wait_sec in range(20):
+                # 策略 A: 尋找 placeholder 或 aria 包含名稱/姓名
+                candidates = page.locator(
+                    'input[placeholder*="名稱"], input[placeholder*="姓名"], input[placeholder*="Name"], '
+                    'input[aria-label*="名稱"], input[aria-label*="姓名"], input[aria-label*="Name"], '
+                    'input#meetingSimpleContainer, input[name="attendeeName"]'
+                )
+                if candidates.count() > 0 and candidates.first.is_visible():
+                    name_input_locator = candidates.first
+                    break
+                    
+                # 策略 B: 尋找文字「名稱」下方的可見輸入框
+                all_inputs = page.locator('input:visible').all()
+                text_inputs = [i for i in all_inputs if i.get_attribute('type') not in ['checkbox', 'radio', 'hidden']]
+                if len(text_inputs) > 0:
+                    name_input_locator = text_inputs[0]
+                    break
+                    
+                time.sleep(1)
             
             print(f"{prefix} [*] 步驟 3/5: 輸入出席學生身分 ({STUDENT_NAME})...")
-            # 尋找並填寫姓名欄位
-            try:
-                name_filled = False
-                name_inputs = page.locator('input[placeholder*="姓名"], input[placeholder*="Name"], input[aria-label*="姓名"], input[aria-label*="Name"], input#meetingSimpleContainer, input[name="attendeeName"]')
-                if name_inputs.count() > 0 and name_inputs.first.is_visible():
-                    name_inputs.first.fill(STUDENT_NAME)
-                    name_filled = True
-                    print(f"{prefix}   [+] 透過語意定位成功填入姓名：{STUDENT_NAME}")
-                
-                # 尋找並填寫電子郵件欄位 (若 Webex 會議室有要求)
-                email_inputs = page.locator('input[placeholder*="郵件"], input[placeholder*="Email"], input[aria-label*="郵件"], input[aria-label*="Email"], input[type="email"], input[name="email"]')
-                if email_inputs.count() > 0 and email_inputs.first.is_visible():
-                    email_inputs.first.fill(STUDENT_EMAIL)
-                    print(f"{prefix}   [+] 透過語意定位成功填入信箱：{STUDENT_EMAIL}")
-                
-                # 若語意定位未填寫，使用通用可見輸入框作為防護
-                if not name_filled:
-                    visible_inputs = page.locator('input:visible')
-                    if visible_inputs.count() >= 1:
-                        visible_inputs.nth(0).fill(STUDENT_NAME)
-                        print(f"{prefix}   [+] 透過通用輸入框 1 填入姓名：{STUDENT_NAME}")
-                    if visible_inputs.count() >= 2:
-                        visible_inputs.nth(1).fill(STUDENT_EMAIL)
-                        print(f"{prefix}   [+] 透過通用輸入框 2 填入信箱：{STUDENT_EMAIL}")
-            except Exception as e:
-                print(f"{prefix}   [!] 輸入身分處理提示：{e}")
-                page.keyboard.type(STUDENT_NAME, delay=40)
+            if name_input_locator:
+                try:
+                    name_input_locator.click()
+                    name_input_locator.fill(STUDENT_NAME)
+                    time.sleep(1)
+                    actual_val = name_input_locator.input_value()
+                    print(f"{prefix}   [+] 🎯 成功填入身分名稱：【{actual_val}】！")
+                except Exception as ex:
+                    print(f"{prefix}   [!] 填入名稱微調：{ex}")
+                    page.keyboard.type(STUDENT_NAME, delay=30)
+            else:
+                print(f"{prefix}   [!] 未直接定位到名稱框，嘗試全域焦點打字填入...")
+                page.keyboard.press('Tab')
+                page.keyboard.type(STUDENT_NAME, delay=30)
             
             time.sleep(2)
             
-            # 若有「下一步」或「Next」按鈕，點擊推進
+            # 若有第二個輸入框 (電子郵件)，也一併填入官方學號信箱
             try:
-                next_btn = page.locator('button:has-text("Next"), button:has-text("下一步")')
-                if next_btn.count() > 0 and next_btn.first.is_visible():
-                    next_btn.first.click()
-                    print(f"{prefix}   [+] 點擊下一步推進至預覽大廳。")
-                    time.sleep(4)
+                email_candidates = page.locator(
+                    'input[placeholder*="郵件"], input[placeholder*="Email"], '
+                    'input[aria-label*="郵件"], input[aria-label*="Email"], '
+                    'input[type="email"], input[name="email"]'
+                )
+                if email_candidates.count() > 0 and email_candidates.first.is_visible():
+                    email_candidates.first.fill(STUDENT_EMAIL)
+                    print(f"{prefix}   [+] 成功填入學生信箱：{STUDENT_EMAIL}")
             except Exception:
                 pass
             
-            # 步驟 4: 靜音與防護
-            print(f"{prefix} [*] 步驟 4/5: 確保麥克風與攝影機靜音關閉...")
+            # 確保麥克風與攝影機關閉 (靜音)
+            print(f"{prefix} [*] 步驟 4/5: 確保麥克風與鏡頭靜音關閉...")
             try:
+                # 檢查靜音按鈕
                 mute_btn = page.locator('button[aria-label*="Mute"], button[aria-label*="靜音"]')
                 if mute_btn.count() > 0 and mute_btn.first.is_visible():
                     mute_btn.first.click()
-                    print(f"{prefix}   [+] 麥克風切換為靜音。")
+                    print(f"{prefix}   [+] 已點擊靜音麥克風。")
             except Exception:
                 pass
+                
+            time.sleep(2)
             
-            # 🌟 步驟 4.5: 智慧大廳輪詢與會議室開房守護（最多等待 30 分鐘）
-            print(f"{prefix} [*] 智慧開房守護: 偵測老師是否已開啟會議室並自動登入...")
+            # 🌟 步驟 4.5: 智慧點擊【加入會議】大按鈕並輪詢開房守護
+            print(f"{prefix} [*] 智慧開房守護: 點擊加入會議並偵測進場狀態...")
             max_wait_seconds = 1800  # 最多等待 30 分鐘
             poll_interval = 10
             poll_start = time.time()
             in_meeting = False
+            
+            # 先嘗試點擊【加入 會議】按鈕 (注意：Webex 介面文字可能有空格「加入 會議」或無空格「加入會議」)
+            try:
+                join_main = page.locator(
+                    'button:has-text("加入 會議"), button:has-text("加入會議"), '
+                    'button:has-text("Join meeting"), button#interstitial_join_button, '
+                    'button[data-testid="join-button"]'
+                )
+                if join_main.count() > 0 and join_main.first.is_visible():
+                    # 檢查按鈕是否已啟用
+                    if not join_main.first.is_disabled():
+                        join_main.first.click()
+                        print(f"{prefix}   [🚀 點擊加入] 成功點擊【加入 會議】！正在進入視訊教室...")
+                    else:
+                        print(f"{prefix}   [!] 加入按鈕目前處於停用狀態，重新填入身分並解鎖...")
+                        if name_input_locator:
+                            name_input_locator.fill(STUDENT_NAME)
+                        time.sleep(2)
+                        join_main.first.click()
+            except Exception as e:
+                print(f"{prefix}   [!] 點擊加入按鈕提示：{e}")
             
             while time.time() - poll_start < max_wait_seconds:
                 # 檢驗 1: 是否已在會議室內（特徵：離開按鈕、聊天面板、參加者名單、靜音控制列）
@@ -209,36 +245,30 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
                     print(f"{prefix}   [🎉 成功登入會議室] 已偵測到視訊會議核心控制列！確認已在會議室內！")
                     break
                 
-                # 檢驗 2: 是否有「加入會議」或「Join meeting」大按鈕可點擊
-                join_btns = page.locator('button:has-text("Join meeting"), button:has-text("加入會議"), button#interstitial_join_button, button[data-testid="join-button"]')
-                if join_btns.count() > 0 and join_btns.first.is_visible():
+                # 檢驗 2: 是否有「加入 會議」或「Join meeting」按鈕可點擊
+                join_btns = page.locator(
+                    'button:has-text("加入 會議"), button:has-text("加入會議"), '
+                    'button:has-text("Join meeting"), button#interstitial_join_button, '
+                    'button[data-testid="join-button"]'
+                )
+                if join_btns.count() > 0 and join_btns.first.is_visible() and not join_btns.first.is_disabled():
                     try:
                         join_btns.first.click()
-                        print(f"{prefix}   [+] 偵測到開房加入按鈕，已點擊【Join meeting】！")
+                        print(f"{prefix}   [+] 偵測到開房加入按鈕，已點擊【加入會議】！")
                         time.sleep(6)
                         continue
                     except Exception:
                         pass
                 
-                # 檢驗 3: 偵測是否有二次「從瀏覽器加入」按鈕未點擊
-                webapp_btn2 = page.locator('#joinFromWebapp, button:has-text("從瀏覽器加入")')
-                if webapp_btn2.count() > 0 and webapp_btn2.first.is_visible():
-                    try:
-                        webapp_btn2.first.click()
-                        time.sleep(4)
-                        continue
-                    except Exception:
-                        pass
-                
-                # 檢驗 4: 檢查是否在大廳等待頁面（老師尚未開房）
+                # 檢驗 3: 檢查是否在大廳等待頁面（老師尚未開房）
                 waiting_indicators = page.locator('text=會議尚未開始, text=等待主持人, text=Waiting for the host, text=The meeting has not started')
                 if waiting_indicators.count() > 0:
                     waited_mins = int((time.time() - poll_start) // 60)
                     if int(time.time() - poll_start) % 60 < poll_interval:
                         print(f"{prefix}   [⏳ 大廳駐守等待] 授課教師尚未開房 (已駐守 {waited_mins} 分鐘)，雲端替身持續駐守大廳，老師一開房即刻衝入...")
                 
-                # 若是測試模式且已等待超過 15 秒，略過長等待
-                if is_test and (time.time() - poll_start) > 20:
+                # 若是測試模式且已等待超過 25 秒，截圖結束
+                if is_test and (time.time() - poll_start) > 25:
                     break
                     
                 time.sleep(poll_interval)
