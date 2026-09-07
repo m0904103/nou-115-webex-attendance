@@ -66,101 +66,72 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
             page.goto(url, wait_until='domcontentloaded', timeout=45000)
             time.sleep(3)
             
-            # 處理可能出現的 Cookie 接受彈窗
+            # 處理 Cookie 接受
             try:
                 cookie_btn = page.query_selector('button#onetrust-accept-btn-handler, button:has-text("接受"), button:has-text("Accept")')
                 if cookie_btn:
                     cookie_btn.click()
-                    print("  [+] 已自動接受 Cookie 授權。")
             except Exception:
                 pass
             
-            print(f"[*] 步驟 2/5: 定位並點選「從此瀏覽器加入」按鈕...")
-            browser_joined = False
-            browser_selectors = [
-                'button:has-text("從此瀏覽器加入")',
-                'a:has-text("從此瀏覽器加入")',
-                'button:has-text("Join from your browser")',
-                'a:has-text("Join from your browser")',
-                'button[data-ouiicon-name="browser"]',
-                'div[role="button"]:has-text("瀏覽器")',
-                'div[role="button"]:has-text("browser")'
-            ]
-            for sel in browser_selectors:
-                btn = page.query_selector(sel)
-                if btn:
-                    btn.click()
-                    print(f"  [+] 成功點擊按鈕 ({sel})！")
-                    browser_joined = True
-                    break
+            print(f"[*] 步驟 2/5: 點擊「從此瀏覽器加入」卡片...")
+            # 點擊初始卡片
+            try:
+                page.click('text="從此瀏覽器加入", text="Join from your browser"', timeout=5000)
+            except Exception:
+                pass
+            time.sleep(2)
             
-            if not browser_joined:
-                cards = page.query_selector_all('div[role="button"], button')
-                for c in cards:
-                    txt = (c.inner_text() or '').lower()
-                    if '瀏覽器' in txt or 'browser' in txt:
-                        c.click()
-                        browser_joined = True
-                        break
-            
-            time.sleep(5)
+            # 點擊彈出黑色對話框上的「從瀏覽器加入」按鈕 (id=joinFromWebapp)
+            print(f"[*] 步驟 2.5: 點擊確認彈窗「從瀏覽器加入」按鈕...")
+            try:
+                webapp_btn = page.query_selector('#joinFromWebapp, button:has-text("從瀏覽器加入"), button:has-text("Join from browser")')
+                if webapp_btn:
+                    webapp_btn.click()
+                    print("  [+] 成功點擊 #joinFromWebapp！")
+            except Exception as e:
+                print(f"  [!] joinFromWebapp 點擊提示：{e}")
+                
+            time.sleep(6)
             
             print(f"[*] 步驟 3/5: 輸入出席學生身分 ({STUDENT_NAME})...")
-            # 尋找 Name 輸入框 (支援中英文多重定位)
-            name_input = page.query_selector('input[aria-label*="Name"], input[placeholder*="Name"], input[aria-label*="姓名"], input[placeholder*="姓名"], input[type="text"]')
-            if name_input:
-                name_input.click()
-                name_input.fill(STUDENT_NAME)
-                print(f"  [+] 成功填入出席姓名：{STUDENT_NAME}")
-            else:
-                # 備用方案：頁面上所有可輸入 input
-                all_inputs = page.query_selector_all('input')
-                for inp in all_inputs:
-                    inp_type = inp.get_attribute('type') or 'text'
-                    if inp_type in ['text', '']:
-                        inp.fill(STUDENT_NAME)
-                        print(f"  [+] 透過通用輸入框填入姓名：{STUDENT_NAME}")
-                        break
+            # 在 Name 頁面輸入姓名
+            try:
+                # 嘗試點擊唯一可見的輸入框
+                visible_inputs = page.locator('input:visible')
+                if visible_inputs.count() > 0:
+                    visible_inputs.first.click()
+                    visible_inputs.first.fill(STUDENT_NAME)
+                    print(f"  [+] 成功透過輸入框填入姓名：{STUDENT_NAME}")
+                else:
+                    # 透過鍵盤直接打字
+                    page.keyboard.press('Tab')
+                    page.keyboard.type(STUDENT_NAME, delay=40)
+                    print(f"  [+] 成功透過鍵盤打字填入姓名：{STUDENT_NAME}")
+            except Exception as e:
+                print(f"  [!] 填入姓名異常：{e}")
+                page.keyboard.type(STUDENT_NAME, delay=40)
             
             time.sleep(2)
             
-            print(f"[*] 步驟 4/5: 確保靜音與關閉攝影機...")
-            # 點選 Mute 按鈕
+            print(f"[*] 步驟 4/5: 靜音麥克風並點擊【加入會議】進入正式視訊室...")
+            # 確保靜音
             try:
-                mute_btn = page.query_selector('button[aria-label*="Mute"]:not([aria-label*="Unmute"]), button[aria-label*="靜音"]:not([aria-label*="取消靜音"])')
-                if mute_btn:
-                    mute_btn.click()
-                    print("  [+] 麥克風已切換為靜音。")
-            except Exception:
-                pass
-                
-            # 點選 Stop video 按鈕
-            try:
-                stop_video_btn = page.query_selector('button[aria-label*="Stop video"], button[aria-label*="停止視訊"]')
-                if stop_video_btn:
-                    stop_video_btn.click()
-                    print("  [+] 攝影機已關閉。")
+                page.click('button[aria-label*="Mute"], button[aria-label*="靜音"]', timeout=3000)
             except Exception:
                 pass
             
-            time.sleep(2)
+            # 點擊 Join meeting 大按鈕
+            joined = False
+            try:
+                page.click('button:has-text("Join meeting"), button:has-text("加入會議"), button#interstitial_join_button', timeout=6000)
+                print("  [+] 🚀 成功點擊【Join meeting】大按鈕！正式進入會議室！")
+                joined = True
+            except Exception:
+                print("  [?] 嘗試透過 Enter 鍵直接進場...")
+                page.keyboard.press('Enter')
             
-            # 點擊「Join meeting」或「加入會議」綠色大按鈕
-            join_btn = page.query_selector('button:has-text("Join meeting"), button:has-text("加入會議"), button#interstitial_join_button, button[data-ouiicon-name="join-meeting"]')
-            if join_btn:
-                join_btn.click()
-                print("  [+] 🚀 成功點擊【Join meeting / 加入會議】按鈕！正式進入會議室！")
-            else:
-                # 嘗試點擊畫面上有 Join 字樣的大按鈕
-                possible_btns = page.query_selector_all('button')
-                for b in possible_btns:
-                    btxt = (b.inner_text() or '').strip().lower()
-                    if 'join' in btxt or '加入' in btxt:
-                        b.click()
-                        print(f"  [+] 透過替代按鈕點擊進場 ({btxt})！")
-                        break
-            
-            time.sleep(6)
+            time.sleep(8)
             
             # 截取進場成功證明截圖
             proof_file = os.path.join(BASE_DIR, 'attendance_proof.png')
