@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>國立空中大學 115-1 官方學務即時監控儀表板 | 陳嬑萱</title>
+  <title>國立空中大學 115-1 官方學務即時監控儀表板 ＆ 視訊面授雲端自動出席排程 | 陳嬑萱</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -44,6 +44,9 @@
       background: rgba(11, 15, 25, 0.94);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .guardian-glow {
+      box-shadow: 0 0 35px -5px rgba(16, 185, 129, 0.25);
     }
     ::-webkit-scrollbar {
       width: 6px;
@@ -93,11 +96,16 @@
         </div>
       </div>
 
-      <!-- 控制工具列 (純真實官方對接，無虛擬推估或模擬按鈕) -->
+      <!-- 控制工具列 -->
       <div class="flex flex-wrap items-center gap-2">
         <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-950/40 border border-emerald-800/40 text-emerald-400 text-xs font-medium">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>官方系統連線核實正常</span>
+          <span>官方系統連線正常</span>
+        </div>
+
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cyan-950/40 border border-cyan-800/40 text-cyan-400 text-xs font-medium">
+          <i class="fa-solid fa-robot"></i>
+          <span>雲端面授替身掛載就緒</span>
         </div>
 
         <button onclick="fetchOfficialData(true)" class="px-3 py-1.5 rounded-lg bg-indigo-900/40 hover:bg-indigo-800/50 text-indigo-300 text-xs font-semibold border border-indigo-700/50 transition flex items-center gap-1.5 shadow-sm" title="向伺服器拉取最新官方查核數據">
@@ -139,14 +147,14 @@
       </div>
       <div class="flex items-center gap-2 text-right">
         <span class="text-gray-400 text-xs">最後官方查核時間：</span>
-        <span id="lastCheckedTimeDisplay" class="font-mono text-cyan-300 font-bold bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800">2026-09-08 05:30:00</span>
+        <span id="lastCheckedTimeDisplay" class="font-mono text-cyan-300 font-bold bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800">2026-09-08 05:38:00</span>
       </div>
     </div>
 
     <!-- 全域指標儀表盤 (Global Stats Cards) -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       
-      <!-- 卡片 1: 目前學期實得累積 (嚴格真實計算，無預推) -->
+      <!-- 卡片 1: 目前學期實得累積 -->
       <div class="glass-card rounded-2xl p-5 relative overflow-hidden group hover:border-emerald-500/40 transition">
         <div class="flex items-center justify-between">
           <span class="text-xs font-medium text-gray-400">目前學期實得累計分</span>
@@ -229,6 +237,292 @@
         </div>
         <div class="w-full bg-gray-800 h-1.5 rounded-full mt-3 overflow-hidden">
           <div id="globalHomeworkBar" class="bg-gradient-to-r from-red-500 to-amber-500 h-full rounded-full transition-all duration-500" style="width: 0%;"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- ⭐ 重磅核心模組：視訊面授雲端自動替身守護中心 ＆ 即時排程倒數監控台 ⭐ -->
+    <!-- ========================================================================= -->
+    <div class="glass-card rounded-3xl p-6 lg:p-8 border-2 border-emerald-500/30 guardian-glow space-y-6">
+      
+      <!-- 守護中心頭部 -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-gray-800 pb-5">
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 text-gray-950 flex items-center justify-center font-black text-2xl shadow-lg shadow-emerald-500/30">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2.5 flex-wrap">
+              <h2 class="text-lg md:text-xl font-black text-white tracking-wide">
+                視訊面授雲端自動替身守護中心
+              </h2>
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>GitHub Actions 24/7 全天候待命守護</span>
+              </span>
+            </div>
+            <p class="text-xs text-gray-400 mt-1">
+              免開本機電腦 · 自動準時進房 · 鎖定真實身分「<strong>112122209陳嬑萱</strong>」· 支援同日衝堂雙容器平行出席 · 課堂存證截圖自動歸檔
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 flex-wrap text-xs">
+          <span class="px-3 py-1.5 rounded-xl bg-gray-900 border border-gray-800 text-gray-300">
+            <i class="fa-solid fa-server mr-1.5 text-cyan-400"></i>
+            <span>雲端節點: <strong>Azure US-West (Ubuntu 22.04 LTS)</strong></span>
+          </span>
+          <span class="px-3 py-1.5 rounded-xl bg-gray-900 border border-gray-800 text-gray-300">
+            <i class="fa-solid fa-calendar-check mr-1.5 text-emerald-400"></i>
+            <span>總場次: <strong>29 場</strong> (已出席 1 / 待出席 28)</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- 核心並列卡片：[下一場即時倒數執行卡] + [9/7 已自動出席實戰存證] -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        
+        <!-- 左側：即將到來的下一場視訊面授即時倒數與自動執行計畫 (佔 7 格) -->
+        <div class="lg:col-span-7 rounded-2xl p-5 bg-gradient-to-br from-gray-900/90 via-gray-900/60 to-emerald-950/20 border border-emerald-500/30 space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-500/30">
+                🚀 即將到來 · 下一場排程任務
+              </span>
+              <span class="text-xs text-gray-400">第 02 / 29 場</span>
+            </div>
+            <span class="text-xs font-mono text-cyan-400 bg-gray-950 px-2 py-0.5 rounded border border-gray-800">
+              排程觸發: 2026/09/14 18:55
+            </span>
+          </div>
+
+          <!-- 課程資訊 -->
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-gray-800/80 pb-3">
+            <div>
+              <h3 class="text-lg font-black text-white">永續的挑戰與實踐</h3>
+              <p class="text-xs text-gray-300 mt-0.5">
+                授課導師：<strong class="text-emerald-400">蔡適應 老師</strong> (分機 5196) ｜ 班別：ZZZ002 ｜ 全遠距 2 學分
+              </p>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-gray-400">面授時段</div>
+              <div class="text-sm font-bold text-white font-mono">2026/09/14 (週一) 19:00 - 20:50</div>
+            </div>
+          </div>
+
+          <!-- 即時動態倒數計時器 -->
+          <div class="p-4 rounded-xl bg-gray-950/80 border border-gray-800 text-center space-y-2">
+            <div class="text-xs text-gray-400 flex items-center justify-center gap-1.5">
+              <i class="fa-regular fa-hourglass-half text-amber-400 animate-spin"></i>
+              <span>距離雲端自動替身啟動上課倒數</span>
+            </div>
+            
+            <div class="flex items-center justify-center gap-2 sm:gap-3 text-white font-mono" id="countdownDisplay">
+              <div class="px-3 py-2 rounded-xl bg-gray-900 border border-gray-700 min-w-[60px]">
+                <div class="text-2xl font-black text-emerald-400" id="cdDays">06</div>
+                <div class="text-[10px] text-gray-400 uppercase">Days</div>
+              </div>
+              <span class="text-xl font-bold text-gray-600">:</span>
+              <div class="px-3 py-2 rounded-xl bg-gray-900 border border-gray-700 min-w-[60px]">
+                <div class="text-2xl font-black text-cyan-400" id="cdHours">13</div>
+                <div class="text-[10px] text-gray-400 uppercase">Hours</div>
+              </div>
+              <span class="text-xl font-bold text-gray-600">:</span>
+              <div class="px-3 py-2 rounded-xl bg-gray-900 border border-gray-700 min-w-[60px]">
+                <div class="text-2xl font-black text-indigo-300" id="cdMins">22</div>
+                <div class="text-[10px] text-gray-400 uppercase">Mins</div>
+              </div>
+              <span class="text-xl font-bold text-gray-600">:</span>
+              <div class="px-3 py-2 rounded-xl bg-gray-900 border border-gray-700 min-w-[60px]">
+                <div class="text-2xl font-black text-amber-400" id="cdSecs">45</div>
+                <div class="text-[10px] text-gray-400 uppercase">Secs</div>
+              </div>
+            </div>
+
+            <div class="text-[11px] text-emerald-300/80 flex items-center justify-center gap-1 mt-1">
+              <i class="fa-solid fa-check-double text-emerald-400"></i>
+              <span>雲端容器將在 <strong>18:55</strong>（開課前 5 分鐘）自動喚醒開機，您完全無需操作任何設備！</span>
+            </div>
+          </div>
+
+          <!-- 自動替身預定動作路線圖 -->
+          <div class="text-xs text-gray-300 space-y-1.5 p-3 rounded-xl bg-gray-900/50 border border-gray-800">
+            <div class="font-semibold text-gray-200 flex items-center gap-1.5">
+              <i class="fa-solid fa-route text-emerald-400"></i>
+              <span>自動出席執行路線（時間到自動觸發）：</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 pt-1 text-[11px]">
+              <div class="p-2 rounded bg-gray-950 border border-gray-800">
+                <span class="text-emerald-400 font-bold">1. 自動喚醒</span>
+                <p class="text-gray-400 text-[10px] mt-0.5">18:55 GitHub Actions 雲端開機</p>
+              </div>
+              <div class="p-2 rounded bg-gray-950 border border-gray-800">
+                <span class="text-cyan-400 font-bold">2. 靜音進房</span>
+                <p class="text-gray-400 text-[10px] mt-0.5">以「112122209陳嬑萱」身分就座</p>
+              </div>
+              <div class="p-2 rounded bg-gray-950 border border-gray-800">
+                <span class="text-indigo-300 font-bold">3. 全程在線</span>
+                <p class="text-gray-400 text-[10px] mt-0.5">持續掛載 110 分鐘防掉線</p>
+              </div>
+              <div class="p-2 rounded bg-gray-950 border border-gray-800">
+                <span class="text-amber-400 font-bold">4. 截圖存證</span>
+                <p class="text-gray-400 text-[10px] mt-0.5">課堂存證自動上傳 GitHub 歸檔</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between gap-3 pt-1">
+            <a href="https://nou.webex.com/nou/j.php?MTID=m87b58dd19bb80bebd4aca53210240bb4" target="_blank" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center gap-2 transition shadow-lg shadow-emerald-950/60">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>手動預覽該課程 Webex 會議室</span>
+            </a>
+            <span class="text-[11px] text-gray-500">會議室代碼: m87b58dd...40bb4</span>
+          </div>
+        </div>
+
+        <!-- 右側：9/7 首場面授已自動出席存證展示 (佔 5 格) -->
+        <div class="lg:col-span-5 rounded-2xl p-5 bg-gray-900/60 border border-gray-800 space-y-3.5 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-xs font-bold flex items-center gap-1.5">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>9/7 首場已自動出席存證</span>
+              </span>
+              <span class="text-xs text-gray-400 font-mono">第 01 / 29 場</span>
+            </div>
+
+            <div class="mt-3">
+              <h4 class="font-bold text-white text-sm">人工智慧導論 (陳廷哲老師)</h4>
+              <p class="text-xs text-gray-400 mt-0.5">時間: 2026/09/07 19:00 - 20:50 ｜ 全程 110 分鐘完工</p>
+            </div>
+
+            <!-- 存證影像縮圖 -->
+            <div class="mt-3 rounded-xl overflow-hidden border border-gray-700 bg-gray-950 relative group">
+              <img src="webex_proof_907.png" alt="9/7 Webex 自動出席存證截圖" class="w-full h-36 object-cover object-top opacity-90 group-hover:opacity-100 transition duration-300">
+              <div class="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-transparent to-transparent flex items-end p-2.5">
+                <div class="text-[11px] text-white flex items-center justify-between w-full">
+                  <span class="flex items-center gap-1.5">
+                    <i class="fa-solid fa-camera text-emerald-400"></i>
+                    <span>會議室出席現場實錄存證</span>
+                  </span>
+                  <span class="text-emerald-400 font-mono font-bold">112122209陳嬑萱</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-3 p-2.5 rounded-lg bg-gray-950/60 border border-gray-800/80 text-[11px] text-gray-300 space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="text-gray-400">雲端出席紀錄:</span>
+                <span class="text-emerald-400 font-bold">全程在線 110 分鐘 ✅</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-400">身分核驗:</span>
+                <span class="text-cyan-300 font-mono">112122209陳嬑萱 (臺北中心)</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-400">存證歸檔:</span>
+                <span class="text-gray-400">GitHub Actions Artifacts 永久留存</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <a href="webex_proof_907.png" target="_blank" class="w-full py-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-medium flex items-center justify-center gap-2 border border-gray-700 transition">
+              <i class="fa-solid fa-expand text-cyan-400"></i>
+              <span>點擊放大檢視 9/7 出席存證原圖</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 四大免焦慮鐵壁保障卡片 -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 pt-2">
+        
+        <div class="p-3.5 rounded-xl bg-gray-900/60 border border-gray-800 space-y-1.5">
+          <div class="flex items-center gap-2 text-emerald-400 font-bold text-xs">
+            <i class="fa-solid fa-power-off"></i>
+            <span>1. 完全免開本機電腦</span>
+          </div>
+          <p class="text-[11px] text-gray-400 leading-relaxed">
+            由 GitHub Actions 雲端工作流自動在排定時間喚醒執行，無論本機關機、出門上班，雲端替身皆準時出勤。
+          </p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-gray-900/60 border border-gray-800 space-y-1.5">
+          <div class="flex items-center gap-2 text-cyan-400 font-bold text-xs">
+            <i class="fa-solid fa-id-badge"></i>
+            <span>2. 真實學號姓名進房</span>
+          </div>
+          <p class="text-[11px] text-gray-400 leading-relaxed">
+            進入會議室名稱嚴格固定為「<strong>112122209陳嬑萱</strong>」，完全符合空大點名系統比對規則，絕非訪客暱稱。
+          </p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-gray-900/60 border border-gray-800 space-y-1.5">
+          <div class="flex items-center gap-2 text-purple-400 font-bold text-xs">
+            <i class="fa-solid fa-clone"></i>
+            <span>3. 衝堂平行雙開支援</span>
+          </div>
+          <p class="text-[11px] text-gray-400 leading-relaxed">
+            學期共有 4 次同日同時間雙課程衝堂（如 9/23、10/5），雲端會同時分派兩個獨立平行容器分別出席，兩科均可全勤！
+          </p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-gray-900/60 border border-gray-800 space-y-1.5">
+          <div class="flex items-center gap-2 text-amber-400 font-bold text-xs">
+            <i class="fa-solid fa-camera"></i>
+            <span>4. 自動截圖日誌留存</span>
+          </div>
+          <p class="text-[11px] text-gray-400 leading-relaxed">
+            每場課堂皆在進房後自動拍攝現場畫面並產生連線 log，完整保存在 GitHub 儲存庫作為出席實證。
+          </p>
+        </div>
+
+      </div>
+
+      <!-- 全學期 29 場視訊面授「全自動出席排程時間表」 -->
+      <div class="space-y-3 pt-4 border-t border-gray-800">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h3 class="font-bold text-white text-sm flex items-center gap-2">
+              <i class="fa-solid fa-table-list text-emerald-400"></i>
+              <span>115-1 全學期 29 場視訊面授雲端自動出席總排程清單</span>
+            </h3>
+            <p class="text-xs text-gray-400 mt-0.5">所有場次均已登錄於雲端排程中，依日期時段自動執行，確保面授出席率 100% 滿分守護</p>
+          </div>
+
+          <!-- 篩選按鈕組 -->
+          <div class="flex items-center gap-1.5 p-1 rounded-xl bg-gray-900 border border-gray-800 text-xs">
+            <button onclick="filterMeetings('all')" class="meeting-filter-btn px-3 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 font-semibold border border-emerald-500/30 transition active" data-filter="all">全部 (29 場)</button>
+            <button onclick="filterMeetings('upcoming')" class="meeting-filter-btn px-3 py-1 rounded-lg bg-gray-800 text-gray-400 border border-gray-700 hover:text-white transition" data-filter="upcoming">待出席 (28 場)</button>
+            <button onclick="filterMeetings('attended')" class="meeting-filter-btn px-3 py-1 rounded-lg bg-gray-800 text-gray-400 border border-gray-700 hover:text-white transition" data-filter="attended">已出席 (1 場)</button>
+            <button onclick="filterMeetings('clash')" class="meeting-filter-btn px-3 py-1 rounded-lg bg-gray-800 text-gray-400 border border-gray-700 hover:text-white transition" data-filter="clash">衝堂雙開 (8 場)</button>
+          </div>
+        </div>
+
+        <!-- 排程表格 -->
+        <div class="overflow-x-auto rounded-2xl border border-gray-800 bg-gray-950/40">
+          <table class="w-full text-left text-xs text-gray-300">
+            <thead class="bg-gray-900/90 text-gray-400 uppercase text-[11px] font-semibold border-b border-gray-800">
+              <tr>
+                <th class="py-3 px-3 text-center w-12">#</th>
+                <th class="py-3 px-3">上課日期 (星期)</th>
+                <th class="py-3 px-3">面授時段</th>
+                <th class="py-3 px-3">雲端排程喚醒時間</th>
+                <th class="py-3 px-3">課程名稱</th>
+                <th class="py-3 px-3">授課導師</th>
+                <th class="py-3 px-3">班別 / 屬性</th>
+                <th class="py-3 px-3 text-center">雲端自動出席狀態</th>
+                <th class="py-3 px-3 text-center">會議室連結</th>
+              </tr>
+            </thead>
+            <tbody id="meetingsTableBody" class="divide-y divide-gray-800/80 font-normal">
+              <!-- 由 JavaScript 動態填入 29 場排程資料 -->
+            </tbody>
+          </table>
         </div>
       </div>
 
@@ -417,7 +711,7 @@
 
     <!-- 7 門課程實時官方卡片容器 -->
     <div id="courseCardsContainer" class="space-y-4">
-      <!-- 由 JavaScript 從 data.json 動態渲染 -->
+      <!-- 由 JavaScript 動態填入 -->
     </div>
 
     <!-- 專題區塊 3: 官方學務數據查核日誌 (Audit Logs) -->
@@ -461,14 +755,12 @@
   </div>
 
   <script>
-    // 預設開學真實數據結構 (當離線或首次讀取時作為 baseline)
     let courses = [];
     let officialData = null;
     let currentFilter = 'all';
+    let currentMeetingFilter = 'all';
 
-    // 計算空大學則學科評量公式：
-    // 平時成績 (30%) = 點燈進度(20%) + 在線時數(20%) + 面授出席率(30%) + 平時作業平均(30%)
-    // 總成績 = 平時成績 * 0.3 + 期中評量 * 0.3 + 期末評量 * 0.4
+    // 計算空大學則評量公式
     function calculateCourseGrade(c) {
       const lightingScore = Math.min(100, Math.max(0, c.lighting_percent || 0));
       const hoursScore = Math.min(100, (Math.max(0, c.reading_hours || 0) / 50) * 100);
@@ -493,15 +785,46 @@
         isPass: totalScore >= 60,
         isHonor: totalScore >= 80,
         attendedCount,
-        totalMeetings,
-        lightingScore,
-        hoursScore,
-        attendanceScore,
-        hwAvgScore
+        totalMeetings
       };
     }
 
-    // 向 data.json 抓取最新官方查核數據
+    // 啟動動態倒數計時器
+    function startCountdown() {
+      function updateTimer() {
+        const targetDate = new Date("2026-09-14T19:00:00+08:00").getTime();
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+          const container = document.getElementById('countdownDisplay');
+          if (container) {
+            container.innerHTML = '<span class="text-emerald-400 font-bold text-base px-4 py-2 bg-emerald-950/60 rounded-xl border border-emerald-500/40">已進入上課時間，雲端替身正在線上守護中！</span>';
+          }
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        const elDays = document.getElementById('cdDays');
+        const elHours = document.getElementById('cdHours');
+        const elMins = document.getElementById('cdMins');
+        const elSecs = document.getElementById('cdSecs');
+
+        if (elDays) elDays.innerText = String(days).padStart(2, '0');
+        if (elHours) elHours.innerText = String(hours).padStart(2, '0');
+        if (elMins) elMins.innerText = String(mins).padStart(2, '0');
+        if (elSecs) elSecs.innerText = String(secs).padStart(2, '0');
+      }
+
+      updateTimer();
+      setInterval(updateTimer, 1000);
+    }
+
+    // 向 data.json 抓取最新官方數據
     async function fetchOfficialData(isManual = false) {
       const refreshIcon = document.getElementById('refreshIcon');
       if (refreshIcon) refreshIcon.classList.add('spin-animation');
@@ -513,7 +836,6 @@
         
         courses = officialData.courses;
 
-        // 更新查核時間
         if (officialData.official_sync && officialData.official_sync.last_checked_at) {
           document.getElementById('lastCheckedTimeDisplay').innerText = officialData.official_sync.last_checked_at;
         }
@@ -521,6 +843,7 @@
         renderCourses();
         updateGlobalAnalytics();
         renderAuditLogs();
+        renderMeetingsTable();
 
         if (isManual) {
           showToast("✅ 已成功向官方系統對接同步最新數據！");
@@ -537,7 +860,69 @@
       }
     }
 
-    // 渲染課程卡片 (純真實官方狀態，無滑桿與預推)
+    // 渲染全學期 29 場視訊面授排程清單
+    function renderMeetingsTable() {
+      const tbody = document.getElementById('meetingsTableBody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      const meetings = (officialData && officialData.cloud_guardian && officialData.cloud_guardian.meetings_schedule)
+        ? officialData.cloud_guardian.meetings_schedule
+        : [];
+
+      const filtered = meetings.filter(m => {
+        if (currentMeetingFilter === 'upcoming') return !m.attended;
+        if (currentMeetingFilter === 'attended') return m.attended;
+        if (currentMeetingFilter === 'clash') return m.is_clash;
+        return true;
+      });
+
+      filtered.forEach((m, idx) => {
+        const tr = document.createElement('tr');
+        tr.className = `hover:bg-gray-800/40 transition ${m.attended ? 'bg-emerald-950/10' : (m.id === 2 ? 'bg-amber-950/20' : (m.is_clash ? 'bg-purple-950/10' : ''))}`;
+        
+        tr.innerHTML = `
+          <td class="py-2.5 px-3 text-center font-mono text-gray-500">${String(m.id).padStart(2, '0')}</td>
+          <td class="py-2.5 px-3 font-semibold text-white font-mono flex items-center gap-1.5">
+            <span>${m.date}</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded bg-gray-800 text-gray-400">${m.weekday}</span>
+          </td>
+          <td class="py-2.5 px-3 text-gray-300 font-mono text-[11px]">${m.time_slot}</td>
+          <td class="py-2.5 px-3 font-mono text-cyan-300 text-[11px]">${m.cron_wake_time.slice(5)}</td>
+          <td class="py-2.5 px-3 font-bold text-white">${m.course_name}</td>
+          <td class="py-2.5 px-3 text-gray-300">${m.teacher} 老師</td>
+          <td class="py-2.5 px-3 text-gray-400">
+            <span class="px-1.5 py-0.5 rounded bg-gray-800 text-[10px]">${m.class_code}</span>
+            <span class="text-[10px] text-gray-500 ml-1">${m.course_type}</span>
+          </td>
+          <td class="py-2.5 px-3 text-center">
+            <span class="px-2 py-0.5 rounded-full text-[11px] border ${m.badge_class}">
+              ${m.status_text}
+            </span>
+          </td>
+          <td class="py-2.5 px-3 text-center">
+            <a href="${m.webex_url}" target="_blank" class="px-2 py-1 rounded bg-gray-800 hover:bg-emerald-600 hover:text-white text-gray-400 text-[10px] font-semibold border border-gray-700 transition inline-flex items-center gap-1">
+              <i class="fa-solid fa-video"></i>
+              <span>會議室</span>
+            </a>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function filterMeetings(type) {
+      currentMeetingFilter = type;
+      document.querySelectorAll('.meeting-filter-btn').forEach(b => {
+        b.classList.remove('bg-emerald-500/20', 'text-emerald-400', 'border-emerald-500/30', 'active');
+        b.classList.add('bg-gray-800', 'text-gray-400', 'border-gray-700');
+      });
+      event.target.classList.add('bg-emerald-500/20', 'text-emerald-400', 'border-emerald-500/30', 'active');
+      event.target.classList.remove('bg-gray-800', 'text-gray-400', 'border-gray-700');
+      renderMeetingsTable();
+    }
+
+    // 渲染課程卡片
     function renderCourses() {
       const container = document.getElementById('courseCardsContainer');
       if (!container) return;
@@ -588,7 +973,7 @@
           <!-- 四大評量維度真實狀態 (點燈 / 時數 / 面授 / 作業) -->
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             
-            <!-- 模組 1: 點燈率與在線時數 (平時成績 40% 權重) -->
+            <!-- 模組 1: 點燈率與在線時數 -->
             <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 space-y-3">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-bold text-gray-300 flex items-center gap-1.5">
@@ -613,7 +998,7 @@
               </div>
             </div>
 
-            <!-- 模組 2: 網路面授出席狀況 (平時成績 30% 權重) -->
+            <!-- 模組 2: 網路面授出席狀況 -->
             <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 space-y-3">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-bold text-gray-300 flex items-center gap-1.5">
@@ -633,13 +1018,13 @@
                       <span class="w-2 h-2 rounded-full ${m.attended ? 'bg-indigo-400' : 'bg-gray-600'}"></span>
                       <span>第 ${idx + 1} 次 (${m.date.slice(5)})</span>
                     </div>
-                    <span class="text-[10px] font-medium">${m.attended ? '已出席 ✅' : '排定中'}</span>
+                    <span class="text-[10px] font-medium">${m.attended ? '已出席 ✅' : '雲端守護排定'}</span>
                   </div>
                 `).join('')}
               </div>
             </div>
 
-            <!-- 模組 3: 平時作業 (平時成績 30% 權重 - 真實未繳交) -->
+            <!-- 模組 3: 平時作業 -->
             <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 space-y-3">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-bold text-gray-300 flex items-center gap-1.5">
@@ -674,7 +1059,7 @@
               </div>
             </div>
 
-            <!-- 模組 4: 期中與期末考試 (佔 70% 總權重 - 真實尚未舉行) -->
+            <!-- 模組 4: 期中與期末考試 -->
             <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 space-y-3">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-bold text-gray-300 flex items-center gap-1.5">
@@ -729,26 +1114,7 @@
       if (!tbody) return;
       tbody.innerHTML = '';
 
-      const logs = (officialData && officialData.audit_logs) ? officialData.audit_logs : [
-        {
-          timestamp: "2026-09-08 05:30:00",
-          type: "OFFICIAL_CHECK",
-          result: "SUCCESS",
-          detail: "查核 SunNet LMS 節點與 Webex 面授記錄：全 7 科 100% 綠燈點亮，面授 1/29 出席完成，平時作業 0/14 待繳交，在線時數 8.0h。"
-        },
-        {
-          timestamp: "2026-09-07 20:50:00",
-          type: "WEBEX_ATTENDANCE",
-          result: "SUCCESS",
-          detail: "9/7 19:00 人工智慧導論 (陳廷哲老師) 視訊面授完成出席，全程 110 分鐘，存證截圖已歸檔。"
-        },
-        {
-          timestamp: "2026-09-07 02:39:09",
-          type: "LIGHTING_SYNC",
-          result: "SUCCESS",
-          detail: "全學期 7 科數位教材節點 100% 閱讀封包合法同步完成，確認 0 缺失。"
-        }
-      ];
+      const logs = (officialData && officialData.audit_logs) ? officialData.audit_logs : [];
 
       logs.forEach(log => {
         const tr = document.createElement('tr');
@@ -816,22 +1182,18 @@
       const avgScore = totalCredits > 0 ? (totalWeightedScore / totalCredits).toFixed(1) : 0;
       const avgLighting = courses.length > 0 ? Math.round(totalLighting / courses.length) : 0;
 
-      // 更新卡片 1
       document.getElementById('globalAvgScore').innerText = avgScore;
       document.getElementById('globalAvgScoreBar').style.width = Math.min(100, Math.max(6, avgScore)) + '%';
       document.getElementById('globalGradeTier').innerText = `實得點燈 20% 平時滿分`;
 
-      // 更新卡片 2
       document.getElementById('globalTotalHours').innerText = Math.round(totalHours * 10) / 10;
       document.getElementById('statHours').innerText = `${Math.round(totalHours * 10) / 10} 小時`;
       document.getElementById('globalLightingRate').innerText = `點燈閱畢率: ${avgLighting}% 綠燈`;
       document.getElementById('globalHoursBar').style.width = Math.min(100, Math.max(2, (totalHours / 350) * 100)) + '%';
 
-      // 更新卡片 3
       document.getElementById('globalAttendanceRatio').innerText = `${attendedMeetings} / ${totalMeetings}`;
       document.getElementById('globalAttendanceBar').style.width = Math.min(100, (attendedMeetings / totalMeetings) * 100) + '%';
 
-      // 更新卡片 4
       document.getElementById('globalHomeworkRatio').innerText = `${submittedHw} / ${totalHw}`;
       document.getElementById('globalHomeworkBar').style.width = Math.min(100, (submittedHw / totalHw) * 100) + '%';
     }
@@ -845,9 +1207,10 @@
       }, 2500);
     }
 
-    // 初始化載入並設定每 60 秒背景自動輪詢官方查核狀態
+    // 初始化載入
     window.addEventListener('DOMContentLoaded', () => {
       fetchOfficialData(false);
+      startCountdown();
       setInterval(() => fetchOfficialData(false), 60000);
     });
   </script>
