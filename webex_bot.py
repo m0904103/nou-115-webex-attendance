@@ -25,7 +25,6 @@ def load_schedule():
         return json.load(f)
 
 def get_taipei_now():
-    # UTC + 8
     utc_now = datetime.datetime.now(datetime.timezone.utc)
     taipei_tz = datetime.timezone(datetime.timedelta(hours=8))
     return utc_now.astimezone(taipei_tz)
@@ -77,7 +76,6 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
                 pass
             
             print(f"[*] 步驟 2/5: 定位並點選「從此瀏覽器加入」按鈕...")
-            # 多重選擇器防禦
             browser_joined = False
             browser_selectors = [
                 'button:has-text("從此瀏覽器加入")',
@@ -85,7 +83,8 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
                 'button:has-text("Join from your browser")',
                 'a:has-text("Join from your browser")',
                 'button[data-ouiicon-name="browser"]',
-                'div[role="button"]:has-text("瀏覽器")'
+                'div[role="button"]:has-text("瀏覽器")',
+                'div[role="button"]:has-text("browser")'
             ]
             for sel in browser_selectors:
                 btn = page.query_selector(sel)
@@ -96,56 +95,74 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
                     break
             
             if not browser_joined:
-                # 嘗試點擊畫面上的第二個卡片
-                print("  [?] 嘗試透過替代卡片點擊「從此瀏覽器加入」...")
                 cards = page.query_selector_all('div[role="button"], button')
                 for c in cards:
-                    if '瀏覽器' in (c.inner_text() or '') or 'browser' in (c.inner_text() or '').lower():
+                    txt = (c.inner_text() or '').lower()
+                    if '瀏覽器' in txt or 'browser' in txt:
                         c.click()
                         browser_joined = True
                         break
             
             time.sleep(5)
             
-            print(f"[*] 步驟 3/5: 輸入出席學生身分與信箱...")
-            # 填寫姓名輸入框
-            name_inputs = page.query_selector_all('input[type="text"], input#name, input[name="name"]')
-            if name_inputs:
-                name_inputs[0].fill(STUDENT_NAME)
-                print(f"  [+] 已填入出席姓名：{STUDENT_NAME}")
-                if len(name_inputs) > 1:
-                    name_inputs[1].fill(STUDENT_EMAIL)
-                    print(f"  [+] 已填入電子信箱：{STUDENT_EMAIL}")
+            print(f"[*] 步驟 3/5: 輸入出席學生身分 ({STUDENT_NAME})...")
+            # 尋找 Name 輸入框 (支援中英文多重定位)
+            name_input = page.query_selector('input[aria-label*="Name"], input[placeholder*="Name"], input[aria-label*="姓名"], input[placeholder*="姓名"], input[type="text"]')
+            if name_input:
+                name_input.click()
+                name_input.fill(STUDENT_NAME)
+                print(f"  [+] 成功填入出席姓名：{STUDENT_NAME}")
+            else:
+                # 備用方案：頁面上所有可輸入 input
+                all_inputs = page.query_selector_all('input')
+                for inp in all_inputs:
+                    inp_type = inp.get_attribute('type') or 'text'
+                    if inp_type in ['text', '']:
+                        inp.fill(STUDENT_NAME)
+                        print(f"  [+] 透過通用輸入框填入姓名：{STUDENT_NAME}")
+                        break
             
-            # 尋找「以訪客身分加入」或「下一頁」
-            next_btns = page.query_selector_all('button:has-text("以訪客身分加入"), button:has-text("下一頁"), button:has-text("Next"), button:has-text("Join")')
-            if next_btns:
-                next_btns[0].click()
-                print("  [+] 已點擊進入下一步！")
+            time.sleep(2)
             
-            time.sleep(5)
-            
-            print(f"[*] 步驟 4/5: 關閉麥克風與攝影機 (確保靜默黑屏連線)...")
-            # 檢查並關閉麥克風/視訊
+            print(f"[*] 步驟 4/5: 確保靜音與關閉攝影機...")
+            # 點選 Mute 按鈕
             try:
-                mute_btns = page.query_selector_all('button[aria-label*="靜音"], button[aria-label*="Mute"], button[data-ouiicon-name="microphone-muted"]')
-                for mb in mute_btns:
-                    label = mb.get_attribute('aria-label') or ''
-                    if '靜音' in label or 'mute' in label.lower():
-                        mb.click()
-                        print("  [+] 麥克風已設定為靜音。")
+                mute_btn = page.query_selector('button[aria-label*="Mute"]:not([aria-label*="Unmute"]), button[aria-label*="靜音"]:not([aria-label*="取消靜音"])')
+                if mute_btn:
+                    mute_btn.click()
+                    print("  [+] 麥克風已切換為靜音。")
+            except Exception:
+                pass
+                
+            # 點選 Stop video 按鈕
+            try:
+                stop_video_btn = page.query_selector('button[aria-label*="Stop video"], button[aria-label*="停止視訊"]')
+                if stop_video_btn:
+                    stop_video_btn.click()
+                    print("  [+] 攝影機已關閉。")
             except Exception:
                 pass
             
-            # 尋找最終「加入會議」綠色大按鈕
-            join_meeting_btn = page.query_selector('button:has-text("加入會議"), button:has-text("Join meeting"), button#interstitial_join_button')
-            if join_meeting_btn:
-                join_meeting_btn.click()
-                print("  [+] 已成功點擊【加入會議】大按鈕！")
+            time.sleep(2)
+            
+            # 點擊「Join meeting」或「加入會議」綠色大按鈕
+            join_btn = page.query_selector('button:has-text("Join meeting"), button:has-text("加入會議"), button#interstitial_join_button, button[data-ouiicon-name="join-meeting"]')
+            if join_btn:
+                join_btn.click()
+                print("  [+] 🚀 成功點擊【Join meeting / 加入會議】按鈕！正式進入會議室！")
+            else:
+                # 嘗試點擊畫面上有 Join 字樣的大按鈕
+                possible_btns = page.query_selector_all('button')
+                for b in possible_btns:
+                    btxt = (b.inner_text() or '').strip().lower()
+                    if 'join' in btxt or '加入' in btxt:
+                        b.click()
+                        print(f"  [+] 透過替代按鈕點擊進場 ({btxt})！")
+                        break
             
             time.sleep(6)
             
-            # 截圖存證
+            # 截取進場成功證明截圖
             proof_file = os.path.join(BASE_DIR, 'attendance_proof.png')
             page.screenshot(path=proof_file)
             print(f"[*] 步驟 5/5: 📸 已截取會議室連線存證截圖：{proof_file}")
@@ -156,7 +173,7 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
                 time.sleep(45)
             else:
                 total_seconds = duration_minutes * 60
-                interval = 300 # 每 5 分鐘心跳記錄一次
+                interval = 300
                 elapsed = 0
                 while elapsed < total_seconds:
                     time.sleep(min(interval, total_seconds - elapsed))
@@ -178,9 +195,6 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
             browser.close()
 
 def auto_detect_and_run():
-    """
-    根據台北時間自動偵測今天是否有課並執行
-    """
     now = get_taipei_now()
     today_str = now.strftime('%Y-%m-%d')
     current_hm = now.strftime('%H:%M')
