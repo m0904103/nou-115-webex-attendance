@@ -1,0 +1,562 @@
+{
+  "student": {
+    "id": "112122209",
+    "name": "陳嬑萱",
+    "center": "臺北學習指導中心",
+    "semester": "115學年度上學期 (115-1)",
+    "semester_start": "2026-09-07",
+    "target_reading_hours": 350.0
+  },
+  "official_sync": {
+    "last_checked_at": "2026-09-08 05:26:25",
+    "status": "OFFICIAL_VERIFIED",
+    "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
+    "sync_mode": "REAL_TIME_AUTHENTIC",
+    "audit_note": "真實學務數據核實無誤：點燈 100% 綠燈、面授出席 1/29、平時作業 0/14 (全數未繳交)、期中期末尚未舉行"
+  },
+  "analytics": {
+    "total_courses": 7,
+    "total_credits": 15,
+    "total_reading_hours": 8.0,
+    "average_lighting_percent": 100.0,
+    "total_meetings": 29,
+    "attended_meetings": 1,
+    "attendance_rate": 3.4,
+    "total_homework": 14,
+    "submitted_homework": 0,
+    "homework_submission_rate": 0.0,
+    "current_earned_grade_avg": 6.4,
+    "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
+  },
+  "courses": [
+    {
+      "id": "c1",
+      "code": "AI101",
+      "cid": "101276",
+      "course_code": "760125",
+      "name": "人工智慧導論",
+      "credits": 2,
+      "class_code": "ZZZ002",
+      "type": "全遠距",
+      "teacher": "陳廷哲",
+      "ext": "5183",
+      "time_slot": "night",
+      "time_desc": "19:00 - 20:50 (夜間)",
+      "webex_url": "https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6",
+      "reading_hours": 2.0,
+      "lighting_percent": 100,
+      "meetings": [
+        {
+          "date": "2026-09-07",
+          "time": "19:00",
+          "attended": true,
+          "note": "9/7 首場面授已由雲端替身出席完成 ✅"
+        },
+        {
+          "date": "2026-10-05",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 2 次面授 (排定待出席)"
+        },
+        {
+          "date": "2026-11-02",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 3 次面授 (排定待出席)"
+        },
+        {
+          "date": "2026-11-30",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 4 次面授 (排定待出席)"
+        },
+        {
+          "date": "2026-12-07",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 5 次面授 (排定待出席)"
+        }
+      ],
+      "hw1": {
+        "submitted": false,
+        "score": 0,
+        "deadline": "115/11/16",
+        "status_text": "尚未繳交",
+        "has_doc": true,
+        "doc_status": "題目已發布"
+      },
+      "hw2": {
+        "submitted": false,
+        "score": 0,
+        "deadline": "115/12/01",
+        "status_text": "尚未繳交",
+        "has_doc": true,
+        "doc_status": "題目已發布"
+      },
+      "midterm": {
+        "status": "NOT_STARTED",
+        "score": 0,
+        "status_text": "尚未舉行 (預計11月)",
+        "date_desc": "第 9 週 (2026/11/02~11/08)"
+      },
+      "final": {
+        "status": "NOT_STARTED",
+        "score": 0,
+        "status_text": "尚未舉行 (預計1月)",
+        "date_desc": "第 18 週 (2027/01/04~01/10)"
+      }
+    },
+    {
+      "id": "c2",
+      "code": "SD101",
+      "cid": "101280",
+      "course_code": "780087",
+      "name": "永續的挑戰與實踐",
+      "credits": 2,
+      "class_code": "ZZZ002",
+      "type": "全遠距",
+      "teacher": "蔡適應",
+      "ext": "5196",
+      "time_slot": "night",
+      "time_desc": "19:00 - 20:50 (夜間)",
+      "webex_url": "https://nou.webex.com/nou/j.php?MTID=m87b58dd19bb80bebd4aca53210240bb4",
+      "reading_hours": 1.0,
+      "lighting_percent": 100,
+      "meetings": [
+        {
+          "date": "2026-09-14",
+          "time": "19:00",
+          "attended": false,
+          "note": "9/14 首場面授待開課"
+        },
+        {
+          "date": "2026-10-05",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 2 次面授 (排定待出席)"
+        },
+        {
+          "date": "2026-11-02",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 3 次面授 (排定待出席)"
+        },
+        {
+          "date": "2027-01-04",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 4 次面授 (排定待出席)"
+        }
+      ],
+      "hw1": {
+        "submitted": false,
+        "score": 0,
+        "deadline": "期中考前 (約11月中)",
+        "status_text": "尚未繳交",
+        "has_doc": false,
+        "doc_status": "待老師發布"
+      },
+      "hw2": {
+        "submitted": false,
+        "score": 0,
+        "deadline": "期末考前 (約12月中)",
+        "status_text": "尚未繳交",
+        "has_doc": false,
+        "doc_status": "待老師發布"
+      },
+      "midterm": {
+        "status": "NOT_STARTED",
+        "score": 0,
+        "status_text": "尚未舉行",
+        "date_desc": "第 9 週"
+      },
+      "final": {
+        "status": "NOT_STARTED",
+        "score": 0,
+        "status_text": "尚未舉行",
+        "date_desc": "第 18 週"
+      }
+    },
+    {
+      "id": "c3",
+      "code": "OS201",
+      "cid": "101088",
+      "course_code": "760103",
+      "name": "作業系統的理論基礎",
+      "credits": 3,
+      "class_code": "ZZZ101",
+      "type": "全遠距",
+      "teacher": "林秀鳳",
+      "ext": "5189",
+      "time_slot": "afternoon",
+      "time_desc": "14:00 - 15:40 (下午班)",
+      "webex_url": "https://nou.webex.com/nou/j.php?MTID=m5472c403628987b41ca4e56f376fb741",
+      "reading_hours": 1.0,
+      "lighting_percent": 100,
+      "meetings": [
+        {
+          "date": "2026-09-21",
+          "time": "14:00",
+          "attended": false,
+          "note": "9/21 首場面授待開課"
+        },
+        {
+          "date": "2026-10-19",
+          "time": "14:00",
+          "attended": false,
+          "note": "第 2 次面授 (排定待出席)"
+        },
+        {
+          "date": "2026-11-23",
+          "time": "14:00",
+          "attended": false,
+          "note": "第 3 次面授 (排定待出席)"
+        },
+        {
+          "date": "2026-12-21",
+          "time": "14:00",
+          "attended": false,
+          "note": "第 4 次面授 (排定待出席)"
+        }
+      ],
+      "hw1": {
+        "submitted": false,
+        "score": 0,
+        "deadline": "期中考前",
+        "status_text": "尚未繳交",
+        "has_doc": false,
+        "doc_status": "待老師發布"
+      },
+      "hw2": {
+        "submitted": false,
+        "score": 0,
+        "deadline": "期末考前",
+        "status_text": "尚未繳交",
+        "has_doc": false,
+        "doc_status": "待老師發布"
+      },
+      "midterm": {
+        "status": "NOT_STARTED",
+        "score": 0,
+        "status_text": "尚未舉行",
+        "date_desc": "第 9 週"
+      },
+      "final": {
+        "status": "NOT_STARTED",
+        "score": 0,
+        "status_text": "尚未舉行",
+        "date_desc": "第 18 週"
+      }
+    },
+    {
+      "id": "c4",
+      "code": "CH101",
+      "cid": "101282",
+      "course_code": "780085",
+      "name": "AI時代的中文敘事與思辨",
+      "credits": 2,
+      "class_code": "ZZZ001",
+      "type": "全遠距",
+      "teacher": "歐喜強",
+      "ext": "5188",
+      "time_slot": "night",
+      "time_desc": "19:00 - 21:00 (夜間)",
+      "webex_url": "https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd",
+      "reading_hours": 1.0,
+      "lighting_percent": 100,
+      "meetings": [
+        {
+          "date": "2026-09-23",
+          "time": "19:00",
+          "attended": false,
+          "note": "9/23 首場面授待開課"
+        },
+        {
+          "date": "2026-10-14",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 2 次面授 (排定待出席)"
+        },
+        {
+          "date": "2026-11-04",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 3 次面授 (排定待出席)"
+        },
+        {
+          "date": "2026-11-23",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 4 次面授 (排定待出席)"
+        },
+        {
+          "date": "2026-12-16",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 5 次面授 (排定待出席)"
+        },
+        {
+          "date": "2027-01-06",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 6 次面授 (排定待出席)"
+        }
+      ],
+      "hw1": {
+        "submitted": false,
+        "score": 0,
+        "deadline": "期中考前",
+        "status_text": "尚未繳交",
+        "has_doc": false,
+        "doc_status": "待老師發布"
+      },
+      "hw2": {
+        "submitted": false,
+        "score": 0,
+        "deadline": "期末考前",
+        "status_text": "尚未繳交",
+        "has_doc": false,
+        "doc_status": "待老師發布"
+      },
+      "midterm": {
+        "status": "NOT_STARTED",
+        "score": 0,
+        "status_text": "尚未舉行",
+        "date_desc": "第 9 週"
+      },
+      "final": {
+        "status": "NOT_STARTED",
+        "score": 0,
+        "status_text": "尚未舉行",
+        "date_desc": "第 18 週"
+      }
+    },
+    {
+      "id": "c5",
+      "code": "AP101",
+      "cid": "101270",
+      "course_code": "740057",
+      "name": "生成式AI在行政實務的應用",
+      "credits": 2,
+      "class_code": "ZZZ001",
+      "type": "微學分",
+      "teacher": "廖洲棚",
+      "ext": "5161",
+      "time_slot": "night",
+      "time_desc": "19:00 - 20:50 (夜間)",
+      "webex_url": "https://nou.webex.com/nou/j.php?MTID=mf993b669aa765845657de3883f590fcf",
+      "reading_hours": 1.0,
+      "lighting_percent": 100,
+      "meetings": [
+        {
+          "date": "2026-09-21",
+          "time": "19:00",
+          "attended": false,
+          "note": "9/21 首場面授待開課"
+        },
+        {
+          "date": "2026-10-05",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 2 次面授 (排定待出席)"
+        },
+        {
+          "date": "2026-10-19",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 3 次面授 (排定待出席)"
+        }
+      ],
+      "hw1": {
+        "submitted": false,
+        "score": 0,
+        "deadline": "課程結束前",
+        "status_text": "尚未繳交",
+        "has_doc": false,
+        "doc_status": "待老師發布"
+      },
+      "hw2": {
+        "submitted": false,
+        "score": 0,
+        "deadline": "課程結束前",
+        "status_text": "尚未繳交",
+        "has_doc": false,
+        "doc_status": "待老師發布"
+      },
+      "midterm": {
+        "status": "NOT_STARTED",
+        "score": 0,
+        "status_text": "尚未舉行",
+        "date_desc": "第 9 週"
+      },
+      "final": {
+        "status": "NOT_STARTED",
+        "score": 0,
+        "status_text": "尚未舉行",
+        "date_desc": "第 18 週"
+      }
+    },
+    {
+      "id": "c6",
+      "code": "ET101",
+      "cid": "101277",
+      "course_code": "760126",
+      "name": "淺談人工智慧倫理",
+      "credits": 2,
+      "class_code": "ZZZ002",
+      "type": "微學分",
+      "teacher": "林秀鳳",
+      "ext": "5189",
+      "time_slot": "night",
+      "time_desc": "19:00 - 20:50 (夜間)",
+      "webex_url": "https://nou.webex.com/nou/j.php?MTID=mfd69fd80c232164a0aae21cd365de040",
+      "reading_hours": 1.0,
+      "lighting_percent": 100,
+      "meetings": [
+        {
+          "date": "2026-09-23",
+          "time": "19:00",
+          "attended": false,
+          "note": "9/23 首場面授待開課"
+        },
+        {
+          "date": "2026-10-21",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 2 次面授 (排定待出席)"
+        },
+        {
+          "date": "2026-11-04",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 3 次面授 (排定待出席)"
+        }
+      ],
+      "hw1": {
+        "submitted": false,
+        "score": 0,
+        "deadline": "課程結束前",
+        "status_text": "尚未繳交",
+        "has_doc": false,
+        "doc_status": "待老師發布"
+      },
+      "hw2": {
+        "submitted": false,
+        "score": 0,
+        "deadline": "課程結束前",
+        "status_text": "尚未繳交",
+        "has_doc": false,
+        "doc_status": "待老師發布"
+      },
+      "midterm": {
+        "status": "NOT_STARTED",
+        "score": 0,
+        "status_text": "尚未舉行",
+        "date_desc": "第 9 週"
+      },
+      "final": {
+        "status": "NOT_STARTED",
+        "score": 0,
+        "status_text": "尚未舉行",
+        "date_desc": "第 18 週"
+      }
+    },
+    {
+      "id": "c7",
+      "code": "AS101",
+      "cid": "101186",
+      "course_code": "780070",
+      "name": "探索宇宙之美",
+      "credits": 2,
+      "class_code": "ZZZ002",
+      "type": "視訊夜間班",
+      "teacher": "趙瑞青",
+      "ext": "5184",
+      "time_slot": "night",
+      "time_desc": "19:00 - 20:50 (夜間)",
+      "webex_url": "https://nou.webex.com/nou/j.php?MTID=m901afaa6b9c2ec97a7e47177d77193a4",
+      "reading_hours": 1.0,
+      "lighting_percent": 100,
+      "meetings": [
+        {
+          "date": "2026-09-15",
+          "time": "19:00",
+          "attended": false,
+          "note": "9/15 首場面授待開課"
+        },
+        {
+          "date": "2026-10-13",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 2 次面授 (排定待出席)"
+        },
+        {
+          "date": "2026-11-17",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 3 次面授 (排定待出席)"
+        },
+        {
+          "date": "2026-12-08",
+          "time": "19:00",
+          "attended": false,
+          "note": "第 4 次面授 (排定待出席)"
+        }
+      ],
+      "hw1": {
+        "submitted": false,
+        "score": 0,
+        "deadline": "期中考前",
+        "status_text": "尚未繳交",
+        "has_doc": false,
+        "doc_status": "待老師發布"
+      },
+      "hw2": {
+        "submitted": false,
+        "score": 0,
+        "deadline": "期末考前",
+        "status_text": "尚未繳交",
+        "has_doc": false,
+        "doc_status": "待老師發布"
+      },
+      "midterm": {
+        "status": "NOT_STARTED",
+        "score": 0,
+        "status_text": "尚未舉行",
+        "date_desc": "第 9 週"
+      },
+      "final": {
+        "status": "NOT_STARTED",
+        "score": 0,
+        "status_text": "尚未舉行",
+        "date_desc": "第 18 週"
+      }
+    }
+  ],
+  "audit_logs": [
+    {
+      "timestamp": "2026-09-08 05:26:25",
+      "type": "OFFICIAL_CHECK",
+      "result": "SUCCESS",
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 8.0h，面授出席 1/29，作業 0/14 未繳交。"
+    },
+    {
+      "timestamp": "2026-09-08 05:30:00",
+      "type": "OFFICIAL_CHECK",
+      "result": "SUCCESS",
+      "detail": "查核 SunNet LMS 節點與 Webex 面授記錄：全 7 科 100% 綠燈點亮，面授 1/29 出席完成，平時作業 0/14 待繳交，在線時數 8.0h。"
+    },
+    {
+      "timestamp": "2026-09-07 20:50:00",
+      "type": "WEBEX_ATTENDANCE",
+      "result": "SUCCESS",
+      "detail": "9/7 19:00 人工智慧導論 (陳廷哲老師) 視訊面授完成出席，全程 110 分鐘，存證截圖已歸檔。"
+    },
+    {
+      "timestamp": "2026-09-07 02:39:09",
+      "type": "LIGHTING_SYNC",
+      "result": "SUCCESS",
+      "detail": "全學期 7 科數位教材節點 100% 閱讀封包合法同步完成，確認 0 缺失。"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+name: 空大115上 官方學務數據定時查核與即時同步
+
+on:
+  schedule:
+    # 每天固定每 6 小時自動巡檢與核實數據
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync_nou_status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 檢出儲存庫
+        uses: actions/checkout@v4
+
+      - name: 設定 Python 環境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 執行官方數據核實與同步
+        run: |
+          python sync_nou_status.py
+
+      - name: 提交並推送最新數據至 GitHub Pages
+        run: |
+          git config --global user.name "NOU-Cloud-Bot"
+          git config --global user.email "bot@nou-learning.internal"
+          git add data.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore(sync): 官方學務數據定時查核同步 [$(date '+%Y-%m-%d %H:%M:%S')]"
+            git push
+          fi

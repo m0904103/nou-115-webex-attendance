@@ -1,0 +1,6 @@
+*.metadata.json
+run_log.txt
+__pycache__/
+*.pyc
+.tempmediaStorage/
+temp_*
