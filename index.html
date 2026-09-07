@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>國立空中大學 115-1 學期成績與學習進度即時監控儀表板 | 陳嬑萱</title>
+  <title>國立空中大學 115-1 學期成績與學習進度真實監控儀表板 | 陳嬑萱</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -19,12 +19,6 @@
               600: '#16a34a',
               700: '#15803d',
               900: '#14532d',
-            },
-            dark: {
-              bg: '#0b0f19',
-              card: '#111827',
-              border: '#1f2937',
-              hover: '#1e293b'
             }
           }
         }
@@ -45,20 +39,20 @@
       color: #f3f4f6;
     }
     .glass-card {
-      background: rgba(17, 24, 39, 0.85);
+      background: rgba(17, 24, 39, 0.88);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     }
     .glass-header {
-      background: rgba(11, 15, 25, 0.9);
+      background: rgba(11, 15, 25, 0.92);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
     }
     ::-webkit-scrollbar-track {
       background: #0b0f19;
@@ -75,7 +69,7 @@
 <body class="min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white pb-16">
 
   <!-- 頂部導航列 -->
-  <header class="sticky top-0 z-50 glass-header px-4 lg:px-8 py-3.5 transition-all">
+  <header class="sticky top-0 z-50 glass-header px-4 lg:px-8 py-3 transition-all">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
       <div class="flex items-center gap-3.5">
         <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-white font-bold text-xl">
@@ -84,14 +78,16 @@
         <div>
           <div class="flex items-center gap-2">
             <h1 class="font-black text-lg md:text-xl text-white tracking-wide">國立空中大學 115-1 學習進度即時儀表板</h1>
-            <span class="px-2 py-0.5 text-xs font-semibold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">NOU 數位學習守護</span>
+            <span class="px-2 py-0.5 text-xs font-semibold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">學期真實數據版</span>
           </div>
-          <p class="text-xs text-gray-400 flex items-center gap-2 mt-0.5">
+          <p class="text-xs text-gray-400 flex items-center gap-2 mt-0.5 flex-wrap">
             <span><i class="fa-regular fa-user mr-1 text-emerald-400"></i><strong>陳嬑萱</strong> (學號: 112122209)</span>
             <span class="text-gray-600">|</span>
             <span><i class="fa-solid fa-school mr-1 text-cyan-400"></i>臺北學習指導中心</span>
             <span class="text-gray-600">|</span>
-            <span><i class="fa-solid fa-layer-group mr-1 text-indigo-400"></i>總修讀 7 科 (15 學分)</span>
+            <span><i class="fa-solid fa-calendar-day mr-1 text-amber-400"></i>學期第 1 週 (2026/09/07 開學)</span>
+            <span class="text-gray-600">|</span>
+            <span><i class="fa-solid fa-layer-group mr-1 text-indigo-400"></i>7 門課 (15 學分)</span>
           </p>
         </div>
       </div>
@@ -100,28 +96,27 @@
       <div class="flex flex-wrap items-center gap-2">
         <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-950/40 border border-emerald-800/40 text-emerald-400 text-xs font-medium">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>雲端替身守護中 (GitHub Actions)</span>
+          <span>雲端替身待命中</span>
         </div>
-        
-        <button onclick="simulateFullMarks()" class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-semibold shadow-md shadow-emerald-900/30 transition flex items-center gap-1.5">
-          <i class="fa-solid fa-wand-magic-sparkles"></i>
-          <span>一鍵模擬榮譽滿分</span>
+
+        <button onclick="toggleMode()" id="modeToggleBtn" class="px-3 py-1.5 rounded-lg bg-blue-900/40 hover:bg-blue-800/50 text-blue-300 text-xs font-semibold border border-blue-700/50 transition flex items-center gap-1.5 shadow-sm">
+          <i class="fa-solid fa-sliders"></i>
+          <span id="modeText">切換：期末目標推估模式</span>
+        </button>
+
+        <button onclick="resetToRealData()" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 text-xs font-medium border border-gray-700 transition flex items-center gap-1.5" title="還原至今日開學真實狀態">
+          <i class="fa-solid fa-rotate-left"></i>
+          <span>還原開學實況</span>
         </button>
         
         <button onclick="exportData()" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 text-xs font-medium border border-gray-700 transition flex items-center gap-1.5">
           <i class="fa-solid fa-download"></i>
-          <span>匯出備份</span>
+          <span>匯出 JSON</span>
         </button>
-        
-        <label class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 text-xs font-medium border border-gray-700 transition flex items-center gap-1.5 cursor-pointer">
-          <i class="fa-solid fa-upload"></i>
-          <span>匯入</span>
-          <input type="file" id="importInput" class="hidden" accept=".json" onchange="importData(event)">
-        </label>
 
-        <a href="https://github.com/m0904103/nou-115-webex-attendance/actions" target="_blank" class="px-3 py-1.5 rounded-lg bg-indigo-900/40 hover:bg-indigo-800/50 text-indigo-300 text-xs font-medium border border-indigo-700/40 transition flex items-center gap-1.5">
-          <i class="fa-brands fa-github"></i>
-          <span>Actions 實況</span>
+        <a href="https://uu.nou.edu.tw/learn/index.php" target="_blank" class="px-3 py-1.5 rounded-lg bg-emerald-900/40 hover:bg-emerald-800/50 text-emerald-300 text-xs font-medium border border-emerald-700/40 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <span>空大教學網</span>
         </a>
       </div>
     </div>
@@ -130,195 +125,347 @@
   <!-- 主內容區域 -->
   <main class="max-w-7xl mx-auto px-4 lg:px-8 mt-6 flex-1 space-y-6">
 
-    <!-- 空大學則評量規定與計分法規視窗 (NOU Regulation Banner) -->
-    <div class="glass-card rounded-2xl p-5 border border-emerald-500/20 bg-gradient-to-r from-gray-900 via-gray-900 to-emerald-950/30">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div class="space-y-1">
-          <div class="flex items-center gap-2">
-            <span class="w-6 h-6 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 text-xs">
-              <i class="fa-solid fa-scale-balanced"></i>
-            </span>
-            <h2 class="text-sm font-bold text-white uppercase tracking-wider">國立空中大學成績考核與評量法規標準</h2>
-          </div>
-          <p class="text-xs text-gray-400 leading-relaxed">
-            依據空大學則規定：總成績滿 <strong>60 分</strong> 及格並授予學分，<strong>80 分</strong> 以上列為優等。總成績構成採三階段加權：
-          </p>
-        </div>
-        <div class="flex flex-wrap items-center gap-3">
-          <div class="px-3 py-2 rounded-xl bg-gray-800/60 border border-gray-700 text-center">
-            <div class="text-xs text-gray-400">平時成績</div>
-            <div class="text-lg font-black text-emerald-400">30%</div>
-            <div class="text-[10px] text-gray-500">時數 + 面授 + 2次作業</div>
-          </div>
-          <div class="text-gray-600 font-bold text-lg">+</div>
-          <div class="px-3 py-2 rounded-xl bg-gray-800/60 border border-gray-700 text-center">
-            <div class="text-xs text-gray-400">期中評量</div>
-            <div class="text-lg font-black text-cyan-400">30%</div>
-            <div class="text-[10px] text-gray-500">期中考試 / 書面報告</div>
-          </div>
-          <div class="text-gray-600 font-bold text-lg">+</div>
-          <div class="px-3 py-2 rounded-xl bg-gray-800/60 border border-gray-700 text-center">
-            <div class="text-xs text-gray-400">期末評量</div>
-            <div class="text-lg font-black text-indigo-400">40%</div>
-            <div class="text-[10px] text-gray-500">期末考試 / 專題評量</div>
-          </div>
-          <div class="text-gray-600 font-bold text-lg">=</div>
-          <div class="px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-center">
-            <div class="text-xs text-emerald-300">總學期成績</div>
-            <div class="text-lg font-black text-white">100%</div>
-            <div class="text-[10px] text-emerald-400 font-semibold">及格門檻: 60 分</div>
-          </div>
-        </div>
+    <!-- 模式通知橫幅 (動態提示目前為真實模式或模擬模式) -->
+    <div id="modeBanner" class="p-3 rounded-xl bg-blue-950/30 border border-blue-800/40 flex items-center justify-between text-xs text-blue-300 flex-wrap gap-2">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-circle-info text-blue-400"></i>
+        <span><strong>目前模式：【真實學習歷程追蹤】</strong> — 忠實呈現剛開學（9/7）真實狀態：<strong>平時作業尚未繳交 (0/14)</strong>、<strong>面授僅 9/7 首場已出席 (1/29)</strong>、<strong>考科尚未舉行</strong>、在線時數隨學習進程累積中。</span>
       </div>
+      <span class="text-[11px] text-gray-400">更新時間：2026/09/08 即時數據</span>
     </div>
 
     <!-- 全域指標儀表盤 (Global Stats Cards) -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       
-      <!-- 卡片 1: 總學期預估成績與及格率 -->
+      <!-- 卡片 1: 預估學期平均總分 / 目前實得累積 -->
       <div class="glass-card rounded-2xl p-5 relative overflow-hidden group hover:border-emerald-500/40 transition">
         <div class="flex items-center justify-between">
-          <span class="text-xs font-medium text-gray-400">預估學期平均總分</span>
+          <span class="text-xs font-medium text-gray-400" id="avgScoreLabel">目前學期實得累計分</span>
           <span class="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-sm">
             <i class="fa-solid fa-chart-line"></i>
           </span>
         </div>
         <div class="mt-3 flex items-baseline gap-2">
-          <span id="globalAvgScore" class="text-3xl font-black text-white">88.5</span>
+          <span id="globalAvgScore" class="text-3xl font-black text-white">8.2</span>
           <span class="text-xs font-semibold text-gray-400">分 / 100</span>
         </div>
         <div class="mt-3 flex items-center justify-between text-xs">
-          <span id="globalPassStatus" class="px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 font-medium">
-            全數及格 (7/7 科)
+          <span id="globalPassStatus" class="px-2 py-0.5 rounded-md bg-blue-500/10 text-blue-400 font-medium">
+            開學起跑中 (第 1 週)
           </span>
-          <span class="text-gray-400" id="globalGradeTier">優等榮譽生</span>
+          <span class="text-gray-400" id="globalGradeTier">作業與考試待推進</span>
         </div>
         <div class="w-full bg-gray-800 h-1.5 rounded-full mt-3 overflow-hidden">
-          <div id="globalAvgScoreBar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full transition-all duration-500" style="width: 88.5%;"></div>
+          <div id="globalAvgScoreBar" class="bg-gradient-to-r from-blue-500 to-emerald-400 h-full rounded-full transition-all duration-500" style="width: 8.2%;"></div>
         </div>
       </div>
 
-      <!-- 卡片 2: 在線觀看時數與點燈 -->
+      <!-- 卡片 2: 在線學習歷程與點燈真實數據 -->
       <div class="glass-card rounded-2xl p-5 relative overflow-hidden group hover:border-cyan-500/40 transition">
         <div class="flex items-center justify-between">
-          <span class="text-xs font-medium text-gray-400">在線學習歷程與點燈</span>
+          <span class="text-xs font-medium text-gray-400">在線學習時數 (SunNet LMS)</span>
           <span class="w-8 h-8 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-sm">
             <i class="fa-solid fa-clock"></i>
           </span>
         </div>
         <div class="mt-3 flex items-baseline gap-2">
-          <span id="globalTotalHours" class="text-3xl font-black text-white">350</span>
+          <span id="globalTotalHours" class="text-3xl font-black text-white">8.0</span>
           <span class="text-xs font-semibold text-gray-400">小時 (目標 350h)</span>
         </div>
         <div class="mt-3 flex items-center justify-between text-xs">
-          <span class="text-cyan-400 font-medium" id="globalLightingRate">點燈率: 100%</span>
-          <span class="text-gray-400">7 科滿分守護</span>
+          <span class="text-cyan-400 font-medium" id="globalLightingRate">點燈閱畢率: 100% 綠燈</span>
+          <span class="text-gray-400">7 科進度守護中</span>
         </div>
         <div class="w-full bg-gray-800 h-1.5 rounded-full mt-3 overflow-hidden">
-          <div id="globalHoursBar" class="bg-gradient-to-r from-cyan-500 to-blue-500 h-full rounded-full transition-all duration-500" style="width: 100%;"></div>
+          <div id="globalHoursBar" class="bg-gradient-to-r from-cyan-500 to-blue-500 h-full rounded-full transition-all duration-500" style="width: 2.3%;"></div>
         </div>
       </div>
 
-      <!-- 卡片 3: 網路面授出席統計 -->
+      <!-- 卡片 3: 網路面授出席統計 (真實 1/29) -->
       <div class="glass-card rounded-2xl p-5 relative overflow-hidden group hover:border-indigo-500/40 transition">
         <div class="flex items-center justify-between">
-          <span class="text-xs font-medium text-gray-400">視訊面授出席率</span>
+          <span class="text-xs font-medium text-gray-400">視訊面授出勤現況</span>
           <span class="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-sm">
             <i class="fa-solid fa-video"></i>
           </span>
         </div>
         <div class="mt-3 flex items-baseline gap-2">
-          <span id="globalAttendanceRatio" class="text-3xl font-black text-white">29 / 29</span>
-          <span class="text-xs font-semibold text-gray-400">場 (100%)</span>
+          <span id="globalAttendanceRatio" class="text-3xl font-black text-white">1 / 29</span>
+          <span class="text-xs font-semibold text-gray-400">場 (3.4%)</span>
         </div>
         <div class="mt-3 flex items-center justify-between text-xs">
-          <span class="text-indigo-400 font-medium">全勤目標達成</span>
-          <span class="text-gray-400">含 4 場衝堂雙開</span>
+          <span class="text-indigo-400 font-medium">9/7 首場已出席 ✅</span>
+          <span class="text-gray-400">其餘 28 場排定中</span>
         </div>
         <div class="w-full bg-gray-800 h-1.5 rounded-full mt-3 overflow-hidden">
-          <div id="globalAttendanceBar" class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full transition-all duration-500" style="width: 100%;"></div>
+          <div id="globalAttendanceBar" class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full transition-all duration-500" style="width: 3.4%;"></div>
         </div>
       </div>
 
-      <!-- 卡片 4: 平時作業與考試整備 -->
-      <div class="glass-card rounded-2xl p-5 relative overflow-hidden group hover:border-amber-500/40 transition">
+      <!-- 卡片 4: 平時作業繳交進度 (真實 0/14 未繳交) -->
+      <div class="glass-card rounded-2xl p-5 relative overflow-hidden group hover:border-red-500/40 transition">
         <div class="flex items-center justify-between">
           <span class="text-xs font-medium text-gray-400">平時作業繳交進度</span>
-          <span class="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-sm">
+          <span class="w-8 h-8 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center text-sm">
             <i class="fa-solid fa-file-pen"></i>
           </span>
         </div>
         <div class="mt-3 flex items-baseline gap-2">
-          <span id="globalHomeworkRatio" class="text-3xl font-black text-white">14 / 14</span>
-          <span class="text-xs font-semibold text-gray-400">份 (100%)</span>
+          <span id="globalHomeworkRatio" class="text-3xl font-black text-white">0 / 14</span>
+          <span class="text-xs font-semibold text-gray-400">份 (0%)</span>
         </div>
         <div class="mt-3 flex items-center justify-between text-xs">
-          <span class="text-amber-400 font-medium">期中/期末作業俱備</span>
-          <span class="text-gray-400">7 科各 2 次</span>
+          <span class="text-red-400 font-semibold">14 份作業皆未繳交 🔴</span>
+          <span class="text-gray-400">期限: 11月中旬起</span>
         </div>
         <div class="w-full bg-gray-800 h-1.5 rounded-full mt-3 overflow-hidden">
-          <div id="globalHomeworkBar" class="bg-gradient-to-r from-amber-500 to-orange-500 h-full rounded-full transition-all duration-500" style="width: 100%;"></div>
+          <div id="globalHomeworkBar" class="bg-gradient-to-r from-red-500 to-amber-500 h-full rounded-full transition-all duration-500" style="width: 0%;"></div>
         </div>
       </div>
 
     </div>
 
-    <!-- 圖表分析區塊 (Analytics & Charts) -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      
-      <!-- 左側 2 欄：各科總成績對比與及格線分析 -->
-      <div class="glass-card rounded-2xl p-5 lg:col-span-2 space-y-4">
-        <div class="flex items-center justify-between">
-          <div>
-            <h3 class="font-bold text-white text-sm flex items-center gap-2">
-              <i class="fa-solid fa-chart-column text-emerald-400"></i>
-              <span>115-1 七門課程學期總成績落點對比分析</span>
-            </h3>
-            <p class="text-xs text-gray-400 mt-0.5">即時模擬計算 60 分及格紅線與 80 分優等榮譽門檻</p>
-          </div>
-          <div class="flex items-center gap-3 text-xs">
-            <span class="flex items-center gap-1.5 text-gray-400">
-              <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500"></span> 預估學期成績
-            </span>
-            <span class="flex items-center gap-1.5 text-gray-400">
-              <span class="w-2.5 h-2.5 rounded-sm bg-red-500"></span> 60及格線
-            </span>
-          </div>
-        </div>
-        <div class="h-64">
-          <canvas id="scoresBarChart"></canvas>
-        </div>
-      </div>
-
-      <!-- 右側 1 欄：四大學習維度雷達分析 -->
-      <div class="glass-card rounded-2xl p-5 space-y-4">
+    <!-- 專題區塊 1: 空大教學網頁「平時作業即時檢核看板」 (Homework Real-Time Monitor) -->
+    <div class="glass-card rounded-2xl p-6 border border-amber-500/30 space-y-4 bg-gradient-to-r from-gray-900 via-gray-900 to-amber-950/20">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gray-800 pb-3">
         <div>
           <h3 class="font-bold text-white text-sm flex items-center gap-2">
-            <i class="fa-solid fa-bullseye text-cyan-400"></i>
-            <span>學習四大維度戰力達成率</span>
+            <i class="fa-solid fa-clipboard-check text-amber-400"></i>
+            <span>空大教學網頁平時作業繳交即時狀態（共 14 份作業）</span>
           </h3>
-          <p class="text-xs text-gray-400 mt-0.5">在線時數 / 面授全勤 / 平時作業 / 考科整備</p>
+          <p class="text-xs text-gray-400 mt-0.5">自空大 SunNet 數位學習網與教務資訊系統對齊之作業收件與題庫狀態</p>
         </div>
-        <div class="h-64 flex items-center justify-center">
-          <canvas id="radarChart"></canvas>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-lg bg-red-500/15 text-red-400 border border-red-500/30 text-xs font-bold">
+            🔴 目前已繳交: 0 / 14
+          </span>
+          <a href="https://uu.nou.edu.tw" target="_blank" class="px-3 py-1 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold transition flex items-center gap-1.5">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <span>前往空大 SunNet 繳交作業</span>
+          </a>
         </div>
       </div>
 
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs text-gray-300">
+          <thead class="bg-gray-800/60 text-gray-400 uppercase text-[11px] font-semibold">
+            <tr>
+              <th class="py-2.5 px-3">課程名稱 (代碼)</th>
+              <th class="py-2.5 px-3">學分 / 班別</th>
+              <th class="py-2.5 px-3">指導導師</th>
+              <th class="py-2.5 px-3">第一次平時作業狀態</th>
+              <th class="py-2.5 px-3">作業一截止期限</th>
+              <th class="py-2.5 px-3">第二次平時作業狀態</th>
+              <th class="py-2.5 px-3">作業二截止期限</th>
+              <th class="py-2.5 px-3 text-center">作業題目狀態</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-800/80 font-normal">
+            <tr class="hover:bg-gray-800/30 transition">
+              <td class="py-2.5 px-3 font-semibold text-white">人工智慧導論 (760125)</td>
+              <td class="py-2.5 px-3">2 學分 / ZZZ002</td>
+              <td class="py-2.5 px-3">陳廷哲</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded bg-red-500/10 text-red-400 font-semibold border border-red-500/20">🔴 未繳交</span></td>
+              <td class="py-2.5 px-3 text-gray-400">115/11/16 (23:59)</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded bg-red-500/10 text-red-400 font-semibold border border-red-500/20">🔴 未繳交</span></td>
+              <td class="py-2.5 px-3 text-gray-400">115/12/01 (23:59)</td>
+              <td class="py-2.5 px-3 text-center"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px]">已下載題目 .doc</span></td>
+            </tr>
+            <tr class="hover:bg-gray-800/30 transition">
+              <td class="py-2.5 px-3 font-semibold text-white">永續的挑戰與實踐 (780087)</td>
+              <td class="py-2.5 px-3">2 學分 / ZZZ002</td>
+              <td class="py-2.5 px-3">蔡適應</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded bg-red-500/10 text-red-400 font-semibold border border-red-500/20">🔴 未繳交</span></td>
+              <td class="py-2.5 px-3 text-gray-400">預計 115/11/15</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded bg-red-500/10 text-red-400 font-semibold border border-red-500/20">🔴 未繳交</span></td>
+              <td class="py-2.5 px-3 text-gray-400">預計 115/12/15</td>
+              <td class="py-2.5 px-3 text-center"><span class="text-gray-500 text-[10px]">教學平台待發布</span></td>
+            </tr>
+            <tr class="hover:bg-gray-800/30 transition">
+              <td class="py-2.5 px-3 font-semibold text-white">作業系統的理論基礎 (760103)</td>
+              <td class="py-2.5 px-3">3 學分 / ZZZ101</td>
+              <td class="py-2.5 px-3">林秀鳳</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded bg-red-500/10 text-red-400 font-semibold border border-red-500/20">🔴 未繳交</span></td>
+              <td class="py-2.5 px-3 text-gray-400">預計 115/11/15</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded bg-red-500/10 text-red-400 font-semibold border border-red-500/20">🔴 未繳交</span></td>
+              <td class="py-2.5 px-3 text-gray-400">預計 115/12/15</td>
+              <td class="py-2.5 px-3 text-center"><span class="text-gray-500 text-[10px]">教學平台待發布</span></td>
+            </tr>
+            <tr class="hover:bg-gray-800/30 transition">
+              <td class="py-2.5 px-3 font-semibold text-white">AI時代的中文敘事與思辨 (780085)</td>
+              <td class="py-2.5 px-3">2 學分 / ZZZ001</td>
+              <td class="py-2.5 px-3">歐喜強</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded bg-red-500/10 text-red-400 font-semibold border border-red-500/20">🔴 未繳交</span></td>
+              <td class="py-2.5 px-3 text-gray-400">預計 115/11/15</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded bg-red-500/10 text-red-400 font-semibold border border-red-500/20">🔴 未繳交</span></td>
+              <td class="py-2.5 px-3 text-gray-400">預計 115/12/15</td>
+              <td class="py-2.5 px-3 text-center"><span class="text-gray-500 text-[10px]">教學平台待發布</span></td>
+            </tr>
+            <tr class="hover:bg-gray-800/30 transition">
+              <td class="py-2.5 px-3 font-semibold text-white">生成式AI在行政實務的應用 (740057)</td>
+              <td class="py-2.5 px-3">2 學分 / ZZZ001</td>
+              <td class="py-2.5 px-3">廖洲棚</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded bg-red-500/10 text-red-400 font-semibold border border-red-500/20">🔴 未繳交</span></td>
+              <td class="py-2.5 px-3 text-gray-400">預計 115/11/15</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded bg-red-500/10 text-red-400 font-semibold border border-red-500/20">🔴 未繳交</span></td>
+              <td class="py-2.5 px-3 text-gray-400">預計 115/12/15</td>
+              <td class="py-2.5 px-3 text-center"><span class="text-gray-500 text-[10px]">微學分作業待公告</span></td>
+            </tr>
+            <tr class="hover:bg-gray-800/30 transition">
+              <td class="py-2.5 px-3 font-semibold text-white">淺談人工智慧倫理 (760126)</td>
+              <td class="py-2.5 px-3">2 學分 / ZZZ002</td>
+              <td class="py-2.5 px-3">林秀鳳</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded bg-red-500/10 text-red-400 font-semibold border border-red-500/20">🔴 未繳交</span></td>
+              <td class="py-2.5 px-3 text-gray-400">預計 115/11/15</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded bg-red-500/10 text-red-400 font-semibold border border-red-500/20">🔴 未繳交</span></td>
+              <td class="py-2.5 px-3 text-gray-400">預計 115/12/15</td>
+              <td class="py-2.5 px-3 text-center"><span class="text-gray-500 text-[10px]">微學分作業待公告</span></td>
+            </tr>
+            <tr class="hover:bg-gray-800/30 transition">
+              <td class="py-2.5 px-3 font-semibold text-white">探索宇宙之美 (780070)</td>
+              <td class="py-2.5 px-3">2 學分 / ZZZ002</td>
+              <td class="py-2.5 px-3">趙瑞青</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded bg-red-500/10 text-red-400 font-semibold border border-red-500/20">🔴 未繳交</span></td>
+              <td class="py-2.5 px-3 text-gray-400">預計 115/11/15</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded bg-red-500/10 text-red-400 font-semibold border border-red-500/20">🔴 未繳交</span></td>
+              <td class="py-2.5 px-3 text-gray-400">預計 115/12/15</td>
+              <td class="py-2.5 px-3 text-center"><span class="text-gray-500 text-[10px]">教學平台待發布</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <!-- 課程篩選與工具列 -->
+    <!-- 專題區塊 2: SunNet LMS 學習歷程與在線閱讀時數真實統計 -->
+    <div class="glass-card rounded-2xl p-6 border border-cyan-500/20 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gray-800 pb-3">
+        <div>
+          <h3 class="font-bold text-white text-sm flex items-center gap-2">
+            <i class="fa-solid fa-server text-cyan-400"></i>
+            <span>SunNet 數位學習網 · 官方學習歷程真實統計數據 (learn_stat.php)</span>
+          </h3>
+          <p class="text-xs text-gray-400 mt-0.5">點燈閱畢率 100% 綠燈完成；在線時數隨每日背景輕量守護心跳穩健累積中</p>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2.5 py-1 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+            目前全期時數: <strong>8.0 小時</strong> (目標 350h)
+          </span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+        <div class="p-3 rounded-xl bg-gray-900/60 border border-gray-800 space-y-1.5">
+          <div class="text-white font-bold flex justify-between">
+            <span>人工智慧導論</span>
+            <span class="text-emerald-400">100% 綠燈</span>
+          </div>
+          <div class="text-gray-400 text-[11px]">CID: 101276 · 代碼: 760125</div>
+          <div class="flex justify-between text-gray-300">
+            <span>已累計在線時數:</span>
+            <strong class="text-cyan-400">2.0 小時</strong>
+          </div>
+          <div class="text-[10px] text-gray-500">含 9/7 面授 110 分鐘</div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-gray-900/60 border border-gray-800 space-y-1.5">
+          <div class="text-white font-bold flex justify-between">
+            <span>永續的挑戰與實踐</span>
+            <span class="text-emerald-400">100% 綠燈</span>
+          </div>
+          <div class="text-gray-400 text-[11px]">CID: 101280 · 代碼: 780087</div>
+          <div class="flex justify-between text-gray-300">
+            <span>已累計在線時數:</span>
+            <strong class="text-cyan-400">1.0 小時</strong>
+          </div>
+          <div class="text-[10px] text-gray-500">自律研讀排程中</div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-gray-900/60 border border-gray-800 space-y-1.5">
+          <div class="text-white font-bold flex justify-between">
+            <span>作業系統的理論基礎</span>
+            <span class="text-emerald-400">100% 綠燈</span>
+          </div>
+          <div class="text-gray-400 text-[11px]">CID: 101088 · 代碼: 760103</div>
+          <div class="flex justify-between text-gray-300">
+            <span>已累計在線時數:</span>
+            <strong class="text-cyan-400">1.0 小時</strong>
+          </div>
+          <div class="text-[10px] text-gray-500">自律研讀排程中</div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-gray-900/60 border border-gray-800 space-y-1.5">
+          <div class="text-white font-bold flex justify-between">
+            <span>AI時代中文敘事與思辨</span>
+            <span class="text-emerald-400">100% 綠燈</span>
+          </div>
+          <div class="text-gray-400 text-[11px]">CID: 101282 · 代碼: 780085</div>
+          <div class="flex justify-between text-gray-300">
+            <span>已累計在線時數:</span>
+            <strong class="text-cyan-400">1.0 小時</strong>
+          </div>
+          <div class="text-[10px] text-gray-500">自律研讀排程中</div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-gray-900/60 border border-gray-800 space-y-1.5">
+          <div class="text-white font-bold flex justify-between">
+            <span>生成式AI在行政實務</span>
+            <span class="text-emerald-400">100% 綠燈</span>
+          </div>
+          <div class="text-gray-400 text-[11px]">CID: 101270 · 代碼: 740057</div>
+          <div class="flex justify-between text-gray-300">
+            <span>已累計在線時數:</span>
+            <strong class="text-cyan-400">1.0 小時</strong>
+          </div>
+          <div class="text-[10px] text-gray-500">自律研讀排程中</div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-gray-900/60 border border-gray-800 space-y-1.5">
+          <div class="text-white font-bold flex justify-between">
+            <span>淺談人工智慧倫理</span>
+            <span class="text-emerald-400">100% 綠燈</span>
+          </div>
+          <div class="text-gray-400 text-[11px]">CID: 101277 · 代碼: 760126</div>
+          <div class="flex justify-between text-gray-300">
+            <span>已累計在線時數:</span>
+            <strong class="text-cyan-400">1.0 小時</strong>
+          </div>
+          <div class="text-[10px] text-gray-500">自律研讀排程中</div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-gray-900/60 border border-gray-800 space-y-1.5">
+          <div class="text-white font-bold flex justify-between">
+            <span>探索宇宙之美</span>
+            <span class="text-emerald-400">100% 綠燈</span>
+          </div>
+          <div class="text-gray-400 text-[11px]">CID: 101186 · 代碼: 780070</div>
+          <div class="flex justify-between text-gray-300">
+            <span>已累計在線時數:</span>
+            <strong class="text-cyan-400">1.0 小時</strong>
+          </div>
+          <div class="text-[10px] text-gray-500">自律研讀排程中</div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-emerald-950/20 border border-emerald-800/30 space-y-1.5 flex flex-col justify-center text-center">
+          <div class="text-emerald-400 font-bold">鋼鐵紀律四在線守護中</div>
+          <div class="text-gray-400 text-[11px]">Daemon 背景每 60 秒合規心跳</div>
+          <div class="text-xs text-white font-semibold">自然累積至 50 小時滿分標準</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 課程清單過濾列 -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
       <div class="flex items-center gap-2">
         <span class="text-sm font-bold text-white flex items-center gap-2">
-          <i class="fa-solid fa-list-check text-emerald-400"></i>
-          <span>115 上學期修讀課程矩陣清單</span>
+          <i class="fa-solid fa-layer-group text-emerald-400"></i>
+          <span>115 上學期七門課程深度學習矩陣卡片</span>
         </span>
         <span class="px-2 py-0.5 rounded-full bg-gray-800 text-gray-300 text-xs font-semibold" id="courseCountBadge">共 7 門課</span>
       </div>
 
       <div class="flex flex-wrap items-center gap-2">
         <button onclick="filterCourses('all')" class="filter-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 transition">
-          全部 (7)
+          全部 (7門)
         </button>
         <button onclick="filterCourses('night')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-800 text-gray-400 hover:text-white border border-gray-700 transition">
           夜間 19:00 (6門)
@@ -326,53 +473,12 @@
         <button onclick="filterCourses('afternoon')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-800 text-gray-400 hover:text-white border border-gray-700 transition">
           下午 14:00 (1門)
         </button>
-        <button onclick="filterCourses('at_risk')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-800 text-gray-400 hover:text-white border border-gray-700 transition">
-          低於 80 分待加強
-        </button>
       </div>
     </div>
 
-    <!-- 七門課程詳細互動卡片列表 (Dynamic Course Cards Container) -->
+    <!-- 七門課程詳細互動卡片列表 -->
     <div id="courseCardsContainer" class="space-y-6">
       <!-- 由 JavaScript 動態渲染 7 門課程卡片 -->
-    </div>
-
-    <!-- 重要重要日程與倒數看板 (Milestone Timeline) -->
-    <div class="glass-card rounded-2xl p-6 border border-gray-800 space-y-4">
-      <h3 class="font-bold text-white text-sm flex items-center gap-2">
-        <i class="fa-solid fa-calendar-days text-indigo-400"></i>
-        <span>115-1 學期關鍵進程與重要時程備忘</span>
-      </h3>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
-        <div class="p-3.5 rounded-xl bg-gray-800/40 border border-gray-700/50 space-y-1">
-          <div class="text-emerald-400 font-semibold flex items-center gap-1.5">
-            <i class="fa-solid fa-door-open"></i> 第 1 次網路面授週
-          </div>
-          <div class="text-gray-300 font-medium">2026/09/07 ~ 09/23</div>
-          <p class="text-gray-400 text-[11px]">全 7 門課啟動首航，GitHub Actions 自動簽到存證。</p>
-        </div>
-        <div class="p-3.5 rounded-xl bg-gray-800/40 border border-gray-700/50 space-y-1">
-          <div class="text-amber-400 font-semibold flex items-center gap-1.5">
-            <i class="fa-solid fa-upload"></i> 第 1 次平時作業截止
-          </div>
-          <div class="text-gray-300 font-medium">預計 115年 10 月下旬</div>
-          <p class="text-gray-400 text-[11px]">進入 SunNet 繳交 7 科作業一，搶下平時滿分基礎。</p>
-        </div>
-        <div class="p-3.5 rounded-xl bg-gray-800/40 border border-gray-700/50 space-y-1">
-          <div class="text-cyan-400 font-semibold flex items-center gap-1.5">
-            <i class="fa-solid fa-pen-ruler"></i> 全校期中評量週 (30%)
-          </div>
-          <div class="text-gray-300 font-medium">預計 115年 11 月上旬 (第9週)</div>
-          <p class="text-gray-400 text-[11px]">線上測驗或期中專案報告，掌握 30% 核心比重。</p>
-        </div>
-        <div class="p-3.5 rounded-xl bg-gray-800/40 border border-gray-700/50 space-y-1">
-          <div class="text-indigo-400 font-semibold flex items-center gap-1.5">
-            <i class="fa-solid fa-award"></i> 全校期末總評量週 (40%)
-          </div>
-          <div class="text-gray-300 font-medium">預計 116年 1 月中旬 (第18週)</div>
-          <p class="text-gray-400 text-[11px]">全期總結評量 40%，及格順利奪得 15 學分！</p>
-        </div>
-      </div>
     </div>
 
   </main>
@@ -388,11 +494,19 @@
 
   <!-- 核心資料與互動邏輯 Script -->
   <script>
-    // 預設 7 門課程資料庫 (對齊 schedule.json 與空大學則規定)
-    const INITIAL_COURSES = [
+    // 依據開學第一週（2026-09-08）真實狀態初始化之 7 門課程資料庫
+    // 真實狀況：
+    // 1. 作業全數未交 (0/14)
+    // 2. 僅 9/7 《人工智慧導論》第 1 場面授已由雲端替身出席，其餘 28 場均在未來待出席 (1/29)
+    // 3. 點燈全數 100% 綠燈
+    // 4. 時數依真實起步時數累計 (2.0h / 1.0h)
+    // 5. 考試尚未舉行 (期中/期末考未評量)
+    const REAL_COURSES = [
       {
         id: "c1",
         code: "AI101",
+        cid: "101276",
+        course_code: "760125",
         name: "人工智慧導論",
         credits: 2,
         class_code: "ZZZ002",
@@ -402,23 +516,26 @@
         time_slot: "night",
         time_desc: "19:00 - 20:50 (夜間)",
         webex_url: "https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6",
-        reading_hours: 50, // 目標 50 小時滿分
-        lighting_percent: 100, // 點燈率 100%
+        reading_hours: 2.0, // 昨晚面授與研讀累積 2.0 小時
+        lighting_percent: 100, // 鋼鐵紀律一：100% 點燈綠燈
         meetings: [
-          { date: "2026-09-07", time: "19:00", attended: true },
-          { date: "2026-10-05", time: "19:00", attended: true },
-          { date: "2026-11-02", time: "19:00", attended: true },
-          { date: "2026-11-30", time: "19:00", attended: true },
-          { date: "2026-12-07", time: "19:00", attended: true }
+          { date: "2026-09-07", time: "19:00", attended: true, note: "9/7 首場面授已由雲端替身出席完成" },
+          { date: "2026-10-05", time: "19:00", attended: false, note: "排定待出席" },
+          { date: "2026-11-02", time: "19:00", attended: false, note: "排定待出席" },
+          { date: "2026-11-30", time: "19:00", attended: false, note: "排定待出席" },
+          { date: "2026-12-07", time: "19:00", attended: false, note: "排定待出席" }
         ],
-        hw1: { submitted: true, score: 92 },
-        hw2: { submitted: true, score: 90 },
-        midterm_score: 88,
-        final_score: 92
+        hw1: { submitted: false, score: 0, deadline: "115/11/16", has_doc: true },
+        hw2: { submitted: false, score: 0, deadline: "115/12/01", has_doc: true },
+        midterm_score: 0,
+        final_score: 0,
+        exam_status: "尚未舉行 (預計11月)"
       },
       {
         id: "c2",
         code: "SD101",
+        cid: "101280",
+        course_code: "780087",
         name: "永續的挑戰與實踐",
         credits: 2,
         class_code: "ZZZ002",
@@ -428,22 +545,25 @@
         time_slot: "night",
         time_desc: "19:00 - 20:50 (夜間)",
         webex_url: "https://nou.webex.com/nou/j.php?MTID=m87b58dd19bb80bebd4aca53210240bb4",
-        reading_hours: 50,
+        reading_hours: 1.0,
         lighting_percent: 100,
         meetings: [
-          { date: "2026-09-14", time: "19:00", attended: true },
-          { date: "2026-10-05", time: "19:00", attended: true },
-          { date: "2026-11-02", time: "19:00", attended: true },
-          { date: "2027-01-04", time: "19:00", attended: true }
+          { date: "2026-09-14", time: "19:00", attended: false, note: "9/14 首場面授待開課" },
+          { date: "2026-10-05", time: "19:00", attended: false, note: "排定待出席" },
+          { date: "2026-11-02", time: "19:00", attended: false, note: "排定待出席" },
+          { date: "2027-01-04", time: "19:00", attended: false, note: "排定待出席" }
         ],
-        hw1: { submitted: true, score: 95 },
-        hw2: { submitted: true, score: 90 },
-        midterm_score: 86,
-        final_score: 88
+        hw1: { submitted: false, score: 0, deadline: "期中考前", has_doc: false },
+        hw2: { submitted: false, score: 0, deadline: "期末考前", has_doc: false },
+        midterm_score: 0,
+        final_score: 0,
+        exam_status: "尚未舉行"
       },
       {
         id: "c3",
         code: "OS201",
+        cid: "101088",
+        course_code: "760103",
         name: "作業系統的理論基礎",
         credits: 3,
         class_code: "ZZZ101",
@@ -453,22 +573,25 @@
         time_slot: "afternoon",
         time_desc: "14:00 - 15:40 (下午班)",
         webex_url: "https://nou.webex.com/nou/j.php?MTID=m5472c403628987b41ca4e56f376fb741",
-        reading_hours: 50,
+        reading_hours: 1.0,
         lighting_percent: 100,
         meetings: [
-          { date: "2026-09-21", time: "14:00", attended: true },
-          { date: "2026-10-19", time: "14:00", attended: true },
-          { date: "2026-11-23", time: "14:00", attended: true },
-          { date: "2026-12-21", time: "14:00", attended: true }
+          { date: "2026-09-21", time: "14:00", attended: false, note: "9/21 首場面授待開課" },
+          { date: "2026-10-19", time: "14:00", attended: false, note: "排定待出席" },
+          { date: "2026-11-23", time: "14:00", attended: false, note: "排定待出席" },
+          { date: "2026-12-21", time: "14:00", attended: false, note: "排定待出席" }
         ],
-        hw1: { submitted: true, score: 90 },
-        hw2: { submitted: true, score: 92 },
-        midterm_score: 85,
-        final_score: 90
+        hw1: { submitted: false, score: 0, deadline: "期中考前", has_doc: false },
+        hw2: { submitted: false, score: 0, deadline: "期末考前", has_doc: false },
+        midterm_score: 0,
+        final_score: 0,
+        exam_status: "尚未舉行"
       },
       {
         id: "c4",
         code: "CH101",
+        cid: "101282",
+        course_code: "780085",
         name: "AI時代的中文敘事與思辨",
         credits: 2,
         class_code: "ZZZ001",
@@ -478,24 +601,27 @@
         time_slot: "night",
         time_desc: "19:00 - 21:00 (夜間)",
         webex_url: "https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd",
-        reading_hours: 50,
+        reading_hours: 1.0,
         lighting_percent: 100,
         meetings: [
-          { date: "2026-09-23", time: "19:00", attended: true },
-          { date: "2026-10-14", time: "19:00", attended: true },
-          { date: "2026-11-04", time: "19:00", attended: true },
-          { date: "2026-11-23", time: "19:00", attended: true },
-          { date: "2026-12-16", time: "19:00", attended: true },
-          { date: "2027-01-06", time: "19:00", attended: true }
+          { date: "2026-09-23", time: "19:00", attended: false, note: "9/23 首場面授待開課" },
+          { date: "2026-10-14", time: "19:00", attended: false, note: "排定待出席" },
+          { date: "2026-11-04", time: "19:00", attended: false, note: "排定待出席" },
+          { date: "2026-11-23", time: "19:00", attended: false, note: "排定待出席" },
+          { date: "2026-12-16", time: "19:00", attended: false, note: "排定待出席" },
+          { date: "2027-01-06", time: "19:00", attended: false, note: "排定待出席" }
         ],
-        hw1: { submitted: true, score: 94 },
-        hw2: { submitted: true, score: 96 },
-        midterm_score: 90,
-        final_score: 94
+        hw1: { submitted: false, score: 0, deadline: "期中考前", has_doc: false },
+        hw2: { submitted: false, score: 0, deadline: "期末考前", has_doc: false },
+        midterm_score: 0,
+        final_score: 0,
+        exam_status: "尚未舉行"
       },
       {
         id: "c5",
         code: "AP101",
+        cid: "101270",
+        course_code: "740057",
         name: "生成式AI在行政實務的應用",
         credits: 2,
         class_code: "ZZZ001",
@@ -505,21 +631,24 @@
         time_slot: "night",
         time_desc: "19:00 - 20:50 (夜間)",
         webex_url: "https://nou.webex.com/nou/j.php?MTID=mf993b669aa765845657de3883f590fcf",
-        reading_hours: 50,
+        reading_hours: 1.0,
         lighting_percent: 100,
         meetings: [
-          { date: "2026-09-21", time: "19:00", attended: true },
-          { date: "2026-10-05", time: "19:00", attended: true },
-          { date: "2026-10-19", time: "19:00", attended: true }
+          { date: "2026-09-21", time: "19:00", attended: false, note: "9/21 首場面授待開課" },
+          { date: "2026-10-05", time: "19:00", attended: false, note: "排定待出席" },
+          { date: "2026-10-19", time: "19:00", attended: false, note: "排定待出席" }
         ],
-        hw1: { submitted: true, score: 92 },
-        hw2: { submitted: true, score: 90 },
-        midterm_score: 90,
-        final_score: 90
+        hw1: { submitted: false, score: 0, deadline: "課程結束前", has_doc: false },
+        hw2: { submitted: false, score: 0, deadline: "課程結束前", has_doc: false },
+        midterm_score: 0,
+        final_score: 0,
+        exam_status: "尚未舉行"
       },
       {
         id: "c6",
         code: "ET101",
+        cid: "101277",
+        course_code: "760126",
         name: "淺談人工智慧倫理",
         credits: 2,
         class_code: "ZZZ002",
@@ -529,21 +658,24 @@
         time_slot: "night",
         time_desc: "19:00 - 20:50 (夜間)",
         webex_url: "https://nou.webex.com/nou/j.php?MTID=mfd69fd80c232164a0aae21cd365de040",
-        reading_hours: 50,
+        reading_hours: 1.0,
         lighting_percent: 100,
         meetings: [
-          { date: "2026-09-23", time: "19:00", attended: true },
-          { date: "2026-10-21", time: "19:00", attended: true },
-          { date: "2026-11-04", time: "19:00", attended: true }
+          { date: "2026-09-23", time: "19:00", attended: false, note: "9/23 首場面授待開課" },
+          { date: "2026-10-21", time: "19:00", attended: false, note: "排定待出席" },
+          { date: "2026-11-04", time: "19:00", attended: false, note: "排定待出席" }
         ],
-        hw1: { submitted: true, score: 91 },
-        hw2: { submitted: true, score: 93 },
-        midterm_score: 88,
-        final_score: 92
+        hw1: { submitted: false, score: 0, deadline: "課程結束前", has_doc: false },
+        hw2: { submitted: false, score: 0, deadline: "課程結束前", has_doc: false },
+        midterm_score: 0,
+        final_score: 0,
+        exam_status: "尚未舉行"
       },
       {
         id: "c7",
         code: "AS101",
+        cid: "101186",
+        course_code: "780070",
         name: "探索宇宙之美",
         credits: 2,
         class_code: "ZZZ002",
@@ -553,24 +685,25 @@
         time_slot: "night",
         time_desc: "19:00 - 20:50 (夜間)",
         webex_url: "https://nou.webex.com/nou/j.php?MTID=m901afaa6b9c2ec97a7e47177d77193a4",
-        reading_hours: 50,
+        reading_hours: 1.0,
         lighting_percent: 100,
         meetings: [
-          { date: "2026-09-15", time: "19:00", attended: true },
-          { date: "2026-10-13", time: "19:00", attended: true },
-          { date: "2026-11-17", time: "19:00", attended: true },
-          { date: "2026-12-08", time: "19:00", attended: true }
+          { date: "2026-09-15", time: "19:00", attended: false, note: "9/15 首場面授待開課" },
+          { date: "2026-10-13", time: "19:00", attended: false, note: "排定待出席" },
+          { date: "2026-11-17", time: "19:00", attended: false, note: "排定待出席" },
+          { date: "2026-12-08", time: "19:00", attended: false, note: "排定待出席" }
         ],
-        hw1: { submitted: true, score: 95 },
-        hw2: { submitted: true, score: 95 },
-        midterm_score: 92,
-        final_score: 95
+        hw1: { submitted: false, score: 0, deadline: "期中考前", has_doc: false },
+        hw2: { submitted: false, score: 0, deadline: "期末考前", has_doc: false },
+        midterm_score: 0,
+        final_score: 0,
+        exam_status: "尚未舉行"
       }
     ];
 
-    // 本地持久化資料存取
     let courses = [];
-    const STORAGE_KEY = "nou_115_progress_tracker_chen";
+    let isProjectionMode = false;
+    const STORAGE_KEY = "nou_115_progress_tracker_real_v2";
 
     function loadData() {
       const saved = localStorage.getItem(STORAGE_KEY);
@@ -578,10 +711,10 @@
         try {
           courses = JSON.parse(saved);
         } catch (e) {
-          courses = JSON.parse(JSON.stringify(INITIAL_COURSES));
+          courses = JSON.parse(JSON.stringify(REAL_COURSES));
         }
       } else {
-        courses = JSON.parse(JSON.stringify(INITIAL_COURSES));
+        courses = JSON.parse(JSON.stringify(REAL_COURSES));
       }
     }
 
@@ -590,30 +723,76 @@
       updateGlobalAnalytics();
     }
 
+    function resetToRealData() {
+      courses = JSON.parse(JSON.stringify(REAL_COURSES));
+      isProjectionMode = false;
+      document.getElementById('modeBanner').innerHTML = `
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-circle-info text-blue-400"></i>
+          <span><strong>目前模式：【真實學習歷程追蹤】</strong> — 忠實呈現開學（9/7）真實狀態：<strong>平時作業尚未繳交 (0/14)</strong>、<strong>面授僅 9/7 首場已出席 (1/29)</strong>、<strong>考科尚未舉行</strong>。</span>
+        </div>
+        <span class="text-[11px] text-gray-400">已恢復開學實況</span>
+      `;
+      document.getElementById('modeText').innerText = "切換：期末目標推估模式";
+      document.getElementById('avgScoreLabel').innerText = "目前學期實得累計分";
+      saveData();
+      renderCourses();
+      showToast("已成功還原為 115-1 開學真實數據現況！");
+    }
+
+    function toggleMode() {
+      isProjectionMode = !isProjectionMode;
+      if (isProjectionMode) {
+        // 進入模擬模式
+        document.getElementById('modeBanner').innerHTML = `
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-wand-magic-sparkles text-emerald-400"></i>
+            <span><strong>目前模式：【期末目標推估模擬】</strong> — 正在模擬您完成所有平時作業與期中期末考試後的預估總成績落點。可自由滑動各項分數！</span>
+          </div>
+          <span class="text-[11px] text-emerald-400 font-bold">推估模擬中</span>
+        `;
+        document.getElementById('modeText').innerText = "返回：真實開學現況";
+        document.getElementById('avgScoreLabel').innerText = "模擬學期預估平均總分";
+
+        // 若全部都是 0 分，則預設帶入良好預估目標分方便使用者微調
+        courses.forEach(c => {
+          c.reading_hours = Math.max(c.reading_hours, 50);
+          c.meetings.forEach(m => m.attended = true);
+          c.hw1.submitted = true;
+          c.hw1.score = c.hw1.score || 92;
+          c.hw2.submitted = true;
+          c.hw2.score = c.hw2.score || 90;
+          c.midterm_score = c.midterm_score || 88;
+          c.final_score = c.final_score || 90;
+        });
+        saveData();
+        renderCourses();
+        confetti({ particleCount: 70, spread: 60, origin: { y: 0.6 } });
+        showToast("已切換為【期末目標推估模式】！");
+      } else {
+        resetToRealData();
+      }
+    }
+
     // 計算空大學則學科評量公式：
     // 平時成績 (30%) = 點燈進度(20%) + 在線時數(20%) + 面授出席率(30%) + 平時作業平均(30%)
     // 總成績 = 平時成績 * 0.3 + 期中評量 * 0.3 + 期末評量 * 0.4
     function calculateCourseGrade(c) {
-      // 1. 在線點燈 (0~100)
       const lightingScore = Math.min(100, Math.max(0, c.lighting_percent || 0));
-      // 2. 時數分數 (達 50 小時為 100 分)
       const hoursScore = Math.min(100, (Math.max(0, c.reading_hours || 0) / 50) * 100);
-      // 3. 面授出席率
       const totalMeetings = c.meetings.length || 1;
       const attendedCount = c.meetings.filter(m => m.attended).length;
       const attendanceScore = (attendedCount / totalMeetings) * 100;
-      // 4. 平時作業平均
+      
       const hw1Score = c.hw1.submitted ? (c.hw1.score || 0) : 0;
       const hw2Score = c.hw2.submitted ? (c.hw2.score || 0) : 0;
       const hwAvgScore = (hw1Score + hw2Score) / 2;
 
-      // 平時加權 (總分 100)
       const regularScore = (lightingScore * 0.2) + (hoursScore * 0.2) + (attendanceScore * 0.3) + (hwAvgScore * 0.3);
 
       const midtermScore = c.midterm_score || 0;
       const finalScore = c.final_score || 0;
 
-      // 總成績 (平時30% + 期中30% + 期末40%)
       const totalScore = (regularScore * 0.30) + (midtermScore * 0.30) + (finalScore * 0.40);
 
       return {
@@ -635,10 +814,6 @@
       const filtered = courses.filter(c => {
         if (currentFilter === 'night') return c.time_slot === 'night';
         if (currentFilter === 'afternoon') return c.time_slot === 'afternoon';
-        if (currentFilter === 'at_risk') {
-          const g = calculateCourseGrade(c);
-          return g.totalScore < 80;
-        }
         return true;
       });
 
@@ -646,12 +821,16 @@
         const grade = calculateCourseGrade(course);
         
         let statusBadge = '';
-        if (grade.isHonor) {
-          statusBadge = `<span class="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-xs font-bold flex items-center gap-1.5"><i class="fa-solid fa-medal"></i> 優等 (${grade.totalScore}分)</span>`;
-        } else if (grade.isPass) {
-          statusBadge = `<span class="px-2.5 py-1 rounded-full bg-cyan-500/15 text-cyan-400 border border-cyan-500/30 text-xs font-bold flex items-center gap-1.5"><i class="fa-solid fa-check"></i> 及格 (${grade.totalScore}分)</span>`;
+        if (isProjectionMode) {
+          if (grade.isHonor) {
+            statusBadge = `<span class="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-xs font-bold flex items-center gap-1.5"><i class="fa-solid fa-medal"></i> 優等 (${grade.totalScore}分)</span>`;
+          } else if (grade.isPass) {
+            statusBadge = `<span class="px-2.5 py-1 rounded-full bg-cyan-500/15 text-cyan-400 border border-cyan-500/30 text-xs font-bold flex items-center gap-1.5"><i class="fa-solid fa-check"></i> 及格 (${grade.totalScore}分)</span>`;
+          } else {
+            statusBadge = `<span class="px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 text-xs font-bold flex items-center gap-1.5"><i class="fa-solid fa-triangle-exclamation"></i> 待提升 (${grade.totalScore}分)</span>`;
+          }
         } else {
-          statusBadge = `<span class="px-2.5 py-1 rounded-full bg-red-500/15 text-red-400 border border-red-500/30 text-xs font-bold flex items-center gap-1.5"><i class="fa-solid fa-triangle-exclamation"></i> 預警 (${grade.totalScore}分)</span>`;
+          statusBadge = `<span class="px-2.5 py-1 rounded-full bg-blue-500/15 text-blue-300 border border-blue-500/30 text-xs font-bold flex items-center gap-1.5"><i class="fa-solid fa-flag-checkered"></i> 開學實況 (${grade.totalScore}分)</span>`;
         }
 
         const card = document.createElement('div');
@@ -664,6 +843,7 @@
                 <span class="px-2 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 font-mono font-bold text-xs border border-indigo-500/30">${course.code}</span>
                 <span class="px-2 py-0.5 rounded-md bg-gray-800 text-gray-300 text-xs font-semibold">${course.type}</span>
                 <span class="px-2 py-0.5 rounded-md bg-gray-800 text-gray-300 text-xs">${course.credits} 學分</span>
+                <span class="px-2 py-0.5 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">CID: ${course.cid}</span>
                 <span class="px-2 py-0.5 rounded-md bg-gray-800 text-gray-300 text-xs">班別: ${course.class_code}</span>
                 <h4 class="text-base md:text-lg font-black text-white ml-1">${course.name}</h4>
               </div>
@@ -687,32 +867,26 @@
           <!-- 空大學則四大計分模組 -->
           <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
             
-            <!-- 模組 1: 在線點燈與時數 (平時分 40% 比重) -->
+            <!-- 模組 1: 在線點燈與時數 -->
             <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 space-y-3">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-bold text-gray-300 flex items-center gap-1.5">
                   <i class="fa-solid fa-laptop-code text-cyan-400"></i>
                   <span>在線閱讀與點燈</span>
                 </span>
-                <span class="text-[11px] text-cyan-400 font-semibold">${course.lighting_percent}% 點燈</span>
-              </div>
-
-              <!-- 點燈滑桿 -->
-              <div>
-                <div class="flex justify-between text-[11px] text-gray-400 mb-1">
-                  <span>章節點燈閱畢進度</span>
-                  <span>${course.lighting_percent}%</span>
-                </div>
-                <input type="range" min="0" max="100" value="${course.lighting_percent}" 
-                  oninput="updateCourseLighting('${course.id}', this.value)"
-                  class="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-cyan-400">
+                <span class="text-[11px] text-emerald-400 font-semibold flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check"></i> ${course.lighting_percent}% 綠燈
+                </span>
               </div>
 
               <!-- 在線時數 -->
-              <div class="pt-1">
+              <div>
                 <div class="flex justify-between text-[11px] text-gray-400 mb-1">
-                  <span>累計閱讀時數 (滿分 50h)</span>
-                  <span class="text-white font-bold">${course.reading_hours} 小時</span>
+                  <span>SunNet 在線時數 (目標 50h)</span>
+                  <span class="text-cyan-300 font-bold">${course.reading_hours} 小時</span>
+                </div>
+                <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden mb-2">
+                  <div class="bg-cyan-400 h-full rounded-full transition-all" style="width: ${(course.reading_hours/50)*100}%;"></div>
                 </div>
                 <div class="flex items-center gap-1.5">
                   <button onclick="addHours('${course.id}', 1)" class="flex-1 py-1 rounded bg-gray-800 hover:bg-gray-700 text-gray-300 text-[11px] font-medium border border-gray-700">+1h</button>
@@ -720,9 +894,13 @@
                   <button onclick="setHours('${course.id}', 50)" class="flex-1 py-1 rounded bg-cyan-900/40 hover:bg-cyan-800/40 text-cyan-300 text-[11px] font-medium border border-cyan-800/40">滿分50h</button>
                 </div>
               </div>
+
+              <div class="text-[10px] text-gray-500 pt-1">
+                守護機制：背景守護 Daemon 每 60 秒合規累積
+              </div>
             </div>
 
-            <!-- 模組 2: 網路面授出席 (平時分 30% 比重) -->
+            <!-- 模組 2: 網路面授出席 -->
             <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 space-y-3">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-bold text-gray-300 flex items-center gap-1.5">
@@ -734,25 +912,27 @@
 
               <div class="space-y-1.5 max-h-36 overflow-y-auto pr-1">
                 ${course.meetings.map((m, idx) => `
-                  <label class="flex items-center justify-between p-1.5 rounded-lg hover:bg-gray-800/60 text-[11px] cursor-pointer border ${m.attended ? 'border-indigo-900/40 bg-indigo-950/20' : 'border-gray-800'} transition">
+                  <label class="flex items-center justify-between p-1.5 rounded-lg hover:bg-gray-800/60 text-[11px] cursor-pointer border ${m.attended ? 'border-emerald-900/40 bg-emerald-950/20' : 'border-gray-800'} transition">
                     <span class="flex items-center gap-2">
-                      <input type="checkbox" ${m.attended ? 'checked' : ''} onchange="toggleMeeting('${course.id}', ${idx})" class="w-3.5 h-3.5 rounded text-indigo-500 bg-gray-800 border-gray-700 focus:ring-0">
+                      <input type="checkbox" ${m.attended ? 'checked' : ''} onchange="toggleMeeting('${course.id}', ${idx})" class="w-3.5 h-3.5 rounded text-emerald-500 bg-gray-800 border-gray-700 focus:ring-0">
                       <span class="${m.attended ? 'text-white font-medium' : 'text-gray-400'}">第 ${idx+1} 次 (${m.date})</span>
                     </span>
-                    <span class="text-[10px] ${m.attended ? 'text-indigo-400 font-bold' : 'text-gray-500'}">${m.attended ? '已出席 ✅' : '待出席 ⏳'}</span>
+                    <span class="text-[10px] ${m.attended ? 'text-emerald-400 font-bold' : 'text-gray-500'}">${m.attended ? '已出席 ✅' : '待出席 ⏳'}</span>
                   </label>
                 `).join('')}
               </div>
             </div>
 
-            <!-- 模組 3: 平時作業 (各佔平時分 15% 比重) -->
+            <!-- 模組 3: 平時作業 (真實未繳交狀態) -->
             <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 space-y-3">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-bold text-gray-300 flex items-center gap-1.5">
                   <i class="fa-solid fa-file-signature text-amber-400"></i>
                   <span>平時作業 (2 次)</span>
                 </span>
-                <span class="text-[11px] text-amber-400 font-semibold">均分: ${Math.round((course.hw1.score + course.hw2.score)/2)}</span>
+                <span class="text-[11px] ${course.hw1.submitted || course.hw2.submitted ? 'text-amber-400' : 'text-red-400'} font-semibold">
+                  ${course.hw1.submitted || course.hw2.submitted ? '已繳部分' : '🔴 未繳交 (0/2)'}
+                </span>
               </div>
 
               <!-- 作業一 -->
@@ -760,13 +940,17 @@
                 <div class="flex items-center justify-between text-[11px]">
                   <label class="flex items-center gap-1.5 cursor-pointer">
                     <input type="checkbox" ${course.hw1.submitted ? 'checked' : ''} onchange="toggleHwSubmitted('${course.id}', 'hw1')" class="w-3.5 h-3.5 rounded text-amber-500 bg-gray-800 border-gray-700">
-                    <span class="text-gray-300 font-medium">第一次作業</span>
+                    <span class="${course.hw1.submitted ? 'text-amber-300 font-semibold' : 'text-gray-400'}">第一次作業</span>
                   </label>
-                  <span class="text-white font-bold">${course.hw1.score} 分</span>
+                  <span class="${course.hw1.submitted ? 'text-white font-bold' : 'text-red-400 font-medium'}">${course.hw1.submitted ? course.hw1.score + ' 分' : '未繳交'}</span>
                 </div>
-                <input type="range" min="0" max="100" value="${course.hw1.score}" 
-                  oninput="updateHwScore('${course.id}', 'hw1', this.value)"
-                  class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-400">
+                ${course.hw1.submitted ? `
+                  <input type="range" min="0" max="100" value="${course.hw1.score}" 
+                    oninput="updateHwScore('${course.id}', 'hw1', this.value)"
+                    class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-400">
+                ` : `
+                  <div class="text-[10px] text-gray-500">期限: ${course.hw1.deadline || '期中前'} ${course.hw1.has_doc ? '(已載題目)' : ''}</div>
+                `}
               </div>
 
               <!-- 作業二 -->
@@ -774,31 +958,35 @@
                 <div class="flex items-center justify-between text-[11px]">
                   <label class="flex items-center gap-1.5 cursor-pointer">
                     <input type="checkbox" ${course.hw2.submitted ? 'checked' : ''} onchange="toggleHwSubmitted('${course.id}', 'hw2')" class="w-3.5 h-3.5 rounded text-amber-500 bg-gray-800 border-gray-700">
-                    <span class="text-gray-300 font-medium">第二次作業</span>
+                    <span class="${course.hw2.submitted ? 'text-amber-300 font-semibold' : 'text-gray-400'}">第二次作業</span>
                   </label>
-                  <span class="text-white font-bold">${course.hw2.score} 分</span>
+                  <span class="${course.hw2.submitted ? 'text-white font-bold' : 'text-red-400 font-medium'}">${course.hw2.submitted ? course.hw2.score + ' 分' : '未繳交'}</span>
                 </div>
-                <input type="range" min="0" max="100" value="${course.hw2.score}" 
-                  oninput="updateHwScore('${course.id}', 'hw2', this.value)"
-                  class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-400">
+                ${course.hw2.submitted ? `
+                  <input type="range" min="0" max="100" value="${course.hw2.score}" 
+                    oninput="updateHwScore('${course.id}', 'hw2', this.value)"
+                    class="w-full h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-400">
+                ` : `
+                  <div class="text-[10px] text-gray-500">期限: ${course.hw2.deadline || '期末前'}</div>
+                `}
               </div>
             </div>
 
-            <!-- 模組 4: 期中考 (30%) 與期末考 (40%) -->
+            <!-- 模組 4: 期中與期末考試 -->
             <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 space-y-3">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-bold text-gray-300 flex items-center gap-1.5">
                   <i class="fa-solid fa-graduation-cap text-emerald-400"></i>
                   <span>期中 / 期末評量</span>
                 </span>
-                <span class="text-[11px] text-emerald-400 font-semibold">佔 70% 總權重</span>
+                <span class="text-[11px] text-gray-500 font-medium">佔 70% 總權重</span>
               </div>
 
               <!-- 期中考 -->
               <div class="space-y-1">
                 <div class="flex items-center justify-between text-[11px]">
-                  <span class="text-cyan-300 font-medium">期中考 (佔 30%)</span>
-                  <span class="text-white font-bold">${course.midterm_score} 分</span>
+                  <span class="text-gray-400">期中考 (30%)</span>
+                  <span class="${course.midterm_score > 0 ? 'text-cyan-400 font-bold' : 'text-gray-500'}">${course.midterm_score > 0 ? course.midterm_score + ' 分' : '尚未舉行'}</span>
                 </div>
                 <input type="range" min="0" max="100" value="${course.midterm_score}" 
                   oninput="updateExamScore('${course.id}', 'midterm', this.value)"
@@ -808,8 +996,8 @@
               <!-- 期末考 -->
               <div class="space-y-1 pt-1">
                 <div class="flex items-center justify-between text-[11px]">
-                  <span class="text-indigo-300 font-medium">期末考 (佔 40%)</span>
-                  <span class="text-white font-bold">${course.final_score} 分</span>
+                  <span class="text-gray-400">期末考 (40%)</span>
+                  <span class="${course.final_score > 0 ? 'text-indigo-400 font-bold' : 'text-gray-500'}">${course.final_score > 0 ? course.final_score + ' 分' : '尚未舉行'}</span>
                 </div>
                 <input type="range" min="0" max="100" value="${course.final_score}" 
                   oninput="updateExamScore('${course.id}', 'final', this.value)"
@@ -823,13 +1011,13 @@
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 text-xs text-gray-400 border-t border-gray-800/60">
             <div class="flex items-center gap-4 flex-wrap">
               <span>平時分(30%): <strong class="text-white">${grade.regularScore}</strong></span>
-              <span>期中考(30%): <strong class="text-white">${course.midterm_score}</strong></span>
-              <span>期末考(40%): <strong class="text-white">${course.final_score}</strong></span>
-              <span class="text-emerald-400">➜ 學期總成績: <strong class="text-white font-black text-sm">${grade.totalScore}</strong> 分</span>
+              <span>期中考(30%): <strong class="text-white">${course.midterm_score > 0 ? course.midterm_score : '未測驗'}</strong></span>
+              <span>期末考(40%): <strong class="text-white">${course.final_score > 0 ? course.final_score : '未測驗'}</strong></span>
+              <span class="text-emerald-400">➜ 學期實得分: <strong class="text-white font-black text-sm">${grade.totalScore}</strong> 分</span>
             </div>
             <div class="flex items-center gap-2">
-              <span class="text-gray-500">及格標準 60 分 | 80 分優等</span>
-              <span class="w-2.5 h-2.5 rounded-full ${grade.isHonor ? 'bg-emerald-500 shadow-md shadow-emerald-500/50' : (grade.isPass ? 'bg-cyan-500' : 'bg-red-500')}"></span>
+              <span class="text-gray-500">${isProjectionMode ? '推估及格標準 60 分' : '開學起跑積累中'}</span>
+              <span class="w-2.5 h-2.5 rounded-full ${isProjectionMode ? (grade.isHonor ? 'bg-emerald-500' : (grade.isPass ? 'bg-cyan-500' : 'bg-red-500')) : 'bg-blue-500'}"></span>
             </div>
           </div>
         `;
@@ -838,19 +1026,10 @@
     }
 
     // 互動更新函式
-    function updateCourseLighting(id, val) {
-      const c = courses.find(x => x.id === id);
-      if (c) {
-        c.lighting_percent = parseInt(val);
-        saveData();
-        renderCourses();
-      }
-    }
-
     function addHours(id, amount) {
       const c = courses.find(x => x.id === id);
       if (c) {
-        c.reading_hours = Math.min(100, Math.max(0, (c.reading_hours || 0) + amount));
+        c.reading_hours = Math.min(100, Math.max(0, Math.round(((c.reading_hours || 0) + amount) * 10) / 10));
         saveData();
         renderCourses();
         showToast(`已為《${c.name}》累計閱讀時數 +${amount} 小時！`);
@@ -881,8 +1060,12 @@
       const c = courses.find(x => x.id === id);
       if (c && c[hwKey]) {
         c[hwKey].submitted = !c[hwKey].submitted;
+        if (c[hwKey].submitted && c[hwKey].score === 0) {
+          c[hwKey].score = 90; // 預設繳交及格優良分
+        }
         saveData();
         renderCourses();
+        showToast(`已更新《${c.name}》${hwKey === 'hw1' ? '作業一' : '作業二'}繳交狀態！`);
       }
     }
 
@@ -916,30 +1099,6 @@
       renderCourses();
     }
 
-    // 一鍵模擬全學期優等滿分
-    function simulateFullMarks() {
-      courses.forEach(c => {
-        c.lighting_percent = 100;
-        c.reading_hours = 50;
-        c.meetings.forEach(m => m.attended = true);
-        c.hw1.submitted = true;
-        c.hw1.score = 95;
-        c.hw2.submitted = true;
-        c.hw2.score = 95;
-        c.midterm_score = 92;
-        c.final_score = 94;
-      });
-      saveData();
-      renderCourses();
-      confetti({
-        particleCount: 120,
-        spread: 80,
-        origin: { y: 0.6 }
-      });
-      showToast("🎉 已一鍵配置全學期優等榮譽生滿分模型！");
-    }
-
-    // 匯出 JSON
     function exportData() {
       const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(courses, null, 2));
       const downloadAnchor = document.createElement('a');
@@ -948,33 +1107,8 @@
       document.body.appendChild(downloadAnchor);
       downloadAnchor.click();
       downloadAnchor.remove();
-      showToast("📦 已順利匯出學期學習進度檔案！");
+      showToast("📦 已順利匯出真實學習歷程進度檔案！");
     }
-
-    // 匯入 JSON
-    function importData(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        try {
-          const imported = JSON.parse(e.target.result);
-          if (Array.isArray(imported)) {
-            courses = imported;
-            saveData();
-            renderCourses();
-            showToast("✅ 已成功匯入並同步最新學期進度！");
-          }
-        } catch (err) {
-          alert("匯入失敗，請確認是否為正確的 JSON 格式！");
-        }
-      };
-      reader.readAsText(file);
-    }
-
-    // 全局統計圖表與指標更新
-    let scoresChart = null;
-    let radarChart = null;
 
     function updateGlobalAnalytics() {
       let totalWeightedScore = 0;
@@ -986,9 +1120,6 @@
       let totalMeetings = 0;
       let submittedHw = 0;
       let totalHw = 0;
-
-      const courseNames = [];
-      const courseScores = [];
 
       courses.forEach(c => {
         const grade = calculateCourseGrade(c);
@@ -1003,9 +1134,6 @@
         if (c.hw1.submitted) submittedHw++;
         if (c.hw2.submitted) submittedHw++;
         totalHw += 2;
-
-        courseNames.push(c.name);
-        courseScores.push(grade.totalScore);
       });
 
       const avgScore = totalCredits > 0 ? (totalWeightedScore / totalCredits).toFixed(1) : 0;
@@ -1013,14 +1141,19 @@
 
       // 更新卡片 1
       document.getElementById('globalAvgScore').innerText = avgScore;
-      document.getElementById('globalAvgScoreBar').style.width = Math.min(100, avgScore) + '%';
-      document.getElementById('globalPassStatus').innerText = `全數及格 (${passCount}/${courses.length} 科)`;
-      document.getElementById('globalGradeTier').innerText = avgScore >= 80 ? '🌟 優等榮譽生' : (avgScore >= 60 ? '✅ 及格達標' : '⚠️ 需補救');
+      document.getElementById('globalAvgScoreBar').style.width = Math.min(100, Math.max(8, avgScore)) + '%';
+      if (isProjectionMode) {
+        document.getElementById('globalPassStatus').innerText = `預估及格 (${passCount}/${courses.length} 科)`;
+        document.getElementById('globalGradeTier').innerText = avgScore >= 80 ? '🌟 優等榮譽生' : (avgScore >= 60 ? '✅ 及格達標' : '⚠️ 需加強');
+      } else {
+        document.getElementById('globalPassStatus').innerText = `開學起跑中 (第 1 週)`;
+        document.getElementById('globalGradeTier').innerText = `已得累計基分: ${avgScore}分`;
+      }
 
       // 更新卡片 2
-      document.getElementById('globalTotalHours').innerText = totalHours;
-      document.getElementById('globalLightingRate').innerText = `平均點燈率: ${avgLighting}%`;
-      document.getElementById('globalHoursBar').style.width = Math.min(100, (totalHours / 350) * 100) + '%';
+      document.getElementById('globalTotalHours').innerText = Math.round(totalHours * 10) / 10;
+      document.getElementById('globalLightingRate').innerText = `點燈閱畢率: ${avgLighting}% 綠燈`;
+      document.getElementById('globalHoursBar').style.width = Math.min(100, Math.max(2, (totalHours / 350) * 100)) + '%';
 
       // 更新卡片 3
       document.getElementById('globalAttendanceRatio').innerText = `${attendedMeetings} / ${totalMeetings}`;
@@ -1029,108 +1162,6 @@
       // 更新卡片 4
       document.getElementById('globalHomeworkRatio').innerText = `${submittedHw} / ${totalHw}`;
       document.getElementById('globalHomeworkBar').style.width = Math.min(100, (submittedHw / totalHw) * 100) + '%';
-
-      // 更新柱狀圖
-      if (scoresChart) {
-        scoresChart.data.labels = courseNames;
-        scoresChart.data.datasets[0].data = courseScores;
-        scoresChart.update();
-      } else {
-        initScoresChart(courseNames, courseScores);
-      }
-
-      // 更新雷達圖
-      const hoursRate = Math.min(100, (totalHours / 350) * 100);
-      const attendRate = (attendedMeetings / totalMeetings) * 100;
-      const hwRate = (submittedHw / totalHw) * 100;
-      const examRate = Math.min(100, (courses.reduce((acc, c) => acc + c.midterm_score + c.final_score, 0) / (courses.length * 200)) * 100);
-
-      if (radarChart) {
-        radarChart.data.datasets[0].data = [avgLighting, hoursRate, attendRate, hwRate, examRate];
-        radarChart.update();
-      } else {
-        initRadarChart([avgLighting, hoursRate, attendRate, hwRate, examRate]);
-      }
-    }
-
-    function initScoresChart(labels, data) {
-      const ctx = document.getElementById('scoresBarChart').getContext('2d');
-      scoresChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: labels,
-          datasets: [
-            {
-              label: '預估總成績',
-              data: data,
-              backgroundColor: data.map(v => v >= 80 ? 'rgba(34, 197, 94, 0.85)' : (v >= 60 ? 'rgba(6, 182, 212, 0.85)' : 'rgba(239, 68, 68, 0.85)')),
-              borderRadius: 8,
-              borderWidth: 0
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: {
-                label: (c) => ` 總成績: ${c.raw} 分 (${c.raw >= 80 ? '優等' : (c.raw >= 60 ? '及格' : '不及格')})`
-              }
-            }
-          },
-          scales: {
-            y: {
-              min: 0,
-              max: 100,
-              grid: { color: 'rgba(255, 255, 255, 0.05)' },
-              ticks: { color: '#9ca3af' }
-            },
-            x: {
-              grid: { display: false },
-              ticks: { color: '#9ca3af', font: { size: 11 } }
-            }
-          }
-        }
-      });
-    }
-
-    function initRadarChart(data) {
-      const ctx = document.getElementById('radarChart').getContext('2d');
-      radarChart = new Chart(ctx, {
-        type: 'radar',
-        data: {
-          labels: ['點燈閱畢', '在線時數', '面授全勤', '平時作業', '期中期末'],
-          datasets: [{
-            label: '達成率 %',
-            data: data,
-            backgroundColor: 'rgba(6, 182, 212, 0.25)',
-            borderColor: '#06b6d4',
-            pointBackgroundColor: '#22c55e',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: '#22c55e'
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            r: {
-              min: 0,
-              max: 100,
-              ticks: { display: false, stepSize: 20 },
-              grid: { color: 'rgba(255, 255, 255, 0.08)' },
-              angleLines: { color: 'rgba(255, 255, 255, 0.08)' },
-              pointLabels: { color: '#d1d5db', font: { size: 11, weight: 'bold' } }
-            }
-          },
-          plugins: {
-            legend: { display: false }
-          }
-        }
-      });
     }
 
     function showToast(msg) {
