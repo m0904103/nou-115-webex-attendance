@@ -57,6 +57,7 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
         context = browser.new_context(
             permissions=['microphone', 'camera'],
             viewport={'width': 1280, 'height': 800},
+            locale='zh-TW',
             user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
         )
         page = context.new_page()
@@ -75,20 +76,34 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
                 pass
             
             print(f"[*] 步驟 2/5: 點擊「從此瀏覽器加入」卡片...")
-            # 點擊初始卡片
-            try:
-                page.click('text="從此瀏覽器加入", text="Join from your browser"', timeout=5000)
-            except Exception:
-                pass
-            time.sleep(2)
+            card_clicked = False
+            for text_pattern in ["Join from this browser", "從此瀏覽器加入", "Join from your browser", "Join from browser"]:
+                try:
+                    loc = page.get_by_text(text_pattern, exact=False)
+                    if loc.count() > 0:
+                        loc.first.click()
+                        print(f"  [+] 成功點擊卡片：{text_pattern}")
+                        card_clicked = True
+                        break
+                except Exception:
+                    pass
             
-            # 點擊彈出黑色對話框上的「從瀏覽器加入」按鈕 (id=joinFromWebapp)
+            if not card_clicked:
+                try:
+                    page.locator('div[role="button"]:has-text("browser"), div[role="button"]:has-text("瀏覽器")').first.click()
+                    print("  [+] 透過萬用語義定位點擊瀏覽器卡片。")
+                except Exception:
+                    pass
+                    
+            time.sleep(3)
+            
+            # 點擊彈出確認彈窗上的「從瀏覽器加入」按鈕 (id=joinFromWebapp)
             print(f"[*] 步驟 2.5: 點擊確認彈窗「從瀏覽器加入」按鈕...")
             try:
-                webapp_btn = page.query_selector('#joinFromWebapp, button:has-text("從瀏覽器加入"), button:has-text("Join from browser")')
-                if webapp_btn:
-                    webapp_btn.click()
-                    print("  [+] 成功點擊 #joinFromWebapp！")
+                webapp_btn = page.locator('#joinFromWebapp, button:has-text("從瀏覽器加入"), button:has-text("Join from browser")')
+                if webapp_btn.count() > 0 and webapp_btn.first.is_visible():
+                    webapp_btn.first.click()
+                    print("  [+] 成功點擊 #joinFromWebapp 確認按鈕！")
             except Exception as e:
                 print(f"  [!] joinFromWebapp 點擊提示：{e}")
                 
@@ -97,14 +112,12 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
             print(f"[*] 步驟 3/5: 輸入出席學生身分 ({STUDENT_NAME})...")
             # 在 Name 頁面輸入姓名
             try:
-                # 嘗試點擊唯一可見的輸入框
                 visible_inputs = page.locator('input:visible')
                 if visible_inputs.count() > 0:
                     visible_inputs.first.click()
                     visible_inputs.first.fill(STUDENT_NAME)
                     print(f"  [+] 成功透過輸入框填入姓名：{STUDENT_NAME}")
                 else:
-                    # 透過鍵盤直接打字
                     page.keyboard.press('Tab')
                     page.keyboard.type(STUDENT_NAME, delay=40)
                     print(f"  [+] 成功透過鍵盤打字填入姓名：{STUDENT_NAME}")
@@ -117,18 +130,22 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
             print(f"[*] 步驟 4/5: 靜音麥克風並點擊【加入會議】進入正式視訊室...")
             # 確保靜音
             try:
-                page.click('button[aria-label*="Mute"], button[aria-label*="靜音"]', timeout=3000)
+                mute = page.locator('button[aria-label*="Mute"], button[aria-label*="靜音"]')
+                if mute.count() > 0 and mute.first.is_visible():
+                    mute.first.click()
+                    print("  [+] 麥克風已切換為靜音。")
             except Exception:
                 pass
             
             # 點擊 Join meeting 大按鈕
-            joined = False
             try:
-                page.click('button:has-text("Join meeting"), button:has-text("加入會議"), button#interstitial_join_button', timeout=6000)
-                print("  [+] 🚀 成功點擊【Join meeting】大按鈕！正式進入會議室！")
-                joined = True
+                join_btn = page.locator('button:has-text("Join meeting"), button:has-text("加入會議"), button#interstitial_join_button')
+                if join_btn.count() > 0 and join_btn.first.is_visible():
+                    join_btn.first.click()
+                    print("  [+] 🚀 成功點擊【Join meeting】大按鈕！正式進入會議室！")
+                else:
+                    page.keyboard.press('Enter')
             except Exception:
-                print("  [?] 嘗試透過 Enter 鍵直接進場...")
                 page.keyboard.press('Enter')
             
             time.sleep(8)
