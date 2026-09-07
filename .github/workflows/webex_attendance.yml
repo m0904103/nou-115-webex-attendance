@@ -2,14 +2,18 @@ name: 空大115上 視訊面授雲端自動替身排程
 
 on:
   schedule:
-    # 台北時間 13:55 (UTC 05:55) - 針對下午 14:00 課程
+    # 下午 14:00 課程三重防護排程 (台北時間 13:45, 13:55, 14:05 / UTC 05:45, 05:55, 06:05)
+    - cron: '45 5 * * *'
     - cron: '55 5 * * *'
-    # 台北時間 18:55 (UTC 10:55) - 針對晚上 19:00 課程
+    - cron: '5 6 * * *'
+    # 夜間 19:00 課程三重防護排程 (台北時間 18:45, 18:55, 19:05 / UTC 10:45, 10:55, 11:05)
+    - cron: '45 10 * * *'
     - cron: '55 10 * * *'
+    - cron: '5 11 * * *'
   workflow_dispatch:
     inputs:
       mode:
-        description: '執行模式'
+        description: '執行模式 (auto: 自動依排程, test: 45秒快速測試)'
         required: true
         default: 'auto'
         type: choice
@@ -17,10 +21,18 @@ on:
           - auto
           - test
 
+# 確保同一時段會議不會被重複觸發覆蓋，而是排隊安全互鎖
+concurrency:
+  group: webex-attendance-guardian
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
 jobs:
   attend_webex:
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 180
     steps:
       - name: 檢出儲存庫程式碼
         uses: actions/checkout@v4
@@ -45,7 +57,7 @@ jobs:
             python webex_bot.py --auto
           fi
 
-      - name: 上傳上課出席存證截圖 (若有產生)
+      - name: 上傳上課出席存證截圖至 Actions Artifacts
         uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -53,4 +65,17 @@ jobs:
           path: |
             *.png
             *.log
-          retention-days: 14
+          retention-days: 30
+
+      - name: 自動發布最新出勤存證截圖至 GitHub 儲存庫 (儀表板實時顯示)
+        if: always()
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add attendance_proof*.png || true
+          if git diff --staged --quiet; then
+            echo "無新截圖更新，略過發布"
+          else
+            git commit -m "📸 [面授出勤存證] 自動歸檔視訊面授出席最新實況截圖 [skip ci]"
+            git push origin main
+          fi
