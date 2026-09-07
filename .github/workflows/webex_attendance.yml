@@ -1,0 +1,56 @@
+name: 空大115上 視訊面授雲端自動替身排程
+
+on:
+  schedule:
+    # 台北時間 13:55 (UTC 05:55) - 針對下午 14:00 課程
+    - cron: '55 5 * * *'
+    # 台北時間 18:55 (UTC 10:55) - 針對晚上 19:00 課程
+    - cron: '55 10 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: '執行模式'
+        required: true
+        default: 'auto'
+        type: choice
+        options:
+          - auto
+          - test
+
+jobs:
+  attend_webex:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - name: 檢出儲存庫程式碼
+        uses: actions/checkout@v4
+
+      - name: 設定 Python 3.11 環境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 安裝相依套件與 Playwright 瀏覽器核心
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          playwright install chromium --with-deps
+
+      - name: 執行空大視訊面授雲端自動出席任務
+        run: |
+          if [ "${{ github.event.inputs.mode }}" == "test" ]; then
+            python webex_bot.py --test
+          else
+            python webex_bot.py --auto
+          fi
+
+      - name: 上傳上課出席存證截圖 (若有產生)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: attendance-proof-screenshot
+          path: |
+            *.png
+            *.log
+          retention-days: 14
