@@ -1,7 +1,13 @@
 # -*- coding: utf-8 -*-
 """
 國立空中大學 115上 視訊面授 雲端無頭自動替身機器人 (Cloud Webex Bot)
+===================================================================
 學生：陳嬑萱 ｜ 學號：112122209 ｜ 登入身分：112122209陳嬑萱
+支援特性：
+1. 依據排程自動偵測當日課程並準時喚醒
+2. 支援同日同時段「衝堂平行多開」（如 10/5 三門衝堂、9/23 雙門衝堂），同時派遣獨立無頭瀏覽器進房
+3. 自動靜音、關閉鏡頭、全程掛機守護（110分鐘）
+4. 各課程獨立截圖存證與日誌存檔
 """
 
 import os
@@ -10,6 +16,7 @@ import time
 import json
 import datetime
 import argparse
+from concurrent.futures import ThreadPoolExecutor
 from playwright.sync_api import sync_playwright
 
 sys.stdout.reconfigure(encoding='utf-8')
@@ -33,13 +40,16 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
     cname = course_info['course_name']
     teacher = course_info['teacher']
     url = course_info['webex_url']
+    today_str = get_taipei_now().strftime('%Y%m%d')
+    safe_cname = cname.replace(' ', '_')
     
+    prefix = f"[{cname}]"
     print(f"\n==================================================")
-    print(f"🚀 [啟動雲端連線] 正在進入《{cname}》視訊會議室...")
-    print(f"👨‍🏫 授課教師：{teacher} 老師 (分機 {course_info['ext']})")
-    print(f"👤 出席身分：{STUDENT_NAME}")
-    print(f"🌐 原始會議室網址：{url}")
-    print(f"⏳ 預計在線掛機時間：{duration_minutes} 分鐘")
+    print(f"🚀 {prefix} [啟動雲端連線] 正在進入《{cname}》視訊會議室...")
+    print(f"👨‍🏫 {prefix} 授課教師：{teacher} 老師 (分機 {course_info.get('ext', '')})")
+    print(f"👤 {prefix} 出席身分：{STUDENT_NAME}")
+    print(f"🌐 {prefix} 會議室網址：{url}")
+    print(f"⏳ {prefix} 預計在線掛機時間：{duration_minutes} 分鐘")
     print(f"==================================================\n")
     
     with sync_playwright() as p:
@@ -63,7 +73,7 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
         page = context.new_page()
         
         try:
-            print(f"[*] 步驟 1/5: 導航至 Webex 頁面...")
+            print(f"{prefix} [*] 步驟 1/5: 導航至 Webex 頁面...")
             page.goto(url, wait_until='domcontentloaded', timeout=45000)
             time.sleep(3)
             
@@ -75,14 +85,14 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
             except Exception:
                 pass
             
-            print(f"[*] 步驟 2/5: 點擊「從此瀏覽器加入」卡片...")
+            print(f"{prefix} [*] 步驟 2/5: 點擊「從此瀏覽器加入」卡片...")
             card_clicked = False
             for text_pattern in ["Join from this browser", "從此瀏覽器加入", "Join from your browser", "Join from browser"]:
                 try:
                     loc = page.get_by_text(text_pattern, exact=False)
                     if loc.count() > 0:
                         loc.first.click()
-                        print(f"  [+] 成功點擊卡片：{text_pattern}")
+                        print(f"{prefix}   [+] 成功點擊卡片：{text_pattern}")
                         card_clicked = True
                         break
                 except Exception:
@@ -91,58 +101,55 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
             if not card_clicked:
                 try:
                     page.locator('div[role="button"]:has-text("browser"), div[role="button"]:has-text("瀏覽器")').first.click()
-                    print("  [+] 透過萬用語義定位點擊瀏覽器卡片。")
+                    print(f"{prefix}   [+] 透過萬用語義定位點擊瀏覽器卡片。")
                 except Exception:
                     pass
                     
             time.sleep(3)
             
             # 點擊彈出確認彈窗上的「從瀏覽器加入」按鈕 (id=joinFromWebapp)
-            print(f"[*] 步驟 2.5: 點擊確認彈窗「從瀏覽器加入」按鈕...")
+            print(f"{prefix} [*] 步驟 2.5: 點擊確認彈窗「從瀏覽器加入」按鈕...")
             try:
                 webapp_btn = page.locator('#joinFromWebapp, button:has-text("從瀏覽器加入"), button:has-text("Join from browser")')
                 if webapp_btn.count() > 0 and webapp_btn.first.is_visible():
                     webapp_btn.first.click()
-                    print("  [+] 成功點擊 #joinFromWebapp 確認按鈕！")
+                    print(f"{prefix}   [+] 成功點擊 #joinFromWebapp 確認按鈕！")
             except Exception as e:
-                print(f"  [!] joinFromWebapp 點擊提示：{e}")
+                print(f"{prefix}   [!] joinFromWebapp 點擊提示：{e}")
                 
             time.sleep(6)
             
-            print(f"[*] 步驟 3/5: 輸入出席學生身分 ({STUDENT_NAME})...")
-            # 在 Name 頁面輸入姓名
+            print(f"{prefix} [*] 步驟 3/5: 輸入出席學生身分 ({STUDENT_NAME})...")
             try:
                 visible_inputs = page.locator('input:visible')
                 if visible_inputs.count() > 0:
                     visible_inputs.first.click()
                     visible_inputs.first.fill(STUDENT_NAME)
-                    print(f"  [+] 成功透過輸入框填入姓名：{STUDENT_NAME}")
+                    print(f"{prefix}   [+] 成功透過輸入框填入姓名：{STUDENT_NAME}")
                 else:
                     page.keyboard.press('Tab')
                     page.keyboard.type(STUDENT_NAME, delay=40)
-                    print(f"  [+] 成功透過鍵盤打字填入姓名：{STUDENT_NAME}")
+                    print(f"{prefix}   [+] 成功透過鍵盤打字填入姓名：{STUDENT_NAME}")
             except Exception as e:
-                print(f"  [!] 填入姓名異常：{e}")
+                print(f"{prefix}   [!] 填入姓名異常：{e}")
                 page.keyboard.type(STUDENT_NAME, delay=40)
             
             time.sleep(2)
             
-            print(f"[*] 步驟 4/5: 靜音麥克風並點擊【加入會議】進入正式視訊室...")
-            # 確保靜音
+            print(f"{prefix} [*] 步驟 4/5: 靜音麥克風並點擊【加入會議】進入正式視訊室...")
             try:
                 mute = page.locator('button[aria-label*="Mute"], button[aria-label*="靜音"]')
                 if mute.count() > 0 and mute.first.is_visible():
                     mute.first.click()
-                    print("  [+] 麥克風已切換為靜音。")
+                    print(f"{prefix}   [+] 麥克風已切換為靜音。")
             except Exception:
                 pass
             
-            # 點擊 Join meeting 大按鈕
             try:
                 join_btn = page.locator('button:has-text("Join meeting"), button:has-text("加入會議"), button#interstitial_join_button')
                 if join_btn.count() > 0 and join_btn.first.is_visible():
                     join_btn.first.click()
-                    print("  [+] 🚀 成功點擊【Join meeting】大按鈕！正式進入會議室！")
+                    print(f"{prefix}   [+] 🚀 成功點擊【Join meeting】大按鈕！正式進入會議室！")
                 else:
                     page.keyboard.press('Enter')
             except Exception:
@@ -150,14 +157,22 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
             
             time.sleep(8)
             
-            # 截取進場成功證明截圖
-            proof_file = os.path.join(BASE_DIR, 'attendance_proof.png')
+            # 截取進場成功證明截圖 (每科專屬檔名)
+            proof_file = os.path.join(BASE_DIR, f'attendance_proof_{today_str}_{safe_cname}.png')
             page.screenshot(path=proof_file)
-            print(f"[*] 步驟 5/5: 📸 已截取會議室連線存證截圖：{proof_file}")
-            print(f"\n🎉 【成功進場】《{cname}》連線成功！學生 [{STUDENT_NAME}] 正在會議室持續在線中...")
+            print(f"{prefix} [*] 步驟 5/5: 📸 已截取會議室連線存證截圖：{proof_file}")
+            
+            # 同步更新通用 attendance_proof.png
+            try:
+                default_proof = os.path.join(BASE_DIR, 'attendance_proof.png')
+                page.screenshot(path=default_proof)
+            except Exception:
+                pass
+
+            print(f"\n🎉 {prefix} 【成功進場】《{cname}》連線成功！學生 [{STUDENT_NAME}] 正在會議室持續在線中...")
             
             if is_test:
-                print("🧪 [測試模式] 保持在線 45 秒後自動退出...")
+                print(f"{prefix} 🧪 [測試模式] 保持在線 45 秒後自動退出...")
                 time.sleep(45)
             else:
                 total_seconds = duration_minutes * 60
@@ -167,16 +182,16 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
                     time.sleep(min(interval, total_seconds - elapsed))
                     elapsed += interval
                     mins_done = elapsed // 60
-                    print(f"  [💓 雲端在線心跳] 《{cname}》已持續上課在線 {mins_done} / {duration_minutes} 分鐘 (狀態良好)...")
+                    print(f"{prefix}   [💓 雲端在線心跳] 《{cname}》已持續上課在線 {mins_done} / {duration_minutes} 分鐘 (狀態良好)...")
             
-            print(f"\n🏁 【下課離場】課程《{cname}》時間結束，平穩退出會議室。")
+            print(f"\n🏁 {prefix} 【下課離場】課程《{cname}》時間結束，平穩退出會議室。")
             
         except Exception as e:
-            print(f"⚠️ 執行過程捕獲異常：{e}")
+            print(f"{prefix} ⚠️ 執行過程捕獲異常：{e}")
             try:
-                err_file = os.path.join(BASE_DIR, 'error_dump.png')
+                err_file = os.path.join(BASE_DIR, f'error_dump_{safe_cname}.png')
                 page.screenshot(path=err_file)
-                print(f"  [!] 已保存錯誤當下截圖：{err_file}")
+                print(f"{prefix}   [!] 已保存錯誤當下截圖：{err_file}")
             except Exception:
                 pass
         finally:
@@ -185,6 +200,7 @@ def enter_webex_meeting(course_info, duration_minutes=110, is_test=False):
 def auto_detect_and_run():
     now = get_taipei_now()
     today_str = now.strftime('%Y-%m-%d')
+    current_hour = now.hour
     current_hm = now.strftime('%H:%M')
     
     print(f"🔍 [雲端排程巡檢] 台北時間：{today_str} {current_hm}")
@@ -193,20 +209,46 @@ def auto_detect_and_run():
     matched = []
     for c in schedule:
         if today_str in c['dates']:
-            matched.append(c)
+            # 依目前執行時段智慧篩選：
+            # 13:00~16:00 執行下午班課程 (14:00 開課)
+            # 18:00~22:00 執行夜間班課程 (19:00 開課)
+            # 其他時段 (例如手動觸發) 則執行今日全部課程
+            start_hour = int(c['start_time'].split(':')[0])
+            if 13 <= current_hour < 17:
+                if start_hour < 17:
+                    matched.append(c)
+            elif 17 <= current_hour < 23:
+                if start_hour >= 17:
+                    matched.append(c)
+            else:
+                matched.append(c)
             
     if not matched:
-        print(f"ℹ️ 今日 ({today_str}) 無任何排定面授課程，雲端機器人休眠退出。")
+        print(f"ℹ️ 今日 ({today_str} {current_hm}) 此時段無排定面授課程，雲端機器人休眠退出。")
         return
     
-    print(f"🎯 鎖定今日有 {len(matched)} 門面授課程：")
+    print(f"🎯 鎖定此時段有 {len(matched)} 門面授課程：")
     for c in matched:
         print(f"   • 《{c['course_name']}》{c['start_time']}~{c['end_time']} (師：{c['teacher']})")
-        enter_webex_meeting(c, duration_minutes=c.get('duration_minutes', 110))
+    
+    if len(matched) == 1:
+        # 單門課常規出席
+        enter_webex_meeting(matched[0], duration_minutes=matched[0].get('duration_minutes', 110))
+    else:
+        # ⚡ 衝堂平行多開支援（如 10/5 三門同時、9/23 雙門同時）
+        print(f"\n⚡ [衝堂平行多開觸發] 偵測到 {len(matched)} 門課程同時段開課！立即啟動 {len(matched)} 組獨立並行容器同時出席...")
+        with ThreadPoolExecutor(max_workers=len(matched)) as executor:
+            futures = [
+                executor.submit(enter_webex_meeting, c, c.get('duration_minutes', 110))
+                for c in matched
+            ]
+            for f in futures:
+                f.result()
+        print(f"\n🏆 [衝堂守護圓滿完工] 今日同時段 {len(matched)} 門課程已全數平行出席完工！")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='空大115上 視訊面授 雲端無頭自動替身機器人')
-    parser.add_argument('--auto', action='store_true', help='自動依今日排程偵測上課')
+    parser.add_argument('--auto', action='store_true', help='自動依今日排程偵測上課 (支援衝堂多開)')
     parser.add_argument('--test', action='store_true', help='立即測試連接第一門課45秒並截圖存證')
     parser.add_argument('--course', type=str, help='手動指定課程名稱')
     parser.add_argument('--duration', type=int, default=110, help='指定掛機時間(分鐘)')

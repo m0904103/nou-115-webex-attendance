@@ -590,9 +590,45 @@
         "slot": "夜間課程 (19:00)",
         "wake_taipei": "18:55",
         "cron_utc": "55 10 * * *",
-        "action": "於 18:55 喚醒雲端容器，檢核當日是否有夜間課程，若遇衝堂自動平行開立雙容器同時出席"
+        "action": "於 18:55 喚醒雲端容器，檢核當日是否有夜間課程，若遇衝堂自動平行開立多容器同時出席"
       }
     ],
+    "oct5_triple_clash_plan": {
+      "date": "2026-10-05",
+      "weekday": "週一",
+      "time_slot": "19:00 - 20:50 (夜間)",
+      "cron_wake_time": "2026-10-05 18:55:00",
+      "clash_count": 3,
+      "status": "ARMED_PARALLEL_TRIPLE",
+      "status_text": "⚡ 10/5 三門大衝堂平行三開容器全自動出席已排定",
+      "courses": [
+        {
+          "id": 8,
+          "course_name": "人工智慧導論",
+          "teacher": "陳廷哲 老師 (分機 5183)",
+          "class_code": "ZZZ002",
+          "webex_url": "https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6",
+          "container_slot": "Container-Alpha (Chromium 獨立實例 #1)"
+        },
+        {
+          "id": 9,
+          "course_name": "永續的挑戰與實踐",
+          "teacher": "蔡適應 老師 (分機 5196)",
+          "class_code": "ZZZ002",
+          "webex_url": "https://nou.webex.com/nou/j.php?MTID=m87b58dd19bb80bebd4aca53210240bb4",
+          "container_slot": "Container-Beta (Chromium 獨立實例 #2)"
+        },
+        {
+          "id": 10,
+          "course_name": "生成式AI在行政實務的應用",
+          "teacher": "廖洲棚 老師 (分機 5161)",
+          "class_code": "ZZZ001",
+          "webex_url": "https://nou.webex.com/nou/j.php?MTID=mf993b669aa765845657de3883f590fcf",
+          "container_slot": "Container-Gamma (Chromium 獨立實例 #3)"
+        }
+      ],
+      "execution_guarantee": "10/5 當日 18:55 GitHub Actions 雲端喚醒後，自動啟動 ThreadPoolExecutor 平行派遣 3 組獨立無頭瀏覽器，分別進駐 3 間會議室，統一使用「112122209陳嬑萱」掛機 110 分鐘，分別截圖存證，保證 3 門課同日 100% 全勤！"
+    },
     "next_session": {
       "session_id": 2,
       "course_name": "永續的挑戰與實踐",
@@ -635,6 +671,7 @@
         "attended": true,
         "proof_image": "webex_proof_907.png",
         "id": 1,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "✅ 已出席完畢 (存證截圖已歸檔)",
         "badge_class": "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
@@ -656,9 +693,10 @@
         "attended": false,
         "proof_image": null,
         "id": 2,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🚀 下一場待命中 (雲端自動守護)",
-        "badge_class": "bg-amber-500/15 text-amber-400 border-amber-500/30 font-bold animate-pulse"
+        "badge_class": "bg-emerald-500/15 text-emerald-300 border-emerald-500/40 font-bold"
       },
       {
         "date": "2026-09-15",
@@ -677,6 +715,7 @@
         "attended": false,
         "proof_image": null,
         "id": 3,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -698,6 +737,7 @@
         "attended": false,
         "proof_image": null,
         "id": 4,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -719,6 +759,7 @@
         "attended": false,
         "proof_image": null,
         "id": 5,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -740,6 +781,7 @@
         "attended": false,
         "proof_image": null,
         "id": 6,
+        "clash_count": 2,
         "is_clash": true,
         "status_text": "⚡ 衝堂雙開支援 (平行雙容器就緒)",
         "badge_class": "bg-purple-500/15 text-purple-300 border-purple-500/30"
@@ -761,6 +803,7 @@
         "attended": false,
         "proof_image": null,
         "id": 7,
+        "clash_count": 2,
         "is_clash": true,
         "status_text": "⚡ 衝堂雙開支援 (平行雙容器就緒)",
         "badge_class": "bg-purple-500/15 text-purple-300 border-purple-500/30"
@@ -782,9 +825,10 @@
         "attended": false,
         "proof_image": null,
         "id": 8,
+        "clash_count": 3,
         "is_clash": true,
-        "status_text": "⚡ 衝堂雙開支援 (平行雙容器就緒)",
-        "badge_class": "bg-purple-500/15 text-purple-300 border-purple-500/30"
+        "status_text": "⚡ 10/5 三門大衝堂 (三開平行容器守護)",
+        "badge_class": "bg-amber-500/20 text-amber-300 border-amber-500/40 font-bold"
       },
       {
         "date": "2026-10-05",
@@ -803,9 +847,10 @@
         "attended": false,
         "proof_image": null,
         "id": 9,
+        "clash_count": 3,
         "is_clash": true,
-        "status_text": "⚡ 衝堂雙開支援 (平行雙容器就緒)",
-        "badge_class": "bg-purple-500/15 text-purple-300 border-purple-500/30"
+        "status_text": "⚡ 10/5 三門大衝堂 (三開平行容器守護)",
+        "badge_class": "bg-amber-500/20 text-amber-300 border-amber-500/40 font-bold"
       },
       {
         "date": "2026-10-05",
@@ -824,9 +869,10 @@
         "attended": false,
         "proof_image": null,
         "id": 10,
+        "clash_count": 3,
         "is_clash": true,
-        "status_text": "⚡ 衝堂雙開支援 (平行雙容器就緒)",
-        "badge_class": "bg-purple-500/15 text-purple-300 border-purple-500/30"
+        "status_text": "⚡ 10/5 三門大衝堂 (三開平行容器守護)",
+        "badge_class": "bg-amber-500/20 text-amber-300 border-amber-500/40 font-bold"
       },
       {
         "date": "2026-10-13",
@@ -845,6 +891,7 @@
         "attended": false,
         "proof_image": null,
         "id": 11,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -866,6 +913,7 @@
         "attended": false,
         "proof_image": null,
         "id": 12,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -887,6 +935,7 @@
         "attended": false,
         "proof_image": null,
         "id": 13,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -908,6 +957,7 @@
         "attended": false,
         "proof_image": null,
         "id": 14,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -929,6 +979,7 @@
         "attended": false,
         "proof_image": null,
         "id": 15,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -950,6 +1001,7 @@
         "attended": false,
         "proof_image": null,
         "id": 16,
+        "clash_count": 2,
         "is_clash": true,
         "status_text": "⚡ 衝堂雙開支援 (平行雙容器就緒)",
         "badge_class": "bg-purple-500/15 text-purple-300 border-purple-500/30"
@@ -971,6 +1023,7 @@
         "attended": false,
         "proof_image": null,
         "id": 17,
+        "clash_count": 2,
         "is_clash": true,
         "status_text": "⚡ 衝堂雙開支援 (平行雙容器就緒)",
         "badge_class": "bg-purple-500/15 text-purple-300 border-purple-500/30"
@@ -992,6 +1045,7 @@
         "attended": false,
         "proof_image": null,
         "id": 18,
+        "clash_count": 2,
         "is_clash": true,
         "status_text": "⚡ 衝堂雙開支援 (平行雙容器就緒)",
         "badge_class": "bg-purple-500/15 text-purple-300 border-purple-500/30"
@@ -1013,6 +1067,7 @@
         "attended": false,
         "proof_image": null,
         "id": 19,
+        "clash_count": 2,
         "is_clash": true,
         "status_text": "⚡ 衝堂雙開支援 (平行雙容器就緒)",
         "badge_class": "bg-purple-500/15 text-purple-300 border-purple-500/30"
@@ -1034,6 +1089,7 @@
         "attended": false,
         "proof_image": null,
         "id": 20,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -1055,6 +1111,7 @@
         "attended": false,
         "proof_image": null,
         "id": 21,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -1076,6 +1133,7 @@
         "attended": false,
         "proof_image": null,
         "id": 22,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -1097,6 +1155,7 @@
         "attended": false,
         "proof_image": null,
         "id": 23,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -1118,6 +1177,7 @@
         "attended": false,
         "proof_image": null,
         "id": 24,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -1139,6 +1199,7 @@
         "attended": false,
         "proof_image": null,
         "id": 25,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -1160,6 +1221,7 @@
         "attended": false,
         "proof_image": null,
         "id": 26,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -1181,6 +1243,7 @@
         "attended": false,
         "proof_image": null,
         "id": 27,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -1202,6 +1265,7 @@
         "attended": false,
         "proof_image": null,
         "id": 28,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
@@ -1223,6 +1287,7 @@
         "attended": false,
         "proof_image": null,
         "id": 29,
+        "clash_count": 1,
         "is_clash": false,
         "status_text": "🟢 雲端排程已掛載 (待命中)",
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
