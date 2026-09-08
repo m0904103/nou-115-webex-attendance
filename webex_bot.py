@@ -166,10 +166,10 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
                 
             time.sleep(1)
             
-            # 🌟 步驟 4.5: 高精度物理座標點擊綠色【加入 會議】大按鈕 (座標 985, 490)
-            log(f"{prefix} [*] 步驟 4.5: 高精度直擊【加入 會議】大按鈕 (985, 490) 正式進入會議室...")
-            page.mouse.click(985, 490)
-            log(f"{prefix}   [🚀 點擊進場] 已精確點擊 (985, 490) 【加入 會議】按鈕！")
+            # 🌟 步驟 4.5: 高精度物理座標點擊綠色【加入 會議】大按鈕 (座標 965, 515)
+            log(f"{prefix} [*] 步驟 4.5: 高精度直擊【加入 會議】大按鈕 (965, 515) 正式進入會議室...")
+            page.mouse.click(965, 515)
+            log(f"{prefix}   [🚀 點擊進場] 已精確點擊 (965, 515) 【加入 會議】按鈕！")
             
             # 輔以鍵盤 Enter 鍵雙重確保
             time.sleep(0.5)
