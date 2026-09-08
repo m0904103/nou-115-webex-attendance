@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-國立空中大學 115上 視訊面授 雲端無頭自動替身機器人 (Hardened Webex Bot)
+國立空中大學 115上 視訊面授 雲端無頭自動替身機器人 (Bulletproof Webex Bot)
 ===================================================================
 學生：陳嬑萱 ｜ 學號：112122209 ｜ 登入身分：112122209陳嬑萱
 守護核心特性：
-1. 【Shadow DOM 穿透 + 鍵盤精確導航】：遞迴穿透所有層級 Shadow DOM / iframe，結合 Tab 鍵流暢注入「112122209陳嬑萱」！
-2. 【綠色大按鈕原生觸發】：精準匹配「加入 會議」/「加入會議」，排除所有行動裝置與 QR 彈窗干擾！
+1. 【高精度座標物理注入】：在標準 1280x800 視窗下，直擊 (775, 395) 名稱輸入框與 (775, 515) 加入大按鈕，無視任何 Shadow DOM / iframe 隔閡！
+2. 【綠色大按鈕物理直擊】：精確點擊解鎖後的【加入 會議】，絕不誤觸行動裝置或 QR 彈窗！
 3. 【零失誤開房等待機制】：若授課教師晚開房，自動輪詢等待最多 30 分鐘，一開房即刻自動闖入！
 4. 【衝堂平行多開支援】：10/5 三門同時、9/23 雙門同時，啟動完全隔離的 Chromium 程序並行出席！
 5. 【動態下課對齊】：自動根據 schedule.json 的 end_time 精確計算留守時間，下課後緩衝 5 分鐘安全離場。
@@ -143,111 +143,40 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
             log(f"{prefix} [*] 等待 Webex 會議預覽介面完全載入 (12 秒)...")
             time.sleep(12)
             
-            # 步驟 3: 雙軌填寫出席身分 (Shadow DOM 深層注入 + 鍵盤導航防護)
-            log(f"{prefix} [*] 步驟 3/5: 注入出席身分 ({STUDENT_NAME})...")
-            fill_deep_script = """(name) => {
-                function fillNameDeep(root) {
-                    const inputs = Array.from(root.querySelectorAll('input:not([type="checkbox"]):not([type="hidden"]):not([type="radio"])'));
-                    for (const inp of inputs) {
-                        inp.focus();
-                        inp.value = name;
-                        inp.dispatchEvent(new Event('input', { bubbles: true }));
-                        inp.dispatchEvent(new Event('change', { bubbles: true }));
-                        return inp.value;
-                    }
-                    for (const el of root.querySelectorAll('*')) {
-                        if (el.shadowRoot) {
-                            const res = fillNameDeep(el.shadowRoot);
-                            if (res) return res;
-                        }
-                    }
-                    for (const ifr of root.querySelectorAll('iframe')) {
-                        try {
-                            if (ifr.contentDocument) {
-                                const res = fillNameDeep(ifr.contentDocument);
-                                if (res) return res;
-                            }
-                        } catch(e) {}
-                    }
-                    return null;
-                }
-                return fillNameDeep(document);
-            }"""
-            
-            injected_val = page.evaluate(fill_deep_script, STUDENT_NAME)
-            if injected_val:
-                log(f"{prefix}   [+] 🎯 成功透過 Shadow DOM 深層填入身分：【{injected_val}】！")
-            else:
-                log(f"{prefix}   [!] 執行精準鍵盤導航填入身分...")
-                page.keyboard.press('Tab')
-                time.sleep(0.5)
-                page.keyboard.press('Control+A')
-                time.sleep(0.2)
-                page.keyboard.press('Backspace')
-                time.sleep(0.2)
-                page.keyboard.type(STUDENT_NAME, delay=70)
-                log(f"{prefix}   [+] 🎯 鍵盤已完整打字填入：【{STUDENT_NAME}】！")
+            # 步驟 3: 高精度物理座標定位與學生身分注入
+            # 在 1280x800 解析度下，右側名稱輸入框中心座標為 (775, 395)
+            log(f"{prefix} [*] 步驟 3/5: 高精度物理座標注入出席身分 ({STUDENT_NAME})...")
+            page.mouse.click(775, 395)
+            time.sleep(0.5)
+            page.keyboard.press("Control+A")
+            time.sleep(0.2)
+            page.keyboard.press("Backspace")
+            time.sleep(0.2)
+            page.keyboard.type(STUDENT_NAME, delay=60)
+            log(f"{prefix}   [+] 🎯 物理座標輸入框已確實打字注入：【{STUDENT_NAME}】！")
             
             time.sleep(1)
             
-            # 確保麥克風與攝影機關閉 (靜音)
+            # 確保麥克風與攝影機關閉 (靜音按鈕在左下方預覽列，座標約 180, 775)
             log(f"{prefix} [*] 步驟 4/5: 確保麥克風與鏡頭靜音關閉...")
             try:
                 mute_btn = page.locator('button[aria-label*="Mute"], button[aria-label*="靜音"]')
                 if mute_btn.count() > 0 and mute_btn.first.is_visible():
                     mute_btn.first.click()
-                    log(f"{prefix}   [+] 已確認靜音麥克風。")
+                    log(f"{prefix}   [+] 已點擊靜音麥克風按鈕。")
             except Exception:
                 pass
                 
             time.sleep(1)
             
-            # 🌟 步驟 4.5: 精確點擊【加入 會議】按鈕 (排除行動裝置)
-            log(f"{prefix} [*] 步驟 4.5: 觸發【加入 會議】大按鈕進入視訊教室...")
-            click_join_deep_script = """() => {
-                function clickJoinDeep(root) {
-                    const btns = Array.from(root.querySelectorAll('button'));
-                    for (const b of btns) {
-                        const t = (b.innerText || '').trim();
-                        // 嚴格匹配加入會議按鈕，排除行動裝置與 QR 彈窗
-                        if ((t === '加入 會議' || t === '加入會議' || t === 'Join meeting') && !t.includes('行動') && !t.includes('裝置')) {
-                            if (!b.disabled) {
-                                b.click();
-                                return 'SUCCESS_CLICKED: ' + t;
-                            } else {
-                                return 'DISABLED: ' + t;
-                            }
-                        }
-                    }
-                    for (const el of root.querySelectorAll('*')) {
-                        if (el.shadowRoot) {
-                            const res = clickJoinDeep(el.shadowRoot);
-                            if (res) return res;
-                        }
-                    }
-                    for (const ifr of root.querySelectorAll('iframe')) {
-                        try {
-                            if (ifr.contentDocument) {
-                                const res = clickJoinDeep(ifr.contentDocument);
-                                if (res) return res;
-                            }
-                        } catch(e) {}
-                    }
-                    return null;
-                }
-                return clickJoinDeep(document);
-            }"""
+            # 🌟 步驟 4.5: 高精度物理座標點擊綠色【加入 會議】大按鈕 (座標 775, 515)
+            log(f"{prefix} [*] 步驟 4.5: 物理座標直擊【加入 會議】大按鈕進入視訊教室...")
+            page.mouse.click(775, 515)
+            log(f"{prefix}   [🚀 點擊進場] 已精確點擊 (775, 515) 【加入 會議】按鈕！")
             
-            click_res = page.evaluate(click_join_deep_script)
-            log(f"{prefix}   [按鈕點擊感測] 結果：{click_res}")
-            
-            if not click_res or "DISABLED" in str(click_res):
-                log(f"{prefix}   [!] 備援方案：聚焦輸入框並按 Enter 提交...")
-                page.keyboard.press("Tab")
-                time.sleep(0.3)
-                page.keyboard.press("Tab")
-                time.sleep(0.3)
-                page.keyboard.press("Enter")
+            # 同時輔以鍵盤 Enter 鍵雙重確保
+            time.sleep(0.5)
+            page.keyboard.press("Enter")
             
             time.sleep(8)
             
