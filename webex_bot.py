@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-國立空中大學 115上 視訊面授 雲端無頭自動替身機器人 (Bulletproof Webex Bot)
+國立空中大學 115上 視訊面授 雲端無頭自動替身機器人 (Precision Webex Bot)
 ===================================================================
 學生：陳嬑萱 ｜ 學號：112122209 ｜ 登入身分：112122209陳嬑萱
 守護核心特性：
-1. 【高精度座標物理注入】：在標準 1280x800 視窗下，直擊 (775, 395) 名稱輸入框與 (775, 515) 加入大按鈕，無視任何 Shadow DOM / iframe 隔閡！
+1. 【高精度座標物理注入】：在標準 1280x800 視窗下，直擊 (985, 310) 名稱輸入框與 (985, 490) 加入大按鈕，無視任何 Shadow DOM / iframe 隔閡！
 2. 【綠色大按鈕物理直擊】：精確點擊解鎖後的【加入 會議】，絕不誤觸行動裝置或 QR 彈窗！
 3. 【零失誤開房等待機制】：若授課教師晚開房，自動輪詢等待最多 30 分鐘，一開房即刻自動闖入！
 4. 【衝堂平行多開支援】：10/5 三門同時、9/23 雙門同時，啟動完全隔離的 Chromium 程序並行出席！
@@ -139,14 +139,13 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
             except Exception as e:
                 log(f"{prefix}   [!] joinFromWebapp 提示：{e}")
                 
-            # 等待預覽頁面載入
-            log(f"{prefix} [*] 等待 Webex 會議預覽介面完全載入 (12 秒)...")
-            time.sleep(12)
+            # 等待預覽頁面完全載入
+            log(f"{prefix} [*] 等待 Webex 會議預覽介面完全載入 (14 秒)...")
+            time.sleep(14)
             
-            # 步驟 3: 高精度物理座標定位與學生身分注入
-            # 在 1280x800 解析度下，右側名稱輸入框中心座標為 (775, 395)
-            log(f"{prefix} [*] 步驟 3/5: 高精度物理座標注入出席身分 ({STUDENT_NAME})...")
-            page.mouse.click(775, 395)
+            # 步驟 3: 高精度物理座標定位 (985, 310) 填入身分
+            log(f"{prefix} [*] 步驟 3/5: 高精度物理座標 (985, 310) 注入出席身分 ({STUDENT_NAME})...")
+            page.mouse.click(985, 310)
             time.sleep(0.5)
             page.keyboard.press("Control+A")
             time.sleep(0.2)
@@ -158,23 +157,21 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
             time.sleep(1)
             
             # 確保麥克風與攝影機關閉 (靜音按鈕在左下方預覽列，座標約 180, 775)
-            log(f"{prefix} [*] 步驟 4/5: 確保麥克風與鏡頭靜音關閉...")
+            log(f"{prefix} [*] 步驟 4/5: 確保麥克風靜音關閉...")
             try:
-                mute_btn = page.locator('button[aria-label*="Mute"], button[aria-label*="靜音"]')
-                if mute_btn.count() > 0 and mute_btn.first.is_visible():
-                    mute_btn.first.click()
-                    log(f"{prefix}   [+] 已點擊靜音麥克風按鈕。")
+                page.mouse.click(180, 775)
+                log(f"{prefix}   [+] 已點擊靜音麥克風。")
             except Exception:
                 pass
                 
             time.sleep(1)
             
-            # 🌟 步驟 4.5: 高精度物理座標點擊綠色【加入 會議】大按鈕 (座標 775, 515)
-            log(f"{prefix} [*] 步驟 4.5: 物理座標直擊【加入 會議】大按鈕進入視訊教室...")
-            page.mouse.click(775, 515)
-            log(f"{prefix}   [🚀 點擊進場] 已精確點擊 (775, 515) 【加入 會議】按鈕！")
+            # 🌟 步驟 4.5: 高精度物理座標點擊綠色【加入 會議】大按鈕 (座標 985, 490)
+            log(f"{prefix} [*] 步驟 4.5: 高精度直擊【加入 會議】大按鈕 (985, 490) 正式進入會議室...")
+            page.mouse.click(985, 490)
+            log(f"{prefix}   [🚀 點擊進場] 已精確點擊 (985, 490) 【加入 會議】按鈕！")
             
-            # 同時輔以鍵盤 Enter 鍵雙重確保
+            # 輔以鍵盤 Enter 鍵雙重確保
             time.sleep(0.5)
             page.keyboard.press("Enter")
             
