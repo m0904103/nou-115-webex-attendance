@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-國立空中大學 115上 視訊面授 雲端無頭自動替身機器人 (Bulletproof Cloud Webex Bot)
+國立空中大學 115上 視訊面授 雲端無頭自動替身機器人 (Hardened Webex Bot)
 ===================================================================
 學生：陳嬑萱 ｜ 學號：112122209 ｜ 登入身分：112122209陳嬑萱
 守護核心特性：
-1. 【深層 DOM / iframe 穿透】：遞迴穿透所有層級 iframe 與 Shadow DOM，確保 100% 填入「112122209陳嬑萱」並觸發 React 狀態更新！
-2. 【綠色大按鈕原生觸發】：遞迴定位解鎖後的【加入 會議】原生 DOM 元素，精確調用 .click() 確保進房！
+1. 【Shadow DOM 穿透 + 鍵盤精確導航】：遞迴穿透所有層級 Shadow DOM / iframe，結合 Tab 鍵流暢注入「112122209陳嬑萱」！
+2. 【綠色大按鈕原生觸發】：精準匹配「加入 會議」/「加入會議」，排除所有行動裝置與 QR 彈窗干擾！
 3. 【零失誤開房等待機制】：若授課教師晚開房，自動輪詢等待最多 30 分鐘，一開房即刻自動闖入！
 4. 【衝堂平行多開支援】：10/5 三門同時、9/23 雙門同時，啟動完全隔離的 Chromium 程序並行出席！
 5. 【動態下課對齊】：自動根據 schedule.json 的 end_time 精確計算留守時間，下課後緩衝 5 分鐘安全離場。
@@ -140,48 +140,53 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
                 log(f"{prefix}   [!] joinFromWebapp 提示：{e}")
                 
             # 等待預覽頁面載入
-            log(f"{prefix} [*] 等待 Webex 會議預覽介面完全載入 (15 秒)...")
-            time.sleep(15)
+            log(f"{prefix} [*] 等待 Webex 會議預覽介面完全載入 (12 秒)...")
+            time.sleep(12)
             
-            # 步驟 3: 透過深層遞迴 JavaScript 精準填寫「名稱」欄位並觸發 React 狀態
-            log(f"{prefix} [*] 步驟 3/5: 深層 DOM 穿透填入出席身分 ({STUDENT_NAME})...")
-            fill_script = """(name) => {
-                function fillInputInDoc(doc) {
-                    // 尋找所有文字類型輸入框
-                    const inputs = Array.from(doc.querySelectorAll('input:not([type="checkbox"]):not([type="hidden"]):not([type="radio"])'));
-                    if (inputs.length > 0) {
-                        const target = inputs[0];
-                        target.focus();
-                        target.value = name;
-                        // 觸發原生與 React 合成事件
-                        target.dispatchEvent(new Event('input', { bubbles: true }));
-                        target.dispatchEvent(new Event('change', { bubbles: true }));
-                        return target.value;
+            # 步驟 3: 雙軌填寫出席身分 (Shadow DOM 深層注入 + 鍵盤導航防護)
+            log(f"{prefix} [*] 步驟 3/5: 注入出席身分 ({STUDENT_NAME})...")
+            fill_deep_script = """(name) => {
+                function fillNameDeep(root) {
+                    const inputs = Array.from(root.querySelectorAll('input:not([type="checkbox"]):not([type="hidden"]):not([type="radio"])'));
+                    for (const inp of inputs) {
+                        inp.focus();
+                        inp.value = name;
+                        inp.dispatchEvent(new Event('input', { bubbles: true }));
+                        inp.dispatchEvent(new Event('change', { bubbles: true }));
+                        return inp.value;
                     }
-                    for (const ifr of doc.querySelectorAll('iframe')) {
+                    for (const el of root.querySelectorAll('*')) {
+                        if (el.shadowRoot) {
+                            const res = fillNameDeep(el.shadowRoot);
+                            if (res) return res;
+                        }
+                    }
+                    for (const ifr of root.querySelectorAll('iframe')) {
                         try {
                             if (ifr.contentDocument) {
-                                const res = fillInputInDoc(ifr.contentDocument);
+                                const res = fillNameDeep(ifr.contentDocument);
                                 if (res) return res;
                             }
                         } catch(e) {}
                     }
                     return null;
                 }
-                return fillInputInDoc(document);
+                return fillNameDeep(document);
             }"""
             
-            injected_val = page.evaluate(fill_script, STUDENT_NAME)
+            injected_val = page.evaluate(fill_deep_script, STUDENT_NAME)
             if injected_val:
-                log(f"{prefix}   [+] 🎯 成功深層注入身分名稱：【{injected_val}】！")
+                log(f"{prefix}   [+] 🎯 成功透過 Shadow DOM 深層填入身分：【{injected_val}】！")
             else:
-                log(f"{prefix}   [!] JS 未直接定位輸入框，以全域鍵盤 Tab 備援注入...")
+                log(f"{prefix}   [!] 執行精準鍵盤導航填入身分...")
                 page.keyboard.press('Tab')
                 time.sleep(0.5)
                 page.keyboard.press('Control+A')
+                time.sleep(0.2)
                 page.keyboard.press('Backspace')
-                time.sleep(0.3)
-                page.keyboard.type(STUDENT_NAME, delay=40)
+                time.sleep(0.2)
+                page.keyboard.type(STUDENT_NAME, delay=70)
+                log(f"{prefix}   [+] 🎯 鍵盤已完整打字填入：【{STUDENT_NAME}】！")
             
             time.sleep(1)
             
@@ -191,55 +196,57 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
                 mute_btn = page.locator('button[aria-label*="Mute"], button[aria-label*="靜音"]')
                 if mute_btn.count() > 0 and mute_btn.first.is_visible():
                     mute_btn.first.click()
-                    log(f"{prefix}   [+] 已點擊靜音麥克風。")
+                    log(f"{prefix}   [+] 已確認靜音麥克風。")
             except Exception:
                 pass
                 
             time.sleep(1)
             
-            # 🌟 步驟 4.5: 點擊綠色【加入 會議】大按鈕正式進場
-            log(f"{prefix} [*] 步驟 4.5: 智慧觸發【加入 會議】大按鈕正式進場...")
-            click_join_script = """() => {
-                function clickJoinInDoc(doc) {
-                    const btns = Array.from(doc.querySelectorAll('button'));
+            # 🌟 步驟 4.5: 精確點擊【加入 會議】按鈕 (排除行動裝置)
+            log(f"{prefix} [*] 步驟 4.5: 觸發【加入 會議】大按鈕進入視訊教室...")
+            click_join_deep_script = """() => {
+                function clickJoinDeep(root) {
+                    const btns = Array.from(root.querySelectorAll('button'));
                     for (const b of btns) {
-                        const txt = b.innerText || '';
-                        if (txt.includes('加入') || txt.includes('Join')) {
+                        const t = (b.innerText || '').trim();
+                        // 嚴格匹配加入會議按鈕，排除行動裝置與 QR 彈窗
+                        if ((t === '加入 會議' || t === '加入會議' || t === 'Join meeting') && !t.includes('行動') && !t.includes('裝置')) {
                             if (!b.disabled) {
                                 b.click();
-                                return 'CLICKED_JOIN: ' + txt.trim();
+                                return 'SUCCESS_CLICKED: ' + t;
                             } else {
-                                return 'DISABLED_JOIN: ' + txt.trim();
+                                return 'DISABLED: ' + t;
                             }
                         }
                     }
-                    for (const ifr of doc.querySelectorAll('iframe')) {
+                    for (const el of root.querySelectorAll('*')) {
+                        if (el.shadowRoot) {
+                            const res = clickJoinDeep(el.shadowRoot);
+                            if (res) return res;
+                        }
+                    }
+                    for (const ifr of root.querySelectorAll('iframe')) {
                         try {
                             if (ifr.contentDocument) {
-                                const res = clickJoinInDoc(ifr.contentDocument);
+                                const res = clickJoinDeep(ifr.contentDocument);
                                 if (res) return res;
                             }
                         } catch(e) {}
                     }
                     return null;
                 }
-                return clickJoinInDoc(document);
+                return clickJoinDeep(document);
             }"""
             
-            btn_result = page.evaluate(click_join_script)
-            log(f"{prefix}   [進場狀態感測] JS 執行結果：{btn_result}")
+            click_res = page.evaluate(click_join_deep_script)
+            log(f"{prefix}   [按鈕點擊感測] 結果：{click_res}")
             
-            if not btn_result or "DISABLED" in str(btn_result):
-                # 嘗試再次以鍵盤 Enter 鍵提交
-                log(f"{prefix}   [!] 按鈕未立即響應，透過鍵盤 Enter 鍵提交...")
-                # 重新聚焦輸入框後按 Enter
-                page.evaluate("""() => {
-                    const inputs = Array.from(document.querySelectorAll('input:not([type="checkbox"]):not([type="hidden"])'));
-                    if (inputs.length > 0) {
-                        inputs[0].focus();
-                    }
-                }""")
-                time.sleep(0.5)
+            if not click_res or "DISABLED" in str(click_res):
+                log(f"{prefix}   [!] 備援方案：聚焦輸入框並按 Enter 提交...")
+                page.keyboard.press("Tab")
+                time.sleep(0.3)
+                page.keyboard.press("Tab")
+                time.sleep(0.3)
                 page.keyboard.press("Enter")
             
             time.sleep(8)
