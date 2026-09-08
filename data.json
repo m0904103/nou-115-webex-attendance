@@ -8,16 +8,16 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-09-08 08:47:53",
+    "last_checked_at": "2026-09-08 13:51:47",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
-    "audit_note": "真實學務數據核實無誤：點燈 100% 綠燈、面授出席 1/29、平時作業 0/14 (全數未繳交)、期中期末尚未舉行"
+    "audit_note": "100% 官方真實數據：點燈 100% 綠燈、在線閱讀 10.36 小時、面授出席 1/29、平時作業 0/14 (全數未繳交)"
   },
   "analytics": {
     "total_courses": 7,
     "total_credits": 15,
-    "total_reading_hours": 24.5,
+    "total_reading_hours": 10.36,
     "average_lighting_percent": 100.0,
     "total_meetings": 29,
     "attended_meetings": 1,
@@ -43,7 +43,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6",
-      "reading_hours": 4.1,
+      "reading_hours": 0.82,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -104,7 +104,10 @@
         "score": 0,
         "status_text": "尚未舉行 (預計1月)",
         "date_desc": "第 18 週 (2027/01/04~01/10)"
-      }
+      },
+      "reading_time_str": "00:49:09",
+      "last_study_time": "2026-09-07 20:34:01",
+      "official_cid": "10053265"
     },
     {
       "id": "c2",
@@ -120,7 +123,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m87b58dd19bb80bebd4aca53210240bb4",
-      "reading_hours": 3.4,
+      "reading_hours": 0.99,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -175,7 +178,10 @@
         "score": 0,
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
-      }
+      },
+      "reading_time_str": "00:59:10",
+      "last_study_time": "2026-09-07 20:35:20",
+      "official_cid": "10053170"
     },
     {
       "id": "c3",
@@ -191,7 +197,7 @@
       "time_slot": "afternoon",
       "time_desc": "14:00 - 15:40 (下午班)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m5472c403628987b41ca4e56f376fb741",
-      "reading_hours": 3.4,
+      "reading_hours": 0.79,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -246,7 +252,10 @@
         "score": 0,
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
-      }
+      },
+      "reading_time_str": "00:47:42",
+      "last_study_time": "2026-09-07 19:45:52",
+      "official_cid": "10053272"
     },
     {
       "id": "c4",
@@ -262,7 +271,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 21:00 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd",
-      "reading_hours": 3.4,
+      "reading_hours": 4.46,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -329,7 +338,10 @@
         "score": 0,
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
-      }
+      },
+      "reading_time_str": "04:27:24",
+      "last_study_time": "2026-09-07 20:16:34",
+      "official_cid": "10053311"
     },
     {
       "id": "c5",
@@ -345,7 +357,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mf993b669aa765845657de3883f590fcf",
-      "reading_hours": 3.4,
+      "reading_hours": 0.91,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -394,7 +406,10 @@
         "score": 0,
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
-      }
+      },
+      "reading_time_str": "00:54:44",
+      "last_study_time": "2026-09-07 20:36:29",
+      "official_cid": "10053349"
     },
     {
       "id": "c6",
@@ -410,7 +425,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mfd69fd80c232164a0aae21cd365de040",
-      "reading_hours": 3.4,
+      "reading_hours": 1.51,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -459,7 +474,10 @@
         "score": 0,
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
-      }
+      },
+      "reading_time_str": "01:30:23",
+      "last_study_time": "2026-09-07 20:39:11",
+      "official_cid": "10053334"
     },
     {
       "id": "c7",
@@ -475,7 +493,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m901afaa6b9c2ec97a7e47177d77193a4",
-      "reading_hours": 3.4,
+      "reading_hours": 0.88,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -530,7 +548,10 @@
         "score": 0,
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
-      }
+      },
+      "reading_time_str": "00:53:05",
+      "last_study_time": "2026-09-07 20:31:20",
+      "official_cid": "10053339"
     }
   ],
   "audit_logs": [
