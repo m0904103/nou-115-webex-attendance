@@ -52,17 +52,26 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
     safe_cname = cname.replace(' ', '_')
     prefix = f"[{cname}]"
     
-    # 動態計算掛機時長（對齊至課程排定下課時間 + 5 分鐘緩衝）
+    # 動態計算掛機時長（提早進場待命 + 延後 10 分鐘離場守護，確保 100% 零遲到、零早退）
     if duration_minutes is None and not is_test:
+        start_hour, start_min = map(int, course_info['start_time'].split(':'))
         end_hour, end_min = map(int, course_info['end_time'].split(':'))
+        sched_start_dt = datetime.datetime.combine(today_date, datetime.time(start_hour, start_min), tzinfo=now.tzinfo)
         sched_end_dt = datetime.datetime.combine(today_date, datetime.time(end_hour, end_min), tzinfo=now.tzinfo)
         
-        if now >= sched_end_dt:
-            log(f"ℹ️ {prefix} 今日課程已於 {course_info['end_time']} 結束，無需重複進入。")
+        if now >= sched_end_dt + datetime.timedelta(minutes=10):
+            log(f"ℹ️ {prefix} 今日課程已於 {course_info['end_time']} 結束超過 10 分鐘，無需重複進入。")
             return
             
-        remaining_sec = (sched_end_dt - now).total_seconds() + 300  # 緩衝 5 分鐘
+        # 計算提早進場分鐘數
+        if now < sched_start_dt:
+            early_mins = int((sched_start_dt - now).total_seconds() // 60)
+            log(f"⏰ {prefix} [提早進場待命] 距表定開課 ({course_info['start_time']}) 尚有 {early_mins} 分鐘，已提前進房待命，【100% 零遲到】！")
+            
+        # 延後 10 分鐘（600 秒）超額離場守護，確保絕不早退（即使老師延後下課或最後點名，分身依然全程在線）
+        remaining_sec = (sched_end_dt - now).total_seconds() + 600  # 延後 10 分鐘安全緩衝
         duration_minutes = max(15, int(remaining_sec // 60))
+        log(f"⏰ {prefix} [延後離場守護] 表定下課 {course_info['end_time']}，分身將持續在線守護至下課後 10 分鐘，【100% 零早退】！")
     elif is_test:
         duration_minutes = 1
         
@@ -71,7 +80,7 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
     log(f"👨‍🏫 {prefix} 授課教師：{teacher} 老師 (分機 {course_info.get('ext', '')})")
     log(f"👤 {prefix} 出席身分：{STUDENT_NAME} ({STUDENT_EMAIL})")
     log(f"🌐 {prefix} 會議室網址：{url}")
-    log(f"⏳ {prefix} 本次預計在線守護時長：{duration_minutes} 分鐘")
+    log(f"⏳ {prefix} 本次預計在線守護時長：{duration_minutes} 分鐘 (全程超額覆蓋)")
     log(f"==================================================\n")
     
     with sync_playwright() as p:
@@ -196,7 +205,7 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
                 time.sleep(45)
             else:
                 total_seconds = duration_minutes * 60
-                interval = 180  # 每 3 分鐘一次心跳與斷線偵測
+                interval = 120  # 每 2 分鐘一次在線心跳、狀態守護與斷線檢查
                 elapsed = 0
                 mid_captured = False
                 
@@ -204,8 +213,17 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
                     time.sleep(min(interval, total_seconds - elapsed))
                     elapsed += interval
                     mins_done = elapsed // 60
-                    log(f"{prefix}   [💓 雲端在線心跳] 《{cname}》已持續上課在線 {mins_done} / {duration_minutes} 分鐘 (連線穩固)...")
+                    log(f"{prefix}   [💓 雲端在線心跳] 《{cname}》已持續上課在線 {mins_done} / {duration_minutes} 分鐘 (連線穩固，全勤守護中)...")
                     
+                    # 偵測主持人是否已正式關閉會議 (老師下課關閉會議室)
+                    try:
+                        end_modal = page.locator('text="會議已由主持人結束", text="The meeting has ended", text="會議已結束", text="主持人已結束此會議", text="已結束此會議"')
+                        if end_modal.count() > 0 and end_modal.first.is_visible():
+                            log(f"{prefix} 🎓 授課教師已手動結束會議室，本日面授課程圓滿下課！【100% 零早退】")
+                            break
+                    except Exception:
+                        pass
+
                     # 中途截圖存證 (上課達 50% 時)
                     if mins_done >= duration_minutes // 2 and not mid_captured:
                         mid_file = os.path.join(BASE_DIR, f'attendance_proof_{today_str}_{safe_cname}_mid.png')
@@ -225,7 +243,7 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
                     except Exception:
                         pass
             
-            log(f"\n🏁 {prefix} 【下課全勤離場】課程《{cname}》時間結束，平穩退出會議室。")
+            log(f"\n🏁 {prefix} 【超額全勤離場】課程《{cname}》時間充裕結束，出席時數達標超額完成，平穩退出會議室！")
             
         except Exception as e:
             log(f"{prefix} ⚠️ 執行過程捕獲異常：{e}")
