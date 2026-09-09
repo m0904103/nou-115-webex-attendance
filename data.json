@@ -8,7 +8,7 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-09-09 16:03:10",
+    "last_checked_at": "2026-09-09 12:51:08",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
@@ -17,7 +17,7 @@
   "analytics": {
     "total_courses": 7,
     "total_credits": 15,
-    "total_reading_hours": 24.6,
+    "total_reading_hours": 47.9,
     "average_lighting_percent": 100.0,
     "total_meetings": 29,
     "attended_meetings": 1,
@@ -25,7 +25,7 @@
     "total_homework": 14,
     "submitted_homework": 0,
     "homework_submission_rate": 0.0,
-    "current_earned_grade_avg": 6.9,
+    "current_earned_grade_avg": 7.1,
     "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
   },
   "courses": [
@@ -123,7 +123,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m87b58dd19bb80bebd4aca53210240bb4",
-      "reading_hours": 0.88,
+      "reading_hours": 6.3,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -197,7 +197,7 @@
       "time_slot": "afternoon",
       "time_desc": "14:00 - 15:40 (下午班)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m5472c403628987b41ca4e56f376fb741",
-      "reading_hours": 5.4,
+      "reading_hours": 6.3,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -357,7 +357,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mf993b669aa765845657de3883f590fcf",
-      "reading_hours": 5.4,
+      "reading_hours": 6.3,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -425,7 +425,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mfd69fd80c232164a0aae21cd365de040",
-      "reading_hours": 0.8,
+      "reading_hours": 6.3,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -493,7 +493,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m901afaa6b9c2ec97a7e47177d77193a4",
-      "reading_hours": 5.4,
+      "reading_hours": 6.3,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -556,6 +556,12 @@
   ],
   "audit_logs": [
     {
+      "timestamp": "2026-09-09 12:51:08",
+      "type": "OFFICIAL_CHECK",
+      "result": "SUCCESS",
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 47.9h，面授出席 1/29，作業 0/14 未繳交。"
+    },
+    {
       "timestamp": "2026-09-09 04:05:48",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
@@ -608,12 +614,6 @@
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
       "detail": "查核 SunNet LMS 節點與 Webex 面授記錄：全 7 科 100% 綠燈點亮，面授 1/29 出席完成，平時作業 0/14 待繳交，在線時數 8.0h。"
-    },
-    {
-      "timestamp": "2026-09-07 20:50:00",
-      "type": "WEBEX_ATTENDANCE",
-      "result": "SUCCESS",
-      "detail": "9/7 19:00 人工智慧導論 (陳廷哲老師) 視訊面授完成出席，全程 110 分鐘，存證截圖已歸檔。"
     }
   ],
   "cloud_guardian": {
