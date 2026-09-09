@@ -8,16 +8,16 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-09-09 04:05:48",
+    "last_checked_at": "2026-09-09 16:03:10",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
-    "audit_note": "100% 官方真實數據：點燈 100% 綠燈、在線閱讀 10.36 小時、面授出席 1/29、平時作業 0/14 (全數未繳交)"
+    "audit_note": "100% 官方真實數據：點燈 100% 綠燈、官方在線閱讀 24.59 小時、面授出席 1/29、平時作業 0/14 (全數未繳交)"
   },
   "analytics": {
     "total_courses": 7,
     "total_credits": 15,
-    "total_reading_hours": 37.8,
+    "total_reading_hours": 24.6,
     "average_lighting_percent": 100.0,
     "total_meetings": 29,
     "attended_meetings": 1,
@@ -43,7 +43,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6",
-      "reading_hours": 5.4,
+      "reading_hours": 8.61,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -123,7 +123,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m87b58dd19bb80bebd4aca53210240bb4",
-      "reading_hours": 5.4,
+      "reading_hours": 0.88,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -271,7 +271,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 21:00 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd",
-      "reading_hours": 5.4,
+      "reading_hours": 7.81,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -425,7 +425,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mfd69fd80c232164a0aae21cd365de040",
-      "reading_hours": 5.4,
+      "reading_hours": 0.8,
       "lighting_percent": 100,
       "meetings": [
         {
