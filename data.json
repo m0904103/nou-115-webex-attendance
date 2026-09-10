@@ -20,8 +20,8 @@
     "total_reading_hours": 56.0,
     "average_lighting_percent": 100.0,
     "total_meetings": 29,
-    "attended_meetings": 1,
-    "attendance_rate": 3.4,
+    "attended_meetings": 0,
+    "attendance_rate": 0.0,
     "total_homework": 14,
     "submitted_homework": 0,
     "homework_submission_rate": 0.0,
@@ -627,7 +627,7 @@
     "execution_engine": "GitHub Actions (Azure Linux Headless Chromium)",
     "workflow_file": ".github/workflows/webex_attendance.yml",
     "total_sessions": 29,
-    "attended_sessions": 1,
+    "attended_sessions": 0,
     "remaining_sessions": 28,
     "clash_session_pairs": 4,
     "daily_cron_schedules": [
@@ -719,13 +719,14 @@
         "ext": "5183",
         "webex_url": "https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6",
         "duration_minutes": 110,
-        "attended": true,
+        "attended": false,
         "proof_image": "webex_proof_907.png",
         "id": 1,
         "clash_count": 1,
         "is_clash": false,
-        "status_text": "✅ 已出席完畢 (存證截圖已歸檔)",
-        "badge_class": "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
+        "status_text": "【示意】儀表板 UI 示意樣本，非真實出席 (系統建立於 9/8)",
+        "badge_class": "bg-amber-500/15 text-amber-400 border-amber-500/40",
+        "demo": true
       },
       {
         "date": "2026-09-14",
@@ -1344,5 +1345,17 @@
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
       }
     ]
+  },
+  "attendance_audit_policy": {
+    "policy": "真實出席查核準則",
+    "last_updated": "2026-09-10T17:38:36.090250",
+    "rules": [
+      "僅系統自動替身實際進入 Webex 會議室並取得截圖者，才計入正式出席",
+      "每場次存證需包含：進場時間戳、課中截圖（每15分鐘一張）、離場時間戳",
+      "result=DEMO_PLACEHOLDER 或 verified=false 者為示意資料，不計分"
+    ],
+    "real_attendance_count": 0,
+    "demo_count": 1,
+    "note": "9/7 首場出席為示意展示資料，系統建立時間為 9/8，無法捕捉 9/7 實際出席"
   }
 }
