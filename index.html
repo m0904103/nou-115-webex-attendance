@@ -855,12 +855,53 @@
         const hw1 = allHomeworks.find(h => h.course_code === c.code && h.round === 1) || { deadline: '115/11/16', d_day: 'D-68', doc_status: '待繳交' };
         const hw2 = allHomeworks.find(h => h.course_code === c.code && h.round === 2) || { deadline: '115/12/01', d_day: 'D-83', doc_status: '尚未開放' };
 
+        // 面授出席統計與明細
+        const attendedCount = c.meetings ? c.meetings.filter(m => m.attended).length : 0;
+        const totalMeetings = c.meetings ? c.meetings.length : 4;
+        const hasAttendedToday = c.meetings ? c.meetings.some(m => m.date === '2026-09-14' && m.attended) : false;
+
+        // 面授每場次詳細清單
+        const meetingsListHtml = c.meetings ? c.meetings.map((m, idx) => {
+          const dateParts = m.date.split('-');
+          const dateShort = `${dateParts[1]}/${dateParts[2]}`;
+          if (m.attended) {
+            return `
+              <div class="flex justify-between items-center p-1.5 rounded bg-emerald-950/70 border border-emerald-500/40">
+                <span class="text-emerald-300 flex items-center gap-1.5 font-bold">
+                  <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                  <span>第 ${idx + 1} 次 (${dateShort}):</span>
+                </span>
+                <span class="font-mono text-emerald-300 font-bold flex items-center gap-1">
+                  <span class="bg-emerald-500/25 text-emerald-200 px-1.5 py-0.5 rounded text-[10px] border border-emerald-400/40">已出席 ✅</span>
+                </span>
+              </div>
+            `;
+          } else {
+            // 是否為下一場待上課程
+            const isNext = !c.meetings.slice(0, idx).some(prev => !prev.attended);
+            return `
+              <div class="flex justify-between items-center p-1 rounded bg-gray-900/40">
+                <span class="text-gray-400 flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full ${isNext ? 'bg-cyan-400 animate-pulse' : 'bg-gray-600'}"></span>
+                  <span>第 ${idx + 1} 次 (${dateShort}):</span>
+                </span>
+                <span class="font-mono ${isNext ? 'text-cyan-300 font-medium' : 'text-gray-500'}">
+                  ${isNext ? `待出席 (${m.time || '19:00'})` : `未開課`}
+                </span>
+              </div>
+            `;
+          }
+        }).join('') : '';
+
         card.innerHTML = `
           <div class="space-y-2">
             <div class="flex items-center justify-between">
-              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                ${c.code || 'NOU'} • 2學分
-              </span>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                  ${c.code || 'NOU'} • ${c.credits || 2}學分
+                </span>
+                ${hasAttendedToday ? `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/25 text-emerald-300 border border-emerald-400/50 animate-pulse flex items-center gap-1"><i class="fa-solid fa-check-double"></i> 9/14 本日已到課</span>` : ''}
+              </div>
               <span class="text-xs font-mono text-emerald-400 font-bold flex items-center gap-1">
                 <i class="fa-solid fa-circle-check"></i> 點燈 100%
               </span>
@@ -876,9 +917,23 @@
               <span>在線閱讀時數:</span>
               <span class="font-mono font-bold text-cyan-300">${c.reading_time_str || (c.reading_hours + 'h')}</span>
             </div>
-            <div class="flex justify-between items-center text-gray-300">
-              <span>視訊面授出勤:</span>
-              <span class="font-mono text-emerald-400 font-semibold">${c.meetings ? c.meetings.filter(m => m.attended).length : 0} / ${c.meetings ? c.meetings.length : 4} 場</span>
+
+            <!-- 視訊面授出勤詳細進度區塊 (如實展示每場日期與出席狀態) -->
+            <div class="p-2.5 rounded-xl bg-gray-950/80 border border-white/5 space-y-1.5 mt-2">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-300 font-medium flex items-center gap-1">
+                  <i class="fa-solid fa-chalkboard-user text-emerald-400"></i> 視訊面授出勤:
+                </span>
+                <span class="font-mono font-bold text-emerald-400">
+                  ${attendedCount} / ${totalMeetings} 場
+                  <span class="${attendedCount > 0 ? 'text-emerald-300 font-bold' : 'text-gray-500 font-normal'} text-[11px]">
+                    (${attendedCount > 0 ? `已出席 ${attendedCount} 次` : '待開課'})
+                  </span>
+                </span>
+              </div>
+              <div class="space-y-1 text-[11px] pt-1 border-t border-gray-800/80">
+                ${meetingsListHtml}
+              </div>
             </div>
 
             <!-- 平時作業詳細進度區塊 (清楚展示次數與缺交狀態) -->
@@ -910,12 +965,17 @@
             </div>
           </div>
 
-          <div class="pt-2 grid grid-cols-2 gap-2">
-            <a href="${c.webex_url}" target="_blank" class="py-2 rounded-xl bg-gray-800 hover:bg-emerald-600 hover:text-white text-gray-300 text-xs font-bold flex items-center justify-center gap-1.5 border border-white/10 transition">
+          <div class="pt-2 grid ${attendedCount > 0 ? 'grid-cols-3' : 'grid-cols-2'} gap-1.5">
+            <a href="${c.webex_url}" target="_blank" class="py-2 rounded-xl bg-gray-800 hover:bg-emerald-600 hover:text-white text-gray-300 text-xs font-bold flex items-center justify-center gap-1 border border-white/10 transition">
               <i class="fa-solid fa-video text-cyan-400"></i>
               <span>會議室</span>
             </a>
-            <a href="https://uu.nou.edu.tw/learn/index.php" target="_blank" class="py-2 rounded-xl bg-gray-800 hover:bg-indigo-600 hover:text-white text-gray-300 text-xs font-bold flex items-center justify-center gap-1.5 border border-white/10 transition">
+            ${attendedCount > 0 ? `
+            <a href="#audit-section" class="py-2 rounded-xl bg-emerald-950/70 hover:bg-emerald-600 hover:text-white text-emerald-300 text-xs font-bold flex items-center justify-center gap-1 border border-emerald-500/40 transition">
+              <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+              <span>存證照片</span>
+            </a>` : ''}
+            <a href="https://uu.nou.edu.tw/learn/index.php" target="_blank" class="py-2 rounded-xl bg-gray-800 hover:bg-indigo-600 hover:text-white text-gray-300 text-xs font-bold flex items-center justify-center gap-1 border border-white/10 transition">
               <i class="fa-solid fa-cloud-arrow-up text-amber-400"></i>
               <span>繳交作業</span>
             </a>
