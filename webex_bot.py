@@ -148,44 +148,58 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
             except Exception as e:
                 log(f"{prefix}   [!] joinFromWebapp 提示：{e}")
                 
-            # 等待預覽頁面完全載入
-            log(f"{prefix} [*] 等待 Webex 會議預覽介面完全載入 (14 秒)...")
-            time.sleep(14)
-            
-            # 步驟 3: 高精度物理座標定位 (985, 310) 填入身分
-            log(f"{prefix} [*] 步驟 3/5: 高精度物理座標 (985, 310) 注入出席身分 ({STUDENT_NAME})...")
-            page.mouse.click(985, 310)
-            time.sleep(0.5)
-            page.keyboard.press("Control+A")
-            time.sleep(0.2)
-            page.keyboard.press("Backspace")
-            time.sleep(0.2)
-            page.keyboard.type(STUDENT_NAME, delay=60)
-            log(f"{prefix}   [+] 🎯 物理座標輸入框已確實打字注入：【{STUDENT_NAME}】！")
-            
-            time.sleep(1)
-            
-            # 確保麥克風與攝影機關閉 (靜音按鈕在左下方預覽列，座標約 180, 775)
-            log(f"{prefix} [*] 步驟 4/5: 確保麥克風靜音關閉...")
-            try:
-                page.mouse.click(180, 775)
-                log(f"{prefix}   [+] 已點擊靜音麥克風。")
-            except Exception:
-                pass
-                
-            time.sleep(1)
-            
-            # 🌟 步驟 4.5: 高精度物理座標點擊綠色【加入 會議】大按鈕 (座標 965, 515)
-            log(f"{prefix} [*] 步驟 4.5: 高精度直擊【加入 會議】大按鈕 (965, 515) 正式進入會議室...")
-            page.mouse.click(965, 515)
-            log(f"{prefix}   [🚀 點擊進場] 已精確點擊 (965, 515) 【加入 會議】按鈕！")
-            
-            # 輔以鍵盤 Enter 鍵雙重確保
-            time.sleep(0.5)
-            page.keyboard.press("Enter")
-            
-            time.sleep(8)
-            
+            # 等待 Guest Frame 完全載入
+            log(f"{prefix} [*] 等待 Webex Guest Frame 完整載入 (22 秒)...")
+            time.sleep(22)
+
+            frame = None
+            for f in page.frames:
+                if 'guest-join-meeting' in f.url or 'web.webex.com' in f.url:
+                    frame = f
+                    break
+
+            if not frame:
+                frame = page.frame(name='unified-webclient-iframe')
+
+            if frame:
+                log(f"{prefix} [*] 步驟 3/5: 成功鎖定 Guest Frame，精準注入出席身分：【{STUDENT_NAME}】...")
+                name_input = frame.locator('input[type="text"]').first
+                name_input.click()
+                name_input.fill(STUDENT_NAME)
+                time.sleep(1)
+                log(f"{prefix}   [+] 🎯 姓名輸入框已確實注入：【{STUDENT_NAME}】！")
+
+                log(f"{prefix} [*] 步驟 4/5: 點擊綠色【加入 會議】按鈕進入視訊教室...")
+                click_res = frame.evaluate('''() => {
+                    const all = Array.from(document.querySelectorAll('*'));
+                    const candidates = all.filter(e => 
+                        (e.innerText && (e.innerText.trim() === '加入 會議' || e.innerText.trim() === '加入會議')) &&
+                        e.getBoundingClientRect().width > 50
+                    );
+                    if (candidates.length > 0) {
+                        const target = candidates[candidates.length - 1];
+                        target.click();
+                        return { success: true, tag: target.tagName };
+                    }
+                    const b = document.getElementById('join-button');
+                    if (b) {
+                        b.click();
+                        return { success: true, tag: 'ID_BUTTON' };
+                    }
+                    return { success: false };
+                }''')
+                log(f"{prefix}   [+] 按鈕觸發結果：{click_res}")
+            else:
+                log(f"{prefix} [!] 未獲取到 Guest Frame，採用雙保險座標直擊...")
+                page.mouse.click(770, 400)
+                time.sleep(0.5)
+                page.keyboard.insert_text(STUDENT_NAME)
+                time.sleep(1)
+                page.mouse.click(770, 515)
+                page.keyboard.press("Enter")
+
+            time.sleep(15)
+
             # 截取進場成功證明截圖 (各科獨立檔名)
             proof_file = os.path.join(BASE_DIR, f'attendance_proof_{today_str}_{safe_cname}.png')
             page.screenshot(path=proof_file)
