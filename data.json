@@ -154,10 +154,13 @@
       "hw1": {
         "submitted": false,
         "score": 0,
-        "deadline": "期中考前 (約11月中)",
+        "deadline": "115/11/06",
+        "d_day": "D-53",
         "status_text": "尚未繳交",
-        "has_doc": false,
-        "doc_status": "待老師發布"
+        "has_doc": true,
+        "doc_status": "系統已開放作答",
+        "system_open": "2026-09-14 00:00",
+        "system_close": "2026-11-06 23:59"
       },
       "hw2": {
         "submitted": false,
@@ -181,7 +184,17 @@
       },
       "reading_time_str": "12:16:42",
       "last_study_time": "2026-09-14 21:05:06",
-      "official_cid": "10053170"
+      "official_cid": "10053170",
+      "class_hw1": {
+        "title": "課堂作業1 (生活風險圖)",
+        "submitted": false,
+        "score": 0,
+        "deadline": "115/09/27",
+        "d_day": "D-13",
+        "status_text": "待繳交 (+10分隨堂加分)",
+        "system_open": "2026-09-14 20:40",
+        "system_close": "2026-09-27 23:59"
+      }
     },
     {
       "id": "c3",
