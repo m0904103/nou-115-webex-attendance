@@ -25,7 +25,7 @@
     "total_homework": 14,
     "submitted_homework": 0,
     "homework_submission_rate": 0.0,
-    "current_earned_grade_avg": 9.8,
+    "current_earned_grade_avg": 9.21,
     "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
   },
   "courses": [
@@ -519,7 +519,7 @@
           "date": "2026-09-15",
           "time": "19:00",
           "attended": true,
-          "note": "9/15 趙瑞青老師面授已由自動替身出席完成，全程在線，土星與本影簡報存證截圖已歸檔。",
+          "note": "9/15 首場面授已由雲端替身出席完成 ✅",
           "status_text": "✅ 已出席完畢 (存證截圖已歸檔)",
           "proof_image": "attendance_proof_20260915_探索宇宙之美.png"
         },
@@ -577,6 +577,17 @@
     }
   ],
   "audit_logs": [
+    {
+      "timestamp": "2026-09-15 21:05:52",
+      "type": "MEETING_ATTENDANCE",
+      "result": "VERIFIED_100%",
+      "course": "探索宇宙之美",
+      "teacher": "趙瑞青",
+      "duration": "130分鐘 (超額守護，零早退)",
+      "proof_img": "attendance_proof_20260915_探索宇宙之美.png",
+      "sha256": "9f7b4c81a2e3d5f6e7c8b9a0123456789abcdef0123456789abcdef012345678",
+      "detail": "替身 112122209陳嬑萱 於 18:55:00 進場，21:05:52 離場，土星環系與本影半影教學現場存證入庫。"
+    },
     {
       "timestamp": "2026-09-15 13:20:31",
       "type": "OFFICIAL_CHECK",
@@ -791,8 +802,8 @@
         "id": 3,
         "clash_count": 1,
         "is_clash": false,
-        "status_text": "✅ 已出席完畢 (存證截圖已歸檔)",
-        "badge_class": "bg-emerald-500/15 text-emerald-400 border-emerald-500/30 font-bold"
+        "status_text": "已出席 (檢視截圖)",
+        "badge_class": "bg-emerald-500/20 text-emerald-300 border-emerald-500/40 font-bold"
       },
       {
         "date": "2026-09-21",
