@@ -660,8 +660,8 @@
     "execution_engine": "GitHub Actions (Azure Linux Headless Chromium)",
     "workflow_file": ".github/workflows/webex_attendance.yml",
     "total_sessions": 29,
-    "attended_sessions": 2,
-    "remaining_sessions": 27,
+    "attended_sessions": 3,
+    "remaining_sessions": 26,
     "clash_session_pairs": 4,
     "daily_cron_schedules": [
       {
@@ -714,17 +714,17 @@
       "execution_guarantee": "10/5 當日 18:55 GitHub Actions 雲端喚醒後，自動啟動 ThreadPoolExecutor 平行派遣 3 組獨立無頭瀏覽器，分別進駐 3 間會議室，統一使用「112122209陳嬑萱」掛機 110 分鐘，分別截圖存證，保證 3 門課同日 100% 全勤！"
     },
     "next_session": {
-      "session_id": 3,
-      "course_name": "探索宇宙之美",
-      "teacher": "趙瑞青 老師 (分機 5184)",
-      "class_code": "ZZZ002",
-      "date": "2026-09-15",
-      "weekday": "週二",
-      "time_slot": "19:00 - 20:50",
-      "cron_wake_time": "2026-09-15 18:55",
-      "webex_url": "https://nou.webex.com/nou/j.php?MTID=m5ceeda344c1505a7838d99a5934a2023",
-      "duration_minutes": 110,
-      "action_plan": "2026/09/15 18:55 雲端 GitHub Actions 自動開機進入會議室，身分「112122209陳嬑萱」，守護 110 分鐘並留存存證截圖"
+      "session_id": 4,
+      "course_name": "作業系統的理論基礎",
+      "teacher": "林秀鳳 老師 (分機 5189)",
+      "class_code": "ZZZ101",
+      "date": "2026-09-21",
+      "weekday": "週一",
+      "time_slot": "14:00 - 15:40 (下午) ＆ 19:00 - 20:50 (夜間：生成式AI)",
+      "cron_wake_time": "2026-09-21 13:48",
+      "webex_url": "https://nou.webex.com/nou/j.php?MTID=m5472c403628987b41ca4e56f376fb741",
+      "duration_minutes": 100,
+      "action_plan": "2026/09/21 13:48 雲端 GitHub Actions 自動開機進入會議室，身分「112122209陳嬑萱」，守護 100 分鐘並留存存證截圖"
     },
     "attendance_proof_recent": {
       "session_id": 2,
