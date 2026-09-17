@@ -8,16 +8,16 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-09-16 22:47:44",
+    "last_checked_at": "2026-09-17 03:27:05",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
-    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 綠燈、官方在線閱讀 125.0 小時 (124:57:53)、面授出席 1/4 (永續出席存證完成)"
+    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 綠燈、官方在線閱讀 152.3 小時 (152:16:42)、面授出席 3/29 (已出席 3 場全勤核定)"
   },
   "analytics": {
     "total_courses": 7,
     "total_credits": 15,
-    "total_reading_hours": 190.2,
+    "total_reading_hours": 152.3,
     "average_lighting_percent": 100.0,
     "total_meetings": 29,
     "attended_meetings": 3,
@@ -43,7 +43,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6",
-      "reading_hours": 24.9,
+      "reading_hours": 17.0,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -124,7 +124,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m87b58dd19bb80bebd4aca53210240bb4",
-      "reading_hours": 24.9,
+      "reading_hours": 29.9,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -183,8 +183,8 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "11:07:51",
-      "last_study_time": "2026-09-15 05:02:50",
+      "reading_time_str": "29:53:35",
+      "last_study_time": "2026-09-16 07:59:05",
       "official_cid": "10053170",
       "class_hw1": {
         "title": "課堂作業1 (生活風險圖)",
@@ -196,7 +196,7 @@
         "system_open": "2026-09-14 20:40",
         "system_close": "2026-09-27 23:59"
       },
-      "study_count": 19
+      "study_count": 23
     },
     {
       "id": "c3",
@@ -212,7 +212,7 @@
       "time_slot": "afternoon",
       "time_desc": "14:00 - 15:40 (下午班)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m5472c403628987b41ca4e56f376fb741",
-      "reading_hours": 24.9,
+      "reading_hours": 10.1,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -268,10 +268,10 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "10:03:52",
-      "last_study_time": "2026-09-15 05:01:59",
+      "reading_time_str": "10:03:56",
+      "last_study_time": "2026-09-15 06:33:05",
       "official_cid": "10053272",
-      "study_count": 17
+      "study_count": 18
     },
     {
       "id": "c4",
@@ -287,7 +287,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 21:00 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd",
-      "reading_hours": 24.9,
+      "reading_hours": 21.1,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -355,10 +355,10 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "20:12:36",
-      "last_study_time": "2026-09-13 16:05:03",
+      "reading_time_str": "21:06:36",
+      "last_study_time": "2026-09-16 17:05:51",
       "official_cid": "10053311",
-      "study_count": 29
+      "study_count": 32
     },
     {
       "id": "c5",
@@ -374,7 +374,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mf993b669aa765845657de3883f590fcf",
-      "reading_hours": 24.9,
+      "reading_hours": 8.7,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -443,7 +443,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mfd69fd80c232164a0aae21cd365de040",
-      "reading_hours": 24.9,
+      "reading_hours": 17.0,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -512,7 +512,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m5ceeda344c1505a7838d99a5934a2023",
-      "reading_hours": 40.8,
+      "reading_hours": 48.5,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -570,10 +570,10 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "40:48:33",
-      "last_study_time": "2026-09-15 05:02:21",
+      "reading_time_str": "48:27:34",
+      "last_study_time": "2026-09-16 17:06:12",
       "official_cid": "10053339",
-      "study_count": 23
+      "study_count": 24
     }
   ],
   "audit_logs": [
