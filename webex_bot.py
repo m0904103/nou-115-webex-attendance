@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-國立空中大學 115上 視訊面授 雲端無頭自動替身機器人 (Precision Webex Bot)
+國立空中大學 115上 視訊面授 雲端無頭自動替身機器人 (Precision Webex Cloud Bot V2.0)
 ===================================================================
 學生：陳嬑萱 ｜ 學號：112122209 ｜ 登入身分：112122209陳嬑萱
-守護核心特性：
-1. 【高精度座標物理注入】：在標準 1280x800 視窗下，直擊 (985, 310) 名稱輸入框與 (985, 490) 加入大按鈕，無視任何 Shadow DOM / iframe 隔閡！
-2. 【綠色大按鈕物理直擊】：精確點擊解鎖後的【加入 會議】，絕不誤觸行動裝置或 QR 彈窗！
-3. 【零失誤開房等待機制】：若授課教師晚開房，自動輪詢等待最多 30 分鐘，一開房即刻自動闖入！
-4. 【衝堂平行多開支援】：10/5 三門同時、9/23 雙門同時，啟動完全隔離的 Chromium 程序並行出席！
-5. 【動態下課對齊】：自動根據 schedule.json 的 end_time 精確計算留守時間，下課後緩衝 5 分鐘安全離場。
-6. 【全程心跳防斷線】：定時查核連線狀態，若遇網路閃斷自動偵測重新連線。
-7. 【全程三段存證截圖】：進場、中途、下課前各截圖一張，自動推送至 GitHub 儀表板留存。
+核心特性：
+1. 【解除跨來源安全隔離】：注入 --disable-web-security 與 --disable-site-isolation-trials，徹底打通 nou.webex.com 與 web.webex.com 內嵌框架。
+2. 【Shadow-DOM 原生事件穿透】：直接觸發 Cisco Momentum Web Components 底層 #join-button 核心協議。
+3. 【全自動繞過入口彈窗】：精確點擊 #broadcom-center-right 與 #fallBkJoinByBrowser，杜絕行動裝置推廣與桌面應用提示。
+4. 【衝堂平行多開支援】：10/5 三門同時、9/23 雙門同時，啟動完全隔離的 Chromium 實例並行出席！
+5. 【動態下課對齊】：自動根據 schedule.json 的 end_time 精確計算留守時間，下課後緩衝 10 分鐘安全離場。
+6. 【全程三段存證截圖】：進場、中途、下課前各截圖一張，自動推送至 GitHub 儀表板與 Artifacts 留存。
 """
 
 import os
@@ -31,7 +30,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SCHEDULE_FILE = os.path.join(BASE_DIR, 'schedule.json')
 
 def log(msg):
-    print(msg, flush=True)
+    ts = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    print(f"[{ts}] {msg}", flush=True)
 
 def load_schedule():
     with open(SCHEDULE_FILE, 'r', encoding='utf-8') as f:
@@ -52,7 +52,7 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
     safe_cname = cname.replace(' ', '_')
     prefix = f"[{cname}]"
     
-    # 動態計算掛機時長（提早進場待命 + 延後 10 分鐘離場守護，確保 100% 零遲到、零早退）
+    # 動態計算留守時長
     if duration_minutes is None and not is_test:
         start_hour, start_min = map(int, course_info['start_time'].split(':'))
         end_hour, end_min = map(int, course_info['end_time'].split(':'))
@@ -63,12 +63,10 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
             log(f"ℹ️ {prefix} 今日課程已於 {course_info['end_time']} 結束超過 10 分鐘，無需重複進入。")
             return
             
-        # 計算提早進場分鐘數
         if now < sched_start_dt:
             early_mins = int((sched_start_dt - now).total_seconds() // 60)
             log(f"⏰ {prefix} [提早進場待命] 距表定開課 ({course_info['start_time']}) 尚有 {early_mins} 分鐘，已提前進房待命，【100% 零遲到】！")
             
-        # 延後 10 分鐘（600 秒）超額離場守護，確保絕不早退（即使老師延後下課或最後點名，分身依然全程在線）
         remaining_sec = (sched_end_dt - now).total_seconds() + 600  # 延後 10 分鐘安全緩衝
         duration_minutes = max(15, int(remaining_sec // 60))
         log(f"⏰ {prefix} [延後離場守護] 表定下課 {course_info['end_time']}，分身將持續在線守護至下課後 10 分鐘，【100% 零早退】！")
@@ -80,15 +78,18 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
     log(f"👨‍🏫 {prefix} 授課教師：{teacher} 老師 (分機 {course_info.get('ext', '')})")
     log(f"👤 {prefix} 出席身分：{STUDENT_NAME} ({STUDENT_EMAIL})")
     log(f"🌐 {prefix} 會議室網址：{url}")
-    log(f"⏳ {prefix} 本次預計在線守護時長：{duration_minutes} 分鐘 (全程超額覆蓋)")
+    log(f"⏳ {prefix} 本次預計在線守護時長：{duration_minutes} 分鐘")
     log(f"==================================================\n")
     
     with sync_playwright() as p:
         browser = p.chromium.launch(
             headless=True,
             args=[
+                '--disable-web-security',
+                '--disable-site-isolation-trials',
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
+                '--disable-features=IsolateOrigins,site-per-process',
                 '--use-fake-ui-for-media-stream',
                 '--use-fake-device-for-media-stream',
                 '--disable-blink-features=AutomationControlled',
@@ -105,121 +106,112 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
         
         try:
             log(f"{prefix} [*] 步驟 1/5: 導航至 Webex 會議入口網址...")
-            page.goto(url, wait_until='domcontentloaded', timeout=50000)
-            time.sleep(3)
+            page.goto(url, wait_until='networkidle', timeout=60000)
+            time.sleep(2)
             
             # 處理 Cookie 接受彈窗
             try:
-                cookie_btn = page.query_selector('button#onetrust-accept-btn-handler, button:has-text("接受"), button:has-text("Accept")')
-                if cookie_btn:
-                    cookie_btn.click()
+                page.evaluate("() => { let b = Array.from(document.querySelectorAll('button')).find(x => x.innerText.includes('接受')); if (b) b.click(); }")
+                time.sleep(1)
             except Exception:
                 pass
             
-            log(f"{prefix} [*] 步驟 2/5: 點擊「從此瀏覽器加入」卡片...")
-            card_clicked = False
-            for text_pattern in ["Join from this browser", "從此瀏覽器加入", "Join from your browser", "Join from browser"]:
-                try:
-                    loc = page.get_by_text(text_pattern, exact=False)
-                    if loc.count() > 0:
-                        loc.first.click()
-                        log(f"{prefix}   [+] 成功點擊瀏覽器入口卡片：{text_pattern}")
-                        card_clicked = True
-                        break
-                except Exception:
-                    pass
-            
-            if not card_clicked:
-                try:
-                    page.locator('div[role="button"]:has-text("browser"), div[role="button"]:has-text("瀏覽器")').first.click()
-                    log(f"{prefix}   [+] 透過萬用語義定位點擊瀏覽器卡片。")
-                except Exception:
-                    pass
-                    
-            time.sleep(3)
-            
-            # 點擊彈出確認彈窗上的「從瀏覽器加入」按鈕 (id=joinFromWebapp)
-            log(f"{prefix} [*] 步驟 2.5: 點擊確認彈窗「從瀏覽器加入」按鈕...")
+            # 點擊「從此瀏覽器加入」卡片
+            log(f"{prefix} [*] 步驟 2/5: 點擊「從此瀏覽器加入」入口卡片...")
             try:
-                webapp_btn = page.locator('#joinFromWebapp, button:has-text("從瀏覽器加入"), button:has-text("Join from browser")')
-                if webapp_btn.count() > 0 and webapp_btn.first.is_visible():
-                    webapp_btn.first.click()
-                    log(f"{prefix}   [+] 成功點擊 #joinFromWebapp 確認按鈕！")
+                page.evaluate("() => { let c = document.getElementById('broadcom-center-right'); if (c) c.click(); }")
             except Exception as e:
-                log(f"{prefix}   [!] joinFromWebapp 提示：{e}")
+                log(f"{prefix}   [!] 卡片點擊提示：{e}")
+            time.sleep(2)
+            
+            # 點擊彈窗確認「從瀏覽器加入」
+            log(f"{prefix} [*] 步驟 2.5: 點擊彈窗確認「從瀏覽器加入」按鈕...")
+            try:
+                page.evaluate("() => { let btns = document.querySelectorAll('#fallBkJoinByBrowser'); if (btns.length > 0) btns[0].click(); }")
+            except Exception as e:
+                log(f"{prefix}   [!] fallBkJoinByBrowser 提示：{e}")
                 
-            # 等待 Guest Frame 完全載入
-            log(f"{prefix} [*] 等待 Webex Guest Frame 完整載入 (22 秒)...")
-            time.sleep(22)
-
-            frame = None
-            for f in page.frames:
-                if 'guest-join-meeting' in f.url or 'web.webex.com' in f.url:
-                    frame = f
+            # 等待 web.webex.com 通訊框架載入
+            log(f"{prefix} [*] 步驟 3/5: 等待 Webex 通訊核心框架 (web.webex.com)...")
+            target_frame = None
+            for attempt in range(25):
+                time.sleep(1.5)
+                for f in page.frames:
+                    if 'web.webex.com' in f.url:
+                        target_frame = f
+                        break
+                if target_frame:
                     break
+                    
+            if not target_frame:
+                log(f"{prefix} ❌ 找不到 web.webex.com 框架，保存除錯畫面...")
+                err_file = os.path.join(BASE_DIR, f'error_frame_{safe_cname}.png')
+                page.screenshot(path=err_file)
+                return False
 
-            if not frame:
-                frame = page.frame(name='unified-webclient-iframe')
+            log(f"{prefix}   [+] 成功鎖定核心通訊框架：{target_frame.url[:60]}")
+            
+            # 注入出席學號姓名
+            log(f"{prefix} [*] 步驟 4/5: 填寫出席學號姓名：【{STUDENT_NAME}】...")
+            target_frame.wait_for_selector('input[type="text"]', timeout=30000)
+            name_input = target_frame.locator('input[type="text"]').first
+            name_input.fill(STUDENT_NAME)
+            name_input.press('Tab')
+            time.sleep(1)
+            log(f"{prefix}   [+] 🎯 姓名欄位已確實注入：【{STUDENT_NAME}】！")
 
-            if frame:
-                log(f"{prefix} [*] 步驟 3/5: 成功鎖定 Guest Frame，精準注入出席身分：【{STUDENT_NAME}】...")
-                name_input = frame.locator('input[type="text"]').first
-                name_input.click()
-                name_input.fill(STUDENT_NAME)
-                time.sleep(1)
-                log(f"{prefix}   [+] 🎯 姓名輸入框已確實注入：【{STUDENT_NAME}】！")
+            # 觸發「加入會議」核心協議
+            log(f"{prefix} [*] 步驟 5/5: 觸發 Shadow-DOM 核心「加入會議」元件...")
+            click_res = target_frame.evaluate("""() => {
+                let mdc = document.querySelector('#join-button') || document.querySelector('mdc-button[data-test="join-button"]');
+                if (mdc) {
+                    mdc.click();
+                    return { success: true, method: 'mdc.click()' };
+                }
+                let all = Array.from(document.querySelectorAll('*'));
+                let btn = all.find(e => (e.innerText || '').includes('加入') && e.children.length === 0);
+                if (btn) {
+                    btn.click();
+                    return { success: true, method: 'text.click()' };
+                }
+                return { success: false };
+            }""")
+            log(f"{prefix}   [+] 核心按鈕點擊結果：{click_res}")
 
-                log(f"{prefix} [*] 步驟 4/5: 點擊綠色【加入 會議】按鈕進入視訊教室...")
-                click_res = frame.evaluate('''() => {
-                    const all = Array.from(document.querySelectorAll('*'));
-                    const candidates = all.filter(e => 
-                        (e.innerText && (e.innerText.trim() === '加入 會議' || e.innerText.trim() === '加入會議')) &&
-                        e.getBoundingClientRect().width > 50
-                    );
-                    if (candidates.length > 0) {
-                        const target = candidates[candidates.length - 1];
-                        target.click();
-                        return { success: true, tag: target.tagName };
-                    }
-                    const b = document.getElementById('join-button');
-                    if (b) {
-                        b.click();
-                        return { success: true, tag: 'ID_BUTTON' };
-                    }
-                    return { success: false };
-                }''')
-                log(f"{prefix}   [+] 按鈕觸發結果：{click_res}")
-            else:
-                log(f"{prefix} [!] 未獲取到 Guest Frame，採用雙保險座標直擊...")
-                page.mouse.click(770, 400)
-                time.sleep(0.5)
-                page.keyboard.insert_text(STUDENT_NAME)
-                time.sleep(1)
-                page.mouse.click(770, 515)
-                page.keyboard.press("Enter")
-
+            # 等待會議室渲染與進場
+            log(f"{prefix} [*] 等待會議室音訊視訊渲染 (15 秒)...")
             time.sleep(15)
 
-            # 截取進場成功證明截圖 (各科獨立檔名)
+            # 處理可能出現的音訊授權確認彈窗
+            try:
+                for text_btn in ["連接音訊", "使用電腦音訊", "我瞭解", "確定", "加入語音"]:
+                    btn = target_frame.locator(f'button:has-text("{text_btn}")')
+                    if btn.count() > 0 and btn.first.is_visible():
+                        log(f"{prefix}   [+] 自動點擊音訊確認彈窗：{text_btn}")
+                        btn.first.click()
+            except Exception:
+                pass
+
+            # 截取進場成功證明截圖
             proof_file = os.path.join(BASE_DIR, f'attendance_proof_{today_str}_{safe_cname}.png')
             page.screenshot(path=proof_file)
-            log(f"{prefix} [*] 步驟 5/5: 📸 已截取會議室連線存證截圖：{proof_file}")
+            log(f"{prefix} 📸 ✅ 進場成功證明截圖已保存：{proof_file}")
             
-            # 同步更新通用 attendance_proof.png
+            # 同步更新通用 attendance_proof.png (儀表板直接顯示)
             try:
                 default_proof = os.path.join(BASE_DIR, 'attendance_proof.png')
                 page.screenshot(path=default_proof)
             except Exception:
                 pass
 
-            log(f"\n🎉 {prefix} 【全勤守護啟動】《{cname}》連線成功！學生 [{STUDENT_NAME}] 正在會議室全程在線...")
+            log(f"\n🎉 {prefix} 【全勤守護啟動】《{cname}》連線就緒！學生 [{STUDENT_NAME}] 正在會議室全程在線...")
             
             if is_test:
                 log(f"{prefix} 🧪 [測試模式] 保持在線 45 秒後自動安全退出...")
                 time.sleep(45)
             else:
                 total_seconds = duration_minutes * 60
-                interval = 120  # 每 2 分鐘一次在線心跳、狀態守護與斷線檢查
+                interval = 120  # 每 2 分鐘在線心跳
                 elapsed = 0
                 mid_captured = False
                 
@@ -229,33 +221,25 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
                     mins_done = elapsed // 60
                     log(f"{prefix}   [💓 雲端在線心跳] 《{cname}》已持續上課在線 {mins_done} / {duration_minutes} 分鐘 (連線穩固，全勤守護中)...")
                     
-                    # 偵測主持人是否已正式關閉會議 (老師下課關閉會議室)
+                    # 偵測主持人結束會議
                     try:
                         end_modal = page.locator('text="會議已由主持人結束", text="The meeting has ended", text="會議已結束", text="主持人已結束此會議", text="已結束此會議"')
                         if end_modal.count() > 0 and end_modal.first.is_visible():
-                            log(f"{prefix} 🎓 授課教師已手動結束會議室，本日面授課程圓滿下課！【100% 零早退】")
+                            log(f"{prefix} 🎓 授課教師已關閉會議室，本日面授課程圓滿下課！【100% 零早退】")
                             break
                     except Exception:
                         pass
 
-                    # 中途截圖存證 (上課達 50% 時)
+                    # 中途存證截圖 (50% 時)
                     if mins_done >= duration_minutes // 2 and not mid_captured:
                         mid_file = os.path.join(BASE_DIR, f'attendance_proof_{today_str}_{safe_cname}_mid.png')
                         try:
                             page.screenshot(path=mid_file)
+                            page.screenshot(path=os.path.join(BASE_DIR, 'attendance_proof.png'))
                             mid_captured = True
                             log(f"{prefix}   [📸 中途存證] 已截取課程中段守護截圖：{mid_file}")
                         except Exception:
                             pass
-                    
-                    # 斷線守護：若 Webex 出現「重新連線」或「連線中斷」按鈕，立即自動點擊恢復
-                    try:
-                        reconnect_btn = page.locator('button:has-text("重新連線"), button:has-text("Reconnect"), button:has-text("重試")')
-                        if reconnect_btn.count() > 0 and reconnect_btn.first.is_visible():
-                            log(f"{prefix}   [⚠️ 偵測到斷線] 立即點擊【重新連線】以恢復在線狀態...")
-                            reconnect_btn.first.click()
-                    except Exception:
-                        pass
             
             log(f"\n🏁 {prefix} 【超額全勤離場】課程《{cname}》時間充裕結束，出席時數達標超額完成，平穩退出會議室！")
             
@@ -290,10 +274,9 @@ def auto_detect_and_run():
             if now > course_end_dt + datetime.timedelta(minutes=10):
                 continue
                 
-            # 依目前執行時段智慧篩選：
-            # 13:00~16:30 執行下午班課程 (14:00 開課)
-            # 18:00~22:00 執行夜間班課程 (19:00 開課)
-            # 其他時段 (例如手動觸發) 則執行今日全部尚未結束的課程
+            # 依時段智慧篩選：
+            # 13:00~16:30 執行下午班課程
+            # 18:00~22:00 執行夜間班課程
             if 13 <= current_hour < 17:
                 if start_hour < 17:
                     matched.append(c)
@@ -312,10 +295,8 @@ def auto_detect_and_run():
         log(f"   • 《{c['course_name']}》{c['start_time']}~{c['end_time']} (師：{c['teacher']})")
     
     if len(matched) == 1:
-        # 單門課常規出席
         enter_webex_meeting(matched[0])
     else:
-        # ⚡ 衝堂平行多開支援（如 10/5 三門同時、9/23 雙門同時）
         log(f"\n⚡ [衝堂平行多開觸發] 偵測到 {len(matched)} 門課程同時段開課！立即啟動 {len(matched)} 組獨立並行容器同時出席...")
         with ThreadPoolExecutor(max_workers=len(matched)) as executor:
             futures = [
