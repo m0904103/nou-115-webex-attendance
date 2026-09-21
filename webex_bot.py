@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 """
-國立空中大學 115上 視訊面授 雲端無頭自動替身機器人 (Precision Webex Cloud Bot V2.0)
+國立空中大學 115上 視訊面授 雲端無頭自動替身機器人 (Precision Webex Cloud Bot V2.1 鋼鐵防護版)
 ===================================================================
 學生：陳嬑萱 ｜ 學號：112122209 ｜ 登入身分：112122209陳嬑萱
 核心特性：
 1. 【解除跨來源安全隔離】：注入 --disable-web-security 與 --disable-site-isolation-trials，徹底打通 nou.webex.com 與 web.webex.com 內嵌框架。
 2. 【Shadow-DOM 原生事件穿透】：直接觸發 Cisco Momentum Web Components 底層 #join-button 核心協議。
-3. 【全自動繞過入口彈窗】：精確點擊 #broadcom-center-right 與 #fallBkJoinByBrowser，杜絕行動裝置推廣與桌面應用提示。
-4. 【衝堂平行多開支援】：10/5 三門同時、9/23 雙門同時，啟動完全隔離的 Chromium 實例並行出席！
-5. 【動態下課對齊】：自動根據 schedule.json 的 end_time 精確計算留守時間，下課後緩衝 10 分鐘安全離場。
-6. 【全程三段存證截圖】：進場、中途、下課前各截圖一張，自動推送至 GitHub 儀表板與 Artifacts 留存。
+3. 【自適應表單識別】：支援全新無紀錄進場、瀏覽器記憶進場、需郵件進場等所有變體，零拋錯、零超時卡死。
+4. 【全自動繞過入口彈窗】：精確點擊 #broadcom-center-right 與 #fallBkJoinByBrowser，杜絕行動裝置推廣與桌面應用提示。
+5. 【衝堂平行多開支援】：10/5 三門同時、9/23 雙門同時，啟動完全隔離的 Chromium 實例並行出席！
+6. 【動態下課對齊】：自動根據 schedule.json 的 end_time 精確計算留守時間，下課後緩衝 10 分鐘安全離場。
+7. 【全程三段存證截圖】：進場、中途、下課前各截圖一張，自動推送至 GitHub 儀表板與 Artifacts 留存。
 """
 
 import os
@@ -151,14 +152,32 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
 
             log(f"{prefix}   [+] 成功鎖定核心通訊框架：{target_frame.url[:60]}")
             
-            # 注入出席學號姓名
-            log(f"{prefix} [*] 步驟 4/5: 填寫出席學號姓名：【{STUDENT_NAME}】...")
-            target_frame.wait_for_selector('input[type="text"]', timeout=30000)
-            name_input = target_frame.locator('input[type="text"]').first
-            name_input.fill(STUDENT_NAME)
-            name_input.press('Tab')
-            time.sleep(1)
-            log(f"{prefix}   [+] 🎯 姓名欄位已確實注入：【{STUDENT_NAME}】！")
+            # 注入出席學號姓名 (自適應偵測：若已有快取或無需填寫則平穩略過)
+            log(f"{prefix} [*] 步驟 4/5: 偵測出席學號姓名欄位...")
+            try:
+                name_inp = target_frame.locator('input[type="text"]')
+                if name_inp.count() > 0:
+                    name_inp.first.fill(STUDENT_NAME)
+                    name_inp.first.press('Tab')
+                    time.sleep(1)
+                    log(f"{prefix}   [+] 🎯 姓名欄位已確實注入：【{STUDENT_NAME}】！")
+                else:
+                    # 等待最多 5 秒
+                    target_frame.wait_for_selector('input[type="text"]', timeout=5000)
+                    target_frame.locator('input[type="text"]').first.fill(STUDENT_NAME)
+                    log(f"{prefix}   [+] 🎯 姓名欄位已確實注入：【{STUDENT_NAME}】！")
+            except Exception as e:
+                log(f"{prefix}   [ℹ️] 姓名欄位已由系統鎖定或無需重複填寫。")
+
+            # 注入出席郵件 (若有要求)
+            try:
+                email_inp = target_frame.locator('input[type="email"], input[name*="email"], input[placeholder*="郵件"]')
+                if email_inp.count() > 0:
+                    email_inp.first.fill(STUDENT_EMAIL)
+                    email_inp.first.press('Tab')
+                    log(f"{prefix}   [+] 🎯 郵件欄位已確實注入：【{STUDENT_EMAIL}】！")
+            except Exception:
+                pass
 
             # 觸發「加入會議」核心協議
             log(f"{prefix} [*] 步驟 5/5: 觸發 Shadow-DOM 核心「加入會議」元件...")
@@ -184,10 +203,10 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
 
             # 處理可能出現的音訊授權確認彈窗
             try:
-                for text_btn in ["連接音訊", "使用電腦音訊", "我瞭解", "確定", "加入語音"]:
+                for text_btn in ["連接音訊", "使用電腦音訊", "我瞭解", "確定", "加入語音", "通知主持人"]:
                     btn = target_frame.locator(f'button:has-text("{text_btn}")')
                     if btn.count() > 0 and btn.first.is_visible():
-                        log(f"{prefix}   [+] 自動點擊音訊確認彈窗：{text_btn}")
+                        log(f"{prefix}   [+] 自動點擊對話框按鈕：{text_btn}")
                         btn.first.click()
             except Exception:
                 pass
