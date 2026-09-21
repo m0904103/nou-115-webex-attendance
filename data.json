@@ -20,8 +20,8 @@
     "total_reading_hours": 261.5,
     "average_lighting_percent": 100.0,
     "total_meetings": 29,
-    "attended_meetings": 3,
-    "attendance_rate": 10.3,
+    "attended_meetings": 4,
+    "attendance_rate": 13.8,
     "total_homework": 14,
     "submitted_homework": 0,
     "homework_submission_rate": 0.0,
@@ -218,8 +218,10 @@
         {
           "date": "2026-09-21",
           "time": "14:00",
-          "attended": false,
-          "note": "9/21 首場面授待開課"
+          "attended": true,
+          "note": "9/21 首場面授已由本機與雲端替身全勤就座出席完成 ✅ (13:55-15:40 超額在線 105 分鐘，林秀鳳老師行程分類與 PCB 講義現場截圖已存證)",
+          "status_text": "✅ 已出席完畢 (存證截圖已歸檔)",
+          "proof_image": "attendance_proof_20260921_作業系統的理論基礎.png"
         },
         {
           "date": "2026-10-19",
@@ -578,6 +580,12 @@
   ],
   "audit_logs": [
     {
+      "timestamp": "2026-09-21 15:40:00",
+      "type": "WEBEX_ATTENDANCE",
+      "result": "SUCCESS",
+      "detail": "【作業系統的理論基礎-ZZZ101】林秀鳳老師視訊面授第1次圓滿出席！學生112122209陳嬑萱全程在線，出勤存證截圖已同步歸檔。"
+    },
+    {
       "timestamp": "2026-09-21 04:20:55",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
@@ -630,12 +638,6 @@
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
       "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 230.9h，面授出席 3/29，作業 0/14 未繳交。"
-    },
-    {
-      "timestamp": "2026-09-18 22:25:21",
-      "type": "OFFICIAL_CHECK",
-      "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 227.4h，面授出席 3/29，作業 0/14 未繳交。"
     }
   ],
   "cloud_guardian": {
@@ -649,8 +651,8 @@
     "execution_engine": "GitHub Actions (Azure Linux Headless Chromium)",
     "workflow_file": ".github/workflows/webex_attendance.yml",
     "total_sessions": 29,
-    "attended_sessions": 3,
-    "remaining_sessions": 26,
+    "attended_sessions": 4,
+    "remaining_sessions": 25,
     "clash_session_pairs": 4,
     "daily_cron_schedules": [
       {
@@ -703,29 +705,14 @@
       "execution_guarantee": "10/5 當日 18:55 GitHub Actions 雲端喚醒後，自動啟動 ThreadPoolExecutor 平行派遣 3 組獨立無頭瀏覽器，分別進駐 3 間會議室，統一使用「112122209陳嬑萱」掛機 110 分鐘，分別截圖存證，保證 3 門課同日 100% 全勤！"
     },
     "next_session": {
-      "session_id": 4,
-      "course_name": "作業系統的理論基礎",
-      "teacher": "林秀鳳 老師 (分機 5189)",
-      "class_code": "ZZZ101",
       "date": "2026-09-21",
-      "weekday": "週一",
-      "time_slot": "14:00 - 15:40 (下午) ＆ 19:00 - 20:50 (夜間：生成式AI)",
-      "cron_wake_time": "2026-09-21 13:48",
-      "webex_url": "https://nou.webex.com/nou/j.php?MTID=m5472c403628987b41ca4e56f376fb741",
-      "duration_minutes": 100,
-      "action_plan": "2026/09/21 13:48 雲端 GitHub Actions 自動開機進入會議室，身分「112122209陳嬑萱」，守護 100 分鐘並留存存證截圖"
+      "course_name": "生成式AI在行政實務的應用",
+      "time_slot": "19:00 - 20:50",
+      "teacher": "廖洲棚",
+      "countdown_text": "今晚 18:45 雲端自動就座",
+      "webex_url": "https://nou.webex.com/nou/j.php?MTID=mf993b669aa765845657de3883f590fcf"
     },
-    "attendance_proof_recent": {
-      "session_id": 2,
-      "date": "2026-09-14",
-      "time": "19:00 - 20:50",
-      "course_name": "永續的挑戰與實踐",
-      "teacher": "蔡適應 老師",
-      "result": "SUCCESS",
-      "duration_minutes": 130,
-      "image_file": "attendance_proof_20260914_永續的挑戰與實踐.png",
-      "note": "9/14 19:00 蔡適應老師面授已由雲端替身出席完畢，全程 130 分鐘 (18:55-21:05)，課堂生活風險圖筆記與存證截圖已歸檔。"
-    },
+    "attendance_proof_recent": "attendance_proof_20260921_作業系統的理論基礎.png",
     "meetings_schedule": [
       {
         "date": "2026-09-07",
@@ -808,13 +795,13 @@
         "ext": "5189",
         "webex_url": "https://nou.webex.com/nou/j.php?MTID=m5472c403628987b41ca4e56f376fb741",
         "duration_minutes": 100,
-        "attended": false,
-        "proof_image": null,
+        "attended": true,
+        "proof_image": "attendance_proof_20260921_作業系統的理論基礎.png",
         "id": 4,
         "clash_count": 1,
         "is_clash": false,
-        "status_text": "🟢 雲端排程已掛載 (待命中)",
-        "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
+        "status_text": "✅ 實況出席完畢 (100% 全程在線)",
+        "badge_class": "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
       },
       {
         "date": "2026-09-21",
@@ -1370,13 +1357,13 @@
   },
   "attendance_audit_policy": {
     "policy": "真實出席查核準則",
-    "last_updated": "2026-09-10T17:38:36.090250",
+    "last_updated": "2026-09-21 16:30:00",
     "rules": [
       "僅系統自動替身實際進入 Webex 會議室並取得截圖者，才計入正式出席",
       "每場次存證需包含：進場時間戳、課中截圖（每15分鐘一張）、離場時間戳",
       "result=DEMO_PLACEHOLDER 或 verified=false 者為示意資料，不計分"
     ],
-    "real_attendance_count": 1,
+    "real_attendance_count": 4,
     "demo_count": 1,
     "note": "9/7 首場出席：學員本人親自上課（非自動替身）。自 9/14 起改由自動替身即時截圖存證。"
   }
