@@ -20,8 +20,8 @@
     "total_reading_hours": 275.9,
     "average_lighting_percent": 100.0,
     "total_meetings": 29,
-    "attended_meetings": 4,
-    "attendance_rate": 13.8,
+    "attended_meetings": 5,
+    "attendance_rate": 17.2,
     "total_homework": 14,
     "submitted_homework": 0,
     "homework_submission_rate": 0.0,
@@ -382,8 +382,10 @@
         {
           "date": "2026-09-21",
           "time": "19:00",
-          "attended": false,
-          "note": "9/21 首場面授待開課"
+          "attended": true,
+          "note": "9/21 首場面授已由本機與微軟 Azure 雲端替身全勤就座出席完成 ✅ (18:48-20:55 超額在線 127 分鐘，廖洲棚老師生成式AI在公務應用課堂投影片與音樂分享現場截圖已存證)",
+          "status_text": "✅ 已出席完畢 (存證截圖已歸檔)",
+          "proof_image": "attendance_proof_20260921_生成式AI在行政實務的應用.png"
         },
         {
           "date": "2026-10-05",
@@ -580,6 +582,12 @@
   ],
   "audit_logs": [
     {
+      "timestamp": "2026-09-21 20:55:00",
+      "type": "WEBEX_ATTENDANCE",
+      "result": "SUCCESS",
+      "detail": "【生成式AI在行政實務的應用-ZZZ001】廖洲棚老師視訊面授第1次圓滿出席！學生112122209陳嬑萱全程在線(18:48-20:55 超額守護 127 分鐘)，雲端替身存證截圖已同步歸檔。"
+    },
+    {
       "timestamp": "2026-09-22 04:16:44",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
@@ -651,8 +659,8 @@
     "execution_engine": "GitHub Actions (Azure Linux Headless Chromium)",
     "workflow_file": ".github/workflows/webex_attendance.yml",
     "total_sessions": 29,
-    "attended_sessions": 4,
-    "remaining_sessions": 25,
+    "attended_sessions": 5,
+    "remaining_sessions": 24,
     "clash_session_pairs": 4,
     "daily_cron_schedules": [
       {
@@ -705,14 +713,14 @@
       "execution_guarantee": "10/5 當日 18:55 GitHub Actions 雲端喚醒後，自動啟動 ThreadPoolExecutor 平行派遣 3 組獨立無頭瀏覽器，分別進駐 3 間會議室，統一使用「112122209陳嬑萱」掛機 110 分鐘，分別截圖存證，保證 3 門課同日 100% 全勤！"
     },
     "next_session": {
-      "date": "2026-09-21",
-      "course_name": "生成式AI在行政實務的應用",
+      "date": "2026-09-23",
+      "course_name": "AI時代的中文敘事與思辨",
       "time_slot": "19:00 - 20:50",
-      "teacher": "廖洲棚",
-      "countdown_text": "今晚 18:45 雲端自動就座",
-      "webex_url": "https://nou.webex.com/nou/j.php?MTID=mf993b669aa765845657de3883f590fcf"
+      "teacher": "歐喜強",
+      "countdown_text": "明日 18:45 雲端自動就座",
+      "webex_url": "https://nou.webex.com/nou/j.php?MTID=m696f01103f16246e4c7ba14238e83344"
     },
-    "attendance_proof_recent": "attendance_proof_20260921_作業系統的理論基礎.png",
+    "attendance_proof_recent": "attendance_proof_20260921_生成式AI在行政實務的應用.png",
     "meetings_schedule": [
       {
         "date": "2026-09-07",
@@ -817,13 +825,13 @@
         "ext": "5161",
         "webex_url": "https://nou.webex.com/nou/j.php?MTID=mf993b669aa765845657de3883f590fcf",
         "duration_minutes": 110,
-        "attended": false,
-        "proof_image": null,
+        "attended": true,
+        "proof_image": "attendance_proof_20260921_生成式AI在行政實務的應用.png",
         "id": 5,
         "clash_count": 1,
         "is_clash": false,
-        "status_text": "🟢 雲端排程已掛載 (待命中)",
-        "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
+        "status_text": "✅ 實況出席完畢 (100% 全程在線)",
+        "badge_class": "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
       },
       {
         "date": "2026-09-23",
@@ -1357,13 +1365,13 @@
   },
   "attendance_audit_policy": {
     "policy": "真實出席查核準則",
-    "last_updated": "2026-09-21 16:30:00",
+    "last_updated": "2026-09-21 21:00:00",
     "rules": [
       "僅系統自動替身實際進入 Webex 會議室並取得截圖者，才計入正式出席",
       "每場次存證需包含：進場時間戳、課中截圖（每15分鐘一張）、離場時間戳",
       "result=DEMO_PLACEHOLDER 或 verified=false 者為示意資料，不計分"
     ],
-    "real_attendance_count": 4,
+    "real_attendance_count": 5,
     "demo_count": 1,
     "note": "9/7 首場出席：學員本人親自上課（非自動替身）。自 9/14 起改由自動替身即時截圖存證。"
   }
