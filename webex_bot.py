@@ -179,6 +179,21 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
             except Exception:
                 pass
 
+            # 檢查預覽大廳中的視訊狀態，若預設開啟則提前點擊關閉視訊
+            try:
+                target_frame.evaluate("""() => {
+                    let btns = Array.from(document.querySelectorAll('button, mdc-button, [role="button"]'));
+                    for (let b of btns) {
+                        let label = (b.getAttribute('aria-label') || '') + ' ' + (b.innerText || '') + ' ' + (b.getAttribute('data-test') || '');
+                        if (label.includes('停止視訊') || label.includes('關閉視訊') || label.includes('Stop video') || label.includes('Mute video')) {
+                            b.click();
+                            break;
+                        }
+                    }
+                }""")
+            except Exception:
+                pass
+
             # 觸發「加入會議」核心協議
             log(f"{prefix} [*] 步驟 5/5: 觸發 Shadow-DOM 核心「加入會議」元件...")
             click_res = target_frame.evaluate("""() => {
@@ -210,6 +225,34 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
                         btn.first.click()
             except Exception:
                 pass
+
+            # 🛡️ 核心禮儀與隱私守護：強制關閉視訊鏡頭（杜絕 Chromium 虛擬綠色畫面外流）
+            log(f"{prefix} [*] 正在檢查視訊鏡頭狀態，確保隱私與課堂合規禮儀...")
+            try:
+                stop_video_clicked = False
+                for frame in [target_frame, page]:
+                    clicked = frame.evaluate("""() => {
+                        let allButtons = Array.from(document.querySelectorAll('button, [role="button"], mdc-button'));
+                        for (let b of allButtons) {
+                            let text = (b.innerText || '').trim();
+                            let label = b.getAttribute('aria-label') || '';
+                            let dataTest = b.getAttribute('data-test') || '';
+                            if (text.includes('停止視訊') || label.includes('停止視訊') || label.includes('Stop video') || dataTest.includes('stop-video')) {
+                                b.click();
+                                return true;
+                            }
+                        }
+                        return false;
+                    }""")
+                    if clicked:
+                        stop_video_clicked = True
+                        log(f"{prefix}   [📷] 🎯 成功偵測並點擊【停止視訊】！鏡頭已關閉，杜絕綠色雷達畫面外流！")
+                        time.sleep(2)
+                        break
+                if not stop_video_clicked:
+                    log(f"{prefix}   [📷] 視訊鏡頭確認處於關閉狀態（無開啟或已預設關閉）。")
+            except Exception as e:
+                log(f"{prefix}   [!] 關閉視訊操作提示：{e}")
 
             # 截取進場成功證明截圖
             proof_file = os.path.join(BASE_DIR, f'attendance_proof_{today_str}_{safe_cname}.png')
@@ -246,6 +289,22 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
                         if end_modal.count() > 0 and end_modal.first.is_visible():
                             log(f"{prefix} 🎓 授課教師已關閉會議室，本日面授課程圓滿下課！【100% 零早退】")
                             break
+                    except Exception:
+                        pass
+
+                    # 🛡️ 循環巡檢：確保視訊鏡頭保持關閉
+                    try:
+                        target_frame.evaluate("""() => {
+                            let allButtons = Array.from(document.querySelectorAll('button, [role="button"], mdc-button'));
+                            for (let b of allButtons) {
+                                let text = (b.innerText || '').trim();
+                                let label = b.getAttribute('aria-label') || '';
+                                if (text.includes('停止視訊') || label.includes('停止視訊') || label.includes('Stop video')) {
+                                    b.click();
+                                    break;
+                                }
+                            }
+                        }""")
                     except Exception:
                         pass
 
