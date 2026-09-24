@@ -18,14 +18,15 @@
     "total_courses": 7,
     "total_credits": 15,
     "total_reading_hours": 323.4,
+    "reading_hours_score": 5.54,
     "average_lighting_percent": 100.0,
     "total_meetings": 29,
     "attended_meetings": 7,
     "attendance_rate": 24.1,
     "total_homework": 14,
-    "submitted_homework": 0,
-    "homework_submission_rate": 0.0,
-    "current_earned_grade_avg": 13.8,
+    "submitted_homework": 1,
+    "homework_submission_rate": 7.1,
+    "current_earned_grade_avg": 14.5,
     "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
   },
   "courses": [
@@ -403,26 +404,48 @@
         }
       ],
       "hw1": {
-        "submitted": false,
-        "score": 0,
-        "deadline": "課程結束前",
-        "status_text": "尚未繳交",
-        "has_doc": false,
-        "doc_status": "待老師發布"
+        "title": "期末報告第一次作品",
+        "round": 1,
+        "submitted": true,
+        "score": 100.0,
+        "score_pending": true,
+        "status_text": "已繳作業 ✅ (待評分)",
+        "deadline": "115/10/23",
+        "date_range": "2026-09-22 00:00 ~ 2026-10-23 23:59",
+        "system_open": "2026-09-22 00:00",
+        "system_close": "2026-10-23 23:59",
+        "submitted_at": "2026-09-24 23:00",
+        "proof_image": "hw_proof_20260925_生成式AI在行政實務的應用_hw1.png",
+        "has_doc": true,
+        "doc_status": "已繳交成功"
       },
       "hw2": {
+        "title": "期末報告第二次作品",
+        "round": 2,
         "submitted": false,
         "score": 0,
-        "deadline": "課程結束前",
-        "status_text": "尚未繳交",
-        "has_doc": false,
-        "doc_status": "待老師發布"
+        "status_text": "進行作業 (10/20~10/30 開放)",
+        "deadline": "115/10/30",
+        "date_range": "2026-10-20 00:00 ~ 2026-10-30 23:59",
+        "system_open": "2026-10-20 00:00",
+        "system_close": "2026-10-30 23:59",
+        "has_doc": true,
+        "doc_status": "待作答開放"
       },
       "midterm": {
-        "status": "NOT_STARTED",
+        "title": "正式考試：期中考試",
+        "status": "SCHEDULED_ACTIVE",
         "score": 0,
-        "status_text": "尚未舉行",
-        "date_desc": "第 9 週"
+        "exam_type": "正式線上考試",
+        "status_text": "正式線上測驗 (10/26~10/30)",
+        "system_open": "2026-10-26 00:00",
+        "system_close": "2026-10-30 23:59",
+        "result_release": "2026-11-02 08:00",
+        "date_desc": "2026/10/26 00:00 ~ 10/30 23:59",
+        "d_day": "D-31",
+        "calendar_synced": true,
+        "reminder_set": true,
+        "exam_url": "https://uu.nou.edu.tw/learn/index.php"
       },
       "final": {
         "status": "NOT_STARTED",
@@ -585,6 +608,12 @@
     }
   ],
   "audit_logs": [
+    {
+      "timestamp": "2026-09-25 07:56:37",
+      "type": "HOMEWORK_AND_EXAM_UPDATE",
+      "result": "SUCCESS",
+      "detail": "【生成式AI在行政實務的應用】第一次作業（期末報告第一次作品）已確認繳交！期中正式線上測驗 (10/26 00:00 ~ 10/30 23:59) 及放榜 (11/02 08:00) 已同步登錄行事曆與排程提醒。"
+    },
     {
       "timestamp": "2026-09-24 23:07:12",
       "type": "OFFICIAL_CHECK",
@@ -1387,5 +1416,25 @@
     "real_attendance_count": 7,
     "demo_count": 1,
     "note": "9/7 首場出席：學員本人親自上課（非自動替身）。自 9/14 起改由自動替身即時截圖存證。"
-  }
+  },
+  "official_exams": [
+    {
+      "id": "exam-midterm-ap101",
+      "course_id": "c5",
+      "course_code": "AP101",
+      "course_name": "生成式AI在行政實務的應用",
+      "class_code": "ZZZ001",
+      "teacher": "廖洲棚 老師",
+      "title": "正式考試：期中考試",
+      "exam_type": "線上測驗 (SunNet LMS 測驗系統)",
+      "start_time": "2026-10-26 00:00",
+      "end_time": "2026-10-30 23:59",
+      "result_release": "2026-11-02 08:00",
+      "status": "SCHEDULED",
+      "d_day": "D-31",
+      "reminder_note": "測驗前 1 天、前 2 小時自動彈窗提醒，請留意伺服器作答時間",
+      "ics_filename": "nou_midterm_ap101.ics",
+      "lms_url": "https://uu.nou.edu.tw/learn/index.php"
+    }
+  ]
 }

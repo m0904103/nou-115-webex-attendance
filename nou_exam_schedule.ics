@@ -1,0 +1,99 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//National Open University//NOU 115-1 Assistant//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:國立空中大學 115-1 重要考試與作業行事曆
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+X-LIC-LOCATION:Asia/Taipei
+BEGIN:STANDARD
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+
+BEGIN:VEVENT
+UID:nou-midterm-ap101-window-20261026@nou.edu.tw
+DTSTAMP:20260925T000000Z
+DTSTART;TZID=Asia/Taipei:20261026T000000
+DTEND;TZID=Asia/Taipei:20261030T235959
+SUMMARY:🎯【空大期中考】生成式AI在行政實務的應用 - 正式線上考試開放測驗
+DESCRIPTION:科目：(115上)生成式AI在行政實務的應用-ZZZ001班\n授課教師：廖洲棚 老師\n考試類別：正式考試：期中考試\n測驗作答期間：2026-10-26 00:00 至 2026-10-30 23:59\n放榜公布時間：2026-11-02 08:00\n\n★ 空大線上作答須知：作業/測驗時間截止時系統即刻中斷作答頁面，請提早完成測驗以避免判定失敗。\n登入系統：https://uu.nou.edu.tw/learn/index.php
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【倒數1天】空大期中考試明日即將開放作答：生成式AI在行政實務的應用！
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT2H
+ACTION:DISPLAY
+DESCRIPTION:【最後倒數】空大期中線上測驗即將於 23:59 截止，請儘速繳交！
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:nou-midterm-ap101-alert-firstday-20261026@nou.edu.tw
+DTSTAMP:20260925T000000Z
+DTSTART;TZID=Asia/Taipei:20261026T090000
+DTEND;TZID=Asia/Taipei:20261026T100000
+SUMMARY:🔔【空大期中考首日開考】生成式AI在行政實務的應用
+DESCRIPTION:今日起開放期中線上測驗！作答時間至 2026-10-30 23:59 截止。\n建議提早於日間網路順暢時完成測驗作答。\n測驗系統網址：https://uu.nou.edu.tw/learn/index.php
+LOCATION:國立空中大學 SunNet LMS 線上測驗區
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:【提醒】空大期中線上測驗今日首日開考，可安排時間進行作答！
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:nou-midterm-ap101-alert-lastday-20261030@nou.edu.tw
+DTSTAMP:20260925T000000Z
+DTSTART;TZID=Asia/Taipei:20261030T190000
+DTEND;TZID=Asia/Taipei:20261030T235959
+SUMMARY:⚠️【空大期中考壓線截止】生成式AI在行政實務的應用 - 今晚 23:59 關閉！
+DESCRIPTION:【期中考最後提醒】\n科目：生成式AI在行政實務的應用\n截止時間：今晚 23:59 整系統關閉中斷作答！\n請務必於 23:00 前完成交卷！
+LOCATION:國立空中大學 SunNet LMS
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT2H
+ACTION:DISPLAY
+DESCRIPTION:【緊急倒數】期中考測驗最後 2 小時！今晚 23:59 關閉！
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:nou-midterm-ap101-result-20261102@nou.edu.tw
+DTSTAMP:20260925T000000Z
+DTSTART;TZID=Asia/Taipei:20261102T080000
+DTEND;TZID=Asia/Taipei:20261102T090000
+SUMMARY:🏆【空大期中考成績放榜】生成式AI在行政實務的應用 - 查看測驗結果
+DESCRIPTION:期中考試成績於今日上午 08:00 開放查看結果！\n請登入 SunNet LMS 測驗/考試專區查詢您的期中成績。
+LOCATION:國立空中大學 SunNet LMS
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT0M
+ACTION:DISPLAY
+DESCRIPTION:【放榜通知】生成式AI在行政實務的應用期中考成績已公布！
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:nou-hw2-ap101-window-20261020@nou.edu.tw
+DTSTAMP:20260925T000000Z
+DTSTART;TZID=Asia/Taipei:20261020T000000
+DTEND;TZID=Asia/Taipei:20261030T235959
+SUMMARY:📝【空大作業】生成式AI在行政實務的應用 - 期末報告第二次作品開放
+DESCRIPTION:科目：生成式AI在行政實務的應用\n作業：期末報告第二次作品\n開放繳交期間：2026-10-20 00:00 至 2026-10-30 23:59\n登入系統：https://uu.nou.edu.tw/learn/index.php
+LOCATION:國立空中大學 SunNet LMS 作業系統
+STATUS:CONFIRMED
+END:VEVENT
+
+END:VCALENDAR
