@@ -400,12 +400,23 @@ def main():
     time.sleep(3)
     stats_after = fetch_official_stats(sess)
     
-    total_after = sum(v["hours"] for v in stats_after.values())
-    target_new_stat = stats_after.get(target_course["short_name"], {})
-    new_h = target_new_stat.get("hours", target_course["current_h"])
-    new_str = target_new_stat.get("str", "")
+    cur_7_total = 0.0
+    for cfg in COURSE_CONFIG:
+        for k, v in stats_after.items():
+            if cfg["short_name"] in k:
+                cur_7_total += v["hours"]
+                break
 
-    detail_msg = f"雲端 24H 自律研讀完成：【{target_course['short_name']}】+ {args.duration_mins} 分鐘 (目前達 {new_str or f'{new_h}h'})，全科學務總時數達 {total_after:.1f}h / 350h。"
+    target_new_stat = None
+    for k, v in stats_after.items():
+        if target_course["short_name"] in k:
+            target_new_stat = v
+            break
+            
+    new_h = target_new_stat.get("hours", target_course["current_h"]) if target_new_stat else target_course["current_h"]
+    new_str = target_new_stat.get("str", "") if target_new_stat else ""
+
+    detail_msg = f"雲端 24H 自律研讀完成：【{target_course['short_name']}】+ {args.duration_mins} 分鐘 (目前達 {new_str or f'{new_h}h'})，全科 7 門在線時數達 {cur_7_total:.1f}h / 350h。"
     log(f"✅ {detail_msg}")
 
     update_repo_data_file(data_path, stats_after, audit_detail=detail_msg)
