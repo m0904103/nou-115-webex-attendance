@@ -1,0 +1,55 @@
+name: 空大 115上 雲端 24H 自律研讀守護 (關機照常推進)
+
+on:
+  schedule:
+    # 每 35 分鐘在微軟 Azure 雲端伺服器自動啟動一輪 25 分鐘合規研讀
+    - cron: '*/35 * * * *'
+  workflow_dispatch:
+    inputs:
+      duration_mins:
+        description: '研讀時長 (分鐘)'
+        required: false
+        default: '25'
+
+permissions:
+  contents: write
+
+# 單線程保護：同一時間最多只有一個研讀任務在運行，徹底杜絕 -97 併發衝突
+concurrency:
+  group: nou-cloud-study
+  cancel-in-progress: false
+
+jobs:
+  cloud_study:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 檢出儲存庫
+        uses: actions/checkout@v4
+
+      - name: 設定 Python 環境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 安裝必要依賴
+        run: |
+          pip install requests beautifulsoup4 urllib3
+
+      - name: 執行雲端 24H 自律研讀守護 (窪地填平·合規心跳·官方實時同步)
+        env:
+          NOU_SESSION_JSON: ${{ secrets.NOU_SESSION_JSON }}
+        run: |
+          DURATION="${{ github.event.inputs.duration_mins || '25' }}"
+          python cloud_study_runner.py --duration-mins "$DURATION"
+
+      - name: 提交並推送最新官方學務時數至 GitHub Pages
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          if git diff --staged --quiet; then
+            echo "No changes in data.json."
+          else
+            git commit -m "chore(study): 雲端 24H 自律研讀時數自動同步 [skip ci]"
+            git push origin main
+          fi
