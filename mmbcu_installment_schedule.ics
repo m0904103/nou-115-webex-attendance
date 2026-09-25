@@ -1,0 +1,738 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SYM Motors//MMBCU 158 Installment Schedule//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:三陽MMBCU曼巴機車分期繳款行事曆 (36期)
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+X-LIC-LOCATION:Asia/Taipei
+BEGIN:STANDARD
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p01@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20261008
+DTEND;VALUE=DATE:20261009
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 1/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 1 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2026/10/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 1 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 1 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p02@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 2/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 2 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2026/11/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 2 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 2 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p03@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20261208
+DTEND;VALUE=DATE:20261209
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 3/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 3 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2026/12/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 3 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 3 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p04@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20270108
+DTEND;VALUE=DATE:20270109
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 4/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 4 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2027/01/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 4 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 4 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p05@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20270208
+DTEND;VALUE=DATE:20270209
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 5/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 5 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2027/02/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 5 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 5 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p06@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20270308
+DTEND;VALUE=DATE:20270309
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 6/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 6 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2027/03/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 6 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 6 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p07@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20270408
+DTEND;VALUE=DATE:20270409
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 7/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 7 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2027/04/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 7 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 7 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p08@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 8/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 8 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2027/05/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 8 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 8 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p09@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20270608
+DTEND;VALUE=DATE:20270609
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 9/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 9 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2027/06/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 9 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 9 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p10@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20270708
+DTEND;VALUE=DATE:20270709
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 10/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 10 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2027/07/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 10 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 10 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p11@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 11/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 11 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2027/08/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 11 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 11 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p12@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20270908
+DTEND;VALUE=DATE:20270909
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 12/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 12 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2027/09/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 12 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 12 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p13@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20271008
+DTEND;VALUE=DATE:20271009
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 13/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 13 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2027/10/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 13 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 13 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p14@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20271108
+DTEND;VALUE=DATE:20271109
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 14/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 14 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2027/11/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 14 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 14 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p15@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20271208
+DTEND;VALUE=DATE:20271209
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 15/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 15 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2027/12/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 15 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 15 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p16@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20280108
+DTEND;VALUE=DATE:20280109
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 16/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 16 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2028/01/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 16 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 16 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p17@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20280208
+DTEND;VALUE=DATE:20280209
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 17/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 17 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2028/02/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 17 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 17 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p18@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20280308
+DTEND;VALUE=DATE:20280309
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 18/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 18 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2028/03/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 18 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 18 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p19@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20280408
+DTEND;VALUE=DATE:20280409
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 19/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 19 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2028/04/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 19 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 19 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p20@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20280508
+DTEND;VALUE=DATE:20280509
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 20/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 20 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2028/05/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 20 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 20 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p21@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20280608
+DTEND;VALUE=DATE:20280609
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 21/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 21 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2028/06/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 21 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 21 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p22@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20280708
+DTEND;VALUE=DATE:20280709
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 22/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 22 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2028/07/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 22 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 22 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p23@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20280808
+DTEND;VALUE=DATE:20280809
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 23/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 23 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2028/08/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 23 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 23 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p24@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20280908
+DTEND;VALUE=DATE:20280909
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 24/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 24 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2028/09/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 24 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 24 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p25@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20281008
+DTEND;VALUE=DATE:20281009
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 25/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 25 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2028/10/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 25 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 25 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p26@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20281108
+DTEND;VALUE=DATE:20281109
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 26/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 26 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2028/11/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 26 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 26 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p27@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20281208
+DTEND;VALUE=DATE:20281209
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 27/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 27 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2028/12/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 27 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 27 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p28@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20290108
+DTEND;VALUE=DATE:20290109
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 28/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 28 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2029/01/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 28 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 28 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p29@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20290208
+DTEND;VALUE=DATE:20290209
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 29/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 29 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2029/02/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 29 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 29 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p30@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20290308
+DTEND;VALUE=DATE:20290309
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 30/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 30 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2029/03/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 30 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 30 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p31@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20290408
+DTEND;VALUE=DATE:20290409
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 31/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 31 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2029/04/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 31 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 31 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p32@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20290508
+DTEND;VALUE=DATE:20290509
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 32/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 32 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2029/05/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 32 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 32 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p33@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20290608
+DTEND;VALUE=DATE:20290609
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 33/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 33 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2029/06/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 33 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 33 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p34@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20290708
+DTEND;VALUE=DATE:20290709
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 34/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 34 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2029/07/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 34 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 34 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p35@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20290808
+DTEND;VALUE=DATE:20290809
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 35/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 35 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2029/08/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 35 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 35 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mmbcu-installment-FT15811811-p36@fartrust.com.tw
+DTSTAMP:20260925T130000Z
+DTSTART;VALUE=DATE:20290908
+DTEND;VALUE=DATE:20290909
+SUMMARY:🛵【分期繳款】三陽MMBCU 158 第 36/36 期 ($3,361)
+DESCRIPTION:車主/專屬：陳同學\n車種類型：機車類－一般機車\n車種型號：三陽 TDA16T6-H MMBCU曼巴 TCS雙碟 158 c.c.\n案件編號：FT15811811\n分期期數：第 36 期 / 共 36 期\n應繳金額：新台幣 $3,361 元\n應繳日期：2029/09/08 (每月 8 號)\n分期機構：新光合纖集團 月付大人 (fartrust.com.tw)\n繳款連結：https://www.fartrust.com.tw\n★ 貼心提醒：請於每月 8 號前完成繳款，避免產生遲延滯納費用！
+LOCATION:新光合纖集團 月付大人 (fartrust.com.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:【繳款預告】3天後 (8號) 為三陽MMBCU第 36 期繳款日 ($3,361)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明日繳款】明天為三陽MMBCU第 36 期分期繳款大限 ($3,361)
+END:VALARM
+END:VEVENT
+END:VCALENDAR
