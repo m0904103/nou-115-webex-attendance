@@ -4,3 +4,5 @@ __pycache__/
 *.pyc
 .tempmediaStorage/
 temp_*
+nou_active_session.json
+*.log

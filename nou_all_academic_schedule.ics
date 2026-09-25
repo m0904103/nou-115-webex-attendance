@@ -408,4 +408,19 @@ END:VALARM
 
 END:VEVENT
 
+BEGIN:VEVENT
+UID:nou-hw-as101-hw1-20261018@nou.edu.tw
+DTSTAMP:20260925T122000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:✅【已繳交】探索宇宙之美 - 第 1 次平時作業 (作業一)
+DESCRIPTION:科目：探索宇宙之美 (趙瑞青 老師)\n作業：第 1 次平時作業 (作業一)\n狀態：已於 2026-09-25 提前 23 天繳交完畢 ✅！\n作答期間：2026-09-21 00:00 至 2026-10-18 23:59\n繳交系統：https://uu.nou.edu.tw/learn/index.php
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【提醒】明日重要日程：✅【已繳交】探索宇宙之美 - 第 1 次平時作業 (作業一)
+END:VALARM
+END:VEVENT
 END:VCALENDAR

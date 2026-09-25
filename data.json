@@ -8,11 +8,11 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-09-25 05:41:07",
+    "last_checked_at": "2026-09-25 20:26:05",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
-    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 綠燈核驗通過、官方在線時數 323.4h、面授出席 7/29 全勤、作業已繳 2 份存證鎖定"
+    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 綠燈、官方在線時數 323.4h、面授出席 7 / 29、平時作業已繳 3 份（生成式AI第一次作品、永續生活風險圖、探索宇宙之美作業一提前繳交存證歸檔）"
   },
   "analytics": {
     "total_courses": 7,
@@ -24,9 +24,9 @@
     "attended_meetings": 7,
     "attendance_rate": 24.1,
     "total_homework": 14,
-    "submitted_homework": 1,
-    "homework_submission_rate": 7.1,
-    "current_earned_grade_avg": 13.4,
+    "submitted_homework": 2,
+    "homework_submission_rate": 14.3,
+    "current_earned_grade_avg": 14.0,
     "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
   },
   "courses": [
@@ -577,12 +577,20 @@
         }
       ],
       "hw1": {
-        "submitted": false,
-        "score": 0,
-        "deadline": "期中考前",
-        "status_text": "尚未繳交",
-        "has_doc": false,
-        "doc_status": "待老師發布"
+        "title": "作業一",
+        "round": 1,
+        "submitted": true,
+        "score": 100.0,
+        "score_pending": true,
+        "status_text": "已繳作業 ✅ (待評分)",
+        "deadline": "115/10/18",
+        "d_day": "已繳交",
+        "system_open": "2026-09-21 00:00",
+        "system_close": "2026-10-18 23:59",
+        "submitted_at": "2026-09-25 20:20",
+        "proof_image": "hw_proof_20260925_探索宇宙之美_hw1.png",
+        "has_doc": true,
+        "doc_status": "已繳交成功 ✅"
       },
       "hw2": {
         "submitted": false,
@@ -611,6 +619,12 @@
     }
   ],
   "audit_logs": [
+    {
+      "timestamp": "2026-09-25 20:26:05",
+      "type": "HOMEWORK_SUBMISSION",
+      "result": "SUCCESS",
+      "detail": "【探索宇宙之美-ZZZ002】趙瑞青老師第 1 次平時作業 (作業一) 提早 23 天完成繳交！官方存證截圖已歸檔。"
+    },
     {
       "timestamp": "2026-09-25 05:41:07",
       "type": "CLOUD_STUDY_AUTO",
