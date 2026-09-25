@@ -1,208 +1,411 @@
-BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//National Open University//NOU 115-1 Master Schedule//ZH-TW
-CALSCALE:GREGORIAN
-METHOD:PUBLISH
-X-WR-CALNAME:空大115-1 全科目考試與作業必勝日程
-X-WR-TIMEZONE:Asia/Taipei
-BEGIN:VTIMEZONE
-TZID:Asia/Taipei
-X-LIC-LOCATION:Asia/Taipei
-BEGIN:STANDARD
-TZOFFSETFROM:+0800
-TZOFFSETTO:+0800
-TZNAME:CST
-DTSTART:19700101T000000
-END:STANDARD
-END:VTIMEZONE
-BEGIN:VEVENT
-UID:nou-hw-sd101-riskmap-20260927@nou.edu.tw
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20260927
-DTEND;VALUE=DATE:20260928
-SUMMARY:🚨【作業截止】永續的挑戰與實踐 - 生活風險圖課堂作業 (+10分)
-DESCRIPTION:科目：永續的挑戰與實踐 (蔡適應 老師)\n作業：課堂作業1 (生活風險圖繪製)\n截止時間：2026-09-27 23:59 (D-2！)\n繳交系統：https://uu.nou.edu.tw/learn/index.php
-LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
-STATUS:CONFIRMED
-BEGIN:VALARM
-TRIGGER:-P1D
-ACTION:DISPLAY
-DESCRIPTION:【提醒】明日/近期重要日程：🚨【作業截止】永續的挑戰與實踐 - 生活風險圖課堂作業 (+10分)
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:nou-hw-ap101-hw2-open-20261020@nou.edu.tw
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20261020
-DTEND;VALUE=DATE:20261021
-SUMMARY:📝【作業開放】生成式AI在行政實務的應用 - 期末報告第二次作品開放作答
-DESCRIPTION:科目：生成式AI在行政實務的應用 (廖洲棚 老師)\n作業：期末報告第二次作品 (提示詞+活動企劃書實作)\n開放期間：2026-10-20 00:00 至 2026-10-30 23:59\n登入系統：https://uu.nou.edu.tw/learn/index.php
-LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
-STATUS:CONFIRMED
-BEGIN:VALARM
-TRIGGER:-P1D
-ACTION:DISPLAY
-DESCRIPTION:【提醒】明日/近期重要日程：📝【作業開放】生成式AI在行政實務的應用 - 期末報告第二次作品開放作答
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:nou-hw-ap101-hw1-due-20261023@nou.edu.tw
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20261023
-DTEND;VALUE=DATE:20261024
-SUMMARY:📑【作業正常截止】生成式AI在行政實務的應用 - 期末報告第一次作品
-DESCRIPTION:科目：生成式AI在行政實務的應用 (廖洲棚 老師)\n作業：期末報告第一次作品 (提示詞+逐字稿+宣傳圖片)\n正常截止時間：今晚 23:59 (補交期限至 10/30)\n登入系統：https://uu.nou.edu.tw/learn/index.php
-LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
-STATUS:CONFIRMED
-BEGIN:VALARM
-TRIGGER:-P1D
-ACTION:DISPLAY
-DESCRIPTION:【提醒】明日/近期重要日程：📑【作業正常截止】生成式AI在行政實務的應用 - 期末報告第一次作品
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:nou-exam-ap101-midterm-window-20261026@nou.edu.tw
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20261026
-DTEND;VALUE=DATE:20261031
-SUMMARY:🎯【期中線上考】生成式AI在行政實務的應用 - 正式測驗週 (10/26~10/30)
-DESCRIPTION:科目：生成式AI在行政實務的應用 (廖洲棚 老師)\n考試形式：正式考試：期中考試 (50題線上測驗)\n作答期間：2026-10-26 00:00 至 2026-10-30 23:59 截止！\n放榜時間：2026-11-02 08:00\n⚠️ 系統截止即刻中斷作答，請提早完成送卷！\n測驗網址：https://uu.nou.edu.tw/learn/index.php
-LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
-STATUS:CONFIRMED
-BEGIN:VALARM
-TRIGGER:-P1D
-ACTION:DISPLAY
-DESCRIPTION:【提醒】明日/近期重要日程：🎯【期中線上考】生成式AI在行政實務的應用 - 正式測驗週 (10/26~10/30)
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:nou-exam-ap101-deadline-alert-20261030@nou.edu.tw
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20261030
-DTEND;VALUE=DATE:20261031
-SUMMARY:⚠️【壓線截止大限】生成式AI在行政實務的應用 - 期中測驗與報告2今晚 23:59 截止！
-DESCRIPTION:【最後緊急大限】\n1. 期中線上考試：今晚 23:59 關閉中斷作答！\n2. 期末報告第二次作品：今晚 23:59 截止！\n請同學務必提早於 23:00 前送卷！\n登入系統：https://uu.nou.edu.tw/learn/index.php
-LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
-STATUS:CONFIRMED
-BEGIN:VALARM
-TRIGGER:-P1D
-ACTION:DISPLAY
-DESCRIPTION:【提醒】明日/近期重要日程：⚠️【壓線截止大限】生成式AI在行政實務的應用 - 期中測驗與報告2今晚 23:59 截止！
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:nou-exam-ap101-results-20261102@nou.edu.tw
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20261102
-DTEND;VALUE=DATE:20261103
-SUMMARY:🏆【放榜查分】生成式AI在行政實務的應用 - 期中考成績今日 08:00 放榜
-DESCRIPTION:生成式AI在行政實務的應用期中測驗成績今日上午 08:00 開放查看！\n請登入 SunNet LMS 測驗/考試專區查詢成果。\n網址：https://uu.nou.edu.tw/learn/index.php
-LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
-UID:nou-hw-os201-hw1-due-20261102@nou.edu.tw
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20261102
-DTEND;VALUE=DATE:20261103
-SUMMARY:📝【作業截止】作業系統的理論基礎 - 第 1 次平時作業截止
-DESCRIPTION:科目：作業系統的理論基礎 (林秀鳳 老師)\n作業：第 1 次平時作業 (佔平時分重要比重)\n截止時間：2026-11-02 23:59\n登入系統：https://uu.nou.edu.tw/learn/index.php
-LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
-STATUS:CONFIRMED
-BEGIN:VALARM
-TRIGGER:-P1D
-ACTION:DISPLAY
-DESCRIPTION:【提醒】明日/近期重要日程：📝【作業截止】作業系統的理論基礎 - 第 1 次平時作業截止
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:nou-midterm-week-univ-20261102@nou.edu.tw
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20261102
-DTEND;VALUE=DATE:20261109
-SUMMARY:📚【全校期中考週】國立空中大學 115-1 全校期中考試週 (第 9 週)
-DESCRIPTION:國立空中大學 115學年度上學期 全校統一期中考試週 (2026/11/02 ~ 2026/11/08)\n請同學留意各科開卷/線上測驗/作業評量指示，祝各位同學考試順利得高分！
-LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
-STATUS:CONFIRMED
-BEGIN:VALARM
-TRIGGER:-P2D
-ACTION:DISPLAY
-DESCRIPTION:【提醒】明日/近期重要日程：📚【全校期中考週】國立空中大學 115-1 全校期中考試週 (第 9 週)
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:nou-hw-sd101-hw1-due-20261106@nou.edu.tw
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20261106
-DTEND;VALUE=DATE:20261107
-SUMMARY:📝【作業截止】永續的挑戰與實踐 - 第 1 次平時作業系統截止
-DESCRIPTION:科目：永續的挑戰與實踐 (蔡適應 老師)\n作業：第 1 次平時作業\n截止時間：2026-11-06 23:59 系統準時關閉！\n登入系統：https://uu.nou.edu.tw/learn/index.php
-LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
-STATUS:CONFIRMED
-BEGIN:VALARM
-TRIGGER:-P1D
-ACTION:DISPLAY
-DESCRIPTION:【提醒】明日/近期重要日程：📝【作業截止】永續的挑戰與實踐 - 第 1 次平時作業系統截止
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:nou-hw1-univ-major-deadline-20261116@nou.edu.tw
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20261116
-DTEND;VALUE=DATE:20261117
-SUMMARY:🔥【全校作業大限】第 1 次平時作業截止 (AI導論/中文思辨/AI倫理/宇宙之美)
-DESCRIPTION:【空大 115-1 第 1 次平時作業全校關鍵大限日】\n本日截止科目：\n1. 人工智慧導論 (陳廷哲 老師)\n2. AI時代的中文敘事與思辨 (歐喜強 老師)\n3. 淺談人工智慧倫理 (林秀鳳 老師)\n4. 探索宇宙之美 (趙瑞青 老師)\n截止時間：今晚 23:59 整！請務必提早完成繳交！\n繳交網址：https://uu.nou.edu.tw/learn/index.php
-LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
-STATUS:CONFIRMED
-BEGIN:VALARM
-TRIGGER:-P2D
-ACTION:DISPLAY
-DESCRIPTION:【提醒】明日/近期重要日程：🔥【全校作業大限】第 1 次平時作業截止 (AI導論/中文思辨/AI倫理/宇宙之美)
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:nou-hw-ai101-hw2-due-20261201@nou.edu.tw
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20261201
-DTEND;VALUE=DATE:20261202
-SUMMARY:📝【作業截止】人工智慧導論 - 第 2 次平時作業截止
-DESCRIPTION:科目：人工智慧導論 (陳廷哲 老師)\n作業：第 2 次平時作業\n截止時間：2026-12-01 23:59\n登入系統：https://uu.nou.edu.tw/learn/index.php
-LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
-STATUS:CONFIRMED
-BEGIN:VALARM
-TRIGGER:-P1D
-ACTION:DISPLAY
-DESCRIPTION:【提醒】明日/近期重要日程：📝【作業截止】人工智慧導論 - 第 2 次平時作業截止
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:nou-hw2-univ-final-deadline-20261215@nou.edu.tw
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20261215
-DTEND;VALUE=DATE:20261217
-SUMMARY:🔥【期末作業大限】第 2 次平時作業截止 (永續/作業系統/中文思辨/AI倫理/宇宙之美)
-DESCRIPTION:【空大 115-1 期末平時作業全校總大限】\n本日截止科目：\n1. 永續的挑戰與實踐 (蔡適應 老師)\n2. 作業系統的理論基礎 (林秀鳳 老師)\n3. AI時代的中文敘事與思辨 (歐喜強 老師)\n4. 淺談人工智慧倫理 (林秀鳳 老師)\n5. 探索宇宙之美 (趙瑞青 老師)\n截止時間：23:59 整！請提早繳交鎖定學期 30% 平時分！\n繳交網址：https://uu.nou.edu.tw/learn/index.php
-LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
-STATUS:CONFIRMED
-BEGIN:VALARM
-TRIGGER:-P2D
-ACTION:DISPLAY
-DESCRIPTION:【提醒】明日/近期重要日程：🔥【期末作業大限】第 2 次平時作業截止 (永續/作業系統/中文思辨/AI倫理/宇宙之美)
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:nou-final-week-univ-20270104@nou.edu.tw
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20270104
-DTEND;VALUE=DATE:20270111
-SUMMARY:🎓【全校期末考週】國立空中大學 115-1 全校期末考試週 (第 18 週)
-DESCRIPTION:國立空中大學 115學年度上學期 全校統一期末考試週 (2027/01/04 ~ 2027/01/10)\n學期最後衝刺！預祝全體同學全科 PASS、勇奪書香榮譽獎！
-LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
-STATUS:CONFIRMED
-BEGIN:VALARM
-TRIGGER:-P3D
-ACTION:DISPLAY
-DESCRIPTION:【提醒】明日/近期重要日程：🎓【全校期末考週】國立空中大學 115-1 全校期末考試週 (第 18 週)
-END:VALARM
-END:VEVENT
+BEGIN:VCALENDAR
+
+VERSION:2.0
+
+PRODID:-//National Open University//NOU 115-1 Master Schedule//ZH-TW
+
+CALSCALE:GREGORIAN
+
+METHOD:PUBLISH
+
+X-WR-CALNAME:空大115-1 全科目考試與作業必勝日程
+
+X-WR-TIMEZONE:Asia/Taipei
+
+BEGIN:VTIMEZONE
+
+TZID:Asia/Taipei
+
+X-LIC-LOCATION:Asia/Taipei
+
+BEGIN:STANDARD
+
+TZOFFSETFROM:+0800
+
+TZOFFSETTO:+0800
+
+TZNAME:CST
+
+DTSTART:19700101T000000
+
+END:STANDARD
+
+END:VTIMEZONE
+
+BEGIN:VEVENT
+
+UID:nou-hw-sd101-riskmap-20260927@nou.edu.tw
+
+DTSTAMP:20260925T000000Z
+
+DTSTART;VALUE=DATE:20260927
+
+DTEND;VALUE=DATE:20260928
+
+SUMMARY:✅【已繳交】永續的挑戰與實踐 - 生活風險圖課堂作業 (+10分)
+DESCRIPTION:科目：永續的挑戰與實踐 (蔡適應 老師)
+作業：課堂作業1 (生活風險圖繪製)
+狀態：已於 09/25 提前繳交完畢 ✅！隨堂加分 +10 分鎖定。
+截止時間：2026-09-27 23:59
+繳交系統：https://uu.nou.edu.tw/learn/index.php
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【提醒】明日/近期重要日程：✅【已繳交】永續的挑戰與實踐 - 生活風險圖課堂作業 (+10分)
+END:VALARM
+
+END:VEVENT
+
+BEGIN:VEVENT
+
+UID:nou-hw-ap101-hw2-open-20261020@nou.edu.tw
+
+DTSTAMP:20260925T000000Z
+
+DTSTART;VALUE=DATE:20261020
+
+DTEND;VALUE=DATE:20261021
+
+SUMMARY:📝【作業開放】生成式AI在行政實務的應用 - 期末報告第二次作品開放作答
+
+DESCRIPTION:科目：生成式AI在行政實務的應用 (廖洲棚 老師)\n作業：期末報告第二次作品 (提示詞+活動企劃書實作)\n開放期間：2026-10-20 00:00 至 2026-10-30 23:59\n登入系統：https://uu.nou.edu.tw/learn/index.php
+
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+
+STATUS:CONFIRMED
+
+BEGIN:VALARM
+
+TRIGGER:-P1D
+
+ACTION:DISPLAY
+
+DESCRIPTION:【提醒】明日/近期重要日程：📝【作業開放】生成式AI在行政實務的應用 - 期末報告第二次作品開放作答
+
+END:VALARM
+
+END:VEVENT
+
+BEGIN:VEVENT
+
+UID:nou-hw-ap101-hw1-due-20261023@nou.edu.tw
+
+DTSTAMP:20260925T000000Z
+
+DTSTART;VALUE=DATE:20261023
+
+DTEND;VALUE=DATE:20261024
+
+SUMMARY:📑【作業正常截止】生成式AI在行政實務的應用 - 期末報告第一次作品
+
+DESCRIPTION:科目：生成式AI在行政實務的應用 (廖洲棚 老師)\n作業：期末報告第一次作品 (提示詞+逐字稿+宣傳圖片)\n正常截止時間：今晚 23:59 (補交期限至 10/30)\n登入系統：https://uu.nou.edu.tw/learn/index.php
+
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+
+STATUS:CONFIRMED
+
+BEGIN:VALARM
+
+TRIGGER:-P1D
+
+ACTION:DISPLAY
+
+DESCRIPTION:【提醒】明日/近期重要日程：📑【作業正常截止】生成式AI在行政實務的應用 - 期末報告第一次作品
+
+END:VALARM
+
+END:VEVENT
+
+BEGIN:VEVENT
+
+UID:nou-exam-ap101-midterm-window-20261026@nou.edu.tw
+
+DTSTAMP:20260925T000000Z
+
+DTSTART;VALUE=DATE:20261026
+
+DTEND;VALUE=DATE:20261031
+
+SUMMARY:🎯【期中線上考】生成式AI在行政實務的應用 - 正式測驗週 (10/26~10/30)
+
+DESCRIPTION:科目：生成式AI在行政實務的應用 (廖洲棚 老師)\n考試形式：正式考試：期中考試 (50題線上測驗)\n作答期間：2026-10-26 00:00 至 2026-10-30 23:59 截止！\n放榜時間：2026-11-02 08:00\n⚠️ 系統截止即刻中斷作答，請提早完成送卷！\n測驗網址：https://uu.nou.edu.tw/learn/index.php
+
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+
+STATUS:CONFIRMED
+
+BEGIN:VALARM
+
+TRIGGER:-P1D
+
+ACTION:DISPLAY
+
+DESCRIPTION:【提醒】明日/近期重要日程：🎯【期中線上考】生成式AI在行政實務的應用 - 正式測驗週 (10/26~10/30)
+
+END:VALARM
+
+END:VEVENT
+
+BEGIN:VEVENT
+
+UID:nou-exam-ap101-deadline-alert-20261030@nou.edu.tw
+
+DTSTAMP:20260925T000000Z
+
+DTSTART;VALUE=DATE:20261030
+
+DTEND;VALUE=DATE:20261031
+
+SUMMARY:⚠️【壓線截止大限】生成式AI在行政實務的應用 - 期中測驗與報告2今晚 23:59 截止！
+
+DESCRIPTION:【最後緊急大限】\n1. 期中線上考試：今晚 23:59 關閉中斷作答！\n2. 期末報告第二次作品：今晚 23:59 截止！\n請同學務必提早於 23:00 前送卷！\n登入系統：https://uu.nou.edu.tw/learn/index.php
+
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+
+STATUS:CONFIRMED
+
+BEGIN:VALARM
+
+TRIGGER:-P1D
+
+ACTION:DISPLAY
+
+DESCRIPTION:【提醒】明日/近期重要日程：⚠️【壓線截止大限】生成式AI在行政實務的應用 - 期中測驗與報告2今晚 23:59 截止！
+
+END:VALARM
+
+END:VEVENT
+
+BEGIN:VEVENT
+
+UID:nou-exam-ap101-results-20261102@nou.edu.tw
+
+DTSTAMP:20260925T000000Z
+
+DTSTART;VALUE=DATE:20261102
+
+DTEND;VALUE=DATE:20261103
+
+SUMMARY:🏆【放榜查分】生成式AI在行政實務的應用 - 期中考成績今日 08:00 放榜
+
+DESCRIPTION:生成式AI在行政實務的應用期中測驗成績今日上午 08:00 開放查看！\n請登入 SunNet LMS 測驗/考試專區查詢成果。\n網址：https://uu.nou.edu.tw/learn/index.php
+
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+
+STATUS:CONFIRMED
+
+END:VEVENT
+
+BEGIN:VEVENT
+
+UID:nou-hw-os201-hw1-due-20261102@nou.edu.tw
+
+DTSTAMP:20260925T000000Z
+
+DTSTART;VALUE=DATE:20261102
+
+DTEND;VALUE=DATE:20261103
+
+SUMMARY:📝【作業截止】作業系統的理論基礎 - 第 1 次平時作業截止
+
+DESCRIPTION:科目：作業系統的理論基礎 (林秀鳳 老師)\n作業：第 1 次平時作業 (佔平時分重要比重)\n截止時間：2026-11-02 23:59\n登入系統：https://uu.nou.edu.tw/learn/index.php
+
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+
+STATUS:CONFIRMED
+
+BEGIN:VALARM
+
+TRIGGER:-P1D
+
+ACTION:DISPLAY
+
+DESCRIPTION:【提醒】明日/近期重要日程：📝【作業截止】作業系統的理論基礎 - 第 1 次平時作業截止
+
+END:VALARM
+
+END:VEVENT
+
+BEGIN:VEVENT
+
+UID:nou-midterm-week-univ-20261102@nou.edu.tw
+
+DTSTAMP:20260925T000000Z
+
+DTSTART;VALUE=DATE:20261102
+
+DTEND;VALUE=DATE:20261109
+
+SUMMARY:📚【全校期中考週】國立空中大學 115-1 全校期中考試週 (第 9 週)
+
+DESCRIPTION:國立空中大學 115學年度上學期 全校統一期中考試週 (2026/11/02 ~ 2026/11/08)\n請同學留意各科開卷/線上測驗/作業評量指示，祝各位同學考試順利得高分！
+
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+
+STATUS:CONFIRMED
+
+BEGIN:VALARM
+
+TRIGGER:-P2D
+
+ACTION:DISPLAY
+
+DESCRIPTION:【提醒】明日/近期重要日程：📚【全校期中考週】國立空中大學 115-1 全校期中考試週 (第 9 週)
+
+END:VALARM
+
+END:VEVENT
+
+BEGIN:VEVENT
+
+UID:nou-hw-sd101-hw1-due-20261106@nou.edu.tw
+
+DTSTAMP:20260925T000000Z
+
+DTSTART;VALUE=DATE:20261106
+
+DTEND;VALUE=DATE:20261107
+
+SUMMARY:📝【作業截止】永續的挑戰與實踐 - 第 1 次平時作業系統截止
+
+DESCRIPTION:科目：永續的挑戰與實踐 (蔡適應 老師)\n作業：第 1 次平時作業\n截止時間：2026-11-06 23:59 系統準時關閉！\n登入系統：https://uu.nou.edu.tw/learn/index.php
+
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+
+STATUS:CONFIRMED
+
+BEGIN:VALARM
+
+TRIGGER:-P1D
+
+ACTION:DISPLAY
+
+DESCRIPTION:【提醒】明日/近期重要日程：📝【作業截止】永續的挑戰與實踐 - 第 1 次平時作業系統截止
+
+END:VALARM
+
+END:VEVENT
+
+BEGIN:VEVENT
+
+UID:nou-hw1-univ-major-deadline-20261116@nou.edu.tw
+
+DTSTAMP:20260925T000000Z
+
+DTSTART;VALUE=DATE:20261116
+
+DTEND;VALUE=DATE:20261117
+
+SUMMARY:🔥【全校作業大限】第 1 次平時作業截止 (AI導論/中文思辨/AI倫理/宇宙之美)
+
+DESCRIPTION:【空大 115-1 第 1 次平時作業全校關鍵大限日】\n本日截止科目：\n1. 人工智慧導論 (陳廷哲 老師)\n2. AI時代的中文敘事與思辨 (歐喜強 老師)\n3. 淺談人工智慧倫理 (林秀鳳 老師)\n4. 探索宇宙之美 (趙瑞青 老師)\n截止時間：今晚 23:59 整！請務必提早完成繳交！\n繳交網址：https://uu.nou.edu.tw/learn/index.php
+
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+
+STATUS:CONFIRMED
+
+BEGIN:VALARM
+
+TRIGGER:-P2D
+
+ACTION:DISPLAY
+
+DESCRIPTION:【提醒】明日/近期重要日程：🔥【全校作業大限】第 1 次平時作業截止 (AI導論/中文思辨/AI倫理/宇宙之美)
+
+END:VALARM
+
+END:VEVENT
+
+BEGIN:VEVENT
+
+UID:nou-hw-ai101-hw2-due-20261201@nou.edu.tw
+
+DTSTAMP:20260925T000000Z
+
+DTSTART;VALUE=DATE:20261201
+
+DTEND;VALUE=DATE:20261202
+
+SUMMARY:📝【作業截止】人工智慧導論 - 第 2 次平時作業截止
+
+DESCRIPTION:科目：人工智慧導論 (陳廷哲 老師)\n作業：第 2 次平時作業\n截止時間：2026-12-01 23:59\n登入系統：https://uu.nou.edu.tw/learn/index.php
+
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+
+STATUS:CONFIRMED
+
+BEGIN:VALARM
+
+TRIGGER:-P1D
+
+ACTION:DISPLAY
+
+DESCRIPTION:【提醒】明日/近期重要日程：📝【作業截止】人工智慧導論 - 第 2 次平時作業截止
+
+END:VALARM
+
+END:VEVENT
+
+BEGIN:VEVENT
+
+UID:nou-hw2-univ-final-deadline-20261215@nou.edu.tw
+
+DTSTAMP:20260925T000000Z
+
+DTSTART;VALUE=DATE:20261215
+
+DTEND;VALUE=DATE:20261217
+
+SUMMARY:🔥【期末作業大限】第 2 次平時作業截止 (永續/作業系統/中文思辨/AI倫理/宇宙之美)
+
+DESCRIPTION:【空大 115-1 期末平時作業全校總大限】\n本日截止科目：\n1. 永續的挑戰與實踐 (蔡適應 老師)\n2. 作業系統的理論基礎 (林秀鳳 老師)\n3. AI時代的中文敘事與思辨 (歐喜強 老師)\n4. 淺談人工智慧倫理 (林秀鳳 老師)\n5. 探索宇宙之美 (趙瑞青 老師)\n截止時間：23:59 整！請提早繳交鎖定學期 30% 平時分！\n繳交網址：https://uu.nou.edu.tw/learn/index.php
+
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+
+STATUS:CONFIRMED
+
+BEGIN:VALARM
+
+TRIGGER:-P2D
+
+ACTION:DISPLAY
+
+DESCRIPTION:【提醒】明日/近期重要日程：🔥【期末作業大限】第 2 次平時作業截止 (永續/作業系統/中文思辨/AI倫理/宇宙之美)
+
+END:VALARM
+
+END:VEVENT
+
+BEGIN:VEVENT
+
+UID:nou-final-week-univ-20270104@nou.edu.tw
+
+DTSTAMP:20260925T000000Z
+
+DTSTART;VALUE=DATE:20270104
+
+DTEND;VALUE=DATE:20270111
+
+SUMMARY:🎓【全校期末考週】國立空中大學 115-1 全校期末考試週 (第 18 週)
+
+DESCRIPTION:國立空中大學 115學年度上學期 全校統一期末考試週 (2027/01/04 ~ 2027/01/10)\n學期最後衝刺！預祝全體同學全科 PASS、勇奪書香榮譽獎！
+
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+
+STATUS:CONFIRMED
+
+BEGIN:VALARM
+
+TRIGGER:-P3D
+
+ACTION:DISPLAY
+
+DESCRIPTION:【提醒】明日/近期重要日程：🎓【全校期末考週】國立空中大學 115-1 全校期末考試週 (第 18 週)
+
+END:VALARM
+
+END:VEVENT
+
 END:VCALENDAR
