@@ -199,35 +199,24 @@ STATUS:CONFIRMED
 END:VEVENT
 
 BEGIN:VEVENT
-
-UID:nou-hw-os201-hw1-due-20261102@nou.edu.tw
-
-DTSTAMP:20260925T000000Z
-
-DTSTART;VALUE=DATE:20261102
-
-DTEND;VALUE=DATE:20261103
-
-SUMMARY:📝【作業截止】作業系統的理論基礎 - 第 1 次平時作業截止
-
-DESCRIPTION:科目：作業系統的理論基礎 (林秀鳳 老師)\n作業：第 1 次平時作業 (佔平時分重要比重)\n截止時間：2026-11-02 23:59\n登入系統：https://uu.nou.edu.tw/learn/index.php
-
+UID:nou-hw-os201-hw1-20261018@nou.edu.tw
+DTSTAMP:20260926T074000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:✅【已繳交】作業系統的理論基礎 - 第一次平時作業
+DESCRIPTION:科目：作業系統的理論基礎 (林秀鳳 老師)
+作業：第一次平時作業
+狀態：已於 2026-09-26 提前 22 天繳交完成 ✅！
+開放期間：2026-09-07 00:00 至 2026-10-18 23:59
+登入系統：https://uu.nou.edu.tw/learn/index.php
 LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
-
 STATUS:CONFIRMED
-
 BEGIN:VALARM
-
 TRIGGER:-P1D
-
 ACTION:DISPLAY
-
-DESCRIPTION:【提醒】明日/近期重要日程：📝【作業截止】作業系統的理論基礎 - 第 1 次平時作業截止
-
+DESCRIPTION:【提醒】明日重要日程：✅【已繳交】作業系統的理論基礎 - 第一次平時作業
 END:VALARM
-
 END:VEVENT
-
 BEGIN:VEVENT
 
 UID:nou-midterm-week-univ-20261102@nou.edu.tw
