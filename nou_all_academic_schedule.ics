@@ -248,35 +248,24 @@ END:VALARM
 END:VEVENT
 
 BEGIN:VEVENT
-
-UID:nou-hw-sd101-hw1-due-20261106@nou.edu.tw
-
-DTSTAMP:20260925T000000Z
-
+UID:nou-hw-sd101-hw1-20261106@nou.edu.tw
+DTSTAMP:20260926T174000Z
 DTSTART;VALUE=DATE:20261106
-
 DTEND;VALUE=DATE:20261107
-
-SUMMARY:📝【作業截止】永續的挑戰與實踐 - 第 1 次平時作業系統截止
-
-DESCRIPTION:科目：永續的挑戰與實踐 (蔡適應 老師)\n作業：第 1 次平時作業\n截止時間：2026-11-06 23:59 系統準時關閉！\n登入系統：https://uu.nou.edu.tw/learn/index.php
-
+SUMMARY:✅【已繳交】永續的挑戰與實踐 - 平時作業1 (提早41天繳交)
+DESCRIPTION:科目：永續的挑戰與實踐 (蔡適應 老師)
+作業：平時作業1
+狀態：已於 2026-09-26 提前 41 天繳交完成 ✅！
+開放期間：2026-09-14 00:00 至 2026-11-06 23:59
+登入系統：https://uu.nou.edu.tw/learn/index.php
 LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
-
 STATUS:CONFIRMED
-
 BEGIN:VALARM
-
 TRIGGER:-P1D
-
 ACTION:DISPLAY
-
-DESCRIPTION:【提醒】明日/近期重要日程：📝【作業截止】永續的挑戰與實踐 - 第 1 次平時作業系統截止
-
+DESCRIPTION:【提醒】明日重要日程：✅【已繳交】永續的挑戰與實踐 - 平時作業1
 END:VALARM
-
 END:VEVENT
-
 BEGIN:VEVENT
 
 UID:nou-hw1-univ-major-deadline-20261116@nou.edu.tw
