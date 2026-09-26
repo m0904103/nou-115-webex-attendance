@@ -8,7 +8,7 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-09-26 17:41:04",
+    "last_checked_at": "2026-09-26 12:51:59",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
@@ -17,7 +17,7 @@
   "analytics": {
     "total_courses": 7,
     "total_credits": 15,
-    "total_reading_hours": 338.9,
+    "total_reading_hours": 342.9,
     "average_lighting_percent": 100.0,
     "total_meetings": 29,
     "attended_meetings": 7,
@@ -124,7 +124,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m87b58dd19bb80bebd4aca53210240bb4",
-      "reading_hours": 48.0,
+      "reading_hours": 48.8,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -220,7 +220,7 @@
       "time_slot": "afternoon",
       "time_desc": "14:00 - 15:40 (下午班)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m5472c403628987b41ca4e56f376fb741",
-      "reading_hours": 48.0,
+      "reading_hours": 48.8,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -305,7 +305,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 21:00 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd",
-      "reading_hours": 48.0,
+      "reading_hours": 48.8,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -394,7 +394,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mf993b669aa765845657de3883f590fcf",
-      "reading_hours": 48.0,
+      "reading_hours": 48.8,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -487,7 +487,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mfd69fd80c232164a0aae21cd365de040",
-      "reading_hours": 48.0,
+      "reading_hours": 48.8,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -632,6 +632,12 @@
   ],
   "audit_logs": [
     {
+      "timestamp": "2026-09-26 12:51:59",
+      "type": "OFFICIAL_CHECK",
+      "result": "SUCCESS",
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 342.9h，面授出席 7/29，作業 4/14 未繳交。"
+    },
+    {
       "timestamp": "2026-09-26 17:41:04",
       "type": "HOMEWORK_SUBMISSION",
       "result": "SUCCESS",
@@ -684,18 +690,6 @@
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
       "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 326.4h，面授出席 7/29，作業 1/14 未繳交。"
-    },
-    {
-      "timestamp": "2026-09-25 12:14:00",
-      "type": "OFFICIAL_HOURS_AUDIT",
-      "result": "SUCCESS",
-      "detail": "官方 SunNet LMS 全科目查核完成：全 7 科 100% 綠燈！7 門課在線時數累計 323.4h (5.54分)，雲端自律研讀引擎全速啟動，直奔 350h 滿分大關！"
-    },
-    {
-      "timestamp": "2026-09-25 11:56:59",
-      "type": "CLASS_HOMEWORK_SUBMISSION",
-      "result": "SUCCESS",
-      "detail": "【永續的挑戰與實踐-ZZZ002】蔡適應老師課堂作業1 (生活風險圖) 提早 2 日完成繳交！+10分隨堂加分鎖定入袋，官方存證截圖已歸檔。"
     }
   ],
   "cloud_guardian": {
