@@ -8,7 +8,7 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-09-26 22:45:22",
+    "last_checked_at": "2026-09-27 00:29:51",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
@@ -17,8 +17,8 @@
   "analytics": {
     "total_courses": 7,
     "total_credits": 15,
-    "total_reading_hours": 295.3,
-    "reading_hours_score": 5.06,
+    "total_reading_hours": 296.7,
+    "reading_hours_score": 5.09,
     "average_lighting_percent": 100.0,
     "total_meetings": 29,
     "attended_meetings": 7,
@@ -26,7 +26,7 @@
     "total_homework": 14,
     "submitted_homework": 4,
     "homework_submission_rate": 28.6,
-    "current_earned_grade_avg": 15.3,
+    "current_earned_grade_avg": 15.4,
     "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
   },
   "courses": [
@@ -44,7 +44,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6",
-      "reading_hours": 49.58,
+      "reading_hours": 50.55,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -106,7 +106,7 @@
         "status_text": "尚未舉行 (預計1月)",
         "date_desc": "第 18 週 (2027/01/04~01/10)"
       },
-      "reading_time_str": "49:34:53",
+      "reading_time_str": "50:33:00",
       "last_study_time": "2026-09-26 21:34:10",
       "official_cid": "10053265",
       "study_count": 50,
@@ -399,7 +399,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mf993b669aa765845657de3883f590fcf",
-      "reading_hours": 21.69,
+      "reading_hours": 22.11,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -473,7 +473,7 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "21:41:07",
+      "reading_time_str": "22:06:28",
       "last_study_time": "2026-09-26 21:34:17",
       "official_cid": "10053349",
       "study_count": 24,
@@ -639,6 +639,12 @@
     }
   ],
   "audit_logs": [
+    {
+      "timestamp": "2026-09-27 00:29:51",
+      "type": "CLOUD_STUDY_AUTO",
+      "result": "SUCCESS",
+      "detail": "雲端 24H 自律研讀完成：【生成式AI在行政實務的應用】+ 25 分鐘 (目前達 22:06:28)，全科 7 門在線時數達 296.7h / 350h。"
+    },
     {
       "timestamp": "2026-09-26 22:45:22",
       "type": "CLOUD_STUDY_AUTO",
