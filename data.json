@@ -8,11 +8,11 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-09-30 04:59:47",
+    "last_checked_at": "2026-09-30 17:32:22",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
-    "audit_note": "100% SunNet LMS 官方學習歷程真確對齊：7 科學務在線總時數達 298.5h，AI導論(51.4h)與宇宙之美(83.8h)雙雙破50h封頂，平時作業已繳 5 份！"
+    "audit_note": "100% SunNet LMS 官方學習歷程真確對齊：7 科學務在線總時數達 298.5h，AI導論(51.4h)與宇宙之美(83.8h)雙雙破50h封頂，平時作業已繳 6 份！（最新：淺談人工智慧倫理第一次作業於 2026-09-30 繳交完成）"
   },
   "analytics": {
     "total_courses": 7,
@@ -23,8 +23,8 @@
     "attended_meetings": 7,
     "attendance_rate": 24.1,
     "total_homework": 14,
-    "submitted_homework": 5,
-    "homework_submission_rate": 35.7,
+    "submitted_homework": 6,
+    "homework_submission_rate": 42.9,
     "current_earned_grade_avg": 17.5,
     "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
   },
@@ -519,12 +519,14 @@
         }
       ],
       "hw1": {
-        "submitted": false,
+        "submitted": true,
+        "submitted_date": "2026-09-30",
         "score": 0,
-        "deadline": "課程結束前",
-        "status_text": "尚未繳交",
-        "has_doc": false,
-        "doc_status": "待老師發布"
+        "title": "第一次平時作業",
+        "deadline": "2026-10-18",
+        "status_text": "已繳交 ✅",
+        "has_doc": true,
+        "doc_status": "已上傳至平台，等待批閱"
       },
       "hw2": {
         "submitted": false,
