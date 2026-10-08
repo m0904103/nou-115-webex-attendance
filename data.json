@@ -8,7 +8,7 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-10-07 21:08:01",
+    "last_checked_at": "2026-10-08 05:29:44",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
@@ -659,6 +659,12 @@
   ],
   "audit_logs": [
     {
+      "timestamp": "2026-10-08 05:29:44",
+      "type": "OFFICIAL_CHECK",
+      "result": "SUCCESS",
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 10/29，作業 6/14 未繳交。"
+    },
+    {
       "timestamp": "2026-10-07 21:08:01",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
@@ -714,12 +720,6 @@
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
       "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 10/29，作業 6/14 未繳交。"
-    },
-    {
-      "timestamp": "2026-10-05 21:05:00",
-      "type": "WEBEX_ATTENDANCE_SUCCESS",
-      "result": "SUCCESS",
-      "detail": "10/05 三門大衝堂面授圓滿大勝：【人工智慧導論】+【永續的挑戰與實踐】+【生成式AI在行政實務的應用】雲端替身平行三開就座，在線 121 分鐘超額全勤，6 張存證截圖已歸檔，累積出席 10/29 場 (34.5%)，下次面授為 10/13《探索宇宙之美》。"
     }
   ],
   "cloud_guardian": {
