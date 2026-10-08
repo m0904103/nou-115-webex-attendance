@@ -557,20 +557,30 @@
       "midterm": {
         "status": "NOT_STARTED",
         "score": 0,
-        "status_text": "尚未舉行",
+        "status_text": "無期中筆試 (以平時作業評量)",
         "date_desc": "第 9 週"
       },
       "final": {
         "status": "NOT_STARTED",
         "score": 0,
-        "status_text": "尚未舉行",
-        "date_desc": "第 18 週"
+        "status_text": "期末報告評量 (免期末筆試)",
+        "date_desc": "期末報告 (11/30截止)"
       },
       "reading_time_str": "36:32:52",
       "last_study_time": "2026-09-30 17:34:05",
       "official_cid": "10053334",
       "study_count": 44,
-      "forum_posts": 4
+      "forum_posts": 4,
+      "final_report": {
+        "title": "期末報告上傳繳交區",
+        "submitted": false,
+        "deadline": "115/11/30",
+        "system_open": "2026-09-07 00:00",
+        "system_close": "2026-11-30 23:59",
+        "status_text": "進行作業 (至11/30截止)",
+        "has_doc": false,
+        "doc_status": "待繳交"
+      }
     },
     {
       "id": "c7",

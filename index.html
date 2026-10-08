@@ -1303,13 +1303,25 @@
                     ${c.hw1 && c.hw1.submitted ? `已繳作業 ✅ <a href="${c.hw1.proof_image || 'hw_proof_20260925_生成式AI在行政實務的應用_hw1.png'}" target="_blank" class="px-1.5 py-0.5 rounded bg-emerald-500/30 text-emerald-200 text-[10px] hover:bg-emerald-500 hover:text-white transition">存證</a>` : `${hw1.deadline} (${hw1.d_day}) • 待繳`}
                   </span>
                 </div>
-                <div class="flex justify-between items-center p-1 rounded bg-gray-900/40">
-                  <span class="text-gray-400 flex items-center gap-1">
-                    <span class="w-1.5 h-1.5 rounded-full bg-gray-500"></span>
-                    <span>第 2 次 (期末):</span>
+                <div class="flex justify-between items-center p-1.5 rounded ${c.hw2 && c.hw2.submitted ? 'bg-emerald-950/70 border border-emerald-500/40' : 'bg-gray-900/40'}">
+                  <span class="${c.hw2 && c.hw2.submitted ? 'text-emerald-300 font-bold' : 'text-gray-400'} flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full ${c.hw2 && c.hw2.submitted ? 'bg-emerald-400 animate-pulse' : 'bg-gray-500'}"></span>
+                    <strong>第 2 次 (期末):</strong>
                   </span>
-                  <span class="font-mono text-gray-500">${c.hw2 && c.hw2.date_range ? '10/20~10/30 開放' : `${hw2.deadline} (${hw2.d_day}) • 未開`}</span>
+                  <span class="font-mono ${c.hw2 && c.hw2.submitted ? 'text-emerald-300 font-bold flex items-center gap-1.5' : 'text-gray-500'}">
+                    ${c.hw2 && c.hw2.submitted ? `已繳作業 ✅ ${c.hw2.proof_image ? `<a href="${c.hw2.proof_image}" target="_blank" class="px-1.5 py-0.5 rounded bg-emerald-500/30 text-emerald-200 text-[10px] hover:bg-emerald-500 hover:text-white transition">存證</a>` : ''}` : c.hw2 && c.hw2.date_range ? '10/20~10/30 開放' : `${hw2.deadline} (${hw2.d_day}) • 未開`}
+                  </span>
                 </div>
+                ${c.final_report ? `
+                <div class="flex justify-between items-center p-1.5 rounded ${c.final_report.submitted ? 'bg-emerald-950/70 border border-emerald-500/40' : 'bg-amber-950/60 border border-amber-500/40'} text-[11px] mt-1">
+                  <span class="${c.final_report.submitted ? 'text-emerald-300' : 'text-amber-300'} flex items-center gap-1 font-bold">
+                    <i class="fa-solid fa-file-lines ${c.final_report.submitted ? 'text-emerald-400' : 'text-amber-400'}"></i>
+                    <strong>期末報告 (免筆試):</strong>
+                  </span>
+                  <span class="font-mono ${c.final_report.submitted ? 'text-emerald-300 font-bold' : 'text-amber-200 font-bold bg-amber-500/25 px-1.5 py-0.5 rounded text-[10px] border border-amber-400/40'}">
+                    ${c.final_report.submitted ? '已繳作業 ✅' : '進行作業 (至11/30截止) 🔥'}
+                  </span>
+                </div>` : ''}
                 ${c.midterm && c.midterm.exam_type ? `
                 <div class="flex justify-between items-center p-1.5 rounded bg-purple-950/60 border border-purple-500/40 text-[11px] mt-1">
                   <span class="text-purple-300 flex items-center gap-1 font-bold">
