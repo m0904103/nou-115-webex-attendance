@@ -8,7 +8,7 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-10-10 19:54:49",
+    "last_checked_at": "2026-10-10 23:21:54",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
@@ -671,6 +671,12 @@
   ],
   "audit_logs": [
     {
+      "timestamp": "2026-10-10 23:21:54",
+      "type": "OFFICIAL_CHECK",
+      "result": "SUCCESS",
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 10/29，作業 7/14 未繳交。"
+    },
+    {
       "timestamp": "2026-10-10 19:54:49",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
@@ -720,12 +726,6 @@
     },
     {
       "timestamp": "2026-10-08 05:29:44",
-      "type": "OFFICIAL_CHECK",
-      "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 10/29，作業 6/14 未繳交。"
-    },
-    {
-      "timestamp": "2026-10-07 21:08:01",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
       "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 10/29，作業 6/14 未繳交。"
