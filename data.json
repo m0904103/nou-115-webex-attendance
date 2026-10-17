@@ -8,7 +8,7 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-10-17 03:51:05",
+    "last_checked_at": "2026-10-17 08:25:40",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
@@ -676,6 +676,12 @@
   ],
   "audit_logs": [
     {
+      "timestamp": "2026-10-17 08:25:40",
+      "type": "OFFICIAL_CHECK",
+      "result": "SUCCESS",
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 12/29，作業 7/14 未繳交。"
+    },
+    {
       "timestamp": "2026-10-17 03:51:05",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
@@ -728,12 +734,6 @@
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
       "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 12/29，作業 7/14 未繳交。"
-    },
-    {
-      "timestamp": "2026-10-14 21:05:00",
-      "type": "WEBEX_ATTENDANCE_SUCCESS",
-      "result": "SUCCESS",
-      "detail": "10/14 視訊面授全勤結算：【AI時代的中文敘事與思辨】(歐喜強老師) 雲端替身全勤就座，全程在線 125 分鐘，雙存證截圖已歸檔，累計出席 12/29 場 (41.4%)，下場面授排定為 10/19 雙面授日 (14:00 作業系統 + 19:00 生成式AI)。"
     }
   ],
   "cloud_guardian": {
