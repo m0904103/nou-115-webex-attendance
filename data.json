@@ -25,7 +25,7 @@
     "total_homework": 14,
     "submitted_homework": 9,
     "homework_submission_rate": 64.3,
-    "current_earned_grade_avg": 21.5,
+    "current_earned_grade_avg": 22.8,
     "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
   },
   "courses": [
@@ -822,28 +822,28 @@
       "execution_guarantee": "10/5 當日 18:55 GitHub Actions 雲端喚醒後，自動啟動 ThreadPoolExecutor 平行派遣 3 組獨立無頭瀏覽器，分別進駐 3 間會議室，統一使用「112122209陳嬑萱」掛機 110 分鐘，分別截圖存證，保證 3 門課同日 100% 全勤！"
     },
     "next_session": {
-      "session_id": 15,
-      "course_name": "淺談人工智慧倫理",
-      "teacher": "林秀鳳 老師 (分機 5189)",
-      "class_code": "ZZZ002",
-      "date": "2026-10-21",
-      "weekday": "週三",
-      "time_slot": "19:00 - 20:50 (夜間班)",
-      "cron_wake_time": "2026-10-21 18:12",
-      "webex_url": "https://nou.webex.com/nou/j.php?MTID=mfd69fd80c232164a0aae21cd365de040",
+      "session_id": 16,
+      "course_name": "人工智慧導論 / 永續的挑戰與實踐 (雙門衝堂日)",
+      "teacher": "陳廷哲 老師 (分機 5183) ｜ 蔡適應 老師 (分機 5196)",
+      "class_code": "ZZZ002 / ZZZ002",
+      "date": "2026-11-02",
+      "weekday": "週一",
+      "time_slot": "19:00 - 20:50 (夜間雙門大衝堂)",
+      "cron_wake_time": "2026-11-02 18:12",
+      "webex_url": "https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6",
       "duration_minutes": 110,
-      "action_plan": "2026/10/21 18:12 雲端啟動四梯次提前喚醒無頭 Chromium 容器進駐林秀鳳老師會議室，身分「112122209陳嬑萱」，守護 110 分鐘至 20:50 下課並留存存證截圖"
+      "action_plan": "2026/11/02 18:12 雲端平行啟動兩組獨立無頭 Chromium 容器，分別進駐陳廷哲老師與蔡適應老師會議室，身分「112122209陳嬑萱」，平行雙開守護 110 分鐘，雙門 100% 同時全勤！"
     },
     "attendance_proof_recent": {
-      "session_id": 14,
-      "date": "2026-10-19",
+      "session_id": 15,
+      "date": "2026-10-21",
       "time": "19:00 - 20:50",
-      "course_name": "生成式AI在行政實務的應用",
-      "teacher": "廖洲棚 老師",
+      "course_name": "淺談人工智慧倫理",
+      "teacher": "林秀鳳 老師",
       "result": "SUCCESS_100%",
-      "duration_minutes": 138,
-      "image_file": "attendance_proof_20261019_生成式AI在行政實務的應用.png",
-      "note": "10/19 雙面授日大滿貫：下午 14:00 林秀鳳老師《作業系統的理論基礎》第 2 次面授＋晚間 19:00 廖洲棚老師《生成式AI在行政實務的應用》第 3 次面授，雙門全數出席達成！"
+      "duration_minutes": 118,
+      "image_file": "attendance_proof_20261021_淺談人工智慧倫理.png",
+      "note": "10/21 《淺談人工智慧倫理》第 2 次面授已全勤就座出席完成，在線 118 分鐘，林秀鳳老師課堂重點宣導、披薩分配倫理與三四章解析截圖存證已全數歸檔。"
     },
     "meetings_schedule": [
       {
@@ -1171,13 +1171,14 @@
         "ext": "5189",
         "webex_url": "https://nou.webex.com/nou/j.php?MTID=mfd69fd80c232164a0aae21cd365de040",
         "duration_minutes": 110,
-        "attended": false,
-        "proof_image": null,
+        "attended": true,
+        "proof_image": "attendance_proof_20261021_淺談人工智慧倫理.png",
         "id": 15,
         "clash_count": 1,
         "is_clash": false,
-        "status_text": "🟢 雲端排程已掛載 (待命中)",
-        "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
+        "status_text": "✅ 已出席完畢 (存證截圖已歸檔)",
+        "badge_class": "bg-emerald-500/15 text-emerald-400 border-emerald-500/30 font-bold",
+        "proof_image_mid": "attendance_proof_20261021_淺談人工智慧倫理_mid.png"
       },
       {
         "date": "2026-11-02",
