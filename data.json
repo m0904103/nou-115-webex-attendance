@@ -8,7 +8,7 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-10-25 13:05:44",
+    "last_checked_at": "2026-10-25 18:49:19",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
@@ -702,6 +702,12 @@
   ],
   "audit_logs": [
     {
+      "timestamp": "2026-10-25 18:49:19",
+      "type": "OFFICIAL_CHECK",
+      "result": "SUCCESS",
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 9/14 未繳交。"
+    },
+    {
       "timestamp": "2026-10-25 13:05:44",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
@@ -760,12 +766,6 @@
       "teacher": "林秀鳳",
       "proof_img": "hw_proof_20261024_作業系統的理論基礎_hw2.png",
       "detail": "【平時作業繳交存證】《作業系統的理論基礎》(林秀鳳老師) 第二次平時作業 (範圍第4~6章) 已於 10/24 成功上傳 SunNet LMS 系統，官方核定狀態：已繳作業 ✅。附檔：112122209_第二次平時作業陳嬑萱112122209.pdf (2頁精美標楷體PDF)，留言：完整作答請參閱附檔 PDF。"
-    },
-    {
-      "timestamp": "2026-10-23 22:58:29",
-      "type": "OFFICIAL_CHECK",
-      "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 8/14 未繳交。"
     }
   ],
   "cloud_guardian": {
