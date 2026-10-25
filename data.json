@@ -8,16 +8,16 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-10-26 02:50:00",
+    "last_checked_at": "2026-10-26 03:15:00",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
-    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 綠燈、官方在線閱讀 350.0 小時滿分、面授出席 15/29 全勤核定、平時作業已繳 9/14 份 (64.3%)、《生成式AI在行政實務的應用》期中線上測驗已成功繳卷 (50題全數作答完試，首日搶頭香完勝) ✅"
+    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 全綠燈、官方在線閱讀 352.88 小時滿分超額達成、面授出席 15/29 全勤核定、平時作業已繳 9/14 份 (64.3%)、《生成式AI在行政實務的應用》期中線上測驗已於 10/26 02:32 成功繳卷完試 (首日搶頭香完勝) ✅"
   },
   "analytics": {
     "total_courses": 7,
     "total_credits": 15,
-    "total_reading_hours": 350.0,
+    "total_reading_hours": 352.87,
     "average_lighting_percent": 100.0,
     "total_meetings": 29,
     "attended_meetings": 15,
@@ -43,7 +43,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6",
-      "reading_hours": 50.0,
+      "reading_hours": 52.58,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -108,8 +108,8 @@
         "status_text": "尚未舉行 (預計1月)",
         "date_desc": "第 18 週 (2027/01/04~01/10)"
       },
-      "reading_time_str": "51:23:13",
-      "last_study_time": "2026-09-30 02:51:14",
+      "reading_time_str": "52:34:58",
+      "last_study_time": "2026-10-25 20:00:15",
       "official_cid": "10053265",
       "study_count": 64,
       "forum_posts": 4
@@ -128,7 +128,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m87b58dd19bb80bebd4aca53210240bb4",
-      "reading_hours": 50.0,
+      "reading_hours": 39.02,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -193,8 +193,8 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "35:35:11",
-      "last_study_time": "2026-09-26 21:34:16",
+      "reading_time_str": "39:01:16",
+      "last_study_time": "2026-10-25 03:48:13",
       "official_cid": "10053170",
       "class_hw1": {
         "title": "課堂作業1 (生活風險圖)",
@@ -239,7 +239,7 @@
       "time_slot": "afternoon",
       "time_desc": "14:00 - 15:40 (下午班)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m5472c403628987b41ca4e56f376fb741",
-      "reading_hours": 50.0,
+      "reading_hours": 49.12,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -315,8 +315,8 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "40:38:31",
-      "last_study_time": "2026-09-28 07:46:27",
+      "reading_time_str": "49:07:13",
+      "last_study_time": "2026-10-24 07:30:18",
       "official_cid": "10053272",
       "study_count": 42,
       "forum_posts": 1
@@ -335,7 +335,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 21:00 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd",
-      "reading_hours": 50.0,
+      "reading_hours": 32.55,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -408,8 +408,8 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "32:32:33",
-      "last_study_time": "2026-09-29 19:50:33",
+      "reading_time_str": "32:33:11",
+      "last_study_time": "2026-10-26 02:02:26",
       "official_cid": "10053311",
       "study_count": 62,
       "forum_posts": 2
@@ -428,7 +428,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mf993b669aa765845657de3883f590fcf",
-      "reading_hours": 50.0,
+      "reading_hours": 31.74,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -515,8 +515,8 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "29:20:08",
-      "last_study_time": "2026-09-29 12:08:48",
+      "reading_time_str": "31:44:30",
+      "last_study_time": "2026-10-26 02:02:47",
       "official_cid": "10053349",
       "study_count": 25,
       "forum_posts": 0
@@ -535,7 +535,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mfd69fd80c232164a0aae21cd365de040",
-      "reading_hours": 50.0,
+      "reading_hours": 59.62,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -595,8 +595,8 @@
         "status_text": "期末報告評量 (免期末筆試)",
         "date_desc": "期末報告 (11/30截止)"
       },
-      "reading_time_str": "36:32:52",
-      "last_study_time": "2026-09-30 17:34:05",
+      "reading_time_str": "59:37:18",
+      "last_study_time": "2026-10-25 19:39:41",
       "official_cid": "10053334",
       "study_count": 44,
       "forum_posts": 4,
@@ -631,7 +631,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m5ceeda344c1505a7838d99a5934a2023",
-      "reading_hours": 50.0,
+      "reading_hours": 88.24,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -699,14 +699,22 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "83:49:23",
-      "last_study_time": "2026-09-30 01:31:28",
+      "reading_time_str": "88:14:25",
+      "last_study_time": "2026-10-18 19:01:14",
       "official_cid": "10053339",
       "study_count": 50,
       "forum_posts": 0
     }
   ],
   "audit_logs": [
+    {
+      "timestamp": "2026-10-26 03:15:00",
+      "event": "官方旭聯 LMS 即時查核與全單元 100% 綠燈復原",
+      "hours": 352.87,
+      "source": "SunNet LMS (uu.nou.edu.tw) learn_stat.php & my-course-path-info",
+      "status": "PASS",
+      "detail": "驗證最新 Cookie 有效；點燈全面恢復 100% 全綠燈；真實累積時數 352.88h 超標滿分；AP101 期中線上測驗首日繳卷存證核定"
+    },
     {
       "timestamp": "2026-10-26 02:35:00",
       "type": "OFFICIAL_EXAM_SUBMISSION",
