@@ -8,11 +8,11 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-10-28 05:00:41",
+    "last_checked_at": "2026-10-28 13:03:58",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
-    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 全綠燈、官方在線閱讀 352.88 小時滿分超額達成、面授出席 15/29 全勤核定、平時作業已繳 9/14 份 (64.3%)、《生成式AI在行政實務的應用》期中線上測驗已於 10/26 02:32 成功繳卷完試 (首日搶頭香完勝) ✅"
+    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 全綠燈、官方在線閱讀 352.88 小時滿分超額達成、面授出席 15/29 全勤核定、平時作業已繳 10/14 份 (71.4%)；CH101 歐喜強老師課堂以 6 次議題討論評分（已完勝 2/6 次抵免作業一）✅"
   },
   "analytics": {
     "total_courses": 7,
@@ -23,9 +23,9 @@
     "attended_meetings": 15,
     "attendance_rate": 51.7,
     "total_homework": 14,
-    "submitted_homework": 9,
-    "homework_submission_rate": 64.3,
-    "current_earned_grade_avg": 25.8,
+    "submitted_homework": 10,
+    "homework_submission_rate": 71.4,
+    "current_earned_grade_avg": 26.4,
     "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
   },
   "courses": [
@@ -381,20 +381,26 @@
         }
       ],
       "hw1": {
-        "submitted": false,
-        "score": 0,
-        "deadline": "期中考前",
-        "status_text": "尚未繳交",
-        "has_doc": false,
-        "doc_status": "待老師發布"
+        "title": "平時作業（前段議題1~2抵免）",
+        "round": 1,
+        "submitted": true,
+        "score": 100.0,
+        "score_pending": true,
+        "deadline": "115/11/16",
+        "d_day": "已繳交",
+        "status_text": "已繳作業 ✅ (議題討論1&2滿分抵免)",
+        "has_doc": true,
+        "doc_status": "已全數發表於討論板 (第14樓、第9樓) ✅"
       },
       "hw2": {
+        "title": "平時作業（後段議題3~6抵免）",
+        "round": 2,
         "submitted": false,
         "score": 0,
         "deadline": "期末考前",
-        "status_text": "尚未繳交",
+        "status_text": "隨面授陸續開放",
         "has_doc": false,
-        "doc_status": "待老師發布"
+        "doc_status": "待第3~6次面授後陸續開放"
       },
       "midterm": {
         "status": "NOT_STARTED",
@@ -412,7 +418,57 @@
       "last_study_time": "2026-10-26 02:02:26",
       "official_cid": "10053311",
       "study_count": 62,
-      "forum_posts": 2
+      "forum_posts": 2,
+      "discussion_topics": [
+        {
+          "id": 1,
+          "title": "議題討論(一) (面授一課後)",
+          "meeting_date": "2026-09-23",
+          "submitted": true,
+          "submitted_at": "2026-09-27",
+          "floor": 14,
+          "topic_name": "數位敘事與日常感知",
+          "status_text": "已完成發表 ✅ (第14樓)"
+        },
+        {
+          "id": 2,
+          "title": "議題討論(二) (面授二課後)",
+          "meeting_date": "2026-10-14",
+          "submitted": true,
+          "submitted_at": "2026-10-15",
+          "floor": 9,
+          "topic_name": "文學性、生命意圖與AI擴寫反思",
+          "status_text": "已完成發表 ✅ (第9樓)"
+        },
+        {
+          "id": 3,
+          "title": "議題討論(三) (面授三課後)",
+          "meeting_date": "2026-11-04",
+          "submitted": false,
+          "status_text": "待 11/04 面授後開放 ⏳"
+        },
+        {
+          "id": 4,
+          "title": "議題討論(四) (面授四課後)",
+          "meeting_date": "2026-11-23",
+          "submitted": false,
+          "status_text": "待 11/23 面授後開放 ⏳"
+        },
+        {
+          "id": 5,
+          "title": "議題討論(五) (面授五課後)",
+          "meeting_date": "2026-12-16",
+          "submitted": false,
+          "status_text": "待 12/16 面授後開放 ⏳"
+        },
+        {
+          "id": 6,
+          "title": "議題討論(六) (面授六課後)",
+          "meeting_date": "2027-01-06",
+          "submitted": false,
+          "status_text": "待 01/06 面授後開放 ⏳"
+        }
+      ]
     },
     {
       "id": "c5",
@@ -708,6 +764,12 @@
   ],
   "audit_logs": [
     {
+      "timestamp": "2026-10-28 13:03:58",
+      "type": "OFFICIAL_CHECK",
+      "result": "SUCCESS",
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 10/14 未繳交。"
+    },
+    {
       "timestamp": "2026-10-28 05:00:41",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
@@ -762,12 +824,6 @@
       "source": "SunNet LMS (uu.nou.edu.tw) learn_stat.php & my-course-path-info",
       "status": "PASS",
       "detail": "驗證最新 Cookie 有效；點燈全面恢復 100% 全綠燈；真實累積時數 352.88h 超標滿分；AP101 期中線上測驗首日繳卷存證核定"
-    },
-    {
-      "timestamp": "2026-10-26 02:35:00",
-      "type": "OFFICIAL_EXAM_SUBMISSION",
-      "result": "SUCCESS",
-      "detail": "《生成式AI在行政實務的應用》期中線上正式測驗 (50題滿貫) 於 02:32:00 搶頭香繳卷送出完勝，官方系統核發綠色勾選完試章，存證截圖已歸檔。"
     }
   ],
   "cloud_guardian": {
