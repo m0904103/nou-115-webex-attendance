@@ -8,16 +8,16 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-10-29 05:13:52",
+    "last_checked_at": "2026-10-29 15:00:00",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
-    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 全綠燈、官方在線閱讀 352.88 小時滿分超額達成、面授出席 15/29 全勤核定、平時作業已繳 10/14 份 (71.4%)；CH101 歐喜強老師課堂以 6 次議題討論評分（已完勝 2/6 次抵免作業一）✅"
+    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 全綠燈 (歐喜強老師新釋出第8、9單元已全數秒級同步點亮)、官方在線閱讀 352.88 小時滿分超額達成、面授出席 15/29 全勤核定、《作業系統的理論基礎》期中考上傳區 (佔30%) 鎖定今晚 10/30 00:00 開放，備戰中 ✅"
   },
   "analytics": {
     "total_courses": 7,
     "total_credits": 15,
-    "total_reading_hours": 350.0,
+    "total_reading_hours": 352.88,
     "average_lighting_percent": 100.0,
     "total_meetings": 29,
     "attended_meetings": 15,
@@ -43,7 +43,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6",
-      "reading_hours": 50.0,
+      "reading_hours": 52.58,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -97,10 +97,17 @@
         "doc_status": "待開放進行"
       },
       "midterm": {
-        "status": "NOT_STARTED",
+        "title": "期中評量-繳交期中報告 (佔30%)",
+        "status": "SCHEDULED",
         "score": 0,
-        "status_text": "尚未舉行 (預計11月)",
-        "date_desc": "第 9 週 (2026/11/02~11/08)"
+        "exam_type": "期中專案報告",
+        "status_text": "11/02 00:00 開放 (期中報告，佔30%) 🎯",
+        "system_open": "2026-11-02 00:00",
+        "system_close": "2026-11-08 23:59",
+        "date_desc": "2026/11/02 00:00 ~ 11/08 23:59 (7天)",
+        "d_day": "下週一開放",
+        "weight": "30%",
+        "scope": "期中評量-繳交期中報告（陳廷哲老師）"
       },
       "final": {
         "status": "NOT_STARTED",
@@ -109,7 +116,7 @@
         "date_desc": "第 18 週 (2027/01/04~01/10)"
       },
       "reading_time_str": "52:34:58",
-      "last_study_time": "2026-10-25 20:00:15",
+      "last_study_time": "2026-10-29 13:54:04",
       "official_cid": "10053265",
       "study_count": 64,
       "forum_posts": 4
@@ -128,7 +135,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m87b58dd19bb80bebd4aca53210240bb4",
-      "reading_hours": 50.0,
+      "reading_hours": 39.02,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -194,7 +201,7 @@
         "date_desc": "第 18 週"
       },
       "reading_time_str": "39:01:16",
-      "last_study_time": "2026-10-25 03:48:13",
+      "last_study_time": "2026-10-29 13:54:06",
       "official_cid": "10053170",
       "class_hw1": {
         "title": "課堂作業1 (生活風險圖)",
@@ -239,7 +246,7 @@
       "time_slot": "afternoon",
       "time_desc": "14:00 - 15:40 (下午班)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m5472c403628987b41ca4e56f376fb741",
-      "reading_hours": 50.0,
+      "reading_hours": 49.12,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -304,10 +311,18 @@
         "doc_status": "已繳交成功 ✅ (2頁精美標楷體PDF+親切留言)"
       },
       "midterm": {
-        "status": "NOT_STARTED",
+        "title": "期中考上傳繳交區 (佔30%)",
+        "status": "OPENING_SOON",
         "score": 0,
-        "status_text": "尚未舉行",
-        "date_desc": "第 9 週"
+        "exam_type": "期中作業考上傳",
+        "status_text": "今晚 10/30 00:00 開放 (11/02 截止，佔30%) 🎯",
+        "system_open": "2026-10-30 00:00",
+        "system_close": "2026-11-02 23:59",
+        "date_desc": "2026/10/30 00:00 ~ 11/02 23:59 (4天)",
+        "d_day": "今晚半夜開放",
+        "weight": "30%",
+        "scope": "第1~7章、第1-2次面授內容（林秀鳳老師）",
+        "note": "林秀鳳老師期中考評量，範圍1~7章，每題約250字精簡作答，今晚半夜開放立即下載題目備戰！"
       },
       "final": {
         "status": "NOT_STARTED",
@@ -316,7 +331,7 @@
         "date_desc": "第 18 週"
       },
       "reading_time_str": "49:07:13",
-      "last_study_time": "2026-10-24 07:30:18",
+      "last_study_time": "2026-10-29 13:55:15",
       "official_cid": "10053272",
       "study_count": 42,
       "forum_posts": 1
@@ -335,7 +350,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 21:00 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd",
-      "reading_hours": 50.0,
+      "reading_hours": 32.56,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -414,8 +429,8 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "32:33:11",
-      "last_study_time": "2026-10-26 02:02:26",
+      "reading_time_str": "32:33:42",
+      "last_study_time": "2026-10-29 13:54:06",
       "official_cid": "10053311",
       "study_count": 62,
       "forum_posts": 2,
@@ -484,7 +499,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mf993b669aa765845657de3883f590fcf",
-      "reading_hours": 50.0,
+      "reading_hours": 31.74,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -571,8 +586,8 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "31:44:30",
-      "last_study_time": "2026-10-26 02:02:47",
+      "reading_time_str": "31:44:32",
+      "last_study_time": "2026-10-29 13:54:03",
       "official_cid": "10053349",
       "study_count": 25,
       "forum_posts": 0
@@ -591,7 +606,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=mfd69fd80c232164a0aae21cd365de040",
-      "reading_hours": 50.0,
+      "reading_hours": 59.62,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -652,7 +667,7 @@
         "date_desc": "期末報告 (11/30截止)"
       },
       "reading_time_str": "59:37:18",
-      "last_study_time": "2026-10-25 19:39:41",
+      "last_study_time": "2026-10-29 13:54:05",
       "official_cid": "10053334",
       "study_count": 44,
       "forum_posts": 4,
@@ -687,7 +702,7 @@
       "time_slot": "night",
       "time_desc": "19:00 - 20:50 (夜間)",
       "webex_url": "https://nou.webex.com/nou/j.php?MTID=m5ceeda344c1505a7838d99a5934a2023",
-      "reading_hours": 50.0,
+      "reading_hours": 88.24,
       "lighting_percent": 100,
       "meetings": [
         {
@@ -755,8 +770,8 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "88:14:25",
-      "last_study_time": "2026-10-18 19:01:14",
+      "reading_time_str": "88:14:35",
+      "last_study_time": "2026-10-29 13:54:09",
       "official_cid": "10053339",
       "study_count": 50,
       "forum_posts": 0
@@ -822,6 +837,14 @@
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
       "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 9/14 未繳交。"
+    },
+    {
+      "timestamp": "2026-10-29 15:00:00",
+      "total_reading_hours": 352.88,
+      "overall_lighting_percent": 100.0,
+      "courses_lighted_100": 7,
+      "summary": "【全學期全維度巡檢】點燈 100% 全綠燈、在線 352.88 小時超額達標。《作業系統的理論基礎》期中考 (佔30%) 今晚 10/30 00:00 開放備戰鎖定！",
+      "verified_by": "Antigravity LMS Core Synchronizer"
     }
   ],
   "cloud_guardian": {
