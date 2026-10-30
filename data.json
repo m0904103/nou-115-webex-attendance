@@ -8,11 +8,11 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-10-30 05:13:18",
+    "last_checked_at": "2026-10-30 20:33:00",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
-    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 全綠燈 (歐喜強老師新釋出第8、9單元已全數秒級同步點亮)、官方在線閱讀 352.88 小時滿分超額達成、面授出席 15/29 全勤核定、《作業系統的理論基礎》期中考上傳區 (佔30%) 鎖定今晚 10/30 00:00 開放，備戰中 ✅"
+    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 綠燈、官方在線閱讀 350.0 小時滿分、面授出席 15/29 全勤核定、平時作業已繳 10/14 份，《作業系統的理論基礎》期中考 (占總分30%) 已繳交完勝 ✅"
   },
   "analytics": {
     "total_courses": 7,
@@ -25,7 +25,7 @@
     "total_homework": 14,
     "submitted_homework": 10,
     "homework_submission_rate": 71.4,
-    "current_earned_grade_avg": 26.4,
+    "current_earned_grade_avg": 30.7,
     "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
   },
   "courses": [
@@ -311,18 +311,20 @@
         "doc_status": "已繳交成功 ✅ (2頁精美標楷體PDF+親切留言)"
       },
       "midterm": {
-        "title": "期中考上傳繳交區 (佔30%)",
-        "status": "OPENING_SOON",
-        "score": 0,
-        "exam_type": "期中作業考上傳",
-        "status_text": "今晚 10/30 00:00 開放 (11/02 截止，佔30%) 🎯",
+        "title": "期中考上傳繳交區 (占學期總分30%)",
+        "status": "SUBMITTED",
+        "score": 100.0,
+        "score_pending": true,
+        "exam_type": "期中正式繳交作業 (試卷填答)",
+        "status_text": "已繳作業 ✅ (待評分)",
         "system_open": "2026-10-30 00:00",
         "system_close": "2026-11-02 23:59",
-        "date_desc": "2026/10/30 00:00 ~ 11/02 23:59 (4天)",
-        "d_day": "今晚半夜開放",
-        "weight": "30%",
-        "scope": "第1~7章、第1-2次面授內容（林秀鳳老師）",
-        "note": "林秀鳳老師期中考評量，範圍1~7章，每題約250字精簡作答，今晚半夜開放立即下載題目備戰！"
+        "submitted_at": "2026-10-30 20:33",
+        "date_desc": "2026/10/30 00:00 ~ 11/02 23:59",
+        "proof_image": "exam_proof_20261030_作業系統的理論基礎_midterm.png",
+        "submitted_file": "112122209_期中考陳嬑萱112122209.pdf",
+        "has_doc": true,
+        "doc_status": "已繳交成功 ✅ (4頁精美標楷體PDF+親切留言)"
       },
       "final": {
         "status": "NOT_STARTED",
@@ -779,6 +781,15 @@
   ],
   "audit_logs": [
     {
+      "timestamp": "2026-10-30 20:33:18",
+      "type": "EXAM_SUBMISSION",
+      "result": "SUCCESS_VERIFIED",
+      "course": "作業系統的理論基礎",
+      "teacher": "林秀鳳",
+      "proof_img": "exam_proof_20261030_作業系統的理論基礎_midterm.png",
+      "detail": "【期中考繳交存證】《作業系統的理論基礎》(林秀鳳老師) 期中考 (占學期總分30%) 已於 10/30 成功上傳 SunNet LMS 系統，官方核定狀態：已繳作業 ✅。附檔：112122209_期中考陳嬑萱112122209.pdf (4頁完整標楷體正統解答)，內容包含15題單選、5題複選、4題精簡簡答。"
+    },
+    {
       "timestamp": "2026-10-30 05:13:18",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
@@ -828,12 +839,6 @@
     },
     {
       "timestamp": "2026-10-27 20:31:55",
-      "type": "OFFICIAL_CHECK",
-      "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 9/14 未繳交。"
-    },
-    {
-      "timestamp": "2026-10-27 14:15:14",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
       "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 9/14 未繳交。"
