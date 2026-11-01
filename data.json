@@ -8,7 +8,7 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-11-01 14:52:21",
+    "last_checked_at": "2026-11-01 20:22:34",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
@@ -781,6 +781,12 @@
   ],
   "audit_logs": [
     {
+      "timestamp": "2026-11-01 20:22:34",
+      "type": "OFFICIAL_CHECK",
+      "result": "SUCCESS",
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 10/14 未繳交。"
+    },
+    {
       "timestamp": "2026-11-01 14:52:21",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
@@ -836,12 +842,6 @@
       "teacher": "林秀鳳",
       "proof_img": "exam_proof_20261030_作業系統的理論基礎_midterm.png",
       "detail": "【期中考繳交存證】《作業系統的理論基礎》(林秀鳳老師) 期中考 (占學期總分30%) 已於 10/30 成功上傳 SunNet LMS 系統，官方核定狀態：已繳作業 ✅。附檔：112122209_期中考陳嬑萱112122209.pdf (4頁完整標楷體正統解答)，內容包含15題單選、5題複選、4題精簡簡答。"
-    },
-    {
-      "timestamp": "2026-10-30 05:13:18",
-      "type": "OFFICIAL_CHECK",
-      "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 10/14 未繳交。"
     }
   ],
   "cloud_guardian": {
