@@ -22,9 +22,9 @@
     "total_meetings": 29,
     "attended_meetings": 17,
     "attendance_rate": 58.6,
-    "total_homework": 14,
-    "submitted_homework": 9,
-    "homework_submission_rate": 64.3,
+    "total_homework": 17,
+    "submitted_homework": 12,
+    "homework_submission_rate": 70.6,
     "current_earned_grade_avg": 21.5,
     "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
   },
@@ -225,17 +225,19 @@
         "proof_image": "hw_proof_20261007_永續的挑戰與實踐_課堂作業2.png"
       },
       "class_hw3": {
-        "title": "課堂作業3 (愛爾蘭資料中心 vs 好萊塢AI罷工)",
-        "submitted": false,
-        "score": 0.0,
+        "title": "課堂作業3 (愛爾蘭資料中心與國家電網壓力)",
+        "submitted": true,
+        "score": 10.0,
         "deadline": "115/11/15",
-        "d_day": "進行作業",
-        "status_text": "作業進行中 ⏳ (截止: 11/15 23:59)",
+        "d_day": "已繳交",
+        "status_text": "已繳作業 ✅ (+10分隨堂加分已鎖定)",
         "system_open": "2026-11-02 20:50",
         "system_close": "2026-11-15 23:59",
         "score_pending": true,
+        "submitted_at": "2026-11-03 18:50",
+        "proof_image": "hw_proof_20261103_永續的挑戰與實踐_課堂作業3.png",
         "has_doc": true,
-        "doc_status": "已備妥Word與PDF推薦版 ✅"
+        "doc_status": "已繳交成功 ✅"
       }
     },
     {
@@ -714,6 +716,12 @@
     }
   ],
   "audit_logs": [
+    {
+      "timestamp": "2026-11-03 18:50:00",
+      "type": "HOMEWORK_SUBMISSION",
+      "result": "SUCCESS",
+      "detail": "《永續的挑戰與實踐》課堂作業3已成功繳交上傳！課堂三連擊全數完勝(作業1/2/3全數已繳交)，隨堂加分全員入袋。"
+    },
     {
       "timestamp": "2026-11-03 15:59:03",
       "type": "HOMEWORK_AUDIT",
