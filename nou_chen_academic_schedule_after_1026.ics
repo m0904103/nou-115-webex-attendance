@@ -1,0 +1,572 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//National Open University//Chen I-Hsuan Academic Schedule 115-1//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:空大115-1 陳嬑萱同學面授與考試日程 (10/26起)
+X-WR-TIMEZONE:Asia/Taipei
+BEGIN:VTIMEZONE
+TZID:Asia/Taipei
+X-LIC-LOCATION:Asia/Taipei
+BEGIN:STANDARD
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:nou-meet-ai101-3-20261102@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;TZID=Asia/Taipei:20261102T190000
+DTEND;TZID=Asia/Taipei:20261102T205000
+SUMMARY:💻【視訊面授】人工智慧導論 (第3次面授)
+DESCRIPTION:科目：人工智慧導論 (AI101 / ZZZ002班)\n授課教師：陳廷哲 老師 (分機 5183)\n時間：19:00 - 20:50\nWebex 直達會議室：https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6\n⚠️ 今日與《永續》雙門衝堂，系統雙軌替身已掛載守護！
+LOCATION:國立空中大學 Webex 雲端會議室
+URL:https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明天有視訊面授】💻【視訊面授】人工智慧導論 (第3次面授)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:🚨【即刻就座】💻【視訊面授】人工智慧導論 (第3次面授) 將於 15 分鐘後開始！請點擊 Webex 連結直接進場！
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-meet-sd101-3-20261102@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;TZID=Asia/Taipei:20261102T190000
+DTEND;TZID=Asia/Taipei:20261102T205000
+SUMMARY:💻【視訊面授】永續的挑戰與實踐 (第3次面授)
+DESCRIPTION:科目：永續的挑戰與實踐 (SD101 / ZZZ002班)\n授課教師：蔡適應 老師 (分機 5196)\n時間：19:00 - 20:50\nWebex 直達會議室：https://nou.webex.com/nou/j.php?MTID=m87b58dd19bb80bebd4aca53210240bb4\n⚠️ 今日與《人工智慧導論》雙門衝堂，系統雙軌替身已掛載守護！
+LOCATION:國立空中大學 Webex 雲端會議室
+URL:https://nou.webex.com/nou/j.php?MTID=m87b58dd19bb80bebd4aca53210240bb4
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明天有視訊面授】💻【視訊面授】永續的挑戰與實踐 (第3次面授)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:🚨【即刻就座】💻【視訊面授】永續的挑戰與實踐 (第3次面授) 將於 15 分鐘後開始！請點擊 Webex 連結直接進場！
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-meet-ch101-3-20261104@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;TZID=Asia/Taipei:20261104T190000
+DTEND;TZID=Asia/Taipei:20261104T210000
+SUMMARY:💻【視訊面授】AI時代的中文敘事與思辨 (第3次面授)
+DESCRIPTION:科目：AI時代的中文敘事與思辨 (CH101 / ZZZ001班)\n授課教師：歐喜強 老師 (分機 5188)\n時間：19:00 - 21:00\nWebex 直達會議室：https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd\n⚠️ 今日與《AI倫理》雙門衝堂，系統雙軌替身已掛載守護！
+LOCATION:國立空中大學 Webex 雲端會議室
+URL:https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明天有視訊面授】💻【視訊面授】AI時代的中文敘事與思辨 (第3次面授)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:🚨【即刻就座】💻【視訊面授】AI時代的中文敘事與思辨 (第3次面授) 將於 15 分鐘後開始！請點擊 Webex 連結直接進場！
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-meet-et101-3-20261104@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;TZID=Asia/Taipei:20261104T190000
+DTEND;TZID=Asia/Taipei:20261104T205000
+SUMMARY:💻【視訊面授】淺談人工智慧倫理 (第3次面授)
+DESCRIPTION:科目：淺談人工智慧倫理 (ET101 / ZZZ002班)\n授課教師：林秀鳳 老師 (分機 5189)\n時間：19:00 - 20:50\nWebex 直達會議室：https://nou.webex.com/nou/j.php?MTID=mb1e4a68c07e0ea52107e324029ce37d5\n⚠️ 今日與《中文思辨》雙門衝堂，系統雙軌替身已掛載守護！
+LOCATION:國立空中大學 Webex 雲端會議室
+URL:https://nou.webex.com/nou/j.php?MTID=mb1e4a68c07e0ea52107e324029ce37d5
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明天有視訊面授】💻【視訊面授】淺談人工智慧倫理 (第3次面授)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:🚨【即刻就座】💻【視訊面授】淺談人工智慧倫理 (第3次面授) 將於 15 分鐘後開始！請點擊 Webex 連結直接進場！
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-meet-as101-3-20261117@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;TZID=Asia/Taipei:20261117T190000
+DTEND;TZID=Asia/Taipei:20261117T205000
+SUMMARY:💻【視訊面授】探索宇宙之美 (第3次面授)
+DESCRIPTION:科目：探索宇宙之美 (AS101 / ZZZ002班)\n授課教師：趙瑞青 老師 (分機 5198)\n時間：19:00 - 20:50\nWebex 直達會議室：https://nou.webex.com/nou/j.php?MTID=m7d0ebcfdf92c10dbdb3dca376188e6e5
+LOCATION:國立空中大學 Webex 雲端會議室
+URL:https://nou.webex.com/nou/j.php?MTID=m7d0ebcfdf92c10dbdb3dca376188e6e5
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明天有視訊面授】💻【視訊面授】探索宇宙之美 (第3次面授)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:🚨【即刻就座】💻【視訊面授】探索宇宙之美 (第3次面授) 將於 15 分鐘後開始！請點擊 Webex 連結直接進場！
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-meet-os201-3-20261123@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;TZID=Asia/Taipei:20261123T140000
+DTEND;TZID=Asia/Taipei:20261123T154000
+SUMMARY:💻【視訊面授】作業系統的理論基礎 (第3次面授·日間)
+DESCRIPTION:科目：作業系統的理論基礎 (OS201 / ZZZ101班)\n授課教師：林秀鳳 老師 (分機 5189)\n時間：14:00 - 15:40 (下午場次)\nWebex 直達會議室：https://nou.webex.com/nou/j.php?MTID=m5472c403628987b41ca4e56f376fb741
+LOCATION:國立空中大學 Webex 雲端會議室
+URL:https://nou.webex.com/nou/j.php?MTID=m5472c403628987b41ca4e56f376fb741
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明天有視訊面授】💻【視訊面授】作業系統的理論基礎 (第3次面授·日間)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:🚨【即刻就座】💻【視訊面授】作業系統的理論基礎 (第3次面授·日間) 將於 15 分鐘後開始！請點擊 Webex 連結直接進場！
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-meet-ch101-4-20261123@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;TZID=Asia/Taipei:20261123T190000
+DTEND;TZID=Asia/Taipei:20261123T210000
+SUMMARY:💻【視訊面授】AI時代的中文敘事與思辨 (第4次面授)
+DESCRIPTION:科目：AI時代的中文敘事與思辨 (CH101 / ZZZ001班)\n授課教師：歐喜強 老師 (分機 5188)\n時間：19:00 - 21:00\nWebex 直達會議室：https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd
+LOCATION:國立空中大學 Webex 雲端會議室
+URL:https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明天有視訊面授】💻【視訊面授】AI時代的中文敘事與思辨 (第4次面授)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:🚨【即刻就座】💻【視訊面授】AI時代的中文敘事與思辨 (第4次面授) 將於 15 分鐘後開始！請點擊 Webex 連結直接進場！
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-meet-ai101-4-20261130@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;TZID=Asia/Taipei:20261130T190000
+DTEND;TZID=Asia/Taipei:20261130T205000
+SUMMARY:💻【視訊面授】人工智慧導論 (第4次面授)
+DESCRIPTION:科目：人工智慧導論 (AI101 / ZZZ002班)\n授課教師：陳廷哲 老師 (分機 5183)\n時間：19:00 - 20:50\nWebex 直達會議室：https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6
+LOCATION:國立空中大學 Webex 雲端會議室
+URL:https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明天有視訊面授】💻【視訊面授】人工智慧導論 (第4次面授)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:🚨【即刻就座】💻【視訊面授】人工智慧導論 (第4次面授) 將於 15 分鐘後開始！請點擊 Webex 連結直接進場！
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-meet-ai101-5-20261207@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;TZID=Asia/Taipei:20261207T190000
+DTEND;TZID=Asia/Taipei:20261207T205000
+SUMMARY:💻【視訊面授】人工智慧導論 (第5次面授)
+DESCRIPTION:科目：人工智慧導論 (AI101 / ZZZ002班)\n授課教師：陳廷哲 老師 (分機 5183)\n時間：19:00 - 20:50\nWebex 直達會議室：https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6
+LOCATION:國立空中大學 Webex 雲端會議室
+URL:https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明天有視訊面授】💻【視訊面授】人工智慧導論 (第5次面授)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:🚨【即刻就座】💻【視訊面授】人工智慧導論 (第5次面授) 將於 15 分鐘後開始！請點擊 Webex 連結直接進場！
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-meet-as101-4-20261208@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;TZID=Asia/Taipei:20261208T190000
+DTEND;TZID=Asia/Taipei:20261208T205000
+SUMMARY:💻【視訊面授】探索宇宙之美 (第4次面授)
+DESCRIPTION:科目：探索宇宙之美 (AS101 / ZZZ002班)\n授課教師：趙瑞青 老師 (分機 5198)\n時間：19:00 - 20:50\nWebex 直達會議室：https://nou.webex.com/nou/j.php?MTID=m7d0ebcfdf92c10dbdb3dca376188e6e5
+LOCATION:國立空中大學 Webex 雲端會議室
+URL:https://nou.webex.com/nou/j.php?MTID=m7d0ebcfdf92c10dbdb3dca376188e6e5
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明天有視訊面授】💻【視訊面授】探索宇宙之美 (第4次面授)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:🚨【即刻就座】💻【視訊面授】探索宇宙之美 (第4次面授) 將於 15 分鐘後開始！請點擊 Webex 連結直接進場！
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-meet-ch101-5-20261216@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;TZID=Asia/Taipei:20261216T190000
+DTEND;TZID=Asia/Taipei:20261216T210000
+SUMMARY:💻【視訊面授】AI時代的中文敘事與思辨 (第5次面授)
+DESCRIPTION:科目：AI時代的中文敘事與思辨 (CH101 / ZZZ001班)\n授課教師：歐喜強 老師 (分機 5188)\n時間：19:00 - 21:00\nWebex 直達會議室：https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd
+LOCATION:國立空中大學 Webex 雲端會議室
+URL:https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明天有視訊面授】💻【視訊面授】AI時代的中文敘事與思辨 (第5次面授)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:🚨【即刻就座】💻【視訊面授】AI時代的中文敘事與思辨 (第5次面授) 將於 15 分鐘後開始！請點擊 Webex 連結直接進場！
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-meet-os201-4-20261221@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;TZID=Asia/Taipei:20261221T140000
+DTEND;TZID=Asia/Taipei:20261221T154000
+SUMMARY:💻【視訊面授】作業系統的理論基礎 (第4次面授·日間)
+DESCRIPTION:科目：作業系統的理論基礎 (OS201 / ZZZ101班)\n授課教師：林秀鳳 老師 (分機 5189)\n時間：14:00 - 15:40 (下午場次)\nWebex 直達會議室：https://nou.webex.com/nou/j.php?MTID=m5472c403628987b41ca4e56f376fb741
+LOCATION:國立空中大學 Webex 雲端會議室
+URL:https://nou.webex.com/nou/j.php?MTID=m5472c403628987b41ca4e56f376fb741
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明天有視訊面授】💻【視訊面授】作業系統的理論基礎 (第4次面授·日間)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:🚨【即刻就座】💻【視訊面授】作業系統的理論基礎 (第4次面授·日間) 將於 15 分鐘後開始！請點擊 Webex 連結直接進場！
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-meet-sd101-4-20270104@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;TZID=Asia/Taipei:20270104T190000
+DTEND;TZID=Asia/Taipei:20270104T205000
+SUMMARY:💻【視訊面授】永續的挑戰與實踐 (第4次面授·結業面授)
+DESCRIPTION:科目：永續的挑戰與實踐 (SD101 / ZZZ002班)\n授課教師：蔡適應 老師 (分機 5196)\n時間：19:00 - 20:50\nWebex 直達會議室：https://nou.webex.com/nou/j.php?MTID=m87b58dd19bb80bebd4aca53210240bb4
+LOCATION:國立空中大學 Webex 雲端會議室
+URL:https://nou.webex.com/nou/j.php?MTID=m87b58dd19bb80bebd4aca53210240bb4
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明天有視訊面授】💻【視訊面授】永續的挑戰與實踐 (第4次面授·結業面授)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:🚨【即刻就座】💻【視訊面授】永續的挑戰與實踐 (第4次面授·結業面授) 將於 15 分鐘後開始！請點擊 Webex 連結直接進場！
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-meet-ch101-6-20270106@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;TZID=Asia/Taipei:20270106T190000
+DTEND;TZID=Asia/Taipei:20270106T210000
+SUMMARY:💻【視訊面授】AI時代的中文敘事與思辨 (第6次面授·全期圓滿)
+DESCRIPTION:科目：AI時代的中文敘事與思辨 (CH101 / ZZZ001班)\n授課教師：歐喜強 老師 (分機 5188)\n時間：19:00 - 21:00\nWebex 直達會議室：https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd
+LOCATION:國立空中大學 Webex 雲端會議室
+URL:https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:【明天有視訊面授】💻【視訊面授】AI時代的中文敘事與思辨 (第6次面授·全期圓滿)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:🚨【即刻就座】💻【視訊面授】AI時代的中文敘事與思辨 (第6次面授·全期圓滿) 將於 15 分鐘後開始！請點擊 Webex 連結直接進場！
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-exam-ap101-results-20261102@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+SUMMARY:🏆【放榜查分】生成式AI在行政實務的應用 - 期中考成績今日 08:00 放榜
+DESCRIPTION:科目：生成式AI在行政實務的應用 (廖洲棚、蔡佳津 老師)\n事項：期中線上考試 (50題測驗) 今日 08:00 正式公布成績！\n已於 10/26 凌晨 02:32 完卷搶頭香送出，請登入 LMS 查看滿分戰果！\n查分系統：https://uu.nou.edu.tw/learn/index.php
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔【考務/作業明日提醒】🏆【放榜查分】生成式AI在行政實務的應用 - 期中考成績今日 08:00 放榜
+END:VALARM
+BEGIN:VALARM
+TRIGGER:PT8H
+ACTION:DISPLAY
+DESCRIPTION:⚠️【今日重點學務】🏆【放榜查分】生成式AI在行政實務的應用 - 期中考成績今日 08:00 放榜
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-exam-midterm-week-20261102@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261109
+SUMMARY:📚【全校期中考週】國立空中大學 115-1 全校期中考試週 (第 9 週)
+DESCRIPTION:空大 115 學年度上學期全校期中考試週 (115/11/02 ~ 115/11/08)\n涵蓋各大科目期中線上考試與專案大報告繳交！
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔【考務/作業明日提醒】📚【全校期中考週】國立空中大學 115-1 全校期中考試週 (第 9 週)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:PT8H
+ACTION:DISPLAY
+DESCRIPTION:⚠️【今日重點學務】📚【全校期中考週】國立空中大學 115-1 全校期中考試週 (第 9 週)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-hw-ai101-midterm-window-20261102@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261109
+SUMMARY:🎯【期中評量大報告】人工智慧導論 - 繳交期中報告開放 (11/02~11/08)
+DESCRIPTION:科目：人工智慧導論 (陳廷哲 老師)\n評量項目：期中評量-繳交期中報告 (佔學期總成績 30%)\n開放作答期間：2026-11-02 00:00 至 2026-11-08 23:59 截止！\n⚠️ 請提前上傳 PDF 報告，鎖定期中高分！\n繳交網址：https://uu.nou.edu.tw/learn/index.php
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔【考務/作業明日提醒】🎯【期中評量大報告】人工智慧導論 - 繳交期中報告開放 (11/02~11/08)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:PT8H
+ACTION:DISPLAY
+DESCRIPTION:⚠️【今日重點學務】🎯【期中評量大報告】人工智慧導論 - 繳交期中報告開放 (11/02~11/08)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-hw-sd101-hw1-due-20261106@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261107
+SUMMARY:📑【作業截止】永續的挑戰與實踐 - 第 1 次平時作業今晚 23:59 截止
+DESCRIPTION:科目：永續的挑戰與實踐 (蔡適應 老師)\n作業：平時作業1\n官方系統正常截止：今晚 23:59 (學員已提早繳交完畢 ✅)\n繳交系統：https://uu.nou.edu.tw/learn/index.php
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔【考務/作業明日提醒】📑【作業截止】永續的挑戰與實踐 - 第 1 次平時作業今晚 23:59 截止
+END:VALARM
+BEGIN:VALARM
+TRIGGER:PT8H
+ACTION:DISPLAY
+DESCRIPTION:⚠️【今日重點學務】📑【作業截止】永續的挑戰與實踐 - 第 1 次平時作業今晚 23:59 截止
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-exam-sd101-midterm-20261107@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261109
+SUMMARY:🎯【期中正式線上考】永續的挑戰與實踐 - 48小時限時線上測驗 (11/07~11/08)
+DESCRIPTION:科目：永續的挑戰與實踐 (蔡適應 老師)\n考試形式：115(1)期中考試 (SunNet LMS 線上測驗系統，佔 30%)\n作答期間：2026-11-07 00:00 至 2026-11-08 23:59 截止！\n⚠️ 限時48小時作答，請調用神級秒殺速查寶典輕鬆滿分通關！\n測驗網址：https://uu.nou.edu.tw/learn/index.php
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔【考務/作業明日提醒】🎯【期中正式線上考】永續的挑戰與實踐 - 48小時限時線上測驗 (11/07~11/08)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:PT8H
+ACTION:DISPLAY
+DESCRIPTION:⚠️【今日重點學務】🎯【期中正式線上考】永續的挑戰與實踐 - 48小時限時線上測驗 (11/07~11/08)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-hw-univ-hw1-deadline-20261116@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;VALUE=DATE:20261116
+DTEND;VALUE=DATE:20261117
+SUMMARY:🚨【全校平時作業統一截止大限】空大 115-1 第 1 次平時作業全校大限
+DESCRIPTION:國立空中大學 115-1 第 1 次平時作業全校統一截止大限！\n涵蓋：人工智慧導論、中文思辨、AI倫理、探索宇宙之美各科作業一。\n登入系統：https://uu.nou.edu.tw/learn/index.php
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔【考務/作業明日提醒】🚨【全校平時作業統一截止大限】空大 115-1 第 1 次平時作業全校大限
+END:VALARM
+BEGIN:VALARM
+TRIGGER:PT8H
+ACTION:DISPLAY
+DESCRIPTION:⚠️【今日重點學務】🚨【全校平時作業統一截止大限】空大 115-1 第 1 次平時作業全校大限
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-hw-et101-final-due-20261130@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:🏆【期末免筆試大報告截止】淺談人工智慧倫理 - 期末報告 40% 截止大限
+DESCRIPTION:科目：淺談人工智慧倫理 (林秀鳳 老師)\n項目：期末免筆試大報告 (3,187字) 官方截止日\n學員已於 10/25 提前 36 天上傳受領完畢 ✅，期末 40% 成績全面封頂！
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔【考務/作業明日提醒】🏆【期末免筆試大報告截止】淺談人工智慧倫理 - 期末報告 40% 截止大限
+END:VALARM
+BEGIN:VALARM
+TRIGGER:PT8H
+ACTION:DISPLAY
+DESCRIPTION:⚠️【今日重點學務】🏆【期末免筆試大報告截止】淺談人工智慧倫理 - 期末報告 40% 截止大限
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-hw-os201-hw2-due-20261130@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:📑【作業截止】作業系統的理論基礎 - 第 2 次平時作業截止日
+DESCRIPTION:科目：作業系統的理論基礎 (林秀鳳 老師)\n作業：第二次平時作業 (第4~6章)\n學員已提早繳交受領完畢 ✅！
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔【考務/作業明日提醒】📑【作業截止】作業系統的理論基礎 - 第 2 次平時作業截止日
+END:VALARM
+BEGIN:VALARM
+TRIGGER:PT8H
+ACTION:DISPLAY
+DESCRIPTION:⚠️【今日重點學務】📑【作業截止】作業系統的理論基礎 - 第 2 次平時作業截止日
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-hw-ai101-hw1-due-20261207@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;VALUE=DATE:20261207
+DTEND;VALUE=DATE:20261208
+SUMMARY:📑【作業截止】人工智慧導論 - 平時作業繳交區正常截止
+DESCRIPTION:科目：人工智慧導論 (陳廷哲 老師)\n作業：平時作業繳交區 (已繳作業 ✅)\n系統正常截止：今晚 23:59 (補交區開放至 12/14)
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔【考務/作業明日提醒】📑【作業截止】人工智慧導論 - 平時作業繳交區正常截止
+END:VALARM
+BEGIN:VALARM
+TRIGGER:PT8H
+ACTION:DISPLAY
+DESCRIPTION:⚠️【今日重點學務】📑【作業截止】人工智慧導論 - 平時作業繳交區正常截止
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-hw-univ-hw2-deadline-20261215@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;VALUE=DATE:20261215
+DTEND;VALUE=DATE:20261217
+SUMMARY:🚨【全校平時作業統一截止大限】空大 115-1 第 2 次平時作業全校大限
+DESCRIPTION:國立空中大學 115-1 第 2 次平時作業全校統一繳交大限！\n涵蓋全科目第二次作業之最後繳交機會。\n登入系統：https://uu.nou.edu.tw/learn/index.php
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔【考務/作業明日提醒】🚨【全校平時作業統一截止大限】空大 115-1 第 2 次平時作業全校大限
+END:VALARM
+BEGIN:VALARM
+TRIGGER:PT8H
+ACTION:DISPLAY
+DESCRIPTION:⚠️【今日重點學務】🚨【全校平時作業統一截止大限】空大 115-1 第 2 次平時作業全校大限
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-hw-ai101-final-window-20261228@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;VALUE=DATE:20261228
+DTEND;VALUE=DATE:20270104
+SUMMARY:🎯【期末評量大報告】人工智慧導論 - 繳交期末實作報告開放 (12/28~01/03)
+DESCRIPTION:科目：人工智慧導論 (陳廷哲 老師)\n項目：期末評量-實作AI應用主題 / 繳交期末報告 (佔 35%)\n作答期間：2026-12-28 00:00 至 2027-01-03 23:59 截止！
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔【考務/作業明日提醒】🎯【期末評量大報告】人工智慧導論 - 繳交期末實作報告開放 (12/28~01/03)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:PT8H
+ACTION:DISPLAY
+DESCRIPTION:⚠️【今日重點學務】🎯【期末評量大報告】人工智慧導論 - 繳交期末實作報告開放 (12/28~01/03)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-exam-final-week-20270104@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;VALUE=DATE:20270104
+DTEND;VALUE=DATE:20270111
+SUMMARY:📚【全校期末考週】國立空中大學 115-1 全校期末考試週 (第 18 週)
+DESCRIPTION:國立空中大學 115 學年度上學期全校期末大考週 (116/01/04 ~ 116/01/10)！\n全學期學分收割衝刺，滿分大滿貫結業！
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔【考務/作業明日提醒】📚【全校期末考週】國立空中大學 115-1 全校期末考試週 (第 18 週)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:PT8H
+ACTION:DISPLAY
+DESCRIPTION:⚠️【今日重點學務】📚【全校期末考週】國立空中大學 115-1 全校期末考試週 (第 18 週)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nou-exam-sd101-final-20270109@nou.edu.tw
+DTSTAMP:20261026T030000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270111
+SUMMARY:🎯【期末正式線上考】永續的挑戰與實踐 - 48小時限時期末考試 (01/09~01/10)
+DESCRIPTION:科目：永續的挑戰與實踐 (蔡適應 老師)\n考試形式：115(2)期末考試 (SunNet LMS 線上測驗系統，佔 30%)\n作答期間：2027-01-09 00:00 至 2027-01-10 23:59 截止！
+LOCATION:國立空中大學 SunNet LMS (uu.nou.edu.tw)
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔【考務/作業明日提醒】🎯【期末正式線上考】永續的挑戰與實踐 - 48小時限時期末考試 (01/09~01/10)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:PT8H
+ACTION:DISPLAY
+DESCRIPTION:⚠️【今日重點學務】🎯【期末正式線上考】永續的挑戰與實踐 - 48小時限時期末考試 (01/09~01/10)
+END:VALARM
+END:VEVENT
+END:VCALENDAR
