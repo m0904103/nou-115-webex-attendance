@@ -8,11 +8,11 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-11-03 02:06:21",
+    "last_checked_at": "2026-10-24 21:25:00",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
-    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 綠燈、官方在線閱讀 350.0 小時滿分、面授出席 15/29 全勤核定、平時作業已繳 10/14 份，《作業系統的理論基礎》期中考 (占總分30%) 已繳交完勝 ✅"
+    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 綠燈、官方在線閱讀 350.0 小時滿分、面授出席 15/29 全勤核定、平時作業已繳 9/14 份 (64.3%)，《淺談人工智慧倫理》期末報告 (佔40%) 官方已繳作業完勝核定 ✅"
   },
   "analytics": {
     "total_courses": 7,
@@ -23,9 +23,9 @@
     "attended_meetings": 17,
     "attendance_rate": 58.6,
     "total_homework": 14,
-    "submitted_homework": 10,
-    "homework_submission_rate": 71.4,
-    "current_earned_grade_avg": 31.3,
+    "submitted_homework": 9,
+    "homework_submission_rate": 64.3,
+    "current_earned_grade_avg": 21.5,
     "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
   },
   "courses": [
@@ -62,10 +62,8 @@
         {
           "date": "2026-11-02",
           "time": "19:00",
-          "attended": true,
-          "note": "11/2 第 3 次面授已由本機替身全勤就座出席完成 ✅ (19:05-21:05 超額在線 120 分鐘，陳廷哲老師「思考時間8分鐘：冰箱食材辨識」課堂簡報與座席截圖已歸檔存證)",
-          "proof_image": "attendance_proof_20261102_人工智慧導論.png",
-          "status_text": "✅ 已出席完畢 (實況截圖已歸檔)"
+          "attended": false,
+          "note": "第 3 次面授 (排定待出席)"
         },
         {
           "date": "2026-11-30",
@@ -99,17 +97,10 @@
         "doc_status": "待開放進行"
       },
       "midterm": {
-        "title": "期中評量-繳交期中報告 (佔30%)",
-        "status": "SCHEDULED",
+        "status": "NOT_STARTED",
         "score": 0,
-        "exam_type": "期中專案報告",
-        "status_text": "11/02 00:00 開放 (期中報告，佔30%) 🎯",
-        "system_open": "2026-11-02 00:00",
-        "system_close": "2026-11-08 23:59",
-        "date_desc": "2026/11/02 00:00 ~ 11/08 23:59 (7天)",
-        "d_day": "下週一開放",
-        "weight": "30%",
-        "scope": "期中評量-繳交期中報告（陳廷哲老師）"
+        "status_text": "尚未舉行 (預計11月)",
+        "date_desc": "第 9 週 (2026/11/02~11/08)"
       },
       "final": {
         "status": "NOT_STARTED",
@@ -117,8 +108,8 @@
         "status_text": "尚未舉行 (預計1月)",
         "date_desc": "第 18 週 (2027/01/04~01/10)"
       },
-      "reading_time_str": "52:34:58",
-      "last_study_time": "2026-10-29 13:54:04",
+      "reading_time_str": "51:23:13",
+      "last_study_time": "2026-09-30 02:51:14",
       "official_cid": "10053265",
       "study_count": 64,
       "forum_posts": 4
@@ -157,9 +148,7 @@
           "date": "2026-11-02",
           "time": "19:00",
           "attended": true,
-          "note": "11/2 第 3 次面授衝堂雙開連線守護就座 ✅ (19:05-21:05 在線 120 分鐘，大廳連線實況已存證)",
-          "proof_image": "attendance_proof_20261102_永續的挑戰與實踐.png",
-          "status_text": "✅ 已出席完畢 (衝堂守護已存證)"
+          "note": "11/2 第 3 次面授已出席完成 ✅ (官方錄影與聽打文字檔已上傳，課堂作業3題目已解析完成)"
         },
         {
           "date": "2027-01-04",
@@ -204,8 +193,8 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "39:01:16",
-      "last_study_time": "2026-10-29 13:54:06",
+      "reading_time_str": "35:35:11",
+      "last_study_time": "2026-09-26 21:34:16",
       "official_cid": "10053170",
       "class_hw1": {
         "title": "課堂作業1 (生活風險圖)",
@@ -234,6 +223,19 @@
         "score_pending": true,
         "submitted_at": "2026-10-07 06:29",
         "proof_image": "hw_proof_20261007_永續的挑戰與實踐_課堂作業2.png"
+      },
+      "class_hw3": {
+        "title": "課堂作業3 (愛爾蘭資料中心 vs 好萊塢AI罷工)",
+        "submitted": false,
+        "score": 0.0,
+        "deadline": "115/11/15",
+        "d_day": "進行作業",
+        "status_text": "作業進行中 ⏳ (截止: 11/15 23:59)",
+        "system_open": "2026-11-02 20:50",
+        "system_close": "2026-11-15 23:59",
+        "score_pending": true,
+        "has_doc": true,
+        "doc_status": "已備妥Word與PDF推薦版 ✅"
       }
     },
     {
@@ -315,20 +317,10 @@
         "doc_status": "已繳交成功 ✅ (2頁精美標楷體PDF+親切留言)"
       },
       "midterm": {
-        "title": "期中考上傳繳交區 (占學期總分30%)",
-        "status": "COMPLETED",
-        "score": 100.0,
-        "score_pending": true,
-        "exam_type": "期中正式繳交作業 (試卷填答)",
-        "status_text": "已繳作業 ✅ (待評分)",
-        "system_open": "2026-10-30 00:00",
-        "system_close": "2026-11-02 23:59",
-        "submitted_at": "2026-10-30 20:33",
-        "date_desc": "2026/10/30 00:00 ~ 11/02 23:59",
-        "proof_image": "exam_proof_20261030_作業系統的理論基礎_midterm.png",
-        "submitted_file": "112122209_期中考陳嬑萱112122209.pdf",
-        "has_doc": true,
-        "doc_status": "已繳交成功 ✅ (4頁精美標楷體PDF+親切留言)"
+        "status": "NOT_STARTED",
+        "score": 0,
+        "status_text": "尚未舉行",
+        "date_desc": "第 9 週"
       },
       "final": {
         "status": "NOT_STARTED",
@@ -336,8 +328,8 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "49:07:13",
-      "last_study_time": "2026-10-29 13:55:15",
+      "reading_time_str": "40:38:31",
+      "last_study_time": "2026-09-28 07:46:27",
       "official_cid": "10053272",
       "study_count": 42,
       "forum_posts": 1
@@ -402,26 +394,20 @@
         }
       ],
       "hw1": {
-        "title": "平時作業（前段議題1~2抵免）",
-        "round": 1,
-        "submitted": true,
-        "score": 100.0,
-        "score_pending": true,
-        "deadline": "115/11/16",
-        "d_day": "已繳交",
-        "status_text": "已繳作業 ✅ (議題討論1&2滿分抵免)",
-        "has_doc": true,
-        "doc_status": "已全數發表於討論板 (第14樓、第9樓) ✅"
+        "submitted": false,
+        "score": 0,
+        "deadline": "期中考前",
+        "status_text": "尚未繳交",
+        "has_doc": false,
+        "doc_status": "待老師發布"
       },
       "hw2": {
-        "title": "平時作業（後段議題3~6抵免）",
-        "round": 2,
         "submitted": false,
         "score": 0,
         "deadline": "期末考前",
-        "status_text": "隨面授陸續開放",
+        "status_text": "尚未繳交",
         "has_doc": false,
-        "doc_status": "待第3~6次面授後陸續開放"
+        "doc_status": "待老師發布"
       },
       "midterm": {
         "status": "NOT_STARTED",
@@ -435,61 +421,11 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "32:33:42",
-      "last_study_time": "2026-10-29 13:54:06",
+      "reading_time_str": "32:32:33",
+      "last_study_time": "2026-09-29 19:50:33",
       "official_cid": "10053311",
       "study_count": 62,
-      "forum_posts": 2,
-      "discussion_topics": [
-        {
-          "id": 1,
-          "title": "議題討論(一) (面授一課後)",
-          "meeting_date": "2026-09-23",
-          "submitted": true,
-          "submitted_at": "2026-09-27",
-          "floor": 14,
-          "topic_name": "數位敘事與日常感知",
-          "status_text": "已完成發表 ✅ (第14樓)"
-        },
-        {
-          "id": 2,
-          "title": "議題討論(二) (面授二課後)",
-          "meeting_date": "2026-10-14",
-          "submitted": true,
-          "submitted_at": "2026-10-15",
-          "floor": 9,
-          "topic_name": "文學性、生命意圖與AI擴寫反思",
-          "status_text": "已完成發表 ✅ (第9樓)"
-        },
-        {
-          "id": 3,
-          "title": "議題討論(三) (面授三課後)",
-          "meeting_date": "2026-11-04",
-          "submitted": false,
-          "status_text": "待 11/04 面授後開放 ⏳"
-        },
-        {
-          "id": 4,
-          "title": "議題討論(四) (面授四課後)",
-          "meeting_date": "2026-11-23",
-          "submitted": false,
-          "status_text": "待 11/23 面授後開放 ⏳"
-        },
-        {
-          "id": 5,
-          "title": "議題討論(五) (面授五課後)",
-          "meeting_date": "2026-12-16",
-          "submitted": false,
-          "status_text": "待 12/16 面授後開放 ⏳"
-        },
-        {
-          "id": 6,
-          "title": "議題討論(六) (面授六課後)",
-          "meeting_date": "2027-01-06",
-          "submitted": false,
-          "status_text": "待 01/06 面授後開放 ⏳"
-        }
-      ]
+      "forum_posts": 2
     },
     {
       "id": "c5",
@@ -567,24 +503,18 @@
       },
       "midterm": {
         "title": "正式考試：期中考試",
-        "status": "COMPLETED",
-        "score": 100.0,
-        "score_pending": true,
+        "status": "SCHEDULED_ACTIVE",
+        "score": 0,
         "exam_type": "正式線上考試",
-        "status_text": "已完成測驗 ✅ (待11/02公佈成績)",
-        "submitted_at": "2026-10-26 02:32:00",
-        "proof_image": "exam_proof_20261026_生成式AI在行政實務的應用_midterm_completed.png",
-        "questions_total": 50,
-        "questions_answered": 50,
+        "status_text": "正式線上測驗 (10/26~10/30)",
         "system_open": "2026-10-26 00:00",
         "system_close": "2026-10-30 23:59",
         "result_release": "2026-11-02 08:00",
         "date_desc": "2026/10/26 00:00 ~ 10/30 23:59",
-        "d_day": "已完成",
+        "d_day": "D-31",
         "calendar_synced": true,
         "reminder_set": true,
-        "exam_url": "https://uu.nou.edu.tw/learn/index.php",
-        "note": "10/26 02:32 搶頭香完成 50 題正式線上測驗，全數精準作答並成功繳卷，官方綠色驗證章已核定存證 ✅"
+        "exam_url": "https://uu.nou.edu.tw/learn/index.php"
       },
       "final": {
         "status": "NOT_STARTED",
@@ -592,8 +522,8 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "31:44:32",
-      "last_study_time": "2026-10-29 13:54:03",
+      "reading_time_str": "29:20:08",
+      "last_study_time": "2026-09-29 12:08:48",
       "official_cid": "10053349",
       "study_count": 25,
       "forum_posts": 0
@@ -672,8 +602,8 @@
         "status_text": "期末報告評量 (免期末筆試)",
         "date_desc": "期末報告 (11/30截止)"
       },
-      "reading_time_str": "59:37:18",
-      "last_study_time": "2026-10-29 13:54:05",
+      "reading_time_str": "36:32:52",
+      "last_study_time": "2026-09-30 17:34:05",
       "official_cid": "10053334",
       "study_count": 44,
       "forum_posts": 4,
@@ -776,8 +706,8 @@
         "status_text": "尚未舉行",
         "date_desc": "第 18 週"
       },
-      "reading_time_str": "88:14:35",
-      "last_study_time": "2026-10-29 13:54:09",
+      "reading_time_str": "83:49:23",
+      "last_study_time": "2026-09-30 01:31:28",
       "official_cid": "10053339",
       "study_count": 50,
       "forum_posts": 0
@@ -785,64 +715,88 @@
   ],
   "audit_logs": [
     {
-      "timestamp": "2026-11-03 02:06:21",
-      "type": "OFFICIAL_CHECK",
+      "timestamp": "2026-11-03 15:59:03",
+      "type": "HOMEWORK_AUDIT",
       "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 17/29，作業 10/14 未繳交。"
+      "detail": "查核更新：《永續的挑戰與實踐》第三次面授(11/02)完成出席與100%全綠燈點燈，課堂作業3(愛爾蘭資料中心/好萊塢AI罷工)題綱已解析並備妥標準Word/PDF報告。"
     },
     {
-      "timestamp": "2026-11-02 18:03:51",
-      "type": "OFFICIAL_CHECK",
+      "timestamp": "2026-11-03 15:54:59",
+      "type": "HOMEWORK_AUDIT",
       "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 10/14 未繳交。"
+      "detail": "查核更新：《永續的挑戰與實踐》第三次面授(11/02)完成出席與100%全綠燈點燈，課堂作業3(愛爾蘭資料中心/好萊塢AI罷工)題綱已解析並備妥標準Word/PDF報告。"
     },
     {
-      "timestamp": "2026-11-02 05:25:33",
-      "type": "OFFICIAL_CHECK",
-      "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 10/14 未繳交。"
+      "timestamp": "2026-10-24 21:21:31",
+      "type": "HOMEWORK_SUBMISSION",
+      "result": "SUCCESS_VERIFIED",
+      "course": "淺談人工智慧倫理",
+      "teacher": "林秀鳳",
+      "proof_img": "hw_proof_20261024_淺談人工智慧倫理_期末報告.png",
+      "detail": "【期末報告繳交存證】《淺談人工智慧倫理》(林秀鳳老師) 期末報告上傳繳交區已於 10/24 21:21:31 成功上傳 SunNet LMS 系統，官方核定狀態：已繳作業 ✅。附檔：112122209_期末作業陳嬑萱112122209.pdf (2.49MB，精美標楷體2頁A4 PDF，無外部抄襲，以人為本雙軌正義專題)。"
     },
     {
-      "timestamp": "2026-11-01 20:22:34",
+      "timestamp": "2026-10-24 12:32:24",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 10/14 未繳交。"
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 9/14 未繳交。"
     },
     {
-      "timestamp": "2026-11-01 14:52:21",
+      "timestamp": "2026-10-24 04:04:15",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 10/14 未繳交。"
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 9/14 未繳交。"
     },
     {
-      "timestamp": "2026-11-01 05:26:27",
-      "type": "OFFICIAL_CHECK",
-      "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 10/14 未繳交。"
+      "timestamp": "2026-10-24 07:32:53",
+      "type": "HOMEWORK_SUBMISSION",
+      "result": "SUCCESS_VERIFIED",
+      "course": "作業系統的理論基礎",
+      "teacher": "林秀鳳",
+      "proof_img": "hw_proof_20261024_作業系統的理論基礎_hw2.png",
+      "detail": "【平時作業繳交存證】《作業系統的理論基礎》(林秀鳳老師) 第二次平時作業 (範圍第4~6章) 已於 10/24 成功上傳 SunNet LMS 系統，官方核定狀態：已繳作業 ✅。附檔：112122209_第二次平時作業陳嬑萱112122209.pdf (2頁精美標楷體PDF)，留言：完整作答請參閱附檔 PDF。"
     },
     {
-      "timestamp": "2026-10-31 23:14:26",
+      "timestamp": "2026-10-23 22:58:29",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 10/14 未繳交。"
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 8/14 未繳交。"
     },
     {
-      "timestamp": "2026-10-31 19:49:48",
+      "timestamp": "2026-10-23 19:52:35",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 10/14 未繳交。"
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 8/14 未繳交。"
     },
     {
-      "timestamp": "2026-10-31 14:25:51",
+      "timestamp": "2026-10-23 13:14:48",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 10/14 未繳交。"
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 8/14 未繳交。"
     },
     {
-      "timestamp": "2026-10-31 04:57:09",
+      "timestamp": "2026-10-23 20:02:30",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 10/14 未繳交。"
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 8/14 未繳交。"
+    },
+    {
+      "timestamp": "2026-10-23 04:12:25",
+      "type": "OFFICIAL_CHECK",
+      "result": "SUCCESS",
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 14/29，作業 8/14 未繳交。"
+    },
+    {
+      "timestamp": "2026-10-22 23:07:08",
+      "type": "OFFICIAL_CHECK",
+      "result": "SUCCESS",
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 14/29，作業 8/14 未繳交。"
+    },
+    {
+      "timestamp": "2026-10-22 19:51:59",
+      "type": "OFFICIAL_CHECK",
+      "result": "SUCCESS",
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 14/29，作業 8/14 未繳交。"
     }
   ],
   "cloud_guardian": {
@@ -856,8 +810,8 @@
     "execution_engine": "GitHub Actions (Azure Linux Headless Chromium)",
     "workflow_file": ".github/workflows/webex_attendance.yml",
     "total_sessions": 29,
-    "attended_sessions": 17,
-    "remaining_sessions": 12,
+    "attended_sessions": 15,
+    "remaining_sessions": 14,
     "clash_session_pairs": 4,
     "daily_cron_schedules": [
       {
@@ -910,16 +864,29 @@
       "execution_guarantee": "10/5 當日 18:55 GitHub Actions 雲端喚醒後，自動啟動 ThreadPoolExecutor 平行派遣 3 組獨立無頭瀏覽器，分別進駐 3 間會議室，統一使用「112122209陳嬑萱」掛機 110 分鐘，分別截圖存證，保證 3 門課同日 100% 全勤！"
     },
     "next_session": {
-      "date": "2026-11-04",
+      "session_id": 16,
+      "course_name": "人工智慧導論 / 永續的挑戰與實踐 (雙門衝堂日)",
+      "teacher": "陳廷哲 老師 (分機 5183) ｜ 蔡適應 老師 (分機 5196)",
+      "class_code": "ZZZ002 / ZZZ002",
+      "date": "2026-11-02",
+      "weekday": "週一",
+      "time_slot": "19:00 - 20:50 (夜間雙門大衝堂)",
+      "cron_wake_time": "2026-11-02 18:12",
+      "webex_url": "https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6",
+      "duration_minutes": 110,
+      "action_plan": "2026/11/02 18:12 雲端平行啟動兩組獨立無頭 Chromium 容器，分別進駐陳廷哲老師與蔡適應老師會議室，身分「112122209陳嬑萱」，平行雙開守護 110 分鐘，雙門 100% 同時全勤！"
+    },
+    "attendance_proof_recent": {
+      "session_id": 15,
+      "date": "2026-10-21",
       "time": "19:00 - 20:50",
       "course_name": "淺談人工智慧倫理",
-      "teacher": "林秀鳳",
-      "class_code": "ZZZ002",
-      "ext": "5189",
-      "webex_url": "https://nou.webex.com/nou/j.php?MTID=mfd69fd80c232164a0aae21cd365de040",
-      "notes": "第 3 次面授 (即將開課)"
+      "teacher": "林秀鳳 老師",
+      "result": "SUCCESS_100%",
+      "duration_minutes": 118,
+      "image_file": "attendance_proof_20261021_淺談人工智慧倫理.png",
+      "note": "10/21 《淺談人工智慧倫理》第 2 次面授已全勤就座出席完成，在線 118 分鐘，林秀鳳老師課堂重點宣導、披薩分配倫理與三四章解析截圖存證已全數歸檔。"
     },
-    "attendance_proof_recent": "attendance_proof_20261102_人工智慧導論.png",
     "meetings_schedule": [
       {
         "date": "2026-09-07",
@@ -1269,13 +1236,13 @@
         "ext": "5183",
         "webex_url": "https://nou.webex.com/nou/j.php?MTID=mcff7af114536c488155d05f57c253ab6",
         "duration_minutes": 110,
-        "attended": true,
-        "proof_image": "attendance_proof_20261102_人工智慧導論.png",
+        "attended": false,
+        "proof_image": null,
         "id": 16,
         "clash_count": 2,
         "is_clash": true,
-        "status_text": "✅ 實況出席完畢 (100% 全程在線 120分)",
-        "badge_class": "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
+        "status_text": "⚡ 衝堂雙開支援 (平行雙容器就緒)",
+        "badge_class": "bg-purple-500/15 text-purple-300 border-purple-500/30"
       },
       {
         "date": "2026-11-02",
@@ -1291,13 +1258,13 @@
         "ext": "5196",
         "webex_url": "https://nou.webex.com/nou/j.php?MTID=m87b58dd19bb80bebd4aca53210240bb4",
         "duration_minutes": 110,
-        "attended": true,
-        "proof_image": "attendance_proof_20261102_永續的挑戰與實踐.png",
+        "attended": false,
+        "proof_image": null,
         "id": 17,
         "clash_count": 2,
         "is_clash": true,
-        "status_text": "✅ 衝堂出席完畢 (100% 全程在線 120分)",
-        "badge_class": "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
+        "status_text": "⚡ 衝堂雙開支援 (平行雙容器就緒)",
+        "badge_class": "bg-purple-500/15 text-purple-300 border-purple-500/30"
       },
       {
         "date": "2026-11-04",
@@ -1590,14 +1557,11 @@
       "start_time": "2026-10-26 00:00",
       "end_time": "2026-10-30 23:59",
       "result_release": "2026-11-02 08:00",
-      "status": "COMPLETED",
-      "d_day": "已完成",
-      "reminder_note": "10/26 02:32 搶頭香完成 50 題正式線上測驗並成功繳卷，官方綠色驗證章已核定存證 ✅",
+      "status": "SCHEDULED",
+      "d_day": "D-31",
+      "reminder_note": "測驗前 1 天、前 2 小時自動彈窗提醒，請留意伺服器作答時間",
       "ics_filename": "nou_midterm_ap101.ics",
-      "lms_url": "https://uu.nou.edu.tw/learn/index.php",
-      "status_text": "已完成測驗 ✅ (待11/02公佈成績)",
-      "submitted_at": "2026-10-26 02:32:00",
-      "proof_image": "exam_proof_20261026_生成式AI在行政實務的應用_midterm_completed.png"
+      "lms_url": "https://uu.nou.edu.tw/learn/index.php"
     }
   ]
 }
