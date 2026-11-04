@@ -8,7 +8,7 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-11-04 21:10:09",
+    "last_checked_at": "2026-11-04 19:40:20",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
@@ -20,12 +20,12 @@
     "total_reading_hours": 350.0,
     "average_lighting_percent": 100.0,
     "total_meetings": 29,
-    "attended_meetings": 19,
-    "attendance_rate": 65.5,
+    "attended_meetings": 18,
+    "attendance_rate": 62.1,
     "total_homework": 14,
     "submitted_homework": 9,
     "homework_submission_rate": 64.3,
-    "current_earned_grade_avg": 21.8,
+    "current_earned_grade_avg": 22.5,
     "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
   },
   "courses": [
@@ -723,6 +723,12 @@
   ],
   "audit_logs": [
     {
+      "timestamp": "2026-11-04 19:40:20",
+      "type": "OFFICIAL_CHECK",
+      "result": "SUCCESS",
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 18/29，作業 9/14 未繳交。"
+    },
+    {
       "timestamp": "2026-11-04 21:10:09",
       "type": "WEBEX_ATTENDANCE",
       "result": "SUCCESS",
@@ -778,18 +784,6 @@
       "teacher": "林秀鳳",
       "proof_img": "hw_proof_20261024_淺談人工智慧倫理_期末報告.png",
       "detail": "【期末報告繳交存證】《淺談人工智慧倫理》(林秀鳳老師) 期末報告上傳繳交區已於 10/24 21:21:31 成功上傳 SunNet LMS 系統，官方核定狀態：已繳作業 ✅。附檔：112122209_期末作業陳嬑萱112122209.pdf (2.49MB，精美標楷體2頁A4 PDF，無外部抄襲，以人為本雙軌正義專題)。"
-    },
-    {
-      "timestamp": "2026-10-24 12:32:24",
-      "type": "OFFICIAL_CHECK",
-      "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 9/14 未繳交。"
-    },
-    {
-      "timestamp": "2026-10-24 04:04:15",
-      "type": "OFFICIAL_CHECK",
-      "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 9/14 未繳交。"
     }
   ],
   "cloud_guardian": {
