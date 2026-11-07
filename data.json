@@ -8,7 +8,7 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-11-07 12:35:00",
+    "last_checked_at": "2026-11-07 05:28:38",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
@@ -25,7 +25,7 @@
     "total_homework": 14,
     "submitted_homework": 11,
     "homework_submission_rate": 78.6,
-    "current_earned_grade_avg": 40.5,
+    "current_earned_grade_avg": 45.4,
     "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
   },
   "courses": [
@@ -838,6 +838,12 @@
   ],
   "audit_logs": [
     {
+      "timestamp": "2026-11-07 05:28:38",
+      "type": "OFFICIAL_CHECK",
+      "result": "SUCCESS",
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 19/29，作業 11/14 未繳交。"
+    },
+    {
       "time": "2026-11-07 12:35:00",
       "action": "OFFICIAL_RECORDING_LIGHTING_AND_TRANSCRIPT_VERIFIED",
       "course": "全學期 7 門課程 (重點：淺談人工智慧倫理 / 人工智慧導論 / AI時代的中文敘事與思辨)",
@@ -896,36 +902,6 @@
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
       "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 19/29，作業 10/14 未繳交。"
-    },
-    {
-      "time": "2026-11-05 06:34:00",
-      "action": "OFFICIAL_MIDTERM_EXAM_100_PERFECT_VERIFIED",
-      "course": "AI時代的中文敘事與思辨 (CH101 · ZZZ001)",
-      "result": "100分滿分過關 🏆 (25/25 全對)",
-      "detail": "《AI時代的中文敘事與思辨》正式線上期中考試（第1~5章，佔學期總成績30%）於 11/05 開考首日清晨 06:34 完卷，25 題單選題全數命中，榮獲 100.00 分滿分（及格標準 70 分，評量結果：及格）！官方電腦閱卷滿分截圖 (exam_proof_20261105_AI時代的中文敘事與思辨_midterm_100.png) 與 25 題官方詳解已完整歸檔存證。",
-      "verified": true
-    },
-    {
-      "time": "2026-11-04 21:05:12",
-      "action": "CLOUD_LOCAL_DUAL_AVATAR_ATTENDANCE_VERIFIED",
-      "course": "AI時代的中文敘事與思辨 (CH101) & 淺談人工智慧倫理 (ET101)",
-      "result": "SUCCESS_120_MIN_FULL_ATTENDANCE",
-      "detail": "11/04 (週三) 晚間 19:00 雙門夜間面授同時衝堂！透過雲端與本機雙重無頭替身平行進駐，全程 120 分鐘零斷線守護歐喜強老師《AI時代的中文敘事與思辨》(第3次面授) 與林俊宏老師《淺談人工智慧倫理》(第3次面授，達成 3/3 全勤滿貫結業 🏆)，雙課堂實況與座席首位「112122209陳嬑萱」截圖均已歸檔核定。",
-      "verified": true
-    },
-    {
-      "time": "2026-11-03 18:50:22",
-      "action": "OFFICIAL_CLASS_HW3_SUBMISSION_VERIFIED",
-      "course": "永續的挑戰與實踐 (SD101 · ZZZ002)",
-      "result": "已繳作業 ✅ (+10分隨堂加分)",
-      "detail": "蔡適應老師第 3 次面授隨堂「課堂作業三：愛爾蘭資料中心電網壓力與解方」已於 11/03 18:50 發表於課程討論區 (#3樓)，累計 3 次課堂作業全數滿貫提交，官方截圖 (hw_proof_20261103_永續的挑戰與實踐_課堂作業3.png) 已歸檔。",
-      "verified": true
-    },
-    {
-      "timestamp": "2026-11-02 18:03:51",
-      "type": "OFFICIAL_CHECK",
-      "result": "SUCCESS",
-      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 15/29，作業 10/14 未繳交。"
     }
   ],
   "cloud_guardian": {
