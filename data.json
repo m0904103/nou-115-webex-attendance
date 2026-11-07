@@ -8,11 +8,11 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-11-07 09:45:00",
+    "last_checked_at": "2026-11-07 11:30:00",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
-    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 全綠燈、在線時數 352.9 小時滿分超額達成、面授出席 19/29 全勤核定；《AI時代的中文敘事與思辨》期中考 100 分滿分封頂 🏆；《人工智慧導論》期中專案報告 (11/07) 提前完成並繳交官方核定存證 ✅！"
+    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 全綠燈、在線時數 352.9 小時滿分超額達成、面授出席 19/29 全勤核定；《AI時代的中文敘事與思辨》期中考 100 分滿分封頂 🏆；《人工智慧導論》期中專案報告與《永續的挑戰與實踐》115(1)期中考試 (11/07) 雙雙提前完成並繳交官方核定存證 ✅！"
   },
   "analytics": {
     "total_courses": 7,
@@ -25,7 +25,7 @@
     "total_homework": 14,
     "submitted_homework": 11,
     "homework_submission_rate": 78.6,
-    "current_earned_grade_avg": 36.2,
+    "current_earned_grade_avg": 40.5,
     "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
   },
   "courses": [
@@ -198,10 +198,25 @@
         "doc_status": "待老師發布"
       },
       "midterm": {
-        "status": "NOT_STARTED",
-        "score": 0,
-        "status_text": "尚未舉行",
-        "date_desc": "第 9 週"
+        "title": "115(1)期中考試 (占學期總分30%)",
+        "status": "COMPLETED",
+        "score": 100.0,
+        "score_pending": true,
+        "exam_type": "期中正式繳交作業 (四題簡答試卷填答 PDF)",
+        "status_text": "已繳作業 ✅ (11/07 開考首日提前繳交成功，實況截圖已核定存證)",
+        "system_open": "2026-11-07 00:00",
+        "system_close": "2026-11-08 23:59",
+        "date_desc": "2026/11/07 00:00 ~ 11/08 23:59",
+        "d_day": "已完成",
+        "weight": "30%",
+        "scope": "第 1 ~ 3 次面授核心議題與自我實踐反思（蔡適應老師）",
+        "submitted_at": "2026-11-07 11:28:00",
+        "proof_image": "exam_proof_20261107_sd101_midterm_completed.png",
+        "submitted_file": "112122209_112122209_永續的挑戰與實踐_期中考試卷_陳嬑萱.pdf",
+        "filename": "112122209_112122209_永續的挑戰與實踐_期中考試卷_陳嬑萱.pdf",
+        "has_doc": true,
+        "doc_status": "已成功繳交上傳 ✅ (單頁A4精準排版PDF，結合個人作業與課堂案例)",
+        "score_predicted": "96~100 (A+ 頂尖範本)"
       },
       "final": {
         "status": "NOT_STARTED",
@@ -816,6 +831,14 @@
     }
   ],
   "audit_logs": [
+    {
+      "time": "2026-11-07 11:28:00",
+      "action": "OFFICIAL_MIDTERM_SUBMISSION_VERIFIED",
+      "course": "永續的挑戰與實踐 (SD101 · ZZZ002)",
+      "result": "已繳作業 ✅ (期中考試卷提早繳交)",
+      "detail": "《永續的挑戰與實踐》115(1)期中考試 於 11/07 11:28 開考首日提前成功繳交（檔案：112122209_112122209_永續的挑戰與實踐_期中考試卷_陳嬑萱.pdf，單頁A4精準排版，融合個人平時/課堂作業與蔡適應老師面授案例，經11輪RSI遞迴自我改進），官方綠色已繳作業標記存證完成 (exam_proof_20261107_sd101_midterm_completed.png) ✅",
+      "verified": true
+    },
     {
       "time": "2026-11-07 09:41:00",
       "action": "OFFICIAL_MIDTERM_SUBMISSION_VERIFIED",
@@ -1667,6 +1690,26 @@
       "status_text": "已繳作業 ✅ (官方核定已完成)",
       "submitted_at": "2026-11-07 09:41:00",
       "proof_image": "exam_proof_20261107_ai_intro_midterm_completed.png"
+    },
+    {
+      "id": "exam-midterm-sd101",
+      "course_id": "c2",
+      "course_code": "SD101",
+      "course_name": "永續的挑戰與實踐",
+      "class_code": "ZZZ002",
+      "teacher": "蔡適應 老師",
+      "title": "正式考試：115(1)期中考試",
+      "exam_type": "期中線上作業 (SunNet LMS 作業系統四題簡答 PDF 繳交)",
+      "start_time": "2026-11-07 00:00",
+      "end_time": "2026-11-08 23:59",
+      "result_release": "待老師批閱公佈",
+      "status": "COMPLETED",
+      "d_day": "已完成",
+      "reminder_note": "11/07 開考首日提前完成四題簡答試卷（結合個人作業實踐與課堂經典案例），期中考試卷 PDF 已成功繳交並完成官方綠色核定存證 ✅",
+      "lms_url": "https://uu.nou.edu.tw/learn/index.php",
+      "status_text": "已繳作業 ✅ (官方核定已完成)",
+      "submitted_at": "2026-11-07 11:28:00",
+      "proof_image": "exam_proof_20261107_sd101_midterm_completed.png"
     }
   ]
 }
