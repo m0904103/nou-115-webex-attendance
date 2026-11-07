@@ -8,11 +8,11 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-11-06 21:23:36",
+    "last_checked_at": "2026-11-07 09:45:00",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
-    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 全綠燈、官方在線閱讀 352.9 小時滿分超額達成、面授出席 19/29 全勤核定 (65.5%，《生成式AI》與《AI倫理》皆已 3/3 滿貫結業 🏆)、平時作業與隨堂作業全數領先；《AI時代的中文敘事與思辨》期中正式線上考試 (11/05) 25題全對 100分滿分封頂完勝 🏆！"
+    "audit_note": "100% 官方學習歷程真確對齊：點燈 100% 全綠燈、在線時數 352.9 小時滿分超額達成、面授出席 19/29 全勤核定；《AI時代的中文敘事與思辨》期中考 100 分滿分封頂 🏆；《人工智慧導論》期中專案報告 (11/07) 提前完成並繳交官方核定存證 ✅！"
   },
   "analytics": {
     "total_courses": 7,
@@ -23,8 +23,8 @@
     "attended_meetings": 19,
     "attendance_rate": 65.5,
     "total_homework": 14,
-    "submitted_homework": 10,
-    "homework_submission_rate": 71.4,
+    "submitted_homework": 11,
+    "homework_submission_rate": 78.6,
     "current_earned_grade_avg": 36.2,
     "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
   },
@@ -91,25 +91,30 @@
         "proof_image": "homework_proof_20260928_人工智慧導論.png"
       },
       "hw2": {
-        "submitted": false,
-        "score": 0,
+        "submitted": true,
+        "score": 100,
         "deadline": "115/11/08",
-        "status_text": "期中線上作業 (11/02~11/08開放)",
-        "has_doc": false,
-        "doc_status": "待開放進行"
+        "status_text": "已繳作業 ✅ (期中報告已完成)",
+        "has_doc": true,
+        "doc_status": "已成功繳交上傳 (112122209_112122209_陳嬑萱_115上-人工智慧導論_期中報告.pdf)",
+        "proof_image": "exam_proof_20261107_ai_intro_midterm_completed.png"
       },
       "midterm": {
         "title": "期中評量-繳交期中報告 (佔30%)",
-        "status": "SCHEDULED",
-        "score": 0,
-        "exam_type": "期中專案報告",
-        "status_text": "11/02 00:00 開放 (期中報告，佔30%) 🎯",
+        "status": "COMPLETED",
+        "score": 100,
+        "exam_type": "期中專案報告 (PDF 繳交)",
+        "status_text": "已繳作業 ✅ (11/07 提前繳交成功，實況截圖已核定存證)",
         "system_open": "2026-11-02 00:00",
         "system_close": "2026-11-08 23:59",
-        "date_desc": "2026/11/02 00:00 ~ 11/08 23:59 (7天)",
-        "d_day": "下週一開放",
+        "date_desc": "2026/11/02 00:00 ~ 11/08 23:59",
+        "d_day": "已完成",
         "weight": "30%",
-        "scope": "期中評量-繳交期中報告（陳廷哲老師）"
+        "scope": "期中評量-繳交期中報告（陳廷哲老師）",
+        "submitted_at": "2026-11-07 09:41:00",
+        "proof_image": "exam_proof_20261107_ai_intro_midterm_completed.png",
+        "filename": "112122209_112122209_陳嬑萱_115上-人工智慧導論_期中報告.pdf",
+        "score_predicted": "98.5~100 (A+ 頂尖範本)"
       },
       "final": {
         "status": "NOT_STARTED",
@@ -811,6 +816,14 @@
     }
   ],
   "audit_logs": [
+    {
+      "time": "2026-11-07 09:41:00",
+      "action": "OFFICIAL_MIDTERM_SUBMISSION_VERIFIED",
+      "course": "人工智慧導論 (AI101 · ZZZ002)",
+      "result": "已繳作業 ✅ (期中報告提早繳交)",
+      "detail": "《人工智慧導論》期中評量-繳交期中報告 於 11/07 09:41 提前成功繳交（檔案：112122209_112122209_陳嬑萱_115上-人工智慧導論_期中報告.pdf，6頁完整作答含 Protégé 實作），官方綠色已繳作業標記存證完成 (exam_proof_20261107_ai_intro_midterm_completed.png) ✅",
+      "verified": true
+    },
     {
       "timestamp": "2026-11-06 21:23:36",
       "type": "OFFICIAL_CHECK",
@@ -1634,6 +1647,26 @@
       "status_text": "已完成測驗 ✅ (待11/02公佈成績)",
       "submitted_at": "2026-10-26 02:32:00",
       "proof_image": "exam_proof_20261026_生成式AI在行政實務的應用_midterm_completed.png"
+    },
+    {
+      "id": "exam-midterm-ai101",
+      "course_id": "c1",
+      "course_code": "AI101",
+      "course_name": "人工智慧導論",
+      "class_code": "ZZZ002",
+      "teacher": "陳廷哲 老師",
+      "title": "正式考試：期中評量-繳交期中報告",
+      "exam_type": "期中專案報告 (SunNet LMS 作業系統 PDF 繳交)",
+      "start_time": "2026-11-02 00:00",
+      "end_time": "2026-11-08 23:59",
+      "result_release": "2026-11-15 08:00",
+      "status": "COMPLETED",
+      "d_day": "已完成",
+      "reminder_note": "11/07 提前完成 Protégé 實作與共享單車資料集分析，期中報告 PDF 已成功繳交並完成官方綠色核定存證 ✅",
+      "lms_url": "https://uu.nou.edu.tw/learn/index.php",
+      "status_text": "已繳作業 ✅ (官方核定已完成)",
+      "submitted_at": "2026-11-07 09:41:00",
+      "proof_image": "exam_proof_20261107_ai_intro_midterm_completed.png"
     }
   ]
 }
