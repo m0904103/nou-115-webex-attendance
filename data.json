@@ -8,7 +8,7 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-11-09 18:34:54",
+    "last_checked_at": "2026-11-10 02:37:37",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
@@ -866,6 +866,12 @@
   ],
   "audit_logs": [
     {
+      "timestamp": "2026-11-10 02:37:37",
+      "type": "OFFICIAL_CHECK",
+      "result": "SUCCESS",
+      "detail": "排程查核完成：全 7 科 100% 綠燈，在線時數 350.0h，面授出席 19/29，作業 11/14 未繳交。"
+    },
+    {
       "timestamp": "2026-11-09 18:34:54",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
@@ -919,14 +925,6 @@
       "course": "全學期 7 門課程 (重點：淺談人工智慧倫理 / 人工智慧導論 / AI時代的中文敘事與思辨)",
       "result": "100% 全綠燈點燈 & 19/19 場面授逐字稿全滿貫 ✅",
       "detail": "11/07 12:35 官方平台最新上架之 11/02、11/04 視訊面授錄影檔節點已全數完成 SCORM 點燈驗證（全 7 科 100% 綠燈打勾）；並完成《淺談人工智慧倫理》第 3 次面授（11/04 最後一場，106 分鐘，共 1,279 段發言）Faster-Whisper 繁體中文完整課堂逐字稿與重點手冊建檔，至此已出席之 19 場面授課 100% 全數具備完整語音轉文字 MD 檔！",
-      "verified": true
-    },
-    {
-      "time": "2026-11-07 11:28:00",
-      "action": "OFFICIAL_MIDTERM_SUBMISSION_VERIFIED",
-      "course": "永續的挑戰與實踐 (SD101 · ZZZ002)",
-      "result": "已繳作業 ✅ (期中考試卷提早繳交)",
-      "detail": "《永續的挑戰與實踐》115(1)期中考試 於 11/07 11:28 開考首日提前成功繳交（檔案：112122209_112122209_永續的挑戰與實踐_期中考試卷_陳嬑萱.pdf，單頁A4精準排版，融合個人平時/課堂作業與蔡適應老師面授案例，經11輪RSI遞迴自我改進），官方綠色已繳作業標記存證完成 (exam_proof_20261107_sd101_midterm_completed.png) ✅",
       "verified": true
     }
   ],
