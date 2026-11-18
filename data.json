@@ -8,11 +8,11 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-11-18 06:50:27",
+    "last_checked_at": "2026-11-18 15:45:00",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
-    "audit_note": "教務行政資訊系統 (noustud.nou.edu.tw) SCD019M 官方期中成績正式放榜大捷！四大科目官方核定出爐：《生成式AI在行政實務的應用》100分滿分 🏆、《淺談人工智慧倫理》100分滿分 🏆、《人工智慧導論》100分滿分 🏆、《作業系統的理論基礎》95分超高分 🏆！三科滿分、一科95分，連環封頂！"
+    "audit_note": "教務行政資訊系統 (noustud.nou.edu.tw) SCD019M 官方期中成績大捷放榜！五大科目官方核定出爐：《生成式AI在行政實務的應用》100分滿分 🏆、《淺談人工智慧倫理》100分滿分 🏆、《人工智慧導論》100分滿分 🏆、《作業系統的理論基礎》95分超高分 🏆、《永續的挑戰與實踐》80分正式核定 🏆！已公布5科全數頂尖通過！"
   },
   "analytics": {
     "total_courses": 7,
@@ -210,23 +210,23 @@
       "midterm": {
         "title": "115(1)期中考試 (占學期總分30%)",
         "status": "COMPLETED",
-        "score": 100.0,
-        "score_pending": true,
-        "exam_type": "期中正式繳交作業 (四題簡答試卷填答 PDF)",
-        "status_text": "已繳作業 ✅ (11/07 開考首日提前繳交成功，實況截圖已核定存證)",
+        "score": 80,
+        "score_pending": false,
+        "exam_type": "期中正式繳交作業 (試卷填答 PDF)",
+        "status_text": "已公布成績 🏆 80 分正式核定 (教務行政系統官方公布)",
         "system_open": "2026-11-07 00:00",
         "system_close": "2026-11-08 23:59",
         "date_desc": "2026/11/07 00:00 ~ 11/08 23:59",
-        "d_day": "已完成",
+        "d_day": "已核定",
         "weight": "30%",
         "scope": "第 1 ~ 3 次面授核心議題與自我實踐反思（蔡適應老師）",
         "submitted_at": "2026-11-07 11:28:00",
-        "proof_image": "exam_proof_20261107_sd101_midterm_completed.png",
+        "proof_image": "exam_proof_20261118_sd101_midterm_official_80.jpg",
         "submitted_file": "112122209_112122209_永續的挑戰與實踐_期中考試卷_陳嬑萱.pdf",
         "filename": "112122209_112122209_永續的挑戰與實踐_期中考試卷_陳嬑萱.pdf",
         "has_doc": true,
-        "doc_status": "已成功繳交上傳 ✅ (單頁A4精準排版PDF，結合個人作業與課堂案例)",
-        "score_predicted": "96~100 (A+ 頂尖範本)"
+        "doc_status": "官方教務行政系統核定 80 分 ✅",
+        "result_note": "蔡適應老師與教務處正式核定成績：80分！五科放榜全數過關！"
       },
       "final": {
         "status": "NOT_STARTED",
