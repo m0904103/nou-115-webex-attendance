@@ -344,25 +344,22 @@ def auto_detect_and_run():
     matched = []
     for c in schedule:
         if today_str in c['dates']:
-            start_hour = int(c['start_time'].split(':')[0])
+            start_hour, start_min = map(int, c['start_time'].split(':'))
             end_hour, end_min = map(int, c['end_time'].split(':'))
+            course_start_dt = datetime.datetime.combine(now.date(), datetime.time(start_hour, start_min), tzinfo=now.tzinfo)
             course_end_dt = datetime.datetime.combine(now.date(), datetime.time(end_hour, end_min), tzinfo=now.tzinfo)
             
-            # 若課程已結束超過 10 分鐘，跳過
-            if now > course_end_dt + datetime.timedelta(minutes=10):
-                continue
-                
-            # 依時段智慧篩選：
-            # 13:00~16:30 執行下午班課程
-            # 18:00~22:00 執行夜間班課程
-            if 13 <= current_hour < 17:
-                if start_hour < 17:
-                    matched.append(c)
-            elif 17 <= current_hour < 23:
-                if start_hour >= 17:
-                    matched.append(c)
-            else:
+            # 開課前 50 分鐘即可提前進場待命，下課後 10 分鐘安全離場
+            earliest_entry = course_start_dt - datetime.timedelta(minutes=50)
+            latest_exit = course_end_dt + datetime.timedelta(minutes=10)
+            
+            if earliest_entry <= now <= latest_exit:
                 matched.append(c)
+            elif now < earliest_entry:
+                mins_left = int((course_start_dt - now).total_seconds() // 60)
+                log(f"⏳ 《{c['course_name']}》表定 {c['start_time']} 上課，距開課尚餘 {mins_left} 分鐘（開課前 50 分鐘開放待命進入），時間尚早。")
+            else:
+                log(f"ℹ️ 《{c['course_name']}》今日課程已於 {c['end_time']} 結束超過 10 分鐘，無需重複進入。")
             
     if not matched:
         log(f"ℹ️ 今日 ({today_str} {current_hm}) 此時段無排定待出席面授課程，雲端機器人休眠退出。")
