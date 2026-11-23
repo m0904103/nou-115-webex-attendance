@@ -132,87 +132,132 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
             except Exception as e:
                 log(f"{prefix}   [!] fallBkJoinByBrowser 提示：{e}")
                 
-            # 等待 Webex 通訊核心框架 (支援新版頂層原生頁面與 iframe 雙模相容)
-            log(f"{prefix} [*] 步驟 3/5: 等待 Webex 通訊核心介面載入...")
+            # 等待 Webex 通訊核心框架 (unified-webclient-iframe / web.webex.com)
+            log(f"{prefix} [*] 步驟 3/5: 等待 Webex 通訊核心框架載入...")
             target_frame = None
-            for attempt in range(15):
+            for attempt in range(25):
                 time.sleep(1)
                 for f in page.frames:
                     if 'web.webex.com' in f.url:
                         target_frame = f
                         break
                 if target_frame:
-                    log(f"{prefix}   [+] 成功鎖定核心通訊子框架：{target_frame.url[:60]}")
                     break
                 try:
                     if page.locator('input[type="text"]').count() > 0 or '加入會議' in page.content():
                         target_frame = page
-                        log(f"{prefix}   [+] 成功鎖定頂層原生 Webex 加入介面！")
                         break
                 except Exception:
                     pass
                     
             if not target_frame:
                 target_frame = page
-                log(f"{prefix}   [ℹ️] 未獲取獨立框架，預設使用頂層頁面操作。")
+            log(f"{prefix}   [+] 成功鎖定通訊核心目標：{target_frame.url[:60]}")
+            time.sleep(5)
             
-            # 注入出席學號姓名 (自適應偵測：若已有快取或無需填寫則平穩略過)
-            log(f"{prefix} [*] 步驟 4/5: 偵測出席學號姓名欄位...")
-            try:
-                # 提前點擊「停止視訊」關閉鏡頭
-                for container in [page, target_frame]:
-                    try:
-                        stop_v = container.locator('button:has-text("停止視訊"), [aria-label*="停止視訊"]')
-                        if stop_v.count() > 0 and stop_v.first.is_visible():
-                            stop_v.first.click()
-                            log(f"{prefix}   [📷] 預覽畫面已預先點擊【停止視訊】！")
-                            break
-                    except Exception:
-                        pass
-
-                name_inp = target_frame.locator('input[type="text"], input[placeholder*="名稱"], input[aria-label*="名稱"]')
-                if name_inp.count() > 0:
-                    name_inp.first.fill(STUDENT_NAME)
-                    name_inp.first.press('Tab')
-                    time.sleep(1)
-                    log(f"{prefix}   [+] 🎯 姓名欄位已確實注入：【{STUDENT_NAME}】！")
-                else:
-                    target_frame.wait_for_selector('input[type="text"]', timeout=4000)
-                    target_frame.locator('input[type="text"]').first.fill(STUDENT_NAME)
-                    log(f"{prefix}   [+] 🎯 姓名欄位已確實注入：【{STUDENT_NAME}】！")
-            except Exception as e:
-                log(f"{prefix}   [ℹ️] 姓名欄位注入提示：{e}")
-
-            # 注入出席郵件 (若有要求)
-            try:
-                email_inp = target_frame.locator('input[type="email"], input[name*="email"], input[placeholder*="郵件"]')
-                if email_inp.count() > 0:
-                    email_inp.first.fill(STUDENT_EMAIL)
-                    email_inp.first.press('Tab')
-                    log(f"{prefix}   [+] 🎯 郵件欄位已確實注入：【{STUDENT_EMAIL}】！")
-            except Exception:
-                pass
+            # 提前關閉鏡頭（點擊「停止視訊」）
+            target_frame.evaluate("""() => {
+                function findBtn(root, matchText) {
+                    if (!root) return null;
+                    let text = (root.innerText || '') + ' ' + (root.getAttribute && root.getAttribute('aria-label') || '');
+                    if (text.includes(matchText)) return root;
+                    if (root.shadowRoot) {
+                        let r = findBtn(root.shadowRoot, matchText);
+                        if (r) return r;
+                    }
+                    for (let c of (root.children || [])) {
+                        let r = findBtn(c, matchText);
+                        if (r) return r;
+                    }
+                    return null;
+                }
+                let b = findBtn(document.body, '停止視訊');
+                if (b) { b.click(); return true; }
+                return false;
+            }""")
+            
+            # 注入出席學號姓名 (自適應深入穿透 Shadow DOM)
+            log(f"{prefix} [*] 步驟 4/5: 注入出席學號姓名【{STUDENT_NAME}】...")
+            fill_res = target_frame.evaluate("""(name) => {
+                function findInput(root) {
+                    if (!root) return null;
+                    if (root.tagName === 'INPUT' && root.type !== 'hidden' && root.type !== 'checkbox' && root.type !== 'radio') {
+                        return root;
+                    }
+                    if (root.shadowRoot) {
+                        let r = findInput(root.shadowRoot);
+                        if (r) return r;
+                    }
+                    for (let c of (root.children || [])) {
+                        let r = findInput(c);
+                        if (r) return r;
+                    }
+                    return null;
+                }
+                let inp = findInput(document.body);
+                if (inp) {
+                    inp.focus();
+                    inp.value = name;
+                    inp.dispatchEvent(new Event('input', { bubbles: true }));
+                    inp.dispatchEvent(new Event('change', { bubbles: true }));
+                    return true;
+                }
+                return false;
+            }""", STUDENT_NAME)
+            log(f"{prefix}   [+] 姓名欄位注入結果：{fill_res}")
+            time.sleep(2)
 
             # 觸發「加入會議」核心協議
-            log(f"{prefix} [*] 步驟 5/5: 觸發「加入會議」...")
-            joined = False
-            for container in [target_frame, page]:
-                try:
-                    btn = container.locator('button:has-text("加入會議"), button:has-text("加入"), #join-button, [data-test="join-button"]')
-                    if btn.count() > 0 and btn.first.is_visible():
-                        btn.first.click()
-                        joined = True
-                        log(f"{prefix}   [+] 成功點擊【加入會議】按鈕！")
-                        break
-                except Exception:
-                    pass
-            if not joined:
-                click_res = page.evaluate("""() => {
-                    let btn = Array.from(document.querySelectorAll('button, [role="button"], mdc-button')).find(e => (e.innerText || '').includes('加入會議') || (e.innerText || '').includes('加入'));
-                    if (btn) { btn.click(); return true; }
-                    return false;
-                }""")
-                log(f"{prefix}   [+] JS 點擊加入會議結果：{click_res}")
+            log(f"{prefix} [*] 步驟 5/5: 觸發 Shadow-DOM 核心「加入會議」元件...")
+            join_res = target_frame.evaluate("""() => {
+                function findJoinBtn(root) {
+                    if (!root) return null;
+                    let text = (root.innerText || '').trim();
+                    let aria = (root.getAttribute && root.getAttribute('aria-label')) || '';
+                    if (text.includes('加入') || aria.includes('加入')) {
+                        if (root.tagName === 'BUTTON' || (root.getAttribute && root.getAttribute('role') === 'button') || root.tagName === 'MDC-BUTTON') {
+                            return root;
+                        }
+                    }
+                    if (root.shadowRoot) {
+                        let r = findJoinBtn(root.shadowRoot);
+                        if (r) return r;
+                    }
+                    for (let c of (root.children || [])) {
+                        let r = findJoinBtn(c);
+                        if (r) return r;
+                    }
+                    return null;
+                }
+                let b = findJoinBtn(document.body);
+                if (b) {
+                    b.click();
+                    return { clicked: true, text: b.innerText, aria: b.getAttribute('aria-label') };
+                }
+                return { clicked: false };
+            }""")
+            log(f"{prefix}   [+] 核心加入按鈕點擊結果：{join_res}")
+
+            # 等待會議室渲染與進場
+            log(f"{prefix} [*] 等待會議室音訊視訊渲染 (15 秒)...")
+            time.sleep(15)
+
+            # 處理彈窗與 Cookie 協議
+            target_frame.evaluate("""() => {
+                function clickAllMatching(root, keywords) {
+                    if (!root) return;
+                    let text = (root.innerText || '') + ' ' + ((root.getAttribute && root.getAttribute('aria-label')) || '');
+                    for (let kw of keywords) {
+                        if (text.includes(kw)) {
+                            if (root.click) root.click();
+                        }
+                    }
+                    if (root.shadowRoot) clickAllMatching(root.shadowRoot, keywords);
+                    for (let c of (root.children || [])) clickAllMatching(c, keywords);
+                }
+                clickAllMatching(document.body, ['我瞭解', '確定', '知道了', '連接音訊', '接受']);
+            }""")
+            time.sleep(3)
 
             # 等待會議室渲染與進場
             log(f"{prefix} [*] 等待會議室音訊視訊渲染 (15 秒)...")
