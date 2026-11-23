@@ -132,42 +132,56 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
             except Exception as e:
                 log(f"{prefix}   [!] fallBkJoinByBrowser 提示：{e}")
                 
-            # 等待 web.webex.com 通訊框架載入
-            log(f"{prefix} [*] 步驟 3/5: 等待 Webex 通訊核心框架 (web.webex.com)...")
+            # 等待 Webex 通訊核心框架 (支援新版頂層原生頁面與 iframe 雙模相容)
+            log(f"{prefix} [*] 步驟 3/5: 等待 Webex 通訊核心介面載入...")
             target_frame = None
-            for attempt in range(25):
-                time.sleep(1.5)
+            for attempt in range(15):
+                time.sleep(1)
                 for f in page.frames:
                     if 'web.webex.com' in f.url:
                         target_frame = f
                         break
                 if target_frame:
+                    log(f"{prefix}   [+] 成功鎖定核心通訊子框架：{target_frame.url[:60]}")
                     break
+                try:
+                    if page.locator('input[type="text"]').count() > 0 or '加入會議' in page.content():
+                        target_frame = page
+                        log(f"{prefix}   [+] 成功鎖定頂層原生 Webex 加入介面！")
+                        break
+                except Exception:
+                    pass
                     
             if not target_frame:
-                log(f"{prefix} ❌ 找不到 web.webex.com 框架，保存除錯畫面...")
-                err_file = os.path.join(BASE_DIR, f'error_frame_{safe_cname}.png')
-                page.screenshot(path=err_file)
-                return False
-
-            log(f"{prefix}   [+] 成功鎖定核心通訊框架：{target_frame.url[:60]}")
+                target_frame = page
+                log(f"{prefix}   [ℹ️] 未獲取獨立框架，預設使用頂層頁面操作。")
             
             # 注入出席學號姓名 (自適應偵測：若已有快取或無需填寫則平穩略過)
             log(f"{prefix} [*] 步驟 4/5: 偵測出席學號姓名欄位...")
             try:
-                name_inp = target_frame.locator('input[type="text"]')
+                # 提前點擊「停止視訊」關閉鏡頭
+                for container in [page, target_frame]:
+                    try:
+                        stop_v = container.locator('button:has-text("停止視訊"), [aria-label*="停止視訊"]')
+                        if stop_v.count() > 0 and stop_v.first.is_visible():
+                            stop_v.first.click()
+                            log(f"{prefix}   [📷] 預覽畫面已預先點擊【停止視訊】！")
+                            break
+                    except Exception:
+                        pass
+
+                name_inp = target_frame.locator('input[type="text"], input[placeholder*="名稱"], input[aria-label*="名稱"]')
                 if name_inp.count() > 0:
                     name_inp.first.fill(STUDENT_NAME)
                     name_inp.first.press('Tab')
                     time.sleep(1)
                     log(f"{prefix}   [+] 🎯 姓名欄位已確實注入：【{STUDENT_NAME}】！")
                 else:
-                    # 等待最多 5 秒
-                    target_frame.wait_for_selector('input[type="text"]', timeout=5000)
+                    target_frame.wait_for_selector('input[type="text"]', timeout=4000)
                     target_frame.locator('input[type="text"]').first.fill(STUDENT_NAME)
                     log(f"{prefix}   [+] 🎯 姓名欄位已確實注入：【{STUDENT_NAME}】！")
             except Exception as e:
-                log(f"{prefix}   [ℹ️] 姓名欄位已由系統鎖定或無需重複填寫。")
+                log(f"{prefix}   [ℹ️] 姓名欄位注入提示：{e}")
 
             # 注入出席郵件 (若有要求)
             try:
@@ -179,38 +193,26 @@ def enter_webex_meeting(course_info, duration_minutes=None, is_test=False):
             except Exception:
                 pass
 
-            # 檢查預覽大廳中的視訊狀態，若預設開啟則提前點擊關閉視訊
-            try:
-                target_frame.evaluate("""() => {
-                    let btns = Array.from(document.querySelectorAll('button, mdc-button, [role="button"]'));
-                    for (let b of btns) {
-                        let label = (b.getAttribute('aria-label') || '') + ' ' + (b.innerText || '') + ' ' + (b.getAttribute('data-test') || '');
-                        if (label.includes('停止視訊') || label.includes('關閉視訊') || label.includes('Stop video') || label.includes('Mute video')) {
-                            b.click();
-                            break;
-                        }
-                    }
-                }""")
-            except Exception:
-                pass
-
             # 觸發「加入會議」核心協議
-            log(f"{prefix} [*] 步驟 5/5: 觸發 Shadow-DOM 核心「加入會議」元件...")
-            click_res = target_frame.evaluate("""() => {
-                let mdc = document.querySelector('#join-button') || document.querySelector('mdc-button[data-test="join-button"]');
-                if (mdc) {
-                    mdc.click();
-                    return { success: true, method: 'mdc.click()' };
-                }
-                let all = Array.from(document.querySelectorAll('*'));
-                let btn = all.find(e => (e.innerText || '').includes('加入') && e.children.length === 0);
-                if (btn) {
-                    btn.click();
-                    return { success: true, method: 'text.click()' };
-                }
-                return { success: false };
-            }""")
-            log(f"{prefix}   [+] 核心按鈕點擊結果：{click_res}")
+            log(f"{prefix} [*] 步驟 5/5: 觸發「加入會議」...")
+            joined = False
+            for container in [target_frame, page]:
+                try:
+                    btn = container.locator('button:has-text("加入會議"), button:has-text("加入"), #join-button, [data-test="join-button"]')
+                    if btn.count() > 0 and btn.first.is_visible():
+                        btn.first.click()
+                        joined = True
+                        log(f"{prefix}   [+] 成功點擊【加入會議】按鈕！")
+                        break
+                except Exception:
+                    pass
+            if not joined:
+                click_res = page.evaluate("""() => {
+                    let btn = Array.from(document.querySelectorAll('button, [role="button"], mdc-button')).find(e => (e.innerText || '').includes('加入會議') || (e.innerText || '').includes('加入'));
+                    if (btn) { btn.click(); return true; }
+                    return false;
+                }""")
+                log(f"{prefix}   [+] JS 點擊加入會議結果：{click_res}")
 
             # 等待會議室渲染與進場
             log(f"{prefix} [*] 等待會議室音訊視訊渲染 (15 秒)...")
