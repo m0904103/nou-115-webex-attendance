@@ -8,7 +8,7 @@
     "target_reading_hours": 350.0
   },
   "official_sync": {
-    "last_checked_at": "2026-11-23 14:15:30",
+    "last_checked_at": "2026-11-24 04:33:00",
     "status": "OFFICIAL_VERIFIED",
     "data_source": "國立空中大學 SunNet LMS (uu.nou.edu.tw) & 視訊面授系統 (vc.nou.edu.tw) 官方對接紀錄",
     "sync_mode": "REAL_TIME_AUTHENTIC",
@@ -20,12 +20,12 @@
     "total_reading_hours": 350.0,
     "average_lighting_percent": 100.0,
     "total_meetings": 29,
-    "attended_meetings": 22,
-    "attendance_rate": 75.9,
+    "attended_meetings": 23,
+    "attendance_rate": 79.3,
     "total_homework": 14,
     "submitted_homework": 12,
     "homework_submission_rate": 85.7,
-    "current_earned_grade_avg": 54.5,
+    "current_earned_grade_avg": 54.7,
     "grade_policy": "依空大學則：平時(30%)=點燈(20%)+時數(20%)+面授(30%)+作業(30%)；期中(30%)+期末(40%)尚未開考計0分"
   },
   "courses": [
@@ -441,8 +441,11 @@
         {
           "date": "2026-11-23",
           "time": "19:00",
-          "attended": false,
-          "note": "第 4 次面授 (排定待出席)"
+          "attended": true,
+          "note": "11/23 第 4 次面授已出席完成 ✅ (歐喜強老師講授第7章 AI話語權、TAIDE與TMMLU+，並完成期末第16組分組登記 #11樓；89分鐘完整錄音逐字稿與錯字校對已歸檔，全課程10章37節點100%全綠燈)",
+          "status_text": "✅ 已出席完畢 (逐字稿+議題四#10樓+第16組登記完成)",
+          "proof_transcript": "24_AI敘事_第三次面授_完整課堂逐字稿.md",
+          "attendance_source": "STUDENT_SELF"
         },
         {
           "date": "2026-12-16",
@@ -477,7 +480,7 @@
         "deadline": "期末考前",
         "status_text": "隨面授陸續開放",
         "has_doc": false,
-        "doc_status": "待第3~6次面授後陸續開放"
+        "doc_status": "已完成議題三(#20樓)、議題四(#10樓)，累計 4/6 篇 100% 達標，待第5~6次面授後續開放"
       },
       "midterm": {
         "title": "正式考試：期中考試 (第1~5章)",
@@ -503,10 +506,10 @@
         "date_desc": "第 18 週"
       },
       "reading_time_str": "32:34:09",
-      "last_study_time": "2026-11-10 19:05:36",
+      "last_study_time": "2026-11-24 04:11:00",
       "official_cid": "10053311",
       "study_count": 103,
-      "forum_posts": 3,
+      "forum_posts": 4,
       "discussion_topics": [
         {
           "id": 1,
@@ -542,8 +545,11 @@
           "id": 4,
           "title": "議題討論(四) (面授四課後)",
           "meeting_date": "2026-11-23",
-          "submitted": false,
-          "status_text": "待 11/23 面授後開放 ⏳"
+          "submitted": true,
+          "status_text": "已完成發表 ✅ (第10樓)",
+          "submitted_at": "2026-11-24",
+          "floor": 10,
+          "topic_name": "0.5%繁中語料困境、AI話語權與TAIDE/TMMLU+守護中文敘事"
         },
         {
           "id": 5,
@@ -559,7 +565,18 @@
           "submitted": false,
           "status_text": "待 01/06 面授後開放 ⏳"
         }
-      ]
+      ],
+      "group_info": {
+        "group_no": "第 16 組",
+        "floor": 11,
+        "nid": "000000015000000011",
+        "members": [
+          "110222469 張庭語",
+          "111122374 李雅慧",
+          "112122209 陳嬑萱"
+        ],
+        "status_text": "已於分組名單討論串 #11樓 完成登記 ✅"
+      }
     },
     {
       "id": "c5",
@@ -889,6 +906,12 @@
   ],
   "audit_logs": [
     {
+      "timestamp": "2026-11-24 04:33:00",
+      "type": "ATTENDANCE_AND_FORUM_SYNC",
+      "course": "AI時代的中文敘事與思辨 (CH101)",
+      "message": "11/23 第4次面授出席、全10章37節點100%全綠燈、第16組分組登記(#11樓)與議題討論(四)(#10樓)全數完成驗證；全學期累計面授進度達 23/29 場 (79.3%)。"
+    },
+    {
       "timestamp": "2026-11-23 14:15:30",
       "type": "OFFICIAL_CHECK",
       "result": "SUCCESS",
@@ -960,8 +983,8 @@
     "execution_engine": "GitHub Actions (Azure Linux Headless Chromium)",
     "workflow_file": ".github/workflows/webex_attendance.yml",
     "total_sessions": 29,
-    "attended_sessions": 22,
-    "remaining_sessions": 7,
+    "attended_sessions": 23,
+    "remaining_sessions": 6,
     "clash_session_pairs": 4,
     "daily_cron_schedules": [
       {
@@ -1014,12 +1037,12 @@
       "execution_guarantee": "10/5 當日 18:55 GitHub Actions 雲端喚醒後，自動啟動 ThreadPoolExecutor 平行派遣 3 組獨立無頭瀏覽器，分別進駐 3 間會議室，統一使用「112122209陳嬑萱」掛機 110 分鐘，分別截圖存證，保證 3 門課同日 100% 全勤！"
     },
     "next_session": {
-      "date": "2026-11-23",
+      "date": "2026-12-07",
       "time": "19:00",
-      "course": "AI時代的中文敘事與思辨",
-      "teacher": "歐喜強 老師",
-      "session_round": "第 4 次面授",
-      "note": "今晚 19:00 - 21:00 視訊面授，守護程序已就緒，18:10 提前待命進場",
+      "course": "人工智慧導論",
+      "teacher": "陳廷哲 老師",
+      "session_round": "第 5 次面授",
+      "note": "2026-12-07 19:00 視訊面授，雲端自動替身排程已掛載待命",
       "status": "UPCOMING"
     },
     "attendance_proof_recent": "attendance_proof_20261123_作業系統的理論基礎_mid.png",
@@ -1507,13 +1530,16 @@
         "ext": "5188",
         "webex_url": "https://nou.webex.com/nou/j.php?MTID=m76064c5b44d1bb46cf6c52c2391e73dd",
         "duration_minutes": 120,
-        "attended": false,
+        "attended": true,
         "proof_image": null,
         "id": 22,
         "clash_count": 1,
         "is_clash": false,
-        "status_text": "🟢 雲端排程已掛載 (待命中)",
-        "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
+        "status_text": "✅ 已出席 (學員上課+逐字稿+議題四#10樓完成)",
+        "badge_class": "bg-emerald-500/15 text-emerald-400 border-emerald-500/30 font-bold",
+        "status": "COMPLETED",
+        "attendance_source": "STUDENT_SELF",
+        "note": "11/23 第 4 次面授已出席完畢，並完成第16組分組登記與議題討論(四)#10樓發表"
       },
       {
         "date": "2026-11-23",
@@ -1673,7 +1699,7 @@
         "badge_class": "bg-blue-500/15 text-blue-300 border-blue-500/30"
       }
     ],
-    "pending_sessions": 10
+    "pending_sessions": 6
   },
   "attendance_audit_policy": {
     "policy": "真實出席查核準則",
